@@ -36,6 +36,7 @@ I build full-stack things. Sometimes they work on the first try. *(They don't.)*
 
 > *"Code is like humor. When you have to explain it, it's bad."* — Cory House
 
+<br/>
 </td>
 <td width="40%" align="center" valign="top">
 
@@ -49,6 +50,7 @@ I build full-stack things. Sometimes they work on the first try. *(They don't.)*
 ✅ `console.log` is my debugger <br/>
 ✅ I said "5 more minutes" 3 hours ago <br/>
 ✅ The docs? Never heard of her. <br/>
+<br/>
 
 ![](https://img.shields.io/badge/Rubber_Duck_Debugger-Licensed-yellow?style=flat-square&logo=duck&logoColor=black)
 ![](https://img.shields.io/badge/Dark_Mode-Always-0D1117?style=flat-square&logo=windows-terminal&logoColor=00D9FF)
