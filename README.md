@@ -122,26 +122,30 @@ Step 7: No idea why. Ship it anyway.  🚀
 
 ---
 
-## 🐱 My Emotional Support Octocats
+## 🐱 My Emotional Support Octocats & ⏱️ Coding Stats & 📺 YouTube
 
-<p align="center">
-  <img src="https://octodex.github.com/images/nyantocat.gif" width="80" title="The one who vibes"/>
-  <img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="80" title="The DJ"/>
-  <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" width="80" title="Also the DJ"/>
-</p>
+<table>
+<tr>
+<td width="50%" align="center" valign="top">
 
-## ⏱️ Hours Lost to Code & 📺 YouTube
+<img src="https://octodex.github.com/images/nyantocat.gif" width="80" title="The one who vibes"/>
+<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="80" title="The DJ"/>
+<img src="https://octodex.github.com/images/daftpunktocat-guy.gif" width="80" title="Also the DJ"/>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=srunsochettra&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="49%"/>
-  <a href="https://www.youtube.com/channel/@ស្រ៊ុនសុចិត្រា"><img src="https://youtube-stats-card.vercel.app/api?channelid=UCVrb7Smv71TOgCBLn8GmJZg&layout=extruded&theme=dark" width="49%"/></a>
-</p>
+<img src="https://github-readme-stats.vercel.app/api/wakatime?username=srunsochettra&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="100%"/>
 
-<p align="center">
-  <img src="https://octodex.github.com/images/carlostocat.gif" width="80" title="The cool one"/>
-  <img src="https://octodex.github.com/images/grinchtocat.gif" width="80" title="Me before coffee"/>
-  <img src="https://octodex.github.com/images/maxtocat.gif" width="80" title="Me after fixing the bug"/>
-</p>
+<img src="https://octodex.github.com/images/carlostocat.gif" width="80" title="The cool one"/>
+<img src="https://octodex.github.com/images/grinchtocat.gif" width="80" title="Me before coffee"/>
+<img src="https://octodex.github.com/images/maxtocat.gif" width="80" title="Me after fixing the bug"/>
+
+</td>
+<td width="50%" align="center" valign="middle">
+
+<a href="https://www.youtube.com/channel/@ស្រ៊ុនសុចិត្រា"><img src="https://youtube-stats-card.vercel.app/api?channelid=UCVrb7Smv71TOgCBLn8GmJZg&layout=extruded&theme=dark" width="100%"/></a>
+
+</td>
+</tr>
+</table>
 
 ---
 
