@@ -1,39 +1,3 @@
-<!-- Dynamic Header -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=200&section=header&text=Hey%20there!%20I'm%20Sochettra%20👋&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Full%20Stack%20Developer%20|%20IoT%20Enthusiast%20|%20Problem%20Solver&descAlignY=55&descSize=18" width="100%"/>
-</div>
-
-<!-- Typing Animation -->
-<div align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=Building+scalable+web+applications;Exploring+IoT+and+embedded+systems;Creating+intuitive+user+experiences;Always+learning+new+technologies" alt="Typing SVG" />
-  </a>
-</div>
-
-<br/>
-
-<!-- About Me Section -->
-<h2 align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="35" />
-  About Me
-</h2>
-
-<div align="center">
-
-```yaml
-name: Sochettra Srun
-role: Full Stack Developer
-location: Cambodia 🇰🇭
-education: Computer Science Student
-currently_learning: ["System Design", "Cloud Architecture", "AI/ML"]
-interests: ["Web Development", "IoT", "Open Source", "Automation"]
-hobbies: ["Coding", "Problem Solving", "Hardware Hacking"]
-2025_goals: ["Contribute to Open Source", "Build SaaS Products", "Master DevOps"]
-```
-</div>
-
-<br/>
-
 <!-- Tech Stack -->
 <h2 align="center">
   <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="30">
@@ -43,19 +7,19 @@ hobbies: ["Coding", "Problem Solving", "Hardware Hacking"]
 <div align="center">
 
 ### 💻 Languages & Frameworks
-
+  
 [![My Skills](https://skillicons.dev/icons?i=java,spring,python,php,js,ts,react,nextjs,nodejs,flutter&theme=dark&perline=5)](https://skillicons.dev)
 
 ### 🎨 Frontend & Design
-
+  
 [![My Skills](https://skillicons.dev/icons?i=html,css,tailwind,bootstrap,figma,xd&theme=dark&perline=6)](https://skillicons.dev)
 
 ### 🛠️ Database & DevOps
-
+  
 [![My Skills](https://skillicons.dev/icons?i=mysql,postgresql,mongodb,docker,git,github,linux,bash&theme=dark&perline=4)](https://skillicons.dev)
 
 ### 🔌 Hardware & IoT
-
+  
 [![My Skills](https://skillicons.dev/icons?i=arduino,raspberrypi,opencv&theme=dark&perline=3)](https://skillicons.dev)
 
 </div>
@@ -69,38 +33,52 @@ hobbies: ["Coding", "Problem Solving", "Hardware Hacking"]
 </h2>
 
 <div align="center">
-
+  
   <img width="49%" src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF&ring_color=00D9FF&include_all_commits=true&count_private=true" />
   <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&theme=radical&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=00D9FF&sideLabels=00D9FF&dates=FFFFFF" />
-
+  
 </div>
 
 <br/>
 
 <div align="center">
-
+  
   <img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&langs_count=8" />
-
+  
   <img width="58%" src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=radical&no-frame=true&no-bg=true&margin-w=4&row=2&column=4" />
-
+  
 </div>
 
 <br/>
 
-<!-- CONTRIBUTION SNAKE ANIMATION -->
+<!-- 🐍 CONTRIBUTION SNAKE ANIMATION -->
 <h2 align="center">
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Snake.png" width="35">
   Contribution Graph
 </h2>
 
 <div align="center">
-
+  
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake-light.svg" />
     <img alt="github-snake" src="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake.svg" />
   </picture>
+  
+</div>
 
+<br/>
+
+<!-- Featured Projects -->
+<h2 align="center">
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Star.png" width="35">
+  Featured Projects
+</h2>
+
+<div align="center">
+  
+  [![University Repo](https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=University&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF&description_lines_count=2)](https://github.com/SRUN-Sochettra/University)
+  
 </div>
 
 <br/>
@@ -112,9 +90,9 @@ hobbies: ["Coding", "Problem Solving", "Hardware Hacking"]
 </h2>
 
 <div align="center">
-
+  
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&bg_color=0D1117&color=00D9FF&line=00D9FF&point=FFFFFF&area=true&hide_border=true&custom_title=Contribution%20Graph" width="95%" />
-
+  
 </div>
 
 <br/>
@@ -126,21 +104,21 @@ hobbies: ["Coding", "Problem Solving", "Hardware Hacking"]
 </h2>
 
 <div align="center">
-
+  
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=0077B5&labelColor=0D1117)](https://www.linkedin.com/in/sochettra-srun-a67466395/)
   [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&color=181717&labelColor=0D1117)](https://www.github.com/SRUN-Sochettra)
   [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white&color=1877F2&labelColor=0D1117)](https://www.facebook.com/srunsochettra)
   [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=D14836&labelColor=0D1117)](mailto:srunsochettra@gmail.com)
-
+  
 </div>
 
 <br/>
 
 <!-- Dev Quote -->
 <div align="center">
-
+  
   ![Quote](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it,%20it%E2%80%99s%20bad.&author=Cory%20House)
-
+  
 </div>
 
 <br/>
@@ -151,9 +129,9 @@ hobbies: ["Coding", "Problem Solving", "Hardware Hacking"]
 </div>
 
 <div align="center">
-
+  
   **Made with ❤️ and lots of ☕**
-
+  
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="30" />
-
+  
 </div>
