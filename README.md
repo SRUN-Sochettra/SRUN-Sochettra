@@ -46,8 +46,6 @@ I build full-stack things. Sometimes they work on the first try. *(They don't.)*
 ✅ I said "5 more minutes" 3 hours ago <br/>
 ✅ The docs? Never heard of her. <br/>
 
-<br/>
-
 ![](https://img.shields.io/badge/Rubber_Duck_Debugger-Licensed-yellow?style=flat-square&logo=duck&logoColor=black)
 ![](https://img.shields.io/badge/Dark_Mode-Always-0D1117?style=flat-square&logo=windows-terminal&logoColor=00D9FF)
 ![](https://img.shields.io/badge/Semicolons-Sometimes-FF6B6B?style=flat-square)
