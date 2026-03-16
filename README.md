@@ -3,7 +3,7 @@
 <br>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=500&size=18&pause=1500&color=00D9FF&center=true&vCenter=true&width=650&lines=Debugging+my+way+through+Java+☕;Full+Stack+Web+Developer+in+Training+🚀;Hypermobile+Fingers+%26+Ear+Wiggling+Pro+🦻;Phnom+Penh%2C+Cambodia+🇰🇭" alt="Typing"/>
+  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=500&size=18&pause=1500&color=00D9FF&center=true&vCenter=true&width=650&lines=Debugging+my+way+through+Java+☕;Full+Stack+Web+Developer+in+Training+🚀;Hypermobile+Fingers+%26+Ear+Wiggling+Pro+🦻;Phnom+Penh%2C+Cambodia+🇰🇭" alt="Typing"/>
 </p>
 
 <p align="center">
@@ -23,9 +23,15 @@
 
 ---
 
-## About Me
+## 🎯 About Me
 
-**Who Am I?**
+<p align="center">
+  <img src="https://readme-jokes.vercel.app/api?theme=dark&hideBorder&bgColor=%230D1117&qColor=%2300D9FF&aColor=%23c9d1d9&codeColor=%23FF6B6B" alt="Random Dev Joke"/>
+</p>
+
+<br>
+
+**Who Am I?** 🤔
 
 I am a second-year IT student currently debugging my way through Java. While I spend most of my time trying to fix code, I also possess a rare hardware feature: I have **hypermobile fingers**. It's a completely vestigial skill that serves no purpose in a professional setting, but it remains my most impressive biological party trick.
 
@@ -33,13 +39,15 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 **Fun fact:** I possess the rare ability of auricular superior muscle control (I can move my ears).
 
+<br>
+
 <p align="center">
-  <img src="https://readme-jokes.vercel.app/api?theme=dark&hideBorder&bgColor=%230D1117&qColor=%2300D9FF&aColor=%23c9d1d9&codeColor=%23FF6B6B" alt="Joke"/>
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it%2C%20it%E2%80%99s%20bad.&author=Cory%20House" width="80%"/>
 </p>
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 **Languages & Frameworks**
 
@@ -59,7 +67,7 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 ---
 
-## GitHub Analytics
+## 📊 GitHub Analytics
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9&ring_color=00D9FF&include_all_commits=true&count_private=true" width="49%"/>
@@ -73,7 +81,7 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 ---
 
-## Contribution Graph
+## 🐍 Contribution Graph
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake-dark.svg" />
@@ -84,12 +92,6 @@ I am a second-year IT student currently debugging my way through Java. While I s
 ![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&bg_color=0D1117&color=c9d1d9&line=00D9FF&point=00D9FF&area=true&hide_border=true&custom_title=Contribution%20Activity)
 
 ---
-
-## Quote of the Day
-
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it%2C%20it%E2%80%99s%20bad.&author=Cory%20House" width="70%"/>
-</p>
 
 <p align="center">
   Made with ❤️ and ☕ in Phnom Penh, Cambodia
