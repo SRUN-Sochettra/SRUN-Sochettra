@@ -72,7 +72,7 @@
 ---
 
 ## 🏙️ Skyline & ⏱️ Coding Stats
-<p align="center"><a href="https://skyline.github.com/SRUN-Sochettra/2024"><img src="https://skyline.github.com/SRUN-Sochettra/2026" width="32%"/></a> <img src="https://github-readme-stats.vercel.app/api/wakatime?username=srunsochettra&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="32%"/></p>
+<p align="center"><a href="https://skyline.github.com/SRUN-Sochettra/2024"><img src="https://skyline.github.com/SRUN-Sochettra/2026" width="49%"/></a> <img src="https://github-readme-stats.vercel.app/api/wakatime?username=srunsochettra&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="49%"/></p>
 
 ---
 
