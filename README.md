@@ -39,7 +39,7 @@
 <img src="https://octodex.github.com/images/nyantocat.gif" width="80"/> <img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="80"/> <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" width="80"/> <img src="https://octodex.github.com/images/carlostocat.gif" width="80"/> <img src="https://octodex.github.com/images/grinchtocat.gif" width="80"/> <img src="https://octodex.github.com/images/maxtocat.gif" width="80"/>
 </p>
 
-<p align="center"><a href="https://open.spotify.com/user/YOUR_SPOTIFY_ID"><img src="https://spotify-github-readme.vercel.app/api/spotify" alt="Spotify"/></a></p>
+<p align="center"><a href="https://open.spotify.com/user/31nmvha63cqdgtoshanbikqboil4"><img src="https://spotify-github-readme.vercel.app/api/spotify" alt="Spotify"/></a></p>
 
 ---
 
