@@ -12,6 +12,8 @@ I am a second-year IT student currently debugging my way through Java. While I s
 * 👥  I'm looking to collaborate on everything! I'm open to learning and meeting new people!
 * 💬  Ask me about I possess the rare ability of auricular superior muscle control (I can move my ears).
 
+  <br/>
+
 <!-- Connect Section -->
 <h2 align="center">
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35">
