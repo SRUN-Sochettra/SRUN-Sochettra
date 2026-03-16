@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif" width="120"/>
+  <img src="https://octodex.github.com/images/original.png" width="100"/>
 </p>
 
 <p align="center">
@@ -37,6 +37,28 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 <p align="center">
   <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it%2C%20it%E2%80%99s%20bad.&author=Cory%20House" width="80%"/>
+</p>
+
+---
+
+## 🐱 Octodex Friends
+
+<p align="center">
+  <img src="https://octodex.github.com/images/nyantocat.gif" width="100"/>
+  <img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="100"/>
+  <img src="https://octodex.github.com/images/daftpunktocat-guy.gif" width="100"/>
+  <img src="https://octodex.github.com/images/carlostocat.gif" width="100"/>
+  <img src="https://octodex.github.com/images/grinchtocat.gif" width="100"/>
+  <img src="https://octodex.github.com/images/maxtocat.gif" width="100"/>
+</p>
+
+<p align="center">
+  <img src="https://octodex.github.com/images/gobbleotron.gif" width="100"/>
+  <img src="https://octodex.github.com/images/mummytocat.gif" width="100"/>
+  <img src="https://octodex.github.com/images/labtocat.png" width="100"/>
+  <img src="https://octodex.github.com/images/dinotocat.png" width="100"/>
+  <img src="https://octodex.github.com/images/jetpacktocat.png" width="100"/>
+  <img src="https://octodex.github.com/images/minertocat.png" width="100"/>
 </p>
 
 ---
