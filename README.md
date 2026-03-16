@@ -12,6 +12,23 @@ I am a second-year IT student currently debugging my way through Java. While I s
 * 👥  I'm looking to collaborate on everything! I'm open to learning and meeting new people!
 * 💬  Ask me about I possess the rare ability of auricular superior muscle control (I can move my ears).
 
+<!-- Connect Section -->
+<h2 align="center">
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35">
+  Let's Connect
+</h2>
+
+<div align="center">
+  
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=0077B5&labelColor=0D1117)](https://www.linkedin.com/in/sochettra-srun-a67466395/)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&color=181717&labelColor=0D1117)](https://www.github.com/SRUN-Sochettra)
+  [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white&color=1877F2&labelColor=0D1117)](https://www.facebook.com/srunsochettra)
+  [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=D14836&labelColor=0D1117)](mailto:srunsochettra@gmail.com)
+  
+</div>
+
+<br/>
+
 <!-- Tech Stack -->
 <h2 align="center">
   <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="30">
@@ -97,22 +114,6 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 <br/>
 
-<!-- Connect Section -->
-<h2 align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35">
-  Let's Connect
-</h2>
-
-<div align="center">
-  
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=0077B5&labelColor=0D1117)](https://www.linkedin.com/in/sochettra-srun-a67466395/)
-  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&color=181717&labelColor=0D1117)](https://www.github.com/SRUN-Sochettra)
-  [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white&color=1877F2&labelColor=0D1117)](https://www.facebook.com/srunsochettra)
-  [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=D14836&labelColor=0D1117)](mailto:srunsochettra@gmail.com)
-  
-</div>
-
-<br/>
 
 <!-- Dev Quote -->
 <div align="center">
