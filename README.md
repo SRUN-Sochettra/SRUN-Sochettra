@@ -1,16 +1,31 @@
-<!-- Refined header with subtle depth -->
-<img src="https://capsule-render.vercel.app/api?type=soft&color=0D1117&height=180&section=header&text=Srun%20Sochettra&fontSize=44&fontColor=00D9FF&fontAlignY=45&desc=Second%20Year%20IT%20Student%20%7C%20Full%20Stack%20Explorer&descSize=14&descColor=8b949e" width="100%"/>
+<!-- Animated header with depth -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=200&section=header&text=Srun%20Sochettra&fontSize=45&fontColor=fff&animation=twinkling&fontAlignY=40&desc=Second%20Year%20IT%20Student%20%7C%20Full%20Stack%20Explorer&descSize=15&descColor=00D9FF" width="100%"/>
 
 <br/>
 
 <div align="center">
   
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=400&size=16&pause=2000&color=00D9FF&center=true&vCenter=true&width=500&lines=Debugging+Java+one+error+at+a+time;Phnom+Penh%2C+Cambodia+%F0%9F%87%B0%F0%9F%87%AD" alt="Typing"/>
+  <!-- Animated typing with more lines -->
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=500&size=18&pause=1500&color=00D9FF&center=true&vCenter=true&width=600&lines=Debugging+my+way+through+Java+☕;Full+Stack+Web+Developer+in+Training+🚀;Hypermobile+Fingers+%26+Ear+Wiggling+Pro+🦻;Phnom+Penh%2C+Cambodia+🇰🇭" alt="Typing"/>
   
   <br/><br/>
   
-  <img src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif" width="100" style="border-radius: 50%; border: 3px solid #30363d; padding: 4px; background: #0D1117;"/>
+  <!-- Avatar with glow ring -->
+  <img src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif" width="110" style="border-radius: 50%; border: 3px solid #00D9FF; padding: 4px; background: #0D1117; box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);"/>
   
+  <br/><br/>
+  
+  <!-- Social badges row -->
+  <p>
+    <a href="https://www.linkedin.com/in/sochettra-srun-a67466395/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+    <a href="https://www.github.com/SRUN-Sochettra"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"/></a>
+    <a href="https://www.facebook.com/srunsochettra"><img src="https://img.shields.io/badge/Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white" alt="Facebook"/></a>
+    <a href="mailto:srunsochettra@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"/></a>
+  </p>
+  
+  <!-- Profile views counter -->
+  <img src="https://komarev.com/ghpvc/?username=SRUN-Sochettra&color=00D9FF&style=flat&label=Profile%20Views" alt="Profile Views"/>
+
 </div>
 
 <br/>
@@ -19,9 +34,9 @@
 
 ## About Me
 
-<table>
+<table width="100%">
   <tr>
-    <td width="60%" valign="top">
+    <td width="65%" valign="top">
 
 I am a second-year IT student currently debugging my way through Java. While I spend most of my time trying to fix code, I also possess a rare hardware feature: I have **hypermobile fingers**. It's a completely vestigial skill that serves no purpose in a professional setting, but it remains my most impressive biological party trick.
 
@@ -30,26 +45,14 @@ I am a second-year IT student currently debugging my way through Java. While I s
 **Fun fact:** I possess the rare ability of auricular superior muscle control (I can move my ears).
 
     </td>
-    <td width="40%" align="center">
+    <td width="35%" align="center" valign="middle">
       
-[![Jokes Card](https://readme-jokes.vercel.app/api?theme=dark&hideBorder&bgColor=%230D1117&qColor=%2300D9FF&aColor=%23c9d1d9)](https://github.com/ABSphreak/readme-jokes)
+<!-- Random joke widget -->
+[![Jokes Card](https://readme-jokes.vercel.app/api?theme=dark&hideBorder&bgColor=%230D1117&qColor=%2300D9FF&aColor=%23c9d1d9&codeColor=%23FF6B6B)](https://github.com/ABSphreak/readme-jokes)
 
     </td>
   </tr>
 </table>
-
-<br/>
-
----
-
-## Connect
-
-<p>
-  <a href="https://www.linkedin.com/in/sochettra-srun-a67466395/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-  <a href="https://www.github.com/SRUN-Sochettra"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"/></a>
-  <a href="https://www.facebook.com/srunsochettra"><img src="https://img.shields.io/badge/Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white" alt="Facebook"/></a>
-  <a href="mailto:srunsochettra@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email"/></a>
-</p>
 
 <br/>
 
@@ -99,7 +102,7 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 ## GitHub Analytics
 
-<table>
+<table width="100%">
   <tr>
     <td colspan="2" align="center">
       <img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9&ring_color=00D9FF&include_all_commits=true&count_private=true" width="100%"/>
@@ -114,8 +117,6 @@ I am a second-year IT student currently debugging my way through Java. While I s
     </td>
   </tr>
 </table>
-
-<br/>
 
 <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=dark&no-frame=true&no-bg=true&margin-w=4&row=1&column=6" width="100%"/>
@@ -142,17 +143,20 @@ I am a second-year IT student currently debugging my way through Java. While I s
 ## Quote of the Day
 
 <p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it%2C%20it%E2%80%99s%20bad.&author=Cory%20House" width="60%"/>
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it%2C%20it%E2%80%99s%20bad.&author=Cory%20House" width="70%"/>
 </p>
 
 <br/>
 
 <div align="center">
   
-  <img src="https://komarev.com/ghpvc/?username=SRUN-Sochettra&color=00D9FF&style=flat&label=Profile%20Views" alt="Profile Views"/>
+  Made with ❤️ and ☕ in Phnom Penh, Cambodia
   
   <br/><br/>
   
-  Made with ❤️ and ☕ in Phnom Penh, Cambodia
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="35"/>
   
 </div>
+
+<!-- Footer wave -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=120&section=footer&text=Thanks%20for%20visiting!&fontSize=24&fontColor=fff&animation=twinkling&fontAlignY=80" width="100%"/>
