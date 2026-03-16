@@ -10,7 +10,8 @@ I am a second-year IT student currently debugging my way through Java. While I s
 * ✉️  You can contact me at [srunsochettra@gmail.com](mailto:srunsochettra@gmail.com)
 * 🧠  I'm currently learning Full Stack Web!
 * 👥  I'm looking to collaborate on everything! I'm open to learning and meeting new people!
-* 💬  Ask me about I possess the rare ability of auricular superior muscle control (I can move my ears).
+* 💬  Ask me about anything! I'll probably answer them 😂
+* 🎉  Fun fact: I possess the rare ability of auricular superior muscle control (I can move my ears).
 
   <br/>
 
