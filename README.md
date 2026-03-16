@@ -1,4 +1,4 @@
-![Header](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=200&section=header&text=Srun%20Sochettra&fontSize=45&fontColor=fff&animation=twinkling&fontAlignY=40&desc=Second%20Year%20IT%20Student%20%7C%20Full%20Stack%20Explorer&descSize=15&descColor=00D9FF)
+![Header](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=200&section=header&text=Srun%20Sochettra&fontSize=45&fontColor=fff&animation=twinkling&fontAlignY=40&desc=Second%20Year%20IT%20Student%20%7C%20Full%20Stack%20Explorer&descSize=15&descColor=00D9FF&font=Pacifico&descFont=Pacifico)
 
 <br>
 
@@ -101,4 +101,4 @@ I am a second-year IT student currently debugging my way through Java. While I s
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="35"/>
 </p>
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=120&section=footer&text=Thanks%20for%20visiting!&fontSize=24&fontColor=fff&animation=twinkling&fontAlignY=80)
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=120&section=footer&text=Thanks%20for%20visiting!&fontSize=24&fontColor=fff&animation=twinkling&fontAlignY=80&font=Pacifico)
