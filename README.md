@@ -1,36 +1,114 @@
-Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif) My name is Srun Sochettra
-=======================================================================================================================================
+<!-- Animated Header -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0891b2&height=200&section=header&text=Srun%20Sochettra&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=A%20Second%20Year%20IT%20Student&descAlignY=55&descSize=20" width="100%" />
+</div>
 
-A second year IT student!
--------------------------
+<!-- Typing Animation -->
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=0891b2&center=true&vCenter=true&width=500&lines=Debugging+my+way+through+Java;Full+Stack+Web+Learner;Hypermobile+Fingers+%F0%9F%91%8D;Ear+Wiggling+Expert+%F0%9F%91%82" alt="Typing SVG" />
+</div>
 
-I am a second-year IT student currently debugging my way through Java. While I spend most of my time trying to fix code, I also possess a rare hardware feature: I have hypermobile fingers. It’s a completely vestigial skill that serves no purpose in a professional setting, but it remains my most impressive biological party trick.
+<br/>
 
-* 🌍  I'm based in Phnom Penh, Cambodia!
-* ✉️  You can contact me at [srunsochettra@gmail.com](mailto:srunsochettra@gmail.com)
-* 🧠  I'm currently learning Full Stack Web!
-* 👥  I'm looking to collaborate on everything! I'm open to learning and meeting new people!
-* 💬  Ask me about I possess the rare ability of auricular superior muscle control (I can move my ears).
+<!-- About Section with Card Style -->
+<div align="center">
+  
+  | 🌍 **Location** | ✉️ **Contact** | 🧠 **Learning** | 👥 **Collaboration** | 💬 **Fun Fact** |
+  |:---:|:---:|:---:|:---:|:---:|
+  | Phnom Penh, Cambodia | srunsochettra@gmail.com | Full Stack Web | Open to everything! | I can move my ears |
 
-<p align="left">
-<a href="https://spring.io/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/spring-boot-colored.svg" alt="Spring Boot" title="Spring Boot" width="36" height="36" /></a><a href="https://git-scm.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/git-colored.svg" alt="Git" title="Git" width="36" height="36" /></a><a href="https://www.oracle.com/java/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" alt="Java" title="Java" width="36" height="36" /></a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" alt="JavaScript" title="JavaScript" width="36" height="36" /></a><a href="https://www.php.net/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/php-colored.svg" alt="PHP" title="PHP" width="36" height="36" /></a><a href="https://www.python.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" alt="Python" title="Python" width="36" height="36" /></a><a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/gnubash-colored.svg" alt="GNU Bash" title="GNU Bash" width="36" height="36" /></a><a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/visualstudiocode-colored.svg" alt="VS Code" title="VS Code" width="36" height="36" /></a><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" alt="HTML5" title="HTML5" width="36" height="36" /></a><a href="https://www.w3.org/TR/CSS/#css" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" alt="CSS3" title="CSS3" width="36" height="36" /></a><a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg" alt="TailwindCSS" title="TailwindCSS" width="36" height="36" /></a><a href="https://www.mysql.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" alt="MySQL" title="MySQL" width="36" height="36" /></a><a href="https://www.postgresql.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg" alt="PostgreSQL" title="PostgreSQL" width="36" height="36" /></a><a href="https://www.figma.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg" alt="Figma" title="Figma" width="36" height="36" /></a><a href="https://store.arduino.cc/?gclid=Cj0KCQjw2eilBhCCARIsAG0Pf8uueBifykWcsSS4LPESeGQfxGVKJYnzV7bz471XfknQJy_1VINVWM8aAkLtEALw_wcB" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/arduino-colored.svg" alt="Arduino" title="Arduino" width="36" height="36" /></a><a href="https://www.raspberrypi.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/raspberrypi-colored.svg" alt="Raspberry Pi" title="Raspberry Pi" width="36" height="36" /></a><a href="https://flutter.dev/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/flutter-colored.svg" alt="Flutter" title="Flutter" width="36" height="36" /></a>
-</p>
+</div>
 
-### Socials
+<br/>
 
-<p align="left"> <a href="https://www.github.com/SRUN-Sochettra" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg" width="32" height="32" alt="GitHub" title="GitHub" /> </picture> </a> <a href="https://www.linkedin.com/in/sochettra-srun-a67466395/" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" width="32" height="32" alt="LinkedIn" title="LinkedIn" /> </picture> </a> <a href="https://www.facebook.com/srunsochettra" target="_blank" rel="noreferrer"> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/facebook-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/facebook.svg" /> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/facebook.svg" width="32" height="32" alt="Facebook" title="Facebook" /> </picture> </a></p>
-<a href="https://www.github.com/SRUN-Sochettra" target="_blank" rel="noreferrer"><img
-src="https://img.shields.io/github/followers/SRUN-Sochettra?logo=github&style=for-the-badge&color=0891b2&labelColor=1c1917" /></a>
-### Badges
+<!-- Tech Stack with Animated Icons -->
+<h2 align="center">
+  <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="24"> 
+  Tech Stack
+</h2>
 
-<b>My GitHub Stats</b>
+<div align="center">
+  
+  **Backend & Languages**
+  
+  <img src="https://skillicons.dev/icons?i=java,spring,python,php,bash&theme=dark" />
+  
+  **Frontend & Design**
+  
+  <img src="https://skillicons.dev/icons?i=js,html,css,tailwind,figma&theme=dark" />
+  
+  **Database & Tools**
+  
+  <img src="https://skillicons.dev/icons?i=mysql,postgresql,git,vscode,arduino,raspberrypi,flutter&theme=dark" />
 
-<a href="http://www.github.com/SRUN-Sochettra"><img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&hide=&count_private=true&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&show_icons=true" alt="SRUN-Sochettra's GitHub stats" /></a>
+</div>
 
-<a href="http://www.github.com/SRUN-Sochettra"><img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&stroke=ffffff&background=1c1917&ring=0891b2&fire=0891b2&currStreakNum=ffffff&currStreakLabel=0891b2&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" /></a>
+<br/>
 
-<a href="https://github.com/SRUN-Sochettra" align="left"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&langs_count=10&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&locale=en&custom_title=Top%20%Languages" alt="Top Languages" /></a>
+<!-- Socials with Animated Badges -->
+<h2 align="center">
+  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="40"> 
+  Connect With Me
+</h2>
 
-<b>Top Repositories</b>
+<div align="center">
+  
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&color=0891b2&labelColor=1c1917)](https://www.github.com/SRUN-Sochettra)
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=0891b2&labelColor=1c1917)](https://www.linkedin.com/in/sochettra-srun-a67466395/)
+  [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white&color=0891b2&labelColor=1c1917)](https://www.facebook.com/srunsochettra)
+  [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=0891b2&labelColor=1c1917)](mailto:srunsochettra@gmail.com)
+  
+</div>
 
-<div width="100%" align="center"><a href="https://github.com/SRUN-Sochettra/University" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=University&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&locale=en" /></a></div><br /><br /><br /><br /><br /><br /><br />
+<br/>
+
+<!-- GitHub Stats with Improved Layout -->
+<h2 align="center">
+  <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30">
+  GitHub Stats
+</h2>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&hide=&count_private=true&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&show_icons=true&ring_color=0891b2" height="180" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&stroke=ffffff&background=1c1917&ring=0891b2&fire=0891b2&currStreakNum=ffffff&currStreakLabel=0891b2&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" height="180" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&langs_count=10&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&locale=en&custom_title=Top%20Languages&layout=compact" width="400" />
+</div>
+
+<br/>
+
+<!-- Featured Repository with Card Style -->
+<h2 align="center">⭐ Featured Repository</h2>
+
+<div align="center">
+  
+  [![University Repo](https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=University&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true&locale=en)](https://github.com/SRUN-Sochettra/University)
+  
+</div>
+
+<br/>
+
+<!-- Activity Graph -->
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&bg_color=1c1917&color=0891b2&line=0891b2&point=ffffff&area=true&hide_border=true" width="100%" />
+</div>
+
+<br/>
+
+<!-- Footer -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0891b2&height=100&section=footer" width="100%" />
+</div>
+
+<div align="center">
+  
+  ![Profile Views](https://komarev.com/ghpvc/?username=SRUN-Sochettra&color=0891b2&style=flat-square&labelColor=1c1917)
+  
+  **Thanks for visiting!** 
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="25" />
+  
+</div>
