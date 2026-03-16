@@ -36,7 +36,6 @@ I build full-stack things. Sometimes they work on the first try. *(They don't.)*
 
 > *"Code is like humor. When you have to explain it, it's bad."* — Cory House
 
-<br/>
 </td>
 <td width="40%" align="center" valign="top">
 
