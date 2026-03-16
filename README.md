@@ -33,8 +33,27 @@ I build full-stack things. Sometimes they work on the first try. *(They don't.)*
 > *"Code is like humor. When you have to explain it, it's bad."* — Cory House
 
 </td>
-<td width="40%" align="center" valign="middle">
+<td width="40%" align="center" valign="top">
+
 <img src="https://readme-jokes.vercel.app/api?theme=dark&hideBorder&bgColor=%230D1117&qColor=%2300D9FF&aColor=%23c9d1d9&codeColor=%23FF6B6B" width="100%"/>
+
+<br/>
+
+**🚨 Dev Confessions:**
+
+✅ I Google syntax I've written 100 times <br/>
+✅ I've blamed the compiler. It was me. <br/>
+✅ My variable names are... creative <br/>
+✅ `console.log` is my debugger <br/>
+✅ I said "5 more minutes" 3 hours ago <br/>
+✅ The docs? Never heard of her. <br/>
+
+<br/>
+
+![](https://img.shields.io/badge/Rubber_Duck_Debugger-Licensed-yellow?style=flat-square&logo=duck&logoColor=black)
+![](https://img.shields.io/badge/Dark_Mode-Always-0D1117?style=flat-square&logo=windows-terminal&logoColor=00D9FF)
+![](https://img.shields.io/badge/Semicolons-Sometimes-FF6B6B?style=flat-square)
+
 </td>
 </tr>
 </table>
