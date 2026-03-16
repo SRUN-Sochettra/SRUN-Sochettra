@@ -71,9 +71,8 @@
 
 ---
 
-## 🏙️ Skyline & ⏱️ Coding Stats & 🎮 Metrics
-
-<p align="center"><a href="https://skyline.github.com/SRUN-Sochettra/2024"><img src="https://skyline.github.com/SRUN-Sochettra/2024.png" width="32%"/></a> <img src="https://github-readme-stats.vercel.app/api/wakatime?username=srunsochettra&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="32%"/> <img src="https://metrics.lecoq.io/SRUN-Sochettra?template=classic&isocalendar=1&languages=1&people=1&followup=1&activity=1&achievements=1&discussions=1&reactions=1&pagespeed=1&config.timezone=Asia%2FPhnom_Penh" width="32%"/></p>
+## 🏙️ Skyline & ⏱️ Coding Stats
+<p align="center"><a href="https://skyline.github.com/SRUN-Sochettra/2024"><img src="https://skyline.github.com/SRUN-Sochettra/2024.png" width="32%"/></a> <img src="https://github-readme-stats.vercel.app/api/wakatime?username=srunsochettra&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="32%"/></p>
 
 ---
 
