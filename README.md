@@ -69,20 +69,6 @@
 
 <br/>
 
-<!-- Featured Projects -->
-<h2 align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Star.png" width="35">
-  Featured Projects
-</h2>
-
-<div align="center">
-  
-  [![University Repo](https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=University&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF&description_lines_count=2)](https://github.com/SRUN-Sochettra/University)
-  
-</div>
-
-<br/>
-
 <!-- Activity Graph -->
 <h2 align="center">
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" width="35">
