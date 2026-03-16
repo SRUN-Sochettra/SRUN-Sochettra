@@ -1,57 +1,21 @@
-<!-- Animated Header Banner -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0077B5&height=200&section=header&text=Srun%20Sochettra&fontSize=50&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Second%20Year%20IT%20Student%20%7C%20Full%20Stack%20Explorer&descSize=18&descAlignY=55" width="100%"/>
-  
-  <!-- Animated Typing Effect -->
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=Debugging+my+way+through+Java+☕;Full+Stack+Web+Developer+in+Training+🚀;Hypermobile+Fingers+%26+Ear+Wiggling+Pro+🦻;Based+in+Phnom+Penh%2C+Cambodia+🇰🇭" alt="Typing Animation" />
-</div>
+Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif) My name is Srun Sochettra
+=======================================================================================================================================
 
-<br/>
+A second year IT student!
+-------------------------
 
-<!-- Introduction with Floating Animation -->
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif" width="60" style="animation: float 3s ease-in-out infinite;"/>
-  
-  <h1>
-    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="40" />
-    Hi, I'm Srun Sochettra
-  </h1>
-  
-  <h3>A second year IT student!</h3>
-  
-  <p align="center" style="max-width: 800px; margin: 20px auto;">
-    I am a second-year IT student currently debugging my way through Java. While I spend most of my time trying to fix code, I also possess a rare hardware feature: I have hypermobile fingers. It's a completely vestigial skill that serves no purpose in a professional setting, but it remains my most impressive biological party trick.
-  </p>
-</div>
+I am a second-year IT student currently debugging my way through Java. While I spend most of my time trying to fix code, I also possess a rare hardware feature: I have hypermobile fingers. It’s a completely vestigial skill that serves no purpose in a professional setting, but it remains my most impressive biological party trick.
 
-<br/>
+* 🌍  I'm based in Phnom Penh, Cambodia!
+* ✉️  You can contact me at [srunsochettra@gmail.com](mailto:srunsochettra@gmail.com)
+* 🧠  I'm currently learning Full Stack Web!
+* 👥  I'm looking to collaborate on everything! I'm open to learning and meeting new people!
+* 💬  Ask me about anything! I'll probably answer them 😂
+* 🎉  Fun fact: I possess the rare ability of auricular superior muscle control (I can move my ears).
 
-<!-- Quick Info Grid -->
-<div align="center">
-  
-  | 🌍 Location | ✉️ Contact | 🧠 Learning | 👥 Collaboration |
-  |:---:|:---:|:---:|:---:|
-  | Phnom Penh, Cambodia | srunsochettra@gmail.com | Full Stack Web | Everything! Open to learning |
-  | 🇰🇭 | <a href="mailto:srunsochettra@gmail.com">Email Me</a> | React, Node, Java | Meeting new people |
-  
-</div>
+  <br/>
 
-<br/>
-
-<!-- Fun Facts with Animated Icons -->
-<div align="center">
-  
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Speech%20Balloon.png" width="25" /> <b>Ask me about anything! I'll probably answer them 😂</b>
-  
-  <br/><br/>
-  
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Party%20Popper.png" width="25" /> <b>Fun fact:</b> I possess the rare ability of auricular superior muscle control (I can move my ears).
-  
-</div>
-
-<br/><br/>
-
-<!-- Connect Section with Hover Effects -->
+<!-- Connect Section -->
 <h2 align="center">
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35">
   Let's Connect
@@ -59,24 +23,16 @@
 
 <div align="center">
   
-  <a href="https://www.linkedin.com/in/sochettra-srun-a67466395/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=0077B5&labelColor=0D1117" alt="LinkedIn" style="margin: 5px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"/>
-  </a>
-  <a href="https://www.github.com/SRUN-Sochettra" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&color=181717&labelColor=0D1117" alt="GitHub" style="margin: 5px;"/>
-  </a>
-  <a href="https://www.facebook.com/srunsochettra" target="_blank">
-    <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white&color=1877F2&labelColor=0D1117" alt="Facebook" style="margin: 5px;"/>
-  </a>
-  <a href="mailto:srunsochettra@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=D14836&labelColor=0D1117" alt="Gmail" style="margin: 5px;"/>
-  </a>
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&color=0077B5&labelColor=0D1117)](https://www.linkedin.com/in/sochettra-srun-a67466395/)
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&color=181717&labelColor=0D1117)](https://www.github.com/SRUN-Sochettra)
+  [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white&color=1877F2&labelColor=0D1117)](https://www.facebook.com/srunsochettra)
+  [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=D14836&labelColor=0D1117)](mailto:srunsochettra@gmail.com)
   
 </div>
 
 <br/>
 
-<!-- Tech Arsenal with Enhanced Layout -->
+<!-- Tech Stack -->
 <h2 align="center">
   <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="30">
   Tech Arsenal
@@ -104,7 +60,7 @@
 
 <br/>
 
-<!-- GitHub Analytics with Enhanced Layout -->
+<!-- GitHub Stats -->
 <h2 align="center">
   <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="35">
   GitHub Analytics
@@ -112,13 +68,8 @@
 
 <div align="center">
   
-  <!-- Stats Cards with Enhanced Alignment -->
-  <a href="https://github.com/SRUN-Sochettra">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF&ring_color=00D9FF&include_all_commits=true&count_private=true&border_radius=10" />
-  </a>
-  <a href="https://github.com/SRUN-Sochettra">
-    <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&theme=radical&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=00D9FF&sideLabels=00D9FF&dates=FFFFFF&border_radius=10" />
-  </a>
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF&ring_color=00D9FF&include_all_commits=true&count_private=true" />
+  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&theme=radical&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=00D9FF&sideLabels=00D9FF&dates=FFFFFF" />
   
 </div>
 
@@ -126,15 +77,9 @@
 
 <div align="center">
   
-  <!-- Top Languages with Donut Chart -->
-  <a href="https://github.com/SRUN-Sochettra">
-    <img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=donut&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&langs_count=8&border_radius=10" />
-  </a>
+  <img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&langs_count=8" />
   
-  <!-- GitHub Trophies -->
-  <a href="https://github.com/SRUN-Sochettra">
-    <img width="58%" src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=radical&no-frame=true&no-bg=true&margin-w=4&row=2&column=4" />
-  </a>
+  <img width="58%" src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=radical&no-frame=true&no-bg=true&margin-w=4&row=2&column=4" />
   
 </div>
 
@@ -166,25 +111,17 @@
 
 <div align="center">
   
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&bg_color=0D1117&color=00D9FF&line=00D9FF&point=FFFFFF&area=true&hide_border=true&custom_title=Contribution%20Graph&radius=10" width="95%" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&bg_color=0D1117&color=00D9FF&line=00D9FF&point=FFFFFF&area=true&hide_border=true&custom_title=Contribution%20Graph" width="95%" />
   
 </div>
 
 <br/>
 
-<!-- Dev Quote with Enhanced Styling -->
+
+<!-- Dev Quote -->
 <div align="center">
   
   ![Quote](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it,%20it%E2%80%99s%20bad.&author=Cory%20House)
-  
-</div>
-
-<br/>
-
-<!-- Profile Views Counter -->
-<div align="center">
-  
-  <img src="https://komarev.com/ghpvc/?username=SRUN-Sochettra&color=00D9FF&style=for-the-badge&label=Profile+Views" alt="Profile Views" />
   
 </div>
 
