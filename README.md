@@ -78,7 +78,7 @@
 
 ## 📺 YouTube & 💬 StackOverflow
 
-<p align="center"><a href="https://www.youtube.com/channel/@ស្រ៊ុនសុចិត្រា"><img src="https://youtube-stats-card.vercel.app/api?channelid=YOUR_CHANNEL_ID&layout=extruded&theme=dark" width="49%"/></a> <img src="https://github-readme-stackoverflow.vercel.app/?userID=sochettra-srun&theme=dark" width="49%"/></p>
+<p align="center"><a href="https://www.youtube.com/channel/@ស្រ៊ុនសុចិត្រា"><img src="https://youtube-stats-card.vercel.app/api?channelid=UCVrb7Smv71TOgCBLn8GmJZg&layout=extruded&theme=dark" width="49%"/></a> <img src="https://github-readme-stackoverflow.vercel.app/?userID=sochettra-srun&theme=dark" width="49%"/></p>
 
 ---
 
