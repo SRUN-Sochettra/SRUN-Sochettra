@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://count.getloli.com/get/@SRUN-Sochettra?theme=rule34" alt="Visitor Count"/>
+  <img src="https://komarev.com/ghpvc/?username=SRUN-Sochettra&color=00D9FF&style=flat&label=Profile+Views" alt="Profile Views"/>
 </p>
 
 <p align="center">
@@ -37,6 +37,16 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 <p align="center">
   <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it%2C%20it%E2%80%99s%20bad.&author=Cory%20House" width="80%"/>
+</p>
+
+---
+
+## 🎵 Now Playing
+
+<p align="center">
+  <a href="https://open.spotify.com/user/YOUR_SPOTIFY_ID">
+    <img src="https://spotify-github-readme.vercel.app/api/spotify" alt="Spotify Now Playing"/>
+  </a>
 </p>
 
 ---
@@ -85,6 +95,20 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&bg_color=0D1117&color=c9d1d9&line=00D9FF&point=00D9FF&area=true&hide_border=true&custom_title=Contribution%20Activity" width="100%"/>
+</p>
+
+---
+
+## 🎮 Fun Zone
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/main/Hello%20Banner.gif" width="100%"/>
+</p>
+
+<p align="center">
+  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60"/>
+  <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="60"/>
+  <img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" width="60"/>
 </p>
 
 ---
