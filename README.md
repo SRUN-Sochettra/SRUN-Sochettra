@@ -107,6 +107,16 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 ---
 
+## 🏙️ GitHub Skyline
+
+<p align="center">
+  <a href="https://skyline.github.com/SRUN-Sochettra/2024">
+    <img src="https://skyline.github.com/SRUN-Sochettra/2024.png" alt="GitHub Skyline" width="80%"/>
+  </a>
+</p>
+
+---
+
 ## ⏱️ Coding Stats
 
 <p align="center">
@@ -119,6 +129,24 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 <p align="center">
   <img src="https://metrics.lecoq.io/SRUN-Sochettra?template=classic&base.header=0&base.activity=0&base.community=0&base.repositories=0&base.metadata=0&isocalendar=1&languages=1&people=1&followup=1&activity=1&achievements=1&discussions=1&reactions=1&pagespeed=1&isocalendar.duration=half-year&languages.limit=8&languages.threshold=0%25&languages.colors=github&languages.sections=most-used&languages.indepth=false&languages.analysis.visible=false&languages.categories=markup%2C%20programming&languages.recent.categories=markup%2C%20programming&languages.recent.load=300&languages.recent.days=14&people.limit=24&people.size=28&people.types=followers%2C%20following&people.identicons=false&people.shuffle=false&followup.sections=repositories&activity.limit=5&activity.load=300&activity.days=14&activity.visibility=all&activity.timestamps=false&achievements.threshold=C&achievements.secrets=true&achievements.display=compact&achievements.limit=0&discussions.categories=true&discussions.categories.limit=0&reactions.limit=200&reactions.days=0&reactions.display=absolute&reactions.details=count&reactions.categories=award%2C%20like%2C%20heart%2C%20hooray%2C%20eyes%2C%20laugh%2C%20confused%2C%20rocket%2C%20thinking&reactions.categories.limit=0&pagespeed.url=.user.website&pagespeed.detailed=false&pagespeed.screenshot=false&config.timezone=Asia%2FPhnom_Penh" alt="GitHub Metrics" width="100%"/>
+</p>
+
+---
+
+## 📺 YouTube Stats
+
+<p align="center">
+  <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID">
+    <img src="https://youtube-stats-card.vercel.app/api?channelid=YOUR_CHANNEL_ID&layout=extruded&theme=dark" alt="YouTube Stats"/>
+  </a>
+</p>
+
+---
+
+## 💬 StackOverflow
+
+<p align="center">
+  <img src="https://github-readme-stackoverflow.vercel.app/?userID=YOUR_STACKOVERFLOW_ID&theme=dark" alt="StackOverflow" width="60%"/>
 </p>
 
 ---
