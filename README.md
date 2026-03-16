@@ -37,8 +37,6 @@ I build full-stack things. Sometimes they work on the first try. *(They don't.)*
 
 <img src="https://readme-jokes.vercel.app/api?theme=dark&hideBorder&bgColor=%230D1117&qColor=%2300D9FF&aColor=%23c9d1d9&codeColor=%23FF6B6B" width="100%"/>
 
-<br/>
-
 **🚨 Dev Confessions:**
 
 ✅ I Google syntax I've written 100 times <br/>
