@@ -18,7 +18,11 @@
 <tr>
 <td width="60%" valign="top">
 
-👋 Hey! I'm Sochettra — a second-year IT student from 🇰🇭 surviving on Java, caffeine, and sheer stubbornness.
+👋 Hey! I'm Sochettra — a second-year IT student from 🇰🇭 surviving on Java, caffeine, and sheer stubbornness. 
+
+Also, they said "learn to code and the possibilities are endless."
+Bro I have 47 browser tabs open, 3 unfinished projects, and a Java assignment due in 6 hours.
+The only thing that's endless is my while(true) loop.
 
 I build full-stack things. Sometimes they work on the first try. *(They don't.)*
 
@@ -49,7 +53,7 @@ I build full-stack things. Sometimes they work on the first try. *(They don't.)*
 ![](https://img.shields.io/badge/Rubber_Duck_Debugger-Licensed-yellow?style=flat-square&logo=duck&logoColor=black)
 ![](https://img.shields.io/badge/Dark_Mode-Always-0D1117?style=flat-square&logo=windows-terminal&logoColor=00D9FF)
 ![](https://img.shields.io/badge/Semicolons-Sometimes-FF6B6B?style=flat-square)
-
+<br/>
 </td>
 </tr>
 </table>
