@@ -1,16 +1,16 @@
-<!-- Refined header with depth -->
-<img src="https://capsule-render.vercel.app/api?type=soft&color=0D1117&height=160&section=header&text=Srun%20Sochettra&fontSize=42&fontColor=00D9FF&fontAlignY=45&desc=Second%20Year%20IT%20Student%20%7C%20Full%20Stack%20Explorer&descSize=14&descColor=8b949e" width="100%"/>
+<!-- Refined header with subtle depth -->
+<img src="https://capsule-render.vercel.app/api?type=soft&color=0D1117&height=180&section=header&text=Srun%20Sochettra&fontSize=44&fontColor=00D9FF&fontAlignY=45&desc=Second%20Year%20IT%20Student%20%7C%20Full%20Stack%20Explorer&descSize=14&descColor=8b949e" width="100%"/>
 
 <br/>
 
 <div align="center">
   
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=400&size=17&pause=2000&color=00D9FF&center=true&vCenter=true&width=550&lines=Debugging+Java+one+error+at+a+time;Based+in+Phnom+Penh%2C+Cambodia+%F0%9F%87%B0%F0%9F%87%AD" alt="Typing"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=400&size=16&pause=2000&color=00D9FF&center=true&vCenter=true&width=500&lines=Debugging+Java+one+error+at+a+time;Phnom+Penh%2C+Cambodia+%F0%9F%87%B0%F0%9F%87%AD" alt="Typing"/>
   
   <br/><br/>
   
-  <img src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif" width="90" style="border-radius: 50%; border: 2px solid #30363d; padding: 3px;"/>
-
+  <img src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif" width="100" style="border-radius: 50%; border: 3px solid #30363d; padding: 4px; background: #0D1117;"/>
+  
 </div>
 
 <br/>
@@ -19,11 +19,24 @@
 
 ## About Me
 
-I am a second-year IT student currently debugging my way through Java. While I spend most of my time trying to fix code, I also possess a rare hardware feature: I have hypermobile fingers. It's a completely vestigial skill that serves no purpose in a professional setting, but it remains my most impressive biological party trick.
+<table>
+  <tr>
+    <td width="60%" valign="top">
+
+I am a second-year IT student currently debugging my way through Java. While I spend most of my time trying to fix code, I also possess a rare hardware feature: I have **hypermobile fingers**. It's a completely vestigial skill that serves no purpose in a professional setting, but it remains my most impressive biological party trick.
 
 **Ask me about anything!** I'll probably answer them 😂
 
 **Fun fact:** I possess the rare ability of auricular superior muscle control (I can move my ears).
+
+    </td>
+    <td width="40%" align="center">
+      
+[![Jokes Card](https://readme-jokes.vercel.app/api?theme=dark&hideBorder&bgColor=%230D1117&qColor=%2300D9FF&aColor=%23c9d1d9)](https://github.com/ABSphreak/readme-jokes)
+
+    </td>
+  </tr>
+</table>
 
 <br/>
 
@@ -44,7 +57,7 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 ## Tech Stack
 
-<p>
+<p align="center">
   <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java"/>
   <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=spring&logoColor=white" alt="Spring"/>
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
@@ -57,7 +70,7 @@ I am a second-year IT student currently debugging my way through Java. While I s
   <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white" alt="Flutter"/>
 </p>
 
-<p>
+<p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS"/>
   <img src="https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind"/>
@@ -65,7 +78,7 @@ I am a second-year IT student currently debugging my way through Java. While I s
   <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white" alt="Figma"/>
 </p>
 
-<p>
+<p align="center">
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL"/>
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB"/>
@@ -74,7 +87,7 @@ I am a second-year IT student currently debugging my way through Java. While I s
   <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux"/>
 </p>
 
-<p>
+<p align="center">
   <img src="https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white" alt="Arduino"/>
   <img src="https://img.shields.io/badge/Raspberry%20Pi-A22846?style=flat-square&logo=raspberrypi&logoColor=white" alt="Raspberry Pi"/>
   <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white" alt="OpenCV"/>
@@ -86,14 +99,26 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 ## GitHub Analytics
 
-<p>
-  <img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9&ring_color=00D9FF&include_all_commits=true&count_private=true" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&theme=dark&hide_border=true&background=0D1117&stroke=30363d&ring=00D9FF&fire=FF6B6B&currStreakNum=c9d1d9&sideNums=c9d1d9" width="48%" />
-</p>
+<table>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9&ring_color=00D9FF&include_all_commits=true&count_private=true" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&theme=dark&hide_border=true&background=0D1117&stroke=30363d&ring=00D9FF&fire=FF6B6B&currStreakNum=c9d1d9&sideNums=c9d1d9" width="100%"/>
+    </td>
+    <td width="50%" align="center">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=donut&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="100%"/>
+    </td>
+  </tr>
+</table>
 
-<p>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="35%" />
-  <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=dark&no-frame=true&no-bg=true&margin-w=4&row=2&column=4" width="62%" />
+<br/>
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=dark&no-frame=true&no-bg=true&margin-w=4&row=1&column=6" width="100%"/>
 </p>
 
 <br/>
@@ -114,8 +139,11 @@ I am a second-year IT student currently debugging my way through Java. While I s
 
 ---
 
-> "Code is like humor. When you have to explain it, it's bad."  
-> — Cory House
+## Quote of the Day
+
+<p align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark&quote=Code%20is%20like%20humor.%20When%20you%20have%20to%20explain%20it%2C%20it%E2%80%99s%20bad.&author=Cory%20House" width="60%"/>
+</p>
 
 <br/>
 
