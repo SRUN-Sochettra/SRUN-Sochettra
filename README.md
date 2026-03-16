@@ -1,3 +1,17 @@
+Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif) My name is Srun Sochettra
+=======================================================================================================================================
+
+A second year IT student!
+-------------------------
+
+I am a second-year IT student currently debugging my way through Java. While I spend most of my time trying to fix code, I also possess a rare hardware feature: I have hypermobile fingers. It’s a completely vestigial skill that serves no purpose in a professional setting, but it remains my most impressive biological party trick.
+
+* 🌍  I'm based in Phnom Penh, Cambodia!
+* ✉️  You can contact me at [srunsochettra@gmail.com](mailto:srunsochettra@gmail.com)
+* 🧠  I'm currently learning Full Stack Web!
+* 👥  I'm looking to collaborate on everything! I'm open to learning and meeting new people!
+* 💬  Ask me about I possess the rare ability of auricular superior muscle control (I can move my ears).
+
 <!-- Tech Stack -->
 <h2 align="center">
   <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="30">
