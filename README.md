@@ -1,4 +1,4 @@
-![Header](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=180&section=header&text=Srun%20Sochettra&fontSize=80&fontColor=fff&animation=twinkling&fontAlignY=50&desc=Second%20Year%20IT%20student%20%7C%20Full%20Stack%20Explorer%20%7C%20Professional%20Bug%20Creator&descSize=20&descColor=00D9FF&font=Pacifico&descFont=Pacifico&descAlignY=75)
+![Header](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=180&section=header&text=Srun%20Sochettra&fontSize=80&fontColor=fff&animation=twinkling&fontAlignY=60&desc=Second%20Year%20IT%20student%20%7C%20Full%20Stack%20Explorer%20%7C%20Professional%20Bug%20Creator&descSize=20&descColor=00D9FF&font=Pacifico&descFont=Pacifico&descAlignY=85)
 
 <p align="center"><img src="https://readme-typing-svg.herokuapp.com?font=Fredoka+One&size=30&pause=1500&color=00D9FF&center=true&vCenter=true&width=650&lines=Debugging+my+way+through+Java+☕;Full+Stack+Web+Developer+in+Training+🚀;Professional+NullPointerException+Hunter+🔍;Hypermobile+Fingers+%26+Ear+Wiggling+Pro+🦻;Phnom+Penh%2C+Cambodia+🇰🇭" alt="Typing"/></p>
 
