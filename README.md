@@ -1,6 +1,6 @@
 ![Header](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=200&section=header&text=Srun%20Sochettra&fontSize=80&fontColor=fff&animation=twinkling&fontAlignY=50&desc=Second%20Year%20IT%20student%20%7C%20Full%20Stack%20Explorer%20%7C%20Professional%20Bug%20Creator&descSize=20&descColor=00D9FF&font=Pacifico&descFont=Pacifico&descAlignY=90)
 
-<p align="center"><img src="https://readme-typing-svg.herokuapp.com?font=Fredoka+One&size=20&pause=1500&color=00D9FF&center=true&vCenter=true&width=650&lines=Debugging+my+way+through+Java+☕;Full+Stack+Web+Developer+in+Training+🚀;Professional+NullPointerException+Hunter+🔍;Hypermobile+Fingers+%26+Ear+Wiggling+Pro+🦻;Phnom+Penh%2C+Cambodia+🇰🇭" alt="Typing"/></p>
+<p align="center"><img src="https://readme-typing-svg.herokuapp.com?font=Fredoka+One&size=30&pause=1500&color=00D9FF&center=true&vCenter=true&width=650&lines=Debugging+my+way+through+Java+☕;Full+Stack+Web+Developer+in+Training+🚀;Professional+NullPointerException+Hunter+🔍;Hypermobile+Fingers+%26+Ear+Wiggling+Pro+🦻;Phnom+Penh%2C+Cambodia+🇰🇭" alt="Typing"/></p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/sochettra-srun-a67466395/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"/></a>
