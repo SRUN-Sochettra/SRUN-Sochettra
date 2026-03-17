@@ -108,9 +108,9 @@ Step 7: No idea why. Ship it anyway.  🚀
 ## 🛠️ Tech Stack
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=java,spring,python,php,js,ts,react,nextjs,nodejs,flutter&theme=dark&perline=5"/>
-  <img src="https://skillicons.dev/icons?i=html,css,tailwind,bootstrap,figma,xd&theme=dark&perline=6"/>
-  <img src="https://skillicons.dev/icons?i=mysql,postgresql,mongodb,docker,git,github,linux,bash&theme=dark&perline=4"/>
+  <img src="https://skillicons.dev/icons?i=java,spring,python,php,js,react,flutter&theme=dark&perline=5"/>
+  <img src="https://skillicons.dev/icons?i=html,css,tailwind,figma,canva&theme=dark&perline=6"/>
+  <img src="https://skillicons.dev/icons?i=mysql,postgresql,git,github,linux,bash&theme=dark&perline=4"/>
   <img src="https://skillicons.dev/icons?i=arduino,raspberrypi,opencv&theme=dark&perline=3"/>
 </p>
 
