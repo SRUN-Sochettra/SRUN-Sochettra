@@ -175,4 +175,4 @@ Step 7: No idea why. Ship it anyway.  🚀
   <img src="https://img.shields.io/badge/Made_with-❤️_+_☕_in_Phnom_Penh_🇰🇭-0D1117?style=for-the-badge&logoColor=00D9FF"/>
 </p>
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=100&section=footer&text=Thanks+for+visiting!+Now+go+touch+some+grass.&fontSize=16&fontColor=fff&animation=twinkling&fontAlignY=75&font=Pacifico)
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=150&section=footer&text=Thanks+for+visiting!+Now+go+touch+some+grass.&fontSize=16&fontColor=fff&animation=twinkling&fontAlignY=75&font=Pacifico)
