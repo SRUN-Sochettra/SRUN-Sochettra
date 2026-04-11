@@ -1,178 +1,196 @@
-![Header](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=180&section=header&text=Srun%20Sochettra&fontSize=80&fontColor=fff&animation=twinkling&fontAlignY=60&desc=Second%20Year%20IT%20student%20%7C%20Full%20Stack%20Explorer%20%7C%20Professional%20Bug%20Creator&descSize=20&descColor=00D9FF&font=Pacifico&descFont=Pacifico&descAlignY=90)
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║         SRUN SOCHETTRA — CYBER-TERMINAL README.md            ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
 
-<p align="center"><img src="https://readme-typing-svg.herokuapp.com?font=Fredoka+One&size=30&pause=1500&color=00D9FF&center=true&vCenter=true&width=650&lines=Debugging+my+way+through+Java+☕;Full+Stack+Web+Developer+in+Training+🚀;Professional+NullPointerException+Hunter+🔍;Hypermobile+Fingers+%26+Ear+Wiggling+Pro+🦻;Phnom+Penh%2C+Cambodia+🇰🇭" alt="Typing"/></p>
+<div align="center">
 
-<p align="center">
-  <a href="https://www.linkedin.com/in/sochettra-srun-a67466395/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"/></a>
-  <a href="https://www.github.com/SRUN-Sochettra"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/></a>
-  <a href="https://www.facebook.com/srunsochettra"><img src="https://img.shields.io/badge/Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white"/></a>
-  <a href="mailto:srunsochettra@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white"/></a>
-  <img src="https://komarev.com/ghpvc/?username=SRUN-Sochettra&color=00D9FF&style=flat-square&label=👁️+Views"/>
-</p>
+<!-- ══════════════════════════════════════════════════════ -->
+<!--                   HERO BANNER                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+[![Header](https://capsule-render.vercel.app/api?type=waving&color=0D1117&height=220&section=header&text=Srun%20Sochettra&fontSize=56&fontColor=00D9FF&fontAlignY=38&desc=The%20Dual-Core%20Developer%20%7C%20Phnom%20Penh%2C%20Cambodia&descAlignY=58&descColor=8B949E&animation=fadeIn)](https://github.com/SrunSochettra)
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--                   STATUS BADGE                        -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+![Status](https://img.shields.io/badge/STATUS-SYSTEM%20ONLINE-00D9FF?style=flat-square&logo=statuspage&logoColor=00D9FF&labelColor=0D1117)
+
+<br/>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--               SOCIAL BADGES ROW                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+[![GitHub](https://img.shields.io/badge/GitHub-SrunSochettra-00D9FF?style=flat-square&logo=github&logoColor=00D9FF&labelColor=0D1117)](https://github.com/SrunSochettra)&nbsp;
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Srun%20Sochettra-0077B5?style=flat-square&logo=linkedin&logoColor=0077B5&labelColor=0D1117)](https://linkedin.com/in/srunsochettra)&nbsp;
+[![Email](https://img.shields.io/badge/Email-Contact%20Me-00FF88?style=flat-square&logo=gmail&logoColor=00FF88&labelColor=0D1117)](mailto:srunsochettra@gmail.com)&nbsp;
+[![Location](https://img.shields.io/badge/Location-Phnom%20Penh%2C%20KH-BD00FF?style=flat-square&logo=googlemaps&logoColor=BD00FF&labelColor=0D1117)](https://maps.google.com/?q=Phnom+Penh)
+
+<br/><br/>
+
+</div>
 
 ---
 
-## 🎯 About Me
+<!-- ══════════════════════════════════════════════════════ -->
+<!--           TWO-COLUMN BIO — THE VISUAL HOOK            -->
+<!-- ══════════════════════════════════════════════════════ -->
 
 <table>
 <tr>
 <td width="60%" valign="top">
 
-👋 Hey! I'm Sochettra — a second-year IT student from 🇰🇭 surviving on Java, caffeine, and sheer stubbornness. 
+### `> whoami`
 
-Also, they said "learn to code and the possibilities are endless."
-Bro I have 47 browser tabs open, 3 unfinished projects, and a Java assignment due in 6 hours.
-The only thing that's endless is my while(true) loop.
+```json
+{
+  "name"     : "Srun Sochettra",
+  "alias"    : "The Dual-Core Developer",
+  "year"     : 2,
+  "cores"    : [
+    "Information Technology @ NUM",
+    "English Studies @ RUPP"
+  ],
+  "location" : "Phnom Penh, Cambodia",
+  "stack"    : ["Java", "Spring Boot", "PostgreSQL", "Tailwind"],
+  "status"   : "always_building 🚀"
+}
+```
 
-I build full-stack things. Sometimes they work on the first try. *(They don't.)*
+### `> cat hustle.log`
 
-| | |
-|---|---|
-| 🧬 **Superpowers** | Hypermobile fingers + ear wiggling |
-| 🌏 **Location** | Phnom Penh, Cambodia |
-| 🐛 **Current mood** | It works but I don't know why |
-| 💬 **Ask me** | Anything — I'll probably answer 😂 |
-| ☕ **Fuel** | Coffee (IV drip preferred) |
+Compiling **two degrees simultaneously** from the streets of  
+**Phnom Penh** — because one runtime was never enough.  
 
-> *"Code is like humor. When you have to explain it, it's bad."* — Cory House
+By day I architect **Spring Boot** microservices; by night I  
+dissect grammar and discourse theory. My code is opinionated,  
+my SQL is optimized, and my deadlines are respected.  
+
+> *"Dual-booted since birth. Crashing is not an option."*
+
+**Currently:**
+- 🔭 Building full-stack apps with **Spring Boot + PostgreSQL**
+- 🎨 Crafting pixel-perfect UIs using **Tailwind CSS**
+- 📖 2nd year @ **NUM** (IT) + **RUPP** (English)
+- 🌏 Open to collabs, internships & open-source
 
 </td>
-<td width="40%" align="center" valign="top">
+<td width="40%" align="center" valign="middle">
 
-<img src="https://readme-jokes.vercel.app/api?theme=dark&hideBorder&bgColor=%230D1117&qColor=%2300D9FF&aColor=%23c9d1d9&codeColor=%23FF6B6B" width="100%"/>
+<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" 
+     alt="Developer GIF" 
+     width="100%" 
+     style="border-radius:12px;border:1px solid #00D9FF33;"/>
 
-**🚨 Dev Confessions:**
+<br/><br/>
 
-✅ I Google syntax I've written 100 times <br/>
-✅ I've blamed the compiler. It was me. <br/>
-✅ My variable names are... creative <br/>
-✅ `console.log` is my debugger <br/>
-✅ I said "5 more minutes" 3 hours ago <br/>
-✅ The docs? Never heard of her. <br/>
-<br/>
+![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=SrunSochettra.SrunSochettra&left_color=0D1117&right_color=00D9FF&left_text=visitors)
 
-![](https://img.shields.io/badge/Rubber_Duck_Debugger-Licensed-yellow?style=flat-square&logo=duck&logoColor=black)
-![](https://img.shields.io/badge/Dark_Mode-Always-0D1117?style=flat-square&logo=windows-terminal&logoColor=00D9FF)
-![](https://img.shields.io/badge/Semicolons-Sometimes-FF6B6B?style=flat-square)
-<br/>
 </td>
 </tr>
 </table>
 
 ---
 
-## 📋 The Honest Stats
+<!-- ══════════════════════════════════════════════════════ -->
+<!--                  TECH STACK GRID                      -->
+<!-- ══════════════════════════════════════════════════════ -->
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Bugs_Created-404_Not_Fixed-FF6B6B?style=for-the-badge&logo=bugatti&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Coffee_Consumed-∞_cups-brown?style=for-the-badge&logo=buymeacoffee&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Stack_Overflow_Visits-Yes-F58025?style=for-the-badge&logo=stackoverflow&logoColor=white"/>
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/Stack_Trace_Length-Very_Long-red?style=for-the-badge&logo=java&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Works_On_My_Machine-Certified-00D9FF?style=for-the-badge&logo=docker&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Sleep_Schedule-git_blame-blueviolet?style=for-the-badge&logo=github&logoColor=white"/>
-</p>
+<div align="center">
 
----
+## ⚡ Tech Stack
 
-## 🧠 My Debugging Process
+**[ Backend Core ]**
 
-```
-Step 1: It works perfectly  ✅
-Step 2: Add one small change  🤔
-Step 3: Nothing works anymore  😱
-Step 4: Google for 2 hours  🔍
-Step 5: Stack Overflow saves the day  🙏
-Step 6: Undo everything. Works again.  😶
-Step 7: No idea why. Ship it anyway.  🚀
-```
+[![My Skills](https://skillicons.dev/icons?i=java,spring,maven,hibernate&theme=dark&perline=4)](https://skillicons.dev)
 
----
+**[ Database & Persistence ]**
 
-## 🚀 Currently Leveling Up
+[![My Skills](https://skillicons.dev/icons?i=postgres,mysql&theme=dark&perline=4)](https://skillicons.dev)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Spring_Boot-Leveling_Up_⬆️-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
-  <img src="https://img.shields.io/badge/System_Design-Big_Brain_Mode-00D9FF?style=for-the-badge&logo=buffer&logoColor=white"/>
-  <img src="https://img.shields.io/badge/DSA-Daily_Grind_💀-FF6B6B?style=for-the-badge&logo=leetcode&logoColor=white"/>
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/Docker-Containing_My_Chaos-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Next.js-Building_Cool_Stuff-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Open_Source-Soon™_🤞-FF9900?style=for-the-badge&logo=github&logoColor=white"/>
-</p>
+**[ Frontend & UI ]**
+
+[![My Skills](https://skillicons.dev/icons?i=tailwind,html,css,js&theme=dark&perline=4)](https://skillicons.dev)
+
+**[ Tools & Environment ]**
+
+[![My Skills](https://skillicons.dev/icons?i=git,github,docker,linux,idea&theme=dark&perline=5)](https://skillicons.dev)
+
+</div>
 
 ---
 
-## 🛠️ Tech Stack
+<!-- ══════════════════════════════════════════════════════ -->
+<!--            TELEMETRY DASHBOARD — STATS                 -->
+<!-- ══════════════════════════════════════════════════════ -->
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=java,spring,python,php,js,react,flutter,dart&theme=dark&perline=4"/>
-  <img src="https://skillicons.dev/icons?i=html,css,tailwind&theme=dark&perline=3"/>
-  <img src="https://skillicons.dev/icons?i=mysql,postgresql,git,github,linux,bash&theme=dark&perline=3"/>
-  <img src="https://skillicons.dev/icons?i=arduino,raspberrypi&theme=dark&perline=2"/>
-  <img src="https://skillicons.dev/icons?i=vscode,idea,androidstudio,figma,notion,powershell&theme=dark&perline=3"/>
-  <img src="https://skillicons.dev/icons?i=discord,gmail,linkedin,stackoverflow&theme=dark&perline=4"/>
-</p>
+<div align="center">
 
----
+## 📡 Telemetry Dashboard
 
-## 📊 GitHub Analytics
+<img width="49%" src="https://github-readme-stats.vercel.app/api?username=SrunSochettra&show_icons=true&theme=dark&ring_color=00D9FF&title_color=00D9FF&icon_color=00D9FF&border_color=30363d&bg_color=0D1117&text_color=8B949E&hide_border=false&count_private=true" alt="GitHub Stats"/>
+<img width="49%" src="https://streak-stats.demolab.com?user=SrunSochettra&theme=dark&ring=00D9FF&fire=BD00FF&currStreakLabel=00D9FF&sideLabels=00D9FF&border=30363d&background=0D1117" alt="Streak Stats"/>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9&ring_color=00D9FF&include_all_commits=true&count_private=true" width="49%"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&theme=dark&hide_border=true&background=0D1117&stroke=30363d&ring=00D9FF&fire=FF6B6B&currStreakNum=c9d1d9&sideNums=c9d1d9" width="49%"/>
-</p>
+<br/><br/>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=donut&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="35%"/>
-  <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=dark&no-frame=true&no-bg=true&margin-w=4&row=1&column=6" width="63%"/>
-</p>
+<img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SrunSochettra&layout=compact&theme=dark&title_color=00D9FF&border_color=30363d&bg_color=0D1117&text_color=8B949E&hide_border=false" alt="Top Languages"/>
+<img width="49%" src="https://github-readme-activity-graph.vercel.app/graph?username=SrunSochettra&theme=react-dark&bg_color=0D1117&color=00D9FF&line=00D9FF&point=BD00FF&area=true&hide_border=true" alt="Activity Graph"/>
+
+</div>
 
 ---
 
-## 🐍 Snake Eating My Commits *(nom nom)*
+<!-- ══════════════════════════════════════════════════════ -->
+<!--         ACHIEVEMENTS & TROPHIES                        -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<div align="center">
+
+## 🏆 Trophies
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=SrunSochettra&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&column=7&title_color=00D9FF)](https://github.com/ryo-ma/github-profile-trophy)
+
+</div>
+
+---
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--      GRAND FINALE — CONTRIBUTION SNAKE                 -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<div align="center">
+
+## 🐍 Commit History
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake-dark.svg"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake-light.svg"/>
-  <img alt="github-snake" src="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake.svg" width="100%"/>
+  <source 
+    media="(prefers-color-scheme: dark)" 
+    srcset="https://raw.githubusercontent.com/SrunSochettra/SrunSochettra/output/github-snake-dark.svg"
+  />
+  <source 
+    media="(prefers-color-scheme: light)" 
+    srcset="https://raw.githubusercontent.com/SrunSochettra/SrunSochettra/output/github-snake.svg"
+  />
+  <img 
+    alt="github contribution snake animation" 
+    src="https://raw.githubusercontent.com/SrunSochettra/SrunSochettra/output/github-snake-dark.svg"
+    width="100%"
+  />
 </picture>
 
-<p align="center"><img src="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&bg_color=0D1117&color=c9d1d9&line=00D9FF&point=00D9FF&area=true&hide_border=true&custom_title=When+Did+I+Actually+Commit+Though%3F" width="100%"/></p>
+</div>
 
 ---
 
-## 🐱 My Emotional Support Octocats & ⏱️ Coding Stats & 📺 YouTube
+<!-- ══════════════════════════════════════════════════════ -->
+<!--                    FOOTER WAVE                         -->
+<!-- ══════════════════════════════════════════════════════ -->
 
-<table>
-<tr>
-<td width="50%" align="center" valign="top">
+<div align="center">
 
-<img src="https://octodex.github.com/images/nyantocat.gif" width="80" title="The one who vibes"/>
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="80" title="The DJ"/>
-<img src="https://octodex.github.com/images/daftpunktocat-guy.gif" width="80" title="Also the DJ"/>
+[![Footer](https://capsule-render.vercel.app/api?type=waving&color=0D1117&height=100&section=footer&fontColor=00D9FF)](https://github.com/SrunSochettra)
 
-<img src="https://github-readme-stats.vercel.app/api/wakatime?username=srunsochettra&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9" width="100%"/>
+*`</ sochettra>` — Built from Phnom Penh, Cambodia 🇰🇭 · Dual-booted, never crashing.*
 
-<img src="https://octodex.github.com/images/carlostocat.gif" width="80" title="The cool one"/>
-<img src="https://octodex.github.com/images/grinchtocat.gif" width="80" title="Me before coffee"/>
-<img src="https://octodex.github.com/images/maxtocat.gif" width="80" title="Me after fixing the bug"/>
-
-</td>
-<td width="50%" align="center" valign="middle">
-
-<a href="https://www.youtube.com/@ស្រ៊ុនសុចិត្រា"><img src="https://youtube-stats-card.vercel.app/api?channelid=UCVrb7Smv71TOgCBLn8GmJZg&layout=extruded&theme=dark" width="100%"/></a>
-
-</td>
-</tr>
-</table>
-
----
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Made_with-❤️_+_☕_in_Phnom_Penh_🇰🇭-0D1117?style=for-the-badge&logoColor=00D9FF"/>
-</p>
-
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,50:0099CC,100:0D1117&height=150&section=footer&text=Thanks+for+visiting!+Now+go+touch+some+grass.&fontSize=16&fontColor=fff&animation=twinkling&fontAlignY=75&font=Pacifico)
+</div>
