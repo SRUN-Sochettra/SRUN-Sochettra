@@ -2,7 +2,7 @@
 
 ![Header](https://capsule-render.vercel.app/api?type=venom&color=0:00D9FF,100:0D1117&height=200&text=SRUN%20SOCHETTRA&fontSize=70&fontColor=FFFFFF&animation=twinkling&stroke=00D9FF&strokeWidth=1)
 
-<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=Full+Stack+Developer+%7C+AI+Integrator;Flutter+%7C+Spring+Boot+%7C+React+%7C+IoT+Builder" alt="Typing SVG"/>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=Full+Stack+Developer+%7C+AI+Integrator;Flutter+%7C+Spring+Boot+%7C+React+%7C+IoT+Builder" alt="Typing SVG"/>
 
 <br/>
 
@@ -44,32 +44,32 @@ const sochettra = {
 
 <div align="center">
 
-<a href="https://github.com/SRUN-Sochettra/test-next">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=test-next&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
+<a href="https://github.com/SRUN-Sochettra/Enterprise-AI-Manager">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Enterprise-AI-Manager&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
 </a>
 <a href="https://github.com/SRUN-Sochettra/Portfolio">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Portfolio&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Portfolio&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
 </a>
 
 <a href="https://github.com/SRUN-Sochettra/Disconime">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Disconime&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Disconime&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
 </a>
-<a href="https://github.com/SRUN-Sochettra/Pico-RFID-Access-Control">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Pico-RFID-Access-Control&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
+<a href="https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=RPI---RFID-Access-Control-System&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
 </a>
 
-<a href="https://github.com/SRUN-Sochettra/API-Blog">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=API-Blog&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
+<a href="https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Spring-Boot---API-Blog&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
 </a>
-<a href="https://github.com/SRUN-Sochettra/FileUpload-SpringBoot">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=FileUpload-SpringBoot&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
+<a href="https://github.com/SRUN-Sochettra/Spring-Boot---File-Upload">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Spring-Boot---File-Upload&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
 </a>
 
 </div>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
-## <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="30"> Tech Stack
+## <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="30"> Tech Stack
 
 <div align="center">
 
@@ -128,16 +128,17 @@ const sochettra = {
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9&include_all_commits=true&count_private=true" width="49%"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&theme=dark&hide_border=true&background=0D1117&ring=00D9FF&fire=FF6B6B&currStreakNum=FFFFFF&sideNums=00D9FF&dates=c9d1d9" width="49%"/>
+<img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9&include_all_commits=true&count_private=true" width="49%"/>
+<img src="https://streak-stats.demolab.com?user=SRUN-Sochettra&theme=tokyonight&hide_border=true&background=0D1117&ring=00D9FF&fire=FF6B6B&currStreakNum=FFFFFF&sideNums=00D9FF&dates=c9d1d9" width="49%"/>
 
-<br/>
+<br/><br/>
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=donut-vertical&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9&langs_count=8" width="35%"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9&langs_count=10" width="49%"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=SRUN-Sochettra&theme=tokyonight&utcOffset=7" width="49%"/>
 
-<br/>
+<br/><br/>
 
-<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=darkhub&no-frame=true&no-bg=true&margin-w=10&row=1&column=7" width="90%"/>
+<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=tokyonight&no-frame=true&no-bg=true&margin-w=10&row=1&column=7" width="98%"/>
 
 </div>
 
@@ -149,12 +150,12 @@ const sochettra = {
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&bg_color=0D1117&color=00D9FF&line=00D9FF&point=FFFFFF&area=true&area_color=00D9FF&hide_border=true" width="98%"/>
 
-<br/>
+<br/><br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake-dark.svg"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake-light.svg"/>
-  <img alt="Snake" src="https://github.com/SRUN-Sochettra/SRUN-Sochettra/blob/output/github-contribution-grid-snake.svg" width="100%"/>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/output/github-contribution-grid-snake-dark.svg"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/output/github-contribution-grid-snake.svg"/>
+  <img alt="Snake" src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/output/github-contribution-grid-snake.svg" width="100%"/>
 </picture>
 
 </div>
@@ -163,21 +164,13 @@ const sochettra = {
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api/wakatime?username=srunsochettra&theme=dark&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9&layout=compact" width="55%"/>
+<a href="https://www.youtube.com/@ស្រ៊ុនសុចិត្រា">
+  <img src="https://youtube-stats-card.vercel.app/api?channelid=UCVrb7Smv71TOgCBLn8GmJZg&layout=extruded&theme=dark" width="55%"/>
+</a>
 
 <br/><br/>
 
-<a href="https://www.youtube.com/@ស្រ៊ុនសុចិត្រា">
-  <img src="https://youtube-stats-card.vercel.app/api?channelid=UCVrb7Smv71TOgCBLn8GmJZg&layout=extruded&theme=dark" width="50%"/>
-</a>
-
-</div>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
-
-<div align="center">
-
-<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" width="70%"/>
+<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" width="70%"/>
 
 <br/><br/>
 
