@@ -42,30 +42,62 @@ const sochettra = {
 
 ## <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30"> Featured Projects
 
-<div align="center">
+<table>
+<tr>
+<td width="50%" valign="top">
 
-<a href="https://github.com/SRUN-Sochettra/Enterprise-AI-Manager">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Enterprise-AI-Manager&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
-</a>
-<a href="https://github.com/SRUN-Sochettra/Portfolio">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Portfolio&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
-</a>
+### 🤖 [Enterprise AI Manager](https://github.com/SRUN-Sochettra/Enterprise-AI-Manager)
+> AI-powered management platform with Gemini 2.5, sentiment analysis via DistilBERT, vision scanning, and multilingual translation.
 
-<a href="https://github.com/SRUN-Sochettra/Disconime">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Disconime&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
-</a>
-<a href="https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=RPI---RFID-Access-Control-System&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
-</a>
+`Next.js 16` `React 19` `Spring Boot` `Gemini 2.5` `Tailwind v4`
 
-<a href="https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Spring-Boot---API-Blog&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
-</a>
-<a href="https://github.com/SRUN-Sochettra/Spring-Boot---File-Upload">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&repo=Spring-Boot---File-Upload&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9" width="49%"/>
-</a>
+</td>
+<td width="50%" valign="top">
 
-</div>
+### 🌐 [Full Stack Portfolio](https://github.com/SRUN-Sochettra/Portfolio)
+> Glassmorphism portfolio with REST API, Swagger docs, Neon DB, GitHub Actions CI/CD, deployed to Vercel + Render.
+
+`React 19` `Spring Boot 3.2` `PostgreSQL` `Docker` `GitHub Actions`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 📱 [Disconime](https://github.com/SRUN-Sochettra/Disconime)
+> Anime discovery app with seasonal browser, weekly schedule, character profiles, offline caching, and dark/light themes.
+
+`Flutter` `Dart` `Jikan API` `Provider` `GoRouter`
+
+</td>
+<td width="50%" valign="top">
+
+### 🔐 [RFID Access Control](https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System)
+> Hardware door system with RFID auth, OLED display, servo lock, RGB+buzzer feedback, and admin card enrollment.
+
+`MicroPython` `Pi Pico` `MFRC522` `OLED` `Servo`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 📝 [API Blog + IPFS](https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog)
+> Secure blog REST API with JWT auth, BCrypt, global logout via token versioning, and Pinata IPFS image storage.
+
+`Spring Boot` `JWT` `MyBatis` `Pinata IPFS` `PostgreSQL`
+
+</td>
+<td width="50%" valign="top">
+
+### 📦 [File Upload Service](https://github.com/SRUN-Sochettra/Spring-Boot---File-Upload)
+> Dual-mode file API with local filesystem (v1) and S3-compatible RustFS storage (v2) via Docker Compose.
+
+`Spring Boot` `AWS S3 SDK` `RustFS` `Docker`
+
+</td>
+</tr>
+</table>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
@@ -128,17 +160,21 @@ const sochettra = {
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=c9d1d9&include_all_commits=true&count_private=true" width="49%"/>
-<img src="https://streak-stats.demolab.com?user=SRUN-Sochettra&theme=tokyonight&hide_border=true&background=0D1117&ring=00D9FF&fire=FF6B6B&currStreakNum=FFFFFF&sideNums=00D9FF&dates=c9d1d9" width="49%"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=SRUN-Sochettra&theme=tokyonight" width="98%"/>
 
 <br/><br/>
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=c9d1d9&langs_count=10" width="49%"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=SRUN-Sochettra&theme=tokyonight" width="49%"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=SRUN-Sochettra&theme=tokyonight" width="49%"/>
+
+<br/><br/>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=SRUN-Sochettra&theme=tokyonight" width="49%"/>
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=SRUN-Sochettra&theme=tokyonight&utcOffset=7" width="49%"/>
 
 <br/><br/>
 
-<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=tokyonight&no-frame=true&no-bg=true&margin-w=10&row=1&column=7" width="98%"/>
+<img src="https://streak-stats.demolab.com?user=SRUN-Sochettra&theme=tokyonight&hide_border=true&background=0D1117&ring=00D9FF&fire=FF6B6B&currStreakNum=FFFFFF&sideNums=00D9FF&dates=c9d1d9" width="60%"/>
 
 </div>
 
@@ -163,12 +199,6 @@ const sochettra = {
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 <div align="center">
-
-<a href="https://www.youtube.com/@ស្រ៊ុនសុចិត្រា">
-  <img src="https://youtube-stats-card.vercel.app/api?channelid=UCVrb7Smv71TOgCBLn8GmJZg&layout=extruded&theme=dark" width="55%"/>
-</a>
-
-<br/><br/>
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" width="70%"/>
 
