@@ -212,7 +212,7 @@ const sochettra = {
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" width="70%"/>
 
-</br>
+<br/>
 
 ![Made in Cambodia](https://img.shields.io/badge/Made_in-Phnom_Penh_🇰🇭-00D9FF?style=for-the-badge)
 ![Powered by](https://img.shields.io/badge/Powered_by-☕_Coffee-6F4E37?style=for-the-badge)
