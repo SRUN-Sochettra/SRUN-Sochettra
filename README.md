@@ -180,6 +180,16 @@ const sochettra = {
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
+## <img src="https://media.giphy.com/media/QLcCBdBemDIqpbK6jA/giphy.gif" width="30"> Trophy Cabinet
+
+<div align="center">
+
+<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&theme=darkhub&no-frame=true&no-bg=true&margin-w=15&margin-h=15&column=4&row=2&rank=SECRET,SSS,SS,S,AAA,AA,A,B,C" width="95%"/>
+
+</div>
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
 ## <img src="https://media.giphy.com/media/cIn5fTcjnKhStIeAef/giphy.gif" width="30"> Activity
 
 <div align="center">
@@ -201,8 +211,6 @@ const sochettra = {
 <div align="center">
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" width="70%"/>
-
-<br/><br/>
 
 ![Made in Cambodia](https://img.shields.io/badge/Made_in-Phnom_Penh_🇰🇭-00D9FF?style=for-the-badge)
 ![Powered by](https://img.shields.io/badge/Powered_by-☕_Coffee-6F4E37?style=for-the-badge)
