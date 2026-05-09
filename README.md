@@ -94,7 +94,7 @@ const sochettra = {
 ### 🚀 [HyperspaceOS](https://github.com/SRUN-Sochettra/HyperspaceOS.git)
 > High-performance, aesthetically premium, web-based operating system built with Vanilla JavaScript and Canvas.
 
-`Spring Boot` `AWS S3 SDK` `RustFS` `Docker`
+`Vanilla JS` `Three.js` `CodeMirror 6` `Vite` `LocalStorage`
 
 </td>
 
