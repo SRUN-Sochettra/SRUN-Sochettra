@@ -70,14 +70,7 @@ const sochettra = {
 `Flutter` `Dart` `Jikan API` `Provider` `GoRouter`
 
 </td>
-<td width="50%" valign="top">
 
-### 🚀 [HyperspaceOS](https://github.com/SRUN-Sochettra/HyperspaceOS.git)
-> High-performance, aesthetically premium, web-based operating system built with Vanilla JavaScript and Canvas.
-
-`Spring Boot` `AWS S3 SDK` `RustFS` `Docker`
-
-</td>
 <td width="50%" valign="top">
 
 ### 🔐 [RFID Access Control](https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System)
@@ -94,6 +87,14 @@ const sochettra = {
 > Secure blog REST API with JWT auth, BCrypt, global logout via token versioning, and Pinata IPFS image storage.
 
 `Spring Boot` `JWT` `MyBatis` `Pinata IPFS` `PostgreSQL`
+
+</td>
+<td width="50%" valign="top">
+
+### 🚀 [HyperspaceOS](https://github.com/SRUN-Sochettra/HyperspaceOS.git)
+> High-performance, aesthetically premium, web-based operating system built with Vanilla JavaScript and Canvas.
+
+`Spring Boot` `AWS S3 SDK` `RustFS` `Docker`
 
 </td>
 
