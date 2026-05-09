@@ -90,7 +90,7 @@ const sochettra = {
 </td>
 <td width="50%" valign="top">
 
-### 📦 [File Upload Service](https://github.com/SRUN-Sochettra/Spring-Boot---File-Upload)
+### 🚀 [HyperspaceOS](https://github.com/SRUN-Sochettra/HyperspaceOS.git)
 > Dual-mode file API with local filesystem (v1) and S3-compatible RustFS storage (v2) via Docker Compose.
 
 `Spring Boot` `AWS S3 SDK` `RustFS` `Docker`
