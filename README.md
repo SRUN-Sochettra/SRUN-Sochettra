@@ -72,6 +72,14 @@ const sochettra = {
 </td>
 <td width="50%" valign="top">
 
+### 🚀 [HyperspaceOS](https://github.com/SRUN-Sochettra/HyperspaceOS.git)
+> High-performance, aesthetically premium, web-based operating system built with Vanilla JavaScript and Canvas.
+
+`Spring Boot` `AWS S3 SDK` `RustFS` `Docker`
+
+</td>
+<td width="50%" valign="top">
+
 ### 🔐 [RFID Access Control](https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System)
 > Hardware door system with RFID auth, OLED display, servo lock, RGB+buzzer feedback, and admin card enrollment.
 
@@ -88,14 +96,7 @@ const sochettra = {
 `Spring Boot` `JWT` `MyBatis` `Pinata IPFS` `PostgreSQL`
 
 </td>
-<td width="50%" valign="top">
 
-### 🚀 [HyperspaceOS](https://github.com/SRUN-Sochettra/HyperspaceOS.git)
-> Dual-mode file API with local filesystem (v1) and S3-compatible RustFS storage (v2) via Docker Compose.
-
-`Spring Boot` `AWS S3 SDK` `RustFS` `Docker`
-
-</td>
 </tr>
 </table>
 
