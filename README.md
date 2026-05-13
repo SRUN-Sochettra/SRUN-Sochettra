@@ -30,7 +30,7 @@ const sochettra = {
     languages:   ["Java", "Python", "TypeScript", "Dart", "C++", "PHP"],
     backend:     ["Spring Boot", "Spring Security", "JWT", "MyBatis", "REST APIs"],
     frontend:    ["React 19", "Next.js 16", "Flutter", "Tailwind CSS v4"],
-    databases:   ["PostgreSQL", "MySQL", "Neon Serverless"],
+    databases:   ["PostgreSQL", "MySQL", "Neon Serverless", "Prisma ORM"],
     devops:      ["Docker", "AWS S3", "GitHub Actions", "Vercel", "Render"],
     ai:          ["Gemini 2.5", "Hugging Face", "DistilBERT", "Google Vision"],
     hardware:    ["Raspberry Pi Pico", "Arduino", "RFID", "Bluetooth HC-05"],
@@ -46,8 +46,26 @@ const sochettra = {
 <tr>
 <td width="50%" valign="top">
 
+### 🌌 [HyperSpace OS v2.0](https://github.com/SRUN-Sochettra/HyperSpaceOS)
+> Web-based operating system with virtual file system, multi-window manager, glassmorphism UI, Three.js graphics, and 8+ built-in apps including a CodeMirror editor and AI assistant.
+
+`Vanilla JS` `Three.js` `CodeMirror 6` `Vite` `Canvas API`
+
+</td>
+<td width="50%" valign="top">
+
+### 🏦 [Khmer Banking](https://github.com/SRUN-Sochettra/Khmer-Banking)
+> Premium full-stack banking app with Bakong KHQR integration, secure transfers, OTP verification, PDF statement generation, and real-time spending analytics. Built for the Cambodian fintech market.
+
+`Next.js 15` `Prisma` `Neon DB` `NextAuth v5` `Resend`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
 ### 🤖 [Enterprise AI Manager](https://github.com/SRUN-Sochettra/Enterprise-AI-Manager)
-> AI-powered management platform with Gemini 2.5, sentiment analysis via DistilBERT, vision scanning, and multilingual translation.
+> AI-powered management platform with Gemini 2.5, sentiment analysis via DistilBERT, vision scanning, and multilingual translation across 8+ languages.
 
 `Next.js 16` `React 19` `Spring Boot` `Gemini 2.5` `Tailwind v4`
 
@@ -65,12 +83,11 @@ const sochettra = {
 <td width="50%" valign="top">
 
 ### 📱 [Disconime](https://github.com/SRUN-Sochettra/Disconime)
-> Anime discovery app with seasonal browser, weekly schedule, character profiles, offline caching, and dark/light themes.
+> Anime discovery mobile app with seasonal browser, weekly schedule, character profiles, offline caching, and dark/light themes.
 
 `Flutter` `Dart` `Jikan API` `Provider` `GoRouter`
 
 </td>
-
 <td width="50%" valign="top">
 
 ### 🔐 [RFID Access Control](https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System)
@@ -91,13 +108,12 @@ const sochettra = {
 </td>
 <td width="50%" valign="top">
 
-### 🚀 [HyperspaceOS](https://github.com/SRUN-Sochettra/HyperspaceOS.git)
-> High-performance, aesthetically premium, web-based operating system built with Vanilla JavaScript and Canvas.
+### 📦 [File Upload Service](https://github.com/SRUN-Sochettra/Spring-Boot---File-Upload)
+> Dual-mode file API with local filesystem (v1) and S3-compatible RustFS storage (v2) via Docker Compose.
 
-`Vanilla JS` `Three.js` `CodeMirror 6` `Vite` `LocalStorage`
+`Spring Boot` `AWS S3 SDK` `RustFS` `Docker`
 
 </td>
-
 </tr>
 </table>
 
@@ -120,6 +136,8 @@ const sochettra = {
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![NextAuth](https://img.shields.io/badge/NextAuth-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 
 ### Frontend & Mobile
@@ -127,11 +145,13 @@ const sochettra = {
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Framer-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
 ### Database & Cloud
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Neon](https://img.shields.io/badge/Neon_DB-00E5FF?style=for-the-badge&logo=neon&logoColor=black)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![AWS S3](https://img.shields.io/badge/AWS_S3-FF9900?style=for-the-badge&logo=amazons3&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
@@ -212,7 +232,15 @@ const sochettra = {
 
 <div align="center">
 
+<a href="https://www.youtube.com/@ស្រ៊ុនសុចិត្រា">
+  <img src="https://youtube-stats-card.vercel.app/api?channelid=UCVrb7Smv71TOgCBLn8GmJZg&layout=extruded&theme=dark" width="55%"/>
+</a>
+
+<br/><br/>
+
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" width="70%"/>
+
+<br/><br/>
 
 ![Made in Cambodia](https://img.shields.io/badge/Made_in-Phnom_Penh_🇰🇭-00D9FF?style=for-the-badge)
 ![Powered by](https://img.shields.io/badge/Powered_by-☕_Coffee-6F4E37?style=for-the-badge)
