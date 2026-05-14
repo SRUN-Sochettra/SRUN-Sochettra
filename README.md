@@ -25,13 +25,13 @@
 const sochettra = {
     location:    "Phnom Penh, Cambodia 🇰🇭",
     university:  "National University of Management — Y2 IT",
-    roles:       ["Full Stack Dev", "Mobile Dev", "AI Tinkerer", "Hardware Hacker"],
+    roles:       ["Full Stack Dev", "AI Engineer", "Mobile Dev", "Hardware Hacker"],
     languages:   ["Java", "Python", "TypeScript", "Dart", "C++", "PHP"],
     backend:     ["Spring Boot", "Spring Security", "JWT", "MyBatis", "REST APIs"],
     frontend:    ["React 19", "Next.js 16", "Flutter", "Tailwind CSS v4"],
-    databases:   ["PostgreSQL", "MySQL", "Neon Serverless", "Prisma ORM"],
+    databases:   ["PostgreSQL", "Supabase", "Neon", "pgvector", "Prisma ORM"],
     devops:      ["Docker", "AWS S3", "GitHub Actions", "Vercel", "Render"],
-    ai:          ["Gemini 2.5", "Hugging Face", "DistilBERT", "Google Vision"],
+    ai:          ["Gemini 3.1", "LangChain.js", "RAG", "Hugging Face", "DistilBERT"],
     hardware:    ["Raspberry Pi Pico", "Arduino", "RFID", "Bluetooth HC-05"],
     funFact:     "I have hypermobile fingers and can wiggle my ears 🦻"
 };
@@ -45,12 +45,22 @@ const sochettra = {
 <tr>
 <td width="50%" valign="top">
 
+### 🧠 [Research AI](https://github.com/SRUN-Sochettra/Research-AI)
+> Autonomous AI agents that read PDFs, generate summaries, and answer questions with citations. Features RAG pipeline, pgvector semantic search, streaming SSE responses, and multi-model fallback chain.
+
+`Next.js 16` `LangChain.js` `Gemini 3.1` `Supabase pgvector` `RAG`
+
+</td>
+<td width="50%" valign="top">
+
 ### 🌌 [HyperSpace OS v2.0](https://github.com/SRUN-Sochettra/HyperSpaceOS)
 > Web-based operating system with virtual file system, multi-window manager, glassmorphism UI, Three.js graphics, and 8+ built-in apps including a CodeMirror editor and AI assistant.
 
 `Vanilla JS` `Three.js` `CodeMirror 6` `Vite` `Canvas API`
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### 🏦 [Khmer Banking](https://github.com/SRUN-Sochettra/Khmer-Banking)
@@ -59,8 +69,6 @@ const sochettra = {
 `Next.js 15` `Prisma` `Neon DB` `NextAuth v5` `Resend`
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### 🤖 [Enterprise AI Manager](https://github.com/SRUN-Sochettra/Enterprise-AI-Manager)
@@ -69,6 +77,8 @@ const sochettra = {
 `Next.js 16` `React 19` `Spring Boot` `Gemini 2.5` `Tailwind v4`
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### 🌐 [Full Stack Portfolio](https://github.com/SRUN-Sochettra/Portfolio)
@@ -77,8 +87,6 @@ const sochettra = {
 `React 19` `Spring Boot 3.2` `PostgreSQL` `Docker` `GitHub Actions`
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### 📱 [Disconime](https://github.com/SRUN-Sochettra/Disconime)
@@ -87,6 +95,8 @@ const sochettra = {
 `Flutter` `Dart` `Jikan API` `Provider` `GoRouter`
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### 🔐 [RFID Access Control](https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System)
@@ -95,22 +105,12 @@ const sochettra = {
 `MicroPython` `Pi Pico` `MFRC522` `OLED` `Servo`
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### 📝 [API Blog + IPFS](https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog)
 > Secure blog REST API with JWT auth, BCrypt, global logout via token versioning, and Pinata IPFS image storage.
 
 `Spring Boot` `JWT` `MyBatis` `Pinata IPFS` `PostgreSQL`
-
-</td>
-<td width="50%" valign="top">
-
-### 📦 [File Upload Service](https://github.com/SRUN-Sochettra/Spring-Boot---File-Upload)
-> Dual-mode file API with local filesystem (v1) and S3-compatible RustFS storage (v2) via Docker Compose.
-
-`Spring Boot` `AWS S3 SDK` `RustFS` `Docker`
 
 </td>
 </tr>
@@ -138,6 +138,8 @@ const sochettra = {
 ![NextAuth](https://img.shields.io/badge/NextAuth-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
 ### Frontend & Mobile
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -158,6 +160,8 @@ const sochettra = {
 ### AI & ML
 ![Gemini](https://img.shields.io/badge/Gemini_2.5-4285F4?style=for-the-badge&logo=google&logoColor=white)
 ![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![RAG](https://img.shields.io/badge/RAG-Pipeline-FF6B6B?style=for-the-badge)
+![pgvector](https://img.shields.io/badge/pgvector-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ### Hardware
 ![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
