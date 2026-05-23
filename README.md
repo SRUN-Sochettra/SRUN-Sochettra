@@ -111,21 +111,6 @@ Gemini API · Hugging Face · RAG Pipelines · DistilBERT
 **Hardware**  
 Raspberry Pi Pico · Arduino · RFID · Bluetooth HC-05
 
----
-
-## GitHub Stats
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" width="48%"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&theme=tokyonight&hide_border=true" width="48%"/>
-
-<img src="https://streak-stats.demolab.com?user=SRUN-Sochettra&theme=tokyonight&hide_border=true" width="60%"/>
-
-</div>
-
----
-
 <div align="center">
 
 **Open to internship opportunities · Phnom Penh, Cambodia 🇰🇭**  
