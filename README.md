@@ -113,7 +113,7 @@ Raspberry Pi Pico · Arduino · RFID · Bluetooth HC-05
 
 <div align="center">
 
-**Open to internship opportunities · Phnom Penh, Cambodia 🇰🇭**  
-srunsochettra@gmail.com
+Built by [Srun Sochettra](https://github.com/SRUN-Sochettra)  
+Y2 IT student · Phnom Penh, Cambodia 🇰🇭
 
 </div>
