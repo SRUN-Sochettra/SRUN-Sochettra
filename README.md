@@ -1,23 +1,20 @@
+> "People die when they are killed."
+>
+> — Shirou Emiya, *Fate/Stay Night*
+
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=be23f087">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg?v=945b4ccc">
-  <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=be23f087" alt="Banner" width=100%>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=18604080">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg?v=6b966bca">
+  <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=18604080" alt="Banner" width="100%">
 </picture>
-
-</div>
-
-I build practical software systems **for Cambodia** — fintech that handles KHQR and Bakong, AI tools that speak Khmer, and the backend infrastructure that keeps them reliable at scale.
-
-Backend-leaning full-stack. Phnom Penh-based. I care about clean code, real-world impact, and software that works when it matters.
-
-<div align="center">
 
 <a href="https://www.linkedin.com/in/sochettra-srun-a67466395/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
 <a href="mailto:srunsochettra@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Gmail"></a>
 <a href="https://github.com/SRUN-Sochettra"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
-<img src="https://komarev.com/ghpvc/?username=SRUN-Sochettra&style=flat-square&color=6366f1" alt="Profile views">
+<a href="https://anilist.co/user/scarletsages"><img src="https://img.shields.io/badge/AniList-02A9FF?style=flat-square&logo=anilist&logoColor=white" alt="AniList"></a>
+<img src="https://komarev.com/ghpvc/?username=SRUN-Sochettra&style=flat-square&color=f59e0b" alt="Profile views">
 
 </div>
 
@@ -30,8 +27,38 @@ Backend-leaning full-stack. Phnom Penh-based. I care about clean code, real-worl
 - **Research AI** — Switched from Pinecone to pgvector, cut hosting costs ~80%
 
 <sub>Updated weekly. Last bump: <!--START:TIMESTAMP-->
-2026-06-28 10:34 UTC
+2026-06-28 12:09 UTC
 <!--END:TIMESTAMP--></sub>
+
+---
+
+## 🎌 Anime I Love
+
+<div align="center">
+
+<!--START:ANIME-->
+<table>
+  <tr>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/21769"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21769-ZBoT6szJKGZv.jpg" width="140" alt="SNAFU"/></a><br/><sub><b>SNAFU</b></sub></td>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/101291"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx101291-wfEdgPqtfU0l.jpg" width="140" alt="Bunny Girl Senpai"/></a><br/><sub><b>Bunny Girl Senpai</b></sub></td>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/19469"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/19469.jpg" width="140" alt="Saiki K."/></a><br/><sub><b>Saiki K.</b></sub></td>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/16498"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx16498-buvcRTBx4NSm.jpg" width="140" alt="Attack on Titan"/></a><br/><sub><b>Attack on Titan</b></sub></td>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/21382"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21382-bBJghvjTP8Dr.jpg" width="140" alt="Rewrite"/></a><br/><sub><b>Rewrite</b></sub></td>
+  </tr>
+</table>
+<!--END:ANIME-->
+
+<sub>Auto-fetched covers via <a href="https://anilist.co">AniList</a>. Full list on my <a href="https://anilist.co/user/scarletsages">AniList profile</a>.</sub>
+
+</div>
+
+---
+
+## 🎮 Currently Playing
+
+- **Magic Chess: Go Go** — Mobile Legends' auto-chess spinoff. The grind is real.
+- **eFootball** — Konami's free-to-play. Pulled me away from FIFA, no regrets.
+- **Football Manager** — Tactics, transfers, and "just one more match" sessions until 3AM.
 
 ---
 
@@ -137,23 +164,18 @@ Embedded access-control system using RFID cards, OLED status display, servo lock
 
 ---
 
-## 🧠 How I Work
+## 📈 Stats
 
-I don't chase frameworks. I solve real problems for real people.
+<div align="center">
 
-**What I optimize for**
-- Software that ships and survives — not demos that win likes
-- Backend logic that's boring on purpose (boring = reliable)
-- AI features that ground in real data, not vibes
-- Fintech flows that handle edge cases before they hit production
-- Code other people can read at 2AM during an incident
+<img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&hide_border=true&theme=transparent&include_all_commits=true&count_private=true&rank_icon=github" alt="GitHub Stats" height="160">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&hide_border=true&theme=transparent" alt="Streak" height="160">
 
-**What I avoid**
-- Over-engineered architecture for problems that don't exist yet
-- AI features bolted onto products to look modern
-- Stack hype cycles — I pick tools that fit, not tools that trend
+<br>
 
-If it ships, is secure, and makes someone's day better — it's a win.
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&hide_border=true&theme=transparent&langs_count=8" alt="Top Languages">
+
+</div>
 
 ---
 
@@ -213,21 +235,6 @@ If it ships, is secure, and makes someone's day better — it's a win.
 - **Arduino RC Car** — Bluetooth-controlled 2WD RC car firmware using HC-05/HC-06 and motor driver logic
 
 </details>
-
----
-
-## 📈 Stats
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&hide_border=true&theme=transparent&include_all_commits=true&count_private=true&rank_icon=github" alt="GitHub Stats" height="160">
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&hide_border=true&theme=transparent" alt="Streak" height="160">
-
-<br>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&hide_border=true&theme=transparent&langs_count=8" alt="Top Languages">
-
-</div>
 
 ---
 
