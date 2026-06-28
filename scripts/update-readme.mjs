@@ -6,6 +6,7 @@ const USER = "SRUN-Sochettra";
 const TEMPLATE = "README.template.md";
 const OUTPUT = "README.md";
 
+// Repos already curated in "Selected Projects" — skip in the dynamic list
 const PINNED = new Set([
   "EggScan",
   "Research-AI",
@@ -15,7 +16,27 @@ const PINNED = new Set([
   "RPI---RFID-Access-Control-System",
 ]);
 
+// Top 5 anime — display name + AniList search term
+const ANIME_LIST = [
+  { name: "SNAFU",             search: "Yahari Ore no Seishun Love Comedy wa Machigatteiru" },
+  { name: "Bunny Girl Senpai", search: "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai" },
+  { name: "Saiki K.",          search: "Saiki Kusuo no Psi-nan" },
+  { name: "Attack on Titan",   search: "Shingeki no Kyojin" },
+  { name: "Rewrite",           search: "Rewrite" },
+];
+
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
+
+// ------------------------------------------------------------------
+// Helpers
+// ------------------------------------------------------------------
+function escAttr(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
 
 function replaceBlock(md, key, content) {
   const re = new RegExp(`(<!--START:${key}-->)[\\s\\S]*?(<!--END:${key}-->)`);
@@ -40,6 +61,55 @@ async function hashFile(filepath) {
   }
 }
 
+// ------------------------------------------------------------------
+// Anime covers (AniList)
+// ------------------------------------------------------------------
+async function getAnimeCover(searchTerm) {
+  try {
+    const res = await fetch("https://graphql.anilist.co", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        query: `query ($search: String) {
+          Media(search: $search, type: ANIME) {
+            title { english romaji }
+            coverImage { large medium }
+            siteUrl
+          }
+        }`,
+        variables: { search: searchTerm },
+      }),
+    });
+    if (!res.ok) return null;
+    const j = await res.json();
+    const m = j.data?.Media;
+    if (!m) return null;
+    return {
+      title: m.title.english || m.title.romaji,
+      cover: m.coverImage.large || m.coverImage.medium,
+      url: m.siteUrl,
+    };
+  } catch (err) {
+    console.warn(`anime search failed for "${searchTerm}":`, err.message);
+    return null;
+  }
+}
+
+async function getFavoriteAnimeTable() {
+  const results = await Promise.all(ANIME_LIST.map((a) => getAnimeCover(a.search)));
+  const cells = ANIME_LIST.map((a, i) => {
+    const r = results[i];
+    if (!r) {
+      return `<td align="center" width="20%"><sub><b>${escAttr(a.name)}</b></sub></td>`;
+    }
+    return `<td align="center" width="20%"><a href="${escAttr(r.url)}"><img src="${escAttr(r.cover)}" width="140" alt="${escAttr(a.name)}"/></a><br/><sub><b>${escAttr(a.name)}</b></sub></td>`;
+  });
+  return `<table>\n  <tr>\n    ${cells.join("\n    ")}\n  </tr>\n</table>`;
+}
+
+// ------------------------------------------------------------------
+// Repo activity (unchanged)
+// ------------------------------------------------------------------
 async function getActivity() {
   const { data } = await octo.repos.listForUser({
     username: USER,
@@ -62,6 +132,9 @@ async function getActivity() {
     .join("\n");
 }
 
+// ------------------------------------------------------------------
+// WakaTime
+// ------------------------------------------------------------------
 async function getWaka() {
   if (!process.env.WAKATIME_API_KEY) {
     return "_Connect a WakaTime account to populate this section._";
@@ -83,10 +156,16 @@ async function getWaka() {
   return `**Total coded:** ${total}\n\n${langs || "_No language data yet._"}`;
 }
 
+// ------------------------------------------------------------------
+// Main
+// ------------------------------------------------------------------
 const tpl = await fs.readFile(TEMPLATE, "utf8");
 
-const activity = await getActivity();
-const waka = await getWaka();
+const [activity, waka, animeTable] = await Promise.all([
+  getActivity(),
+  getWaka(),
+  getFavoriteAnimeTable(),
+]);
 
 const ts =
   new Date()
@@ -97,8 +176,10 @@ const ts =
 let out = tpl;
 out = replaceBlock(out, "ACTIVITY", activity);
 out = replaceBlock(out, "WAKA", waka);
+out = replaceBlock(out, "ANIME", animeTable);
 out = replaceBlock(out, "TIMESTAMP", ts);
 
+// --- Content-hashed cache-bust ---
 const [darkHash, lightHash] = await Promise.all([
   hashFile("assets/banner-dark.svg"),
   hashFile("assets/banner-light.svg"),
