@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg">
-  https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg
+  <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg" alt="Banner" width=100%>
 </picture>
 
 </div>
