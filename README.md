@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=6eba2dda" />
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=969289f9" />
 ner-light.svg" />
-SRUN-Sochettra/main/assets/banner-dark.svg?v=6eba2dda" alt="Banner" width="100%" />
+SRUN-Sochettra/main/assets/banner-dark.svg?v=969289f9" alt="Banner" width="100%" />
 </picture>
 
 </div>
