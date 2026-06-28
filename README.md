@@ -1,6 +1,6 @@
 <div align="center">
 
-ype=waving&color=0:6366f1,100:8b5cf6&height=200&section=header&text=Srun%20Sochettra&fontColor=ffffff&fontSize=50&fontAlignY=35&desc=Building%20software%20that%20matters%20in%20Cambodia&descAlignY=58&descSize=18
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,100:8b5cf6&height=200&section=header&text=Srun%20Sochettra&fontColor=ffffff&fontSize=50&fontAlignY=35&desc=Building%20software%20that%20matters%20in%20Cambodia&descAlignY=58&descSize=18" alt="Banner" width="100%">
 
 # សួស្ដី • Srun Sochettra
 
@@ -12,10 +12,10 @@ Backend-leaning full-stack. Phnom Penh-based. I care about clean code, real-worl
 
 <div align="center">
 
-https://www.linkedin.com/in/sochettra-srun-a67466395/
-mailto:srunsochettra@gmail.com
-https://github.com/SRUN-Sochettra
-https://komarev.com/ghpvc/?username=SRUN-Sochettra&style=flat-square&color=6366f1
+<a href="https://www.linkedin.com/in/sochettra-srun-a67466395/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+<a href="mailto:srunsochettra@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Gmail"></a>
+<a href="https://github.com/SRUN-Sochettra"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
+<img src="https://komarev.com/ghpvc/?username=SRUN-Sochettra&style=flat-square&color=6366f1" alt="Profile views">
 
 </div>
 
@@ -28,7 +28,7 @@ https://komarev.com/ghpvc/?username=SRUN-Sochettra&style=flat-square&color=6366f
 - **Research AI** — Switched from Pinecone to pgvector, cut hosting costs ~80%
 
 <sub>Updated weekly. Last bump: <!--START:TIMESTAMP-->
-2026-06-28 06:49 UTC
+2026-06-28 06:51 UTC
 <!--END:TIMESTAMP--></sub>
 
 ---
@@ -38,7 +38,7 @@ https://komarev.com/ghpvc/?username=SRUN-Sochettra&style=flat-square&color=6366f
 ### 🥚 EggScan
 
 <a href="https://github.com/SRUN-Sochettra/EggScan">
-  https://opengraph.githubassets.com/1/SRUN-Sochettra/EggScan
+  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/EggScan" alt="EggScan" align="right" width="320">
 </a>
 
 AI-powered GitHub profile and repository analyzer with profile scanning, developer battles, commit judging, README rating, stack analysis, and roast-style feedback.
@@ -53,7 +53,7 @@ AI-powered GitHub profile and repository analyzer with profile scanning, develop
 ### 🧠 Research AI
 
 <a href="https://github.com/SRUN-Sochettra/Research-AI">
-  https://opengraph.githubassets.com/1/SRUN-Sochettra/Research-AI
+  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/Research-AI" alt="Research AI" align="right" width="320">
 </a>
 
 AI document research assistant for uploading PDFs, generating summaries, asking questions, retrieving citations, and chatting with documents.
@@ -68,7 +68,7 @@ AI document research assistant for uploading PDFs, generating summaries, asking 
 ### 🏦 Khmer Banking System
 
 <a href="https://github.com/SRUN-Sochettra/Khmer-Banking">
-  https://opengraph.githubassets.com/1/SRUN-Sochettra/Khmer-Banking
+  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/Khmer-Banking" alt="Khmer Banking" align="right" width="320">
 </a>
 
 Digital banking application designed around Cambodian fintech workflows, with transfers, KHQR-style payments, OTP verification, PDF statements, and spending analytics.
@@ -83,7 +83,7 @@ Digital banking application designed around Cambodian fintech workflows, with tr
 ### 🚀 HyperSpace OS
 
 <a href="https://github.com/SRUN-Sochettra/HyperspaceOS">
-  https://opengraph.githubassets.com/1/SRUN-Sochettra/HyperspaceOS
+  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/HyperspaceOS" alt="HyperSpace OS" align="right" width="320">
 </a>
 
 Browser-based operating system experiment with custom window management, virtual files, terminal commands, built-in apps, persistent state, and a glassmorphism desktop UI.
@@ -98,7 +98,7 @@ Browser-based operating system experiment with custom window management, virtual
 ### 📝 Blog API with IPFS Storage
 
 <a href="https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog">
-  https://opengraph.githubassets.com/1/SRUN-Sochettra/Spring-Boot---API-Blog
+  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/Spring-Boot---API-Blog" alt="Blog API" align="right" width="320">
 </a>
 
 Security-focused REST API with JWT authentication, token invalidation, PostgreSQL persistence, MyBatis data access, Swagger documentation, and Pinata IPFS image upload.
@@ -113,7 +113,7 @@ Security-focused REST API with JWT authentication, token invalidation, PostgreSQ
 ### 🔐 RFID Access Control System
 
 <a href="https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System">
-  ---RFID-Access-Control-System" alt="RFID Access Control" align="right" width="320">
+  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/RPI---RFID-Access-Control-System" alt="RFID Access Control" align="right" width="320">
 </a>
 
 Embedded access-control system using RFID cards, OLED status display, servo locking, LED/buzzer feedback, and admin enrollment mode.
@@ -129,7 +129,7 @@ Embedded access-control system using RFID cards, OLED status display, servo lock
 
 <div align="center">
 
-RUN-Sochettra/SRUN-Sochettra/output/github-contribution-grid-snake-dark.svg" alt="Snake animation">
+<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/output/github-contribution-grid-snake-dark.svg" alt="Snake animation">
 
 </div>
 
@@ -218,10 +218,12 @@ If it ships, is secure, and makes someone's day better — it's a win.
 
 <div align="center">
 
-https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&hide_border=true&theme=transparent&include_all_commits=true&count_private=true&rank_icon=github
-=SRUN-Sochettra&hide_border=true&theme=transparent" alt="Streak" height="160">
+<img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&hide_border=true&theme=transparent&include_all_commits=true&count_private=true&rank_icon=github" alt="GitHub Stats" height="160">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&hide_border=true&theme=transparent" alt="Streak" height="160">
 
-/api/top-langs/?username=SRUN-Sochettra&layout=compact&hide_border=true&theme=transparent&langs_count=8
+<br>
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&hide_border=true&theme=transparent&langs_count=8" alt="Top Languages">
 
 </div>
 
@@ -234,10 +236,6 @@ https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=tr
 > and that solve a real problem for a real person.
 >
 > I'm working on becoming that engineer.
-
-<sub>— Notes I keep updating as I learn the craft</sub>
-
----
 
 <div align="center">
 
