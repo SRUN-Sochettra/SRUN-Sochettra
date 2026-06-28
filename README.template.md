@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg" />
-<img src="./assets/banner-dark.svg" alt="Banner" width="100%" />
+./assets/banner-dark.svg
+./assets/banner-light.svg
+./assets/banner-dark.svg
 </picture>
 
 </div>
@@ -11,22 +11,41 @@
 <details>
 <summary><b>👨‍💻 as a coder</b></summary>
 <br />
-<img src="./assets/metrics-coder.svg" alt="coder" width="100%" />
+./assets/metrics-coder.svg
+
+### Last 7 days
+
+<!--START:WAKA-->
+<!--END:WAKA-->
+
+### Recent activity
+
+<!--START:ACTIVITY-->
+<!--END:ACTIVITY-->
+
 </details>
 
 <details>
 <summary><b>🎌 as a person</b></summary>
 <br />
-<img src="./assets/metrics-person.svg" alt="person" width="100%" />
+./assets/metrics-person.svg
+
+### Currently obsessed with
+
+<!--START:ANIME-->
+<!--END:ANIME-->
+
 </details>
 
 <details>
 <summary><b>📊 by the numbers</b></summary>
 <br />
-<img src="./assets/metrics-data.svg" alt="data" width="100%" />
+./assets/metrics-data.svg
 <br />
 <br />
 <div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&rank=SECRET,SSS,SS,S,AAA,AA&row=2&column=9&theme=darkhub&no-bg=true&no-frame=true" alt="trophies" />
+./assets/trophies.svg
 </div>
 </details>
+
+<sub align="right"><!--START:TIMESTAMP--><!--END:TIMESTAMP--></sub>
