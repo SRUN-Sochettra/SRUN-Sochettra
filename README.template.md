@@ -2,8 +2,6 @@
 
 <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner.svg" alt="Srun Sochettra — live banner" width="100%">
 
-# សួស្ដី • Srun Sochettra
-
 </div>
 
 I build practical software systems **for Cambodia** — fintech that handles KHQR and Bakong, AI tools that speak Khmer, and the backend infrastructure that keeps them reliable at scale.
