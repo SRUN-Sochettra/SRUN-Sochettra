@@ -59,7 +59,7 @@ const THEMES = {
 };
 
 // ------------------------------------------------------------------
-// Font fetch + embed
+// Font embed
 // ------------------------------------------------------------------
 async function fetchGoogleWoff2(family, weight, blockMatcher) {
   const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:wght@${weight}&display=swap`;
@@ -107,11 +107,7 @@ function fmtRel(iso) {
 }
 
 function esc(s) {
-  return String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 function clip(s, n) {
@@ -181,7 +177,6 @@ async function getStats() {
     if (t >= weekAgo) reposTouched.add(e.repo.name);
   }
 
-  // Heatmap with date metadata so we can label months
   const heatmap = [];
   const HEATMAP_DAYS = 84;
   const firstDayOffset = HEATMAP_DAYS - 1;
@@ -236,7 +231,7 @@ async function getStats() {
 }
 
 // ------------------------------------------------------------------
-// Heatmap with month labels + weekday markers
+// Renderers
 // ------------------------------------------------------------------
 function renderHeatmap(heatmap, maxDay, theme) {
   const x0 = 845;
@@ -244,7 +239,6 @@ function renderHeatmap(heatmap, maxDay, theme) {
   const cell = 20;
   const gap = 5;
   const rows = 7;
-  const cols = 12;
   const levels = theme.cellLevels;
 
   let out = "";
@@ -261,7 +255,7 @@ function renderHeatmap(heatmap, maxDay, theme) {
     }
   });
 
-  // Weekday markers (M, W, F)
+  // Weekday markers
   const weekdayRows = { 1: "M", 3: "W", 5: "F" };
   for (const [row, label] of Object.entries(weekdayRows)) {
     const y = y0 + parseInt(row) * (cell + gap) + cell / 2 + 3;
@@ -285,7 +279,7 @@ function renderHeatmap(heatmap, maxDay, theme) {
     });
   });
 
-  // Legend below cells
+  // Legend
   const cellsBottom = y0 + rows * cell + (rows - 1) * gap;
   const legendY = cellsBottom + 14;
   out += `<text x="${x0}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">Less</text>`;
@@ -357,8 +351,8 @@ function renderSvg(s, fonts, themeName) {
     : "'Noto Serif Khmer', 'Khmer OS', serif";
 
   const displayFamily = displayB64
-    ? "'DisplayEmbed', 'Space Grotesk', 'Inter', system-ui, sans-serif"
-    : "'Space Grotesk', 'Inter', system-ui, sans-serif";
+    ? "'DisplayEmbed', 'Fraunces', 'Playfair Display', Georgia, serif"
+    : "'Fraunces', 'Playfair Display', Georgia, serif";
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" width="1280" height="500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (${themeName})">
   <defs>
@@ -394,29 +388,31 @@ function renderSvg(s, fonts, themeName) {
   <rect width="1280" height="500" fill="url(#glow2)"/>
 
   <!-- ============ LEFT HERO ============ -->
-  <text x="64" y="70" class="mono" fill="${t.accent}" font-size="11" letter-spacing="0.3em" opacity="0.85">
-    backend  —  ai  —  fintech  —  cambodia 🇰🇭
+
+  <!-- Quiet location anchor -->
+  <text x="64" y="68" class="mono" fill="${t.textTertiary}" font-size="11" letter-spacing="0.3em" opacity="0.75">
+    11.55°N · 104.93°E  ·  PHNOM PENH
   </text>
 
-  <text x="64" y="180" class="khmer" fill="${t.khmerColor}" font-size="86">${KHMER_GREETING}</text>
+  <text x="64" y="178" class="khmer" fill="${t.khmerColor}" font-size="86">${KHMER_GREETING}</text>
 
-  <text x="64" y="270" class="display" fill="${t.textPrimary}" font-size="68" letter-spacing="-0.03em">
+  <text x="64" y="262" class="display" fill="${t.textPrimary}" font-size="68" letter-spacing="-0.03em">
     ${DISPLAY_NAME}
   </text>
 
-  <rect x="64" y="288" width="120" height="3" fill="url(#rule)" rx="1.5"/>
+  <rect x="64" y="280" width="120" height="3" fill="url(#rule)" rx="1.5"/>
 
-  <text x="64" y="326" class="sans" fill="${t.textSecondary}" font-size="20" font-weight="400">
+  <text x="64" y="316" class="sans" fill="${t.textSecondary}" font-size="20" font-weight="400">
     Building software that matters in Cambodia.
   </text>
 
-  <text x="64" y="354" class="sans" fill="${t.textTertiary}" font-size="14">
+  <text x="64" y="344" class="sans" fill="${t.textTertiary}" font-size="14">
     Backend &amp; Full-Stack Developer  ·  Phnom Penh
   </text>
 
-  <text x="64" y="400" class="mono" font-size="13" xml:space="preserve"><tspan fill="${t.textTertiary}">commits/7d</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.commitsThisWeek}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">streak</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.streak}d</tspan> 🔥   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">active in</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.reposTouchedCount}</tspan> <tspan fill="${t.textTertiary}">repo${s.reposTouchedCount === 1 ? "" : "s"}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">total</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.totalRepos}</tspan></text>
+  <text x="64" y="388" class="mono" font-size="13" xml:space="preserve"><tspan fill="${t.textTertiary}">commits/7d</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.commitsThisWeek}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">streak</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.streak}d</tspan> 🔥   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">active in</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.reposTouchedCount}</tspan> <tspan fill="${t.textTertiary}">repo${s.reposTouchedCount === 1 ? "" : "s"}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">total</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.totalRepos}</tspan></text>
 
-  <g transform="translate(64, 460)">
+  <g transform="translate(64, 448)">
     <circle class="live" cx="5" cy="5" r="4.5" fill="${t.liveDot}"/>
     <text x="18" y="10" class="mono" fill="${t.liveText}" font-size="11" font-weight="700" letter-spacing="0.2em">LIVE</text>
     <text x="60" y="10" class="mono" fill="${t.textTertiary}" font-size="11">·  refreshed ${esc(s.updatedAt)}</text>
@@ -445,7 +441,7 @@ function renderSvg(s, fonts, themeName) {
 const [stats, khmerB64, displayB64] = await Promise.all([
   getStats(),
   getEmbeddedFont("Noto Serif Khmer", "700", KHMER_GREETING, /U\+1780/i),
-  getEmbeddedFont("Space Grotesk", "700", DISPLAY_NAME),
+  getEmbeddedFont("Fraunces", "700", DISPLAY_NAME),
 ]);
 
 const fonts = { khmer: khmerB64, display: displayB64 };
