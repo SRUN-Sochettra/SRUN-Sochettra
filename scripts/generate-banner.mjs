@@ -11,9 +11,6 @@ const octo = new Octokit({ auth: process.env.GH_TOKEN });
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36";
 
-// ------------------------------------------------------------------
-// Themes
-// ------------------------------------------------------------------
 const THEMES = {
   dark: {
     bgStart: "#0a0a0f",
@@ -62,7 +59,7 @@ const THEMES = {
 };
 
 // ------------------------------------------------------------------
-// Font fetch + embed (generic)
+// Font fetch + embed
 // ------------------------------------------------------------------
 async function fetchGoogleWoff2(family, weight, blockMatcher) {
   const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:wght@${weight}&display=swap`;
@@ -86,7 +83,7 @@ async function getEmbeddedFont(family, weight, chars, blockMatcher = null) {
     const subset = await subsetFont(fontBuf, chars, { targetFormat: "woff2" });
     return subset.toString("base64");
   } catch (err) {
-    console.warn(`${family} embed failed:`, err.message);
+    console.warn(`${family} (${weight}) embed failed:`, err.message);
     return null;
   }
 }
@@ -94,6 +91,8 @@ async function getEmbeddedFont(family, weight, chars, blockMatcher = null) {
 // ------------------------------------------------------------------
 // Utils
 // ------------------------------------------------------------------
+const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 function fmtRel(iso) {
   const d = new Date(iso);
   const mins = Math.floor((Date.now() - d.getTime()) / 60000);
@@ -124,29 +123,25 @@ function ymdUTC(d) {
 }
 
 // ------------------------------------------------------------------
-// Stats via GraphQL (real contribution data)
+// Stats
 // ------------------------------------------------------------------
 async function getContributionMap() {
   const today = new Date();
   const to = new Date(today.getTime() + 86400000).toISOString();
   const from = new Date(today.getTime() - 365 * 86400000).toISOString();
-
   const data = await octo.graphql(
     `query($login: String!, $from: DateTime!, $to: DateTime!) {
       user(login: $login) {
         contributionsCollection(from: $from, to: $to) {
           contributionCalendar {
             totalContributions
-            weeks {
-              contributionDays { date contributionCount }
-            }
+            weeks { contributionDays { date contributionCount } }
           }
         }
       }
     }`,
     { login: USER, from, to }
   );
-
   const perDay = {};
   for (const w of data.user.contributionsCollection.contributionCalendar.weeks) {
     for (const d of w.contributionDays) perDay[d.date] = d.contributionCount;
@@ -156,7 +151,6 @@ async function getContributionMap() {
 
 async function getStats() {
   const perDay = await getContributionMap();
-
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
@@ -187,7 +181,7 @@ async function getStats() {
     if (t >= weekAgo) reposTouched.add(e.repo.name);
   }
 
-  // 12-week heatmap
+  // Heatmap with date metadata so we can label months
   const heatmap = [];
   const HEATMAP_DAYS = 84;
   const firstDayOffset = HEATMAP_DAYS - 1;
@@ -196,12 +190,11 @@ async function getStats() {
     for (let row = 0; row < 7; row++) {
       const offset = firstDayOffset - (col * 7 + row);
       const d = new Date(today.getTime() - offset * 86400000);
-      week.push(perDay[ymdUTC(d)] ?? 0);
+      week.push({ count: perDay[ymdUTC(d)] ?? 0, date: d });
     }
     heatmap.push(week);
   }
 
-  // 30-day sparkline
   const sparkline = [];
   for (let i = 29; i >= 0; i--) {
     const d = new Date(today.getTime() - i * 86400000);
@@ -224,8 +217,9 @@ async function getStats() {
 
   const { data: user } = await octo.users.getByUsername({ username: USER });
 
-  const total12w = heatmap.flat().reduce((a, b) => a + b, 0);
-  const maxDay = Math.max(0, ...heatmap.flat());
+  const flatCounts = heatmap.flat().map((c) => c.count);
+  const total12w = flatCounts.reduce((a, b) => a + b, 0);
+  const maxDay = Math.max(0, ...flatCounts);
 
   return {
     commitsThisWeek,
@@ -242,20 +236,41 @@ async function getStats() {
 }
 
 // ------------------------------------------------------------------
-// Renderers
+// Heatmap with month labels + weekday markers
 // ------------------------------------------------------------------
 function renderHeatmap(heatmap, maxDay, theme) {
-  const x0 = 820;
-  const y0 = 92;
+  const x0 = 845;
+  const y0 = 108;
   const cell = 20;
   const gap = 5;
   const rows = 7;
   const cols = 12;
   const levels = theme.cellLevels;
 
-  let cells = "";
+  let out = "";
+
+  // Month labels on top
+  let lastMonth = -1;
   heatmap.forEach((week, col) => {
-    week.forEach((count, row) => {
+    const midDay = week[3].date;
+    const month = midDay.getMonth();
+    if (month !== lastMonth) {
+      const x = x0 + col * (cell + gap);
+      out += `<text x="${x}" y="${y0 - 10}" class="mono" fill="${theme.textTertiary}" font-size="10">${MONTH_LABELS[month]}</text>`;
+      lastMonth = month;
+    }
+  });
+
+  // Weekday markers (M, W, F)
+  const weekdayRows = { 1: "M", 3: "W", 5: "F" };
+  for (const [row, label] of Object.entries(weekdayRows)) {
+    const y = y0 + parseInt(row) * (cell + gap) + cell / 2 + 3;
+    out += `<text x="${x0 - 14}" y="${y}" text-anchor="end" class="mono" fill="${theme.textTertiary}" font-size="9">${label}</text>`;
+  }
+
+  // Cells
+  heatmap.forEach((week, col) => {
+    week.forEach(({ count }, row) => {
       const x = x0 + col * (cell + gap);
       const y = y0 + row * (cell + gap);
       let fill = theme.cellEmpty;
@@ -266,20 +281,21 @@ function renderHeatmap(heatmap, maxDay, theme) {
         else if (intensity > 0.2) fill = levels[1];
         else fill = levels[0];
       }
-      cells += `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="4" fill="${fill}"/>`;
+      out += `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="4" fill="${fill}"/>`;
     });
   });
 
+  // Legend below cells
   const cellsBottom = y0 + rows * cell + (rows - 1) * gap;
   const legendY = cellsBottom + 14;
-  let legend = `<text x="${x0}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">Less</text>`;
+  out += `<text x="${x0}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">Less</text>`;
   const legendStart = x0 + 32;
   for (let i = 0; i < 5; i++) {
     const fill = i === 0 ? theme.cellEmpty : theme.cellLevels[i - 1];
-    legend += `<rect x="${legendStart + i * 15}" y="${legendY}" width="12" height="12" rx="2" fill="${fill}"/>`;
+    out += `<rect x="${legendStart + i * 15}" y="${legendY}" width="12" height="12" rx="2" fill="${fill}"/>`;
   }
-  legend += `<text x="${legendStart + 5 * 15 + 4}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">More</text>`;
-  return cells + legend;
+  out += `<text x="${legendStart + 5 * 15 + 4}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">More</text>`;
+  return out;
 }
 
 function renderSparkline(values, theme) {
@@ -341,8 +357,8 @@ function renderSvg(s, fonts, themeName) {
     : "'Noto Serif Khmer', 'Khmer OS', serif";
 
   const displayFamily = displayB64
-    ? "'DisplayEmbed', 'Fraunces', 'Playfair Display', Georgia, serif"
-    : "'Fraunces', 'Playfair Display', Georgia, serif";
+    ? "'DisplayEmbed', 'Space Grotesk', 'Inter', system-ui, sans-serif"
+    : "'Space Grotesk', 'Inter', system-ui, sans-serif";
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" width="1280" height="500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (${themeName})">
   <defs>
@@ -359,6 +375,10 @@ function renderSvg(s, fonts, themeName) {
       <stop offset="0%" stop-color="${t.glow}" stop-opacity="${t.glowOpacity}"/>
       <stop offset="100%" stop-color="${t.glow}" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="${t.accent}"/>
+      <stop offset="100%" stop-color="${t.accent}" stop-opacity="0"/>
+    </linearGradient>
     <style type="text/css"><![CDATA[
       .mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace; }
       .sans { font-family: 'Inter', 'Helvetica Neue', system-ui, -apple-system, sans-serif; }
@@ -374,27 +394,27 @@ function renderSvg(s, fonts, themeName) {
   <rect width="1280" height="500" fill="url(#glow2)"/>
 
   <!-- ============ LEFT HERO ============ -->
-  <text x="64" y="70" class="mono" fill="${t.accent}" font-size="12" letter-spacing="0.25em" opacity="0.9">
-    BACKEND · AI · FINTECH · CAMBODIA
+  <text x="64" y="70" class="mono" fill="${t.accent}" font-size="11" letter-spacing="0.3em" opacity="0.85">
+    backend  —  ai  —  fintech  —  cambodia 🇰🇭
   </text>
 
   <text x="64" y="180" class="khmer" fill="${t.khmerColor}" font-size="86">${KHMER_GREETING}</text>
 
-  <text x="64" y="270" class="display" fill="${t.textPrimary}" font-size="72" letter-spacing="-0.02em">
+  <text x="64" y="270" class="display" fill="${t.textPrimary}" font-size="68" letter-spacing="-0.03em">
     ${DISPLAY_NAME}
   </text>
 
-  <rect x="64" y="288" width="80" height="3" fill="${t.accent}" rx="1.5"/>
+  <rect x="64" y="288" width="120" height="3" fill="url(#rule)" rx="1.5"/>
 
   <text x="64" y="326" class="sans" fill="${t.textSecondary}" font-size="20" font-weight="400">
     Building software that matters in Cambodia.
   </text>
 
   <text x="64" y="354" class="sans" fill="${t.textTertiary}" font-size="14">
-    Backend &amp; Full-Stack Developer  ·  Phnom Penh  ·  ${s.totalRepos} repos
+    Backend &amp; Full-Stack Developer  ·  Phnom Penh
   </text>
 
-  <text x="64" y="400" class="mono" font-size="13" xml:space="preserve"><tspan fill="${t.textTertiary}">commits/7d</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.commitsThisWeek}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">streak</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.streak}d</tspan> 🔥   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">active in</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.reposTouchedCount}</tspan> <tspan fill="${t.textTertiary}">repo${s.reposTouchedCount === 1 ? "" : "s"}</tspan></text>
+  <text x="64" y="400" class="mono" font-size="13" xml:space="preserve"><tspan fill="${t.textTertiary}">commits/7d</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.commitsThisWeek}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">streak</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.streak}d</tspan> 🔥   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">active in</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.reposTouchedCount}</tspan> <tspan fill="${t.textTertiary}">repo${s.reposTouchedCount === 1 ? "" : "s"}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">total</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.totalRepos}</tspan></text>
 
   <g transform="translate(64, 460)">
     <circle class="live" cx="5" cy="5" r="4.5" fill="${t.liveDot}"/>
@@ -425,7 +445,7 @@ function renderSvg(s, fonts, themeName) {
 const [stats, khmerB64, displayB64] = await Promise.all([
   getStats(),
   getEmbeddedFont("Noto Serif Khmer", "700", KHMER_GREETING, /U\+1780/i),
-  getEmbeddedFont("Fraunces", "700", DISPLAY_NAME),
+  getEmbeddedFont("Space Grotesk", "700", DISPLAY_NAME),
 ]);
 
 const fonts = { khmer: khmerB64, display: displayB64 };
