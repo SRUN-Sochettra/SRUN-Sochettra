@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=deb13c4b" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=86692f76" />
-<img src="./assets/banner-dark.svg?v=deb13c4b" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=dc6839be" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=e1048d06" />
+<img src="./assets/banner-dark.svg?v=dc6839be" alt="Banner" width="100%" />
 </picture>
 
 </div>
