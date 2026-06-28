@@ -35,6 +35,8 @@ const THEMES = {
     sparklineFillOpacity: 0.18,
     liveDot: "#22c55e",
     liveText: "#22c55e",
+    deltaUp: "#22c55e",
+    deltaDown: "#ef4444",
     shipDot: "#f59e0b",
     grainOpacity: 0.04,
   },
@@ -60,13 +62,15 @@ const THEMES = {
     sparklineFillOpacity: 0.18,
     liveDot: "#16a34a",
     liveText: "#15803d",
+    deltaUp: "#15803d",
+    deltaDown: "#b91c1c",
     shipDot: "#d97706",
     grainOpacity: 0.025,
   },
 };
 
 // ------------------------------------------------------------------
-// Font embed (unchanged)
+// Font embed
 // ------------------------------------------------------------------
 async function fetchGoogleWoff2(family, weight, blockMatcher) {
   const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:wght@${weight}&display=swap`;
@@ -118,6 +122,12 @@ function esc(s) {
 }
 function clip(s, n) { return s.length > n ? s.slice(0, n - 1) + "…" : s; }
 function ymdUTC(d) { return d.toISOString().slice(0, 10); }
+
+function fmtDateUpper(d) {
+  return d.toLocaleDateString("en-GB", {
+    day: "2-digit", month: "short", year: "numeric",
+  }).toUpperCase();
+}
 
 // ------------------------------------------------------------------
 // Stats
@@ -198,6 +208,14 @@ async function getStats() {
     commitsThisWeek += perDay[ymdUTC(d)] ?? 0;
   }
 
+  // Previous 7-day window (days 7-13 ago) for week-over-week delta
+  let commitsPrevWeek = 0;
+  for (let i = 7; i < 14; i++) {
+    const d = new Date(today.getTime() - i * 86400000);
+    commitsPrevWeek += perDay[ymdUTC(d)] ?? 0;
+  }
+  const commitsDelta = commitsThisWeek - commitsPrevWeek;
+
   let streak = 0;
   for (let i = 0; i < 365; i++) {
     const d = new Date(today.getTime() - i * 86400000);
@@ -206,6 +224,7 @@ async function getStats() {
     else break;
   }
 
+  // Events: also derive focus repo (most pushes this week) + last push signature
   const events = await octo.paginate(
     octo.activity.listPublicEventsForUser,
     { username: USER, per_page: 100 },
@@ -213,10 +232,34 @@ async function getStats() {
   );
   const weekAgo = today.getTime() - 6 * 86400000;
   const reposTouched = new Set();
+  const repoCommits = new Map();
+  let latestPush = null;
   for (const e of events) {
     if (e.type !== "PushEvent") continue;
     const t = new Date(e.created_at).getTime();
-    if (t >= weekAgo) reposTouched.add(e.repo.name);
+    if (!latestPush) latestPush = e;
+    if (t >= weekAgo) {
+      reposTouched.add(e.repo.name);
+      const c = e.payload?.commits?.length || 1;
+      repoCommits.set(e.repo.name, (repoCommits.get(e.repo.name) || 0) + c);
+    }
+  }
+
+  let focus = null;
+  if (repoCommits.size > 0) {
+    const [name, commits] = [...repoCommits.entries()].sort((a, b) => b[1] - a[1])[0];
+    focus = {
+      name: name.includes("/") ? name.split("/")[1] : name,
+      commits,
+    };
+  }
+
+  let lastCommit = null;
+  if (latestPush) {
+    const sha = latestPush.payload?.head?.slice(0, 7);
+    if (sha) {
+      lastCommit = { sha, date: new Date(latestPush.created_at) };
+    }
   }
 
   const heatmap = [];
@@ -256,9 +299,12 @@ async function getStats() {
   const flatCounts = heatmap.flat().map((c) => c.count);
   const total12w = flatCounts.reduce((a, b) => a + b, 0);
   const maxDay = Math.max(0, ...flatCounts);
+  const activeDays = flatCounts.filter((c) => c > 0).length;
 
   return {
     commitsThisWeek,
+    commitsPrevWeek,
+    commitsDelta,
     reposTouchedCount: reposTouched.size,
     streak,
     recent,
@@ -267,7 +313,10 @@ async function getStats() {
     sparkline,
     total12w,
     maxDay,
+    activeDays,
     languages,
+    focus,
+    lastCommit,
     updatedAt: new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC",
   };
 }
@@ -331,7 +380,6 @@ function renderHeatmapLegend(theme) {
   const y = 283;
   const yText = 291;
   const xEnd = 1216;
-  // "Less" ~28, gap 8, swatches, gap 8, "More" ~28
   const totalW = 28 + 8 + totalSwatchW + 8 + 28;
   const xStart = xEnd - totalW;
 
@@ -381,7 +429,7 @@ function renderSparkline(values, theme) {
   return `
     ${baseline}
     ${peakLine}
-    <path d="${area}" fill="${theme.sparklineStroke}" opacity="${theme.sparklineFillOpacity}"/>
+    <path d="${area}" fill="url(#sparkFill)"/>
     <path d="${path}" stroke="${theme.sparklineStroke}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="${peakPt[0]}" cy="${peakPt[1]}" r="4" fill="${theme.bgEnd}"/>
     <circle cx="${peakPt[0]}" cy="${peakPt[1]}" r="3" fill="${theme.sparklineStroke}"/>
@@ -399,8 +447,8 @@ function renderShips(recent, theme) {
   return recent
     .map((r) => {
       const block = `
-    <circle cx="826" cy="${y - 4}" r="3.5" fill="${esc(r.langColor)}"/>
-    <text x="838" y="${y}" class="sans" fill="${theme.textPrimary}" font-size="13" font-weight="600">${esc(clip(r.name, 28))}</text>
+    <rect x="820" y="${y - 12}" width="2.5" height="14" fill="${esc(r.langColor)}" rx="1"/>
+    <text x="832" y="${y}" class="sans" fill="${theme.textPrimary}" font-size="13" font-weight="600">${esc(clip(r.name, 28))}</text>
     <text x="1216" y="${y}" text-anchor="end" class="mono" fill="${theme.textTertiary}" font-size="11">${esc(r.lang)} · ${esc(r.when)}</text>`;
       y += 22;
       return block;
@@ -412,12 +460,18 @@ function renderStatsGrid(s, theme) {
   const x0 = 64;
   const yLabel = 372;
   const yValue = 402;
+  const yDelta = 418;
   const colW = 130;
   const items = [
-    { label: "COMMITS / 7D",  value: String(s.commitsThisWeek), accent: false },
-    { label: "STREAK",        value: `${s.streak}d`,            accent: true  },
-    { label: "ACTIVE REPOS",  value: String(s.reposTouchedCount), accent: false },
-    { label: "TOTAL REPOS",   value: String(s.totalRepos),      accent: false },
+    {
+      label: "COMMITS / 7D",
+      value: String(s.commitsThisWeek),
+      delta: s.commitsDelta,
+      accent: false,
+    },
+    { label: "STREAK",       value: `${s.streak}d`,              accent: true  },
+    { label: "ACTIVE REPOS", value: String(s.reposTouchedCount), accent: false },
+    { label: "TOTAL REPOS",  value: String(s.totalRepos),        accent: false },
   ];
   let out = "";
   items.forEach((it, i) => {
@@ -425,6 +479,15 @@ function renderStatsGrid(s, theme) {
     const valueColor = it.accent ? theme.accent : theme.textPrimary;
     out += `<text x="${x}" y="${yLabel}" class="mono" fill="${theme.textTertiary}" font-size="10" letter-spacing="0.18em">${esc(it.label)}</text>`;
     out += `<text x="${x}" y="${yValue}" class="display tnum" fill="${valueColor}" font-size="28">${esc(it.value)}</text>`;
+
+    // Week-over-week delta (only for COMMITS/7D, only when non-zero)
+    if (typeof it.delta === "number" && it.delta !== 0) {
+      const up = it.delta > 0;
+      const deltaColor = up ? theme.deltaUp : theme.deltaDown;
+      const arrow = up ? "▲" : "▼";
+      const deltaText = `${arrow} ${Math.abs(it.delta)} vs last wk`;
+      out += `<text x="${x}" y="${yDelta}" class="mono tnum" fill="${deltaColor}" font-size="9" font-weight="700" letter-spacing="0.06em">${esc(deltaText)}</text>`;
+    }
   });
   return out;
 }
@@ -444,9 +507,8 @@ function renderLanguages(langs, theme) {
 
   // Stacked bar
   let cursor = x0;
-  top.forEach((l, i) => {
+  top.forEach((l) => {
     const segW = (l.bytes / topTotal) * barW;
-    const r = i === 0 || i === top.length - 1 ? 2 : 0;
     out += `<rect x="${cursor}" y="${barY}" width="${segW}" height="${barH}" fill="${esc(l.color)}"/>`;
     cursor += segW;
   });
@@ -461,8 +523,28 @@ function renderLanguages(langs, theme) {
     const label = `${l.name} ${l.pct.toFixed(0)}%`;
     out += `<circle cx="${cx + 4}" cy="${yChip - 4}" r="3.5" fill="${esc(l.color)}"/>`;
     out += `<text x="${cx + 14}" y="${yChip}" class="mono tnum" fill="${theme.textTertiary}" font-size="11">${esc(label)}</text>`;
-    // approximate mono advance: ~6.8px per char + leading
     cx += 14 + label.length * 6.8 + 22;
+  }
+
+  return out;
+}
+
+function renderFooter(s, theme) {
+  let out = "";
+
+  // Left: build signature
+  if (s.lastCommit?.sha) {
+    const dateStr = fmtDateUpper(s.lastCommit.date);
+    const leftText = `BUILD · ${s.lastCommit.sha} · ${dateStr}`;
+    out += `<text x="64" y="492" class="mono" fill="${theme.textMuted}" font-size="9" letter-spacing="0.2em" opacity="0.75">${esc(leftText)}</text>`;
+  }
+
+  // Right: focus repo this week
+  if (s.focus) {
+    const focusName = clip(s.focus.name, 24).toUpperCase();
+    const noun = s.focus.commits === 1 ? "COMMIT" : "COMMITS";
+    const rightText = `FOCUS · ${focusName} · ${s.focus.commits} ${noun}`;
+    out += `<text x="1216" y="492" text-anchor="end" class="mono" fill="${theme.textMuted}" font-size="9" letter-spacing="0.2em" opacity="0.75">${esc(rightText)}</text>`;
   }
 
   return out;
@@ -503,6 +585,10 @@ function renderSvg(s, fonts, themeName) {
       <stop offset="0%" stop-color="${t.glow}" stop-opacity="${t.glowOpacity}"/>
       <stop offset="100%" stop-color="${t.glow}" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${t.sparklineStroke}" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="${t.sparklineStroke}" stop-opacity="0"/>
+    </linearGradient>
     <filter id="grain" x="0" y="0" width="100%" height="100%">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
       <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 ${t.grainOpacity} 0"/>
@@ -560,7 +646,7 @@ function renderSvg(s, fonts, themeName) {
     Backend &amp; Full-Stack Developer  ·  Phnom Penh
   </text>
 
-  <!-- Stats grid (replaces cramped one-liner) -->
+  <!-- Stats grid -->
   ${renderStatsGrid(s, t)}
 
   <!-- Top languages -->
@@ -571,7 +657,7 @@ function renderSvg(s, fonts, themeName) {
 
   <!-- ===== RIGHT DATA ===== -->
   <text x="820" y="76" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">12 WEEKS OF SHIPPING</text>
-  <text x="1216" y="76" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">${s.total12w} contributions</text>
+  <text x="1216" y="76" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">${s.activeDays}/84 days · ${s.total12w} contributions</text>
   ${renderHeatmap(s.heatmap, s.maxDay, t)}
   ${renderHeatmapLegend(t)}
 
@@ -582,8 +668,9 @@ function renderSvg(s, fonts, themeName) {
   <text x="820" y="396" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">LATEST SHIPS</text>
   ${renderShips(s.recent, t)}
 
-  <!-- Bottom editorial rule -->
+  <!-- Bottom editorial rule + signature footer -->
   <line x1="64" y1="478" x2="1216" y2="478" stroke="${t.rule}" stroke-width="1" opacity="0.6"/>
+  ${renderFooter(s, t)}
 </svg>
 `;
 }
@@ -607,8 +694,16 @@ console.log("banners generated.");
 console.log("khmer embedded:", !!khmerB64);
 console.log("display embedded:", !!displayB64);
 console.log("stats:", {
-  ...stats,
-  heatmap: undefined,
-  sparkline: undefined,
+  commitsThisWeek: stats.commitsThisWeek,
+  commitsDelta: stats.commitsDelta,
+  streak: stats.streak,
+  activeDays: stats.activeDays,
+  maxDay: stats.maxDay,
+  total12w: stats.total12w,
+  focus: stats.focus,
+  lastCommit: stats.lastCommit && {
+    sha: stats.lastCommit.sha,
+    date: stats.lastCommit.date.toISOString(),
+  },
   languages: stats.languages.slice(0, 5).map((l) => `${l.name} ${l.pct.toFixed(1)}%`),
 });
