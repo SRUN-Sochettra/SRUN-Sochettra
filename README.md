@@ -1,9 +1,10 @@
+cat > README.template.md << 'TEMPLATE_EOF'
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=59e436a3" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=4cd87351" />
-<img src="./assets/banner-dark.svg?v=59e436a3" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=22c6ed65" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=bb555a26" />
+<img src="./assets/banner-dark.svg?v=22c6ed65" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -43,7 +44,7 @@
 <br />
 <img src="./assets/metrics-person.svg" alt="person" width="100%" />
 
-### Currently obsessed with
+### My top anime in order
 
 <!--START:ANIME-->
 <table>
@@ -63,13 +64,9 @@
 <summary><b>📊 by the numbers</b></summary>
 <br />
 <img src="./assets/metrics-data.svg" alt="data" width="100%" />
-<br />
-<br />
-<div align="center">
-<img src="./assets/trophies.svg" alt="trophies" />
-</div>
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-28 16:18 UTC
+2026-06-28 17:39 UTC
 <!--END:TIMESTAMP--></sub>
+TEMPLATE_EOF
