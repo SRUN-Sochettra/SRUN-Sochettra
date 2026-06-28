@@ -48,4 +48,12 @@ jobs:
           git config user.name  "readme-bot"
           git config user.email "actions@github.com"
           git commit -m "chore(readme): auto-update $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push
+
+          # Rebase-and-retry push to handle concurrent commits from metrics workflow
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "push attempt $i failed, retrying..."
+            sleep $((i * 5))
+          done
+          echo "::error::push failed after 3 attempts"
+          exit 1

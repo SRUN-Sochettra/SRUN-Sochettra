@@ -5,7 +5,7 @@ import subsetFont from "subset-font";
 
 const USER = "SRUN-Sochettra";
 const ANILIST_USER = "scarletsages";
-const KHMER_GREETING = "សួស្ដី";
+const KHMER_GREETING = "\u179f\u17bc\u179f\u17d2\u178f\u17b8";
 const DISPLAY_NAME = "Srun Sochettra";
 
 // Personality content — edit these freely
@@ -112,7 +112,7 @@ function esc(s) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;");
 }
-function clip(s, n) { return s.length > n ? s.slice(0, n - 1) + "…" : s; }
+function clip(s, n) { return s.length > n ? s.slice(0, n - 1) + "\u2026" : s; }
 
 function fmtDateUpper(d) {
     return d.toLocaleDateString("en-GB", {
@@ -190,10 +190,10 @@ async function getStats() {
             lastCommit = { sha, date: new Date(latestPush.created_at) };
         }
 
-        let lang = "—";
+        let lang = "\u2014";
         try {
             const { data: repo } = await octo.repos.get({ owner: USER, repo: repoName });
-            lang = repo.language || "—";
+            lang = repo.language || "\u2014";
         } catch (err) {
             console.warn(`repo lookup failed for ${repoName}:`, err.message);
         }
@@ -225,7 +225,7 @@ function renderAnime(anime, x, y, theme) {
         metaParts.push(anime.total ? `Ep ${anime.progress} / ${anime.total}` : `Ep ${anime.progress}`);
     }
     metaParts.push("via AniList");
-    const meta = metaParts.join("  ·  ");
+    const meta = metaParts.join("  \u00b7  ");
     return `
     <text x="${x}" y="${y}" class="sans" fill="${theme.textPrimary}" font-size="15" font-weight="600">${esc(title)}</text>
     <text x="${x}" y="${y + 20}" class="mono" fill="${theme.textTertiary}" font-size="10" letter-spacing="0.05em">${esc(meta)}</text>
@@ -238,7 +238,7 @@ function renderLastShipped(last, x, y, theme) {
     }
     return `
     <text x="${x}" y="${y}" class="sans" fill="${theme.textPrimary}" font-size="15" font-weight="600">${esc(clip(last.name, 30))}</text>
-    <text x="${x}" y="${y + 20}" class="mono" fill="${theme.textTertiary}" font-size="10" letter-spacing="0.05em">${esc(`${last.lang}  ·  ${last.when}`)}</text>
+    <text x="${x}" y="${y + 20}" class="mono" fill="${theme.textTertiary}" font-size="10" letter-spacing="0.05em">${esc(`${last.lang}  \u00b7  ${last.when}`)}</text>
   `;
 }
 
@@ -262,7 +262,7 @@ function renderSvg(s, anime, fonts, themeName) {
         ? "'DisplayEmbed', 'Fraunces', 'Playfair Display', Georgia, serif"
         : "'Fraunces', 'Playfair Display', Georgia, serif";
 
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" width="1280" height="380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — personal banner (${themeName})">
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" width="1280" height="380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra \u2014 personal banner (${themeName})">
   <defs>
     ${fontFaces}
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -300,7 +300,7 @@ function renderSvg(s, anime, fonts, themeName) {
   <rect x="64" y="38" width="36" height="3" fill="${t.accent}" rx="1.5"/>
 
   <text x="64" y="68" class="mono" fill="${t.textTertiary}" font-size="11" letter-spacing="0.3em" opacity="0.85">
-    PHNOM PENH  ·  CAMBODIA
+    PHNOM PENH  \u00b7  CAMBODIA
   </text>
   <text x="1216" y="68" text-anchor="end" class="mono" fill="${t.textMuted}" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed ${esc(s.updatedAt)}</text>
 
@@ -317,11 +317,11 @@ function renderSvg(s, anime, fonts, themeName) {
     <rect x="28" y="1" width="100" height="1" fill="${t.ruleStrong}"/>
   </g>
 
-  <!-- Quote — editorial serif italic, bigger size, more breathing before attribution -->
+  <!-- Quote -->
   <text x="64" y="274" class="display" fill="${t.textSecondary}" font-size="17" font-style="italic">${esc(QUOTE)}</text>
   <text x="64" y="299" class="mono" fill="${t.textTertiary}" font-size="10" letter-spacing="0.14em" opacity="0.8">${esc(QUOTE_ATTR)}</text>
 
-  <!-- Tagline — pulled down to give the quote its own breathing room -->
+  <!-- Tagline -->
   <text x="64" y="344" class="sans" fill="${t.textPrimary}" font-size="16" font-weight="500">${esc(TAGLINE)}</text>
 
   <!-- Vertical separator -->
@@ -332,7 +332,7 @@ function renderSvg(s, anime, fonts, themeName) {
   ${renderAnime(anime, 810, 156, t)}
 
   <text x="810" y="212" class="mono" fill="${t.textSecondary}" font-size="10" font-weight="700" letter-spacing="0.25em">NOW PLAYING</text>
-  <text x="810" y="238" class="sans" fill="${t.textPrimary}" font-size="15" font-weight="600">${esc(CURRENTLY_PLAYING.join("  ·  "))}</text>
+  <text x="810" y="238" class="sans" fill="${t.textPrimary}" font-size="15" font-weight="600">${esc(CURRENTLY_PLAYING.join("  \u00b7  "))}</text>
 
   <text x="810" y="290" class="mono" fill="${t.textSecondary}" font-size="10" font-weight="700" letter-spacing="0.25em">LAST SHIPPED</text>
   ${renderLastShipped(s.lastShipped, 810, 316, t)}
@@ -340,7 +340,7 @@ function renderSvg(s, anime, fonts, themeName) {
   <!-- Bottom rule + tiny BUILD signature -->
   <line x1="64" y1="358" x2="1216" y2="358" stroke="${t.rule}" stroke-width="1" opacity="0.6"/>
   ${s.lastCommit?.sha
-            ? `<text x="64" y="374" class="mono" fill="${t.textMuted}" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD · ${esc(s.lastCommit.sha)} · ${esc(fmtDateUpper(s.lastCommit.date))}</text>`
+            ? `<text x="64" y="374" class="mono" fill="${t.textMuted}" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD \u00b7 ${esc(s.lastCommit.sha)} \u00b7 ${esc(fmtDateUpper(s.lastCommit.date))}</text>`
             : ""}
 </svg>
 `;
