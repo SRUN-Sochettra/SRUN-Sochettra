@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=1782640705650">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg?v=1782640705650">
-  <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=1782640705650" alt="Banner" width=100%>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=dd6db1fe">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg?v=b9665ad9">
+  <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=dd6db1fe" alt="Banner" width=100%>
 </picture>
 
 </div>
@@ -30,7 +30,7 @@ Backend-leaning full-stack. Phnom Penh-based. I care about clean code, real-worl
 - **Research AI** — Switched from Pinecone to pgvector, cut hosting costs ~80%
 
 <sub>Updated weekly. Last bump: <!--START:TIMESTAMP-->
-2026-06-28 09:58 UTC
+2026-06-28 10:15 UTC
 <!--END:TIMESTAMP--></sub>
 
 ---
