@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=dc6839be" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=e1048d06" />
-<img src="./assets/banner-dark.svg?v=dc6839be" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=2fc1d0de" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=fe112def" />
+<img src="./assets/banner-dark.svg?v=2fc1d0de" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -27,6 +27,6 @@
 <br />
 <br />
 <div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;rank=SECRET,SSS,SS,S,AAA,AA&amp;row=2&amp;column=9&amp;theme=darkhub&amp;no-bg=true&amp;no-frame=true" alt="trophies" />
+<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&rank=SECRET,SSS,SS,S,AAA,AA&row=2&column=9&theme=darkhub&no-bg=true&no-frame=true" alt="trophies" />
 </div>
 </details>

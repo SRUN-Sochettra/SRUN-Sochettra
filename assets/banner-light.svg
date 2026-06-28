@@ -6,15 +6,15 @@
   ]]></style>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#fafaf9"/>
-      <stop offset="100%" stop-color="#f1efed"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
     </linearGradient>
     <radialGradient id="glow1" cx="0.15" cy="0.2" r="0.5">
-      <stop offset="0%" stop-color="#d97706" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#0969da" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#0969da" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow2" cx="0.85" cy="0.8" r="0.55">
-      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.07"/>
-      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
     </radialGradient>
     <filter id="grain" x="0" y="0" width="100%" height="100%">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
@@ -35,16 +35,16 @@
   <rect width="1280" height="380" filter="url(#grain)" opacity="0.9"/>
 
   <!-- Top frame -->
-  <line x1="64" y1="40" x2="1216" y2="40" stroke="#e7e5e4" stroke-width="1"/>
-  <rect x="64" y="38" width="36" height="3" fill="#d97706" rx="1.5"/>
+  <line x1="64" y1="40" x2="1216" y2="40" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="64" y="38" width="36" height="3" fill="#0969da" rx="1.5"/>
 
   <text x="64" y="68" class="mono" fill="#78716c" font-size="11" letter-spacing="0.3em" opacity="0.85">
     PHNOM PENH  ·  CAMBODIA
   </text>
-  <text x="1216" y="68" text-anchor="end" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed 2026-06-28 14:21 UTC</text>
+  <text x="1216" y="68" text-anchor="end" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed 2026-06-28 14:45 UTC</text>
 
   <!-- ===== LEFT: persona ===== -->
-  <text x="64" y="148" class="khmer" fill="#b45309" font-size="72">សួស្ដី</text>
+  <text x="64" y="148" class="khmer" fill="#1d4ed8" font-size="72">សួស្ដី</text>
 
   <text x="64" y="218" class="display" fill="#1c1917" font-size="56" letter-spacing="-0.025em">
     Srun Sochettra
@@ -52,8 +52,8 @@
 
   <!-- Editorial rule -->
   <g transform="translate(64, 236)">
-    <rect x="0" y="0" width="22" height="3" fill="#d97706" rx="1.5"/>
-    <rect x="28" y="1" width="100" height="1" fill="#d6d3d1"/>
+    <rect x="0" y="0" width="22" height="3" fill="#0969da" rx="1.5"/>
+    <rect x="28" y="1" width="100" height="1" fill="#cbd5e1"/>
   </g>
 
   <!-- Quote — editorial serif italic, bigger size, more breathing before attribution -->
@@ -64,7 +64,7 @@
   <text x="64" y="344" class="sans" fill="#1c1917" font-size="16" font-weight="500">Writes code. Watches anime. Is an egg.</text>
 
   <!-- Vertical separator -->
-  <line x1="780" y1="100" x2="780" y2="340" stroke="#e7e5e4" stroke-width="1"/>
+  <line x1="780" y1="100" x2="780" y2="340" stroke="#e2e8f0" stroke-width="1"/>
 
   <!-- ===== RIGHT: currently ===== -->
   <text x="810" y="130" class="mono" fill="#44403c" font-size="10" font-weight="700" letter-spacing="0.25em">NOW WATCHING</text>
@@ -83,6 +83,6 @@
   
 
   <!-- Bottom rule + tiny BUILD signature -->
-  <line x1="64" y1="358" x2="1216" y2="358" stroke="#e7e5e4" stroke-width="1" opacity="0.6"/>
-  <text x="64" y="374" class="mono" fill="#a8a29e" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD · 22942c9 · 28 JUN 2026</text>
+  <line x1="64" y1="358" x2="1216" y2="358" stroke="#e2e8f0" stroke-width="1" opacity="0.6"/>
+  <text x="64" y="374" class="mono" fill="#a8a29e" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD · 20b51d3 · 28 JUN 2026</text>
 </svg>
