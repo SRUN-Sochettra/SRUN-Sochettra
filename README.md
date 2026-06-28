@@ -2,9 +2,9 @@ cat > README.template.md << 'TEMPLATE_EOF'
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=22c6ed65" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=bb555a26" />
-<img src="./assets/banner-dark.svg?v=22c6ed65" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=865f22fc" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=85f0b2f6" />
+<img src="./assets/banner-dark.svg?v=865f22fc" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -17,9 +17,9 @@ cat > README.template.md << 'TEMPLATE_EOF'
 ### Last 7 days
 
 <!--START:WAKA-->
-**Total coded:** 5 hrs 11 mins
+**Total coded:** 6 hrs 53 mins
 
-`Other 76.6%` · `Python 9.3%` · `JavaScript 5.9%` · `Dart 4.2%` · `Markdown 1.2%` · `YAML 1.0%`
+`Other 71.3%` · `Python 9.5%` · `JavaScript 6.2%` · `Dart 3.8%` · `Markdown 3.7%` · `YAML 2.2%`
 <!--END:WAKA-->
 
 ### Recent activity
@@ -67,6 +67,6 @@ cat > README.template.md << 'TEMPLATE_EOF'
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-28 17:39 UTC
+2026-06-28 19:05 UTC
 <!--END:TIMESTAMP--></sub>
 TEMPLATE_EOF
