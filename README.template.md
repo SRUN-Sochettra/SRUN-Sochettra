@@ -23,7 +23,7 @@ My work usually sits between backend architecture, AI integration, fintech produ
 I care about software that is:
 
 - Practical enough to solve a real problem
-- Structured enough to maintain
+- Structured enough to maintain    
 - Secure enough to trust
 - Polished enough that people can actually use it
 
