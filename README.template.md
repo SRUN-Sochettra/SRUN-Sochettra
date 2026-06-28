@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,100:8b5cf6&height=200&section=header&text=Srun%20Sochettra&fontColor=ffffff&fontSize=50&fontAlignY=35&desc=Building%20software%20that%20matters%20in%20Cambodia&descAlignY=58&descSize=18" alt="Banner" width="100%">
+https://github.com/SRUN-Sochettra
 
 # សួស្ដី • Srun Sochettra
 

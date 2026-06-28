@@ -158,5 +158,12 @@ out = replaceBlock(out, "ACTIVITY", activity);
 out = replaceBlock(out, "WAKA", waka);
 out = replaceBlock(out, "TIMESTAMP", ts);
 
+// Cache-bust the banner so GitHub re-pulls it after each run
+const cacheBuster = Date.now();
+out = out.replace(
+  /assets\/banner\.svg(\?v=\d+)?/g,
+  `assets/banner.svg?v=${cacheBuster}`
+);
+
 await fs.writeFile(OUTPUT, out);
 console.log("README.md updated.");
