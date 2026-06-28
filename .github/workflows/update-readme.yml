@@ -39,7 +39,7 @@ jobs:
 
       - name: Commit if changed
         run: |
-          git add README.md assets/banner.svg
+          git add README.md assets/banner-dark.svg assets/banner-light.svg
           if git diff --cached --quiet; then
             echo "No changes."
             exit 0
