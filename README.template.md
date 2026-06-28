@@ -1,3 +1,4 @@
+cat > README.template.md << 'TEMPLATE_EOF'
 <div align="center">
 
 <picture>
@@ -30,7 +31,7 @@
 <br />
 <img src="./assets/metrics-person.svg" alt="person" width="100%" />
 
-### Currently obsessed with
+### My top anime in order
 
 <!--START:ANIME-->
 <!--END:ANIME-->
@@ -41,11 +42,7 @@
 <summary><b>📊 by the numbers</b></summary>
 <br />
 <img src="./assets/metrics-data.svg" alt="data" width="100%" />
-<br />
-<br />
-<div align="center">
-<img src="./assets/trophies.svg" alt="trophies" />
-</div>
 </details>
 
 <sub align="right"><!--START:TIMESTAMP--><!--END:TIMESTAMP--></sub>
+TEMPLATE_EOF
