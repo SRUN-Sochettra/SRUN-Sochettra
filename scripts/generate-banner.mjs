@@ -107,6 +107,7 @@ const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "S
 function fmtRel(iso) {
   const d = new Date(iso);
   const mins = Math.floor((Date.now() - d.getTime()) / 60000);
+  if (mins < 1) return "just now";
   if (mins < 60) return `${mins}m ago`;
   const hrs = Math.floor(mins / 60);
   if (hrs < 24) return `${hrs}h ago`;
@@ -127,6 +128,11 @@ function fmtDateUpper(d) {
   return d.toLocaleDateString("en-GB", {
     day: "2-digit", month: "short", year: "numeric",
   }).toUpperCase();
+}
+
+function fmtShortDate(d) {
+  // e.g. "May 30"
+  return `${MONTH_LABELS[d.getMonth()]} ${d.getDate()}`;
 }
 
 // ------------------------------------------------------------------
@@ -281,6 +287,9 @@ async function getStats() {
     sparkline.push(perDay[ymdUTC(d)] ?? 0);
   }
 
+  const sparklineStart = new Date(today.getTime() - 29 * 86400000);
+  const sparklineEnd = today;
+
   const { data: repos } = await octo.repos.listForUser({
     username: USER, sort: "pushed", per_page: 10,
   });
@@ -299,6 +308,7 @@ async function getStats() {
   const flatCounts = heatmap.flat().map((c) => c.count);
   const total12w = flatCounts.reduce((a, b) => a + b, 0);
   const maxDay = Math.max(0, ...flatCounts);
+  const max30d = Math.max(0, ...sparkline);
   const activeDays = flatCounts.filter((c) => c > 0).length;
 
   return {
@@ -311,8 +321,11 @@ async function getStats() {
     totalRepos: user.public_repos,
     heatmap,
     sparkline,
+    sparklineStart,
+    sparklineEnd,
     total12w,
     maxDay,
+    max30d,
     activeDays,
     languages,
     focus,
@@ -447,8 +460,8 @@ function renderShips(recent, theme) {
   return recent
     .map((r) => {
       const block = `
-    <rect x="820" y="${y - 12}" width="2.5" height="14" fill="${esc(r.langColor)}" rx="1"/>
-    <text x="832" y="${y}" class="sans" fill="${theme.textPrimary}" font-size="13" font-weight="600">${esc(clip(r.name, 28))}</text>
+    <rect x="820" y="${y - 13}" width="3.5" height="15" fill="${esc(r.langColor)}" rx="1.5"/>
+    <text x="834" y="${y}" class="sans" fill="${theme.textPrimary}" font-size="13" font-weight="600">${esc(clip(r.name, 28))}</text>
     <text x="1216" y="${y}" text-anchor="end" class="mono" fill="${theme.textTertiary}" font-size="11">${esc(r.lang)} · ${esc(r.when)}</text>`;
       y += 22;
       return block;
@@ -462,23 +475,49 @@ function renderStatsGrid(s, theme) {
   const yValue = 402;
   const yDelta = 418;
   const colW = 130;
+
   const items = [
     {
       label: "COMMITS / 7D",
-      value: String(s.commitsThisWeek),
+      mainValue: String(s.commitsThisWeek),
+      unit: null,
       delta: s.commitsDelta,
       accent: false,
     },
-    { label: "STREAK",       value: `${s.streak}d`,              accent: true  },
-    { label: "ACTIVE REPOS", value: String(s.reposTouchedCount), accent: false },
-    { label: "TOTAL REPOS",  value: String(s.totalRepos),        accent: false },
+    {
+      label: "STREAK",
+      mainValue: String(s.streak),
+      unit: "d",
+      accent: true,
+    },
+    {
+      label: "ACTIVE REPOS",
+      mainValue: String(s.reposTouchedCount),
+      unit: null,
+      accent: false,
+    },
+    {
+      label: "TOTAL REPOS",
+      mainValue: String(s.totalRepos),
+      unit: null,
+      accent: false,
+    },
   ];
+
   let out = "";
   items.forEach((it, i) => {
     const x = x0 + i * colW;
     const valueColor = it.accent ? theme.accent : theme.textPrimary;
+
     out += `<text x="${x}" y="${yLabel}" class="mono" fill="${theme.textTertiary}" font-size="10" letter-spacing="0.18em">${esc(it.label)}</text>`;
-    out += `<text x="${x}" y="${yValue}" class="display tnum" fill="${valueColor}" font-size="28">${esc(it.value)}</text>`;
+    out += `<text x="${x}" y="${yValue}" class="display tnum" fill="${valueColor}" font-size="28">${esc(it.mainValue)}</text>`;
+
+    // Unit (rendered smaller, right-adjacent to main value)
+    if (it.unit) {
+      // Approx main number width: ~17px per digit at 28px display font
+      const unitX = x + it.mainValue.length * 17 + 2;
+      out += `<text x="${unitX}" y="${yValue}" class="mono" fill="${theme.textTertiary}" font-size="13" font-weight="600">${esc(it.unit)}</text>`;
+    }
 
     // Week-over-week delta (only for COMMITS/7D, only when non-zero)
     if (typeof it.delta === "number" && it.delta !== 0) {
@@ -570,6 +609,9 @@ function renderSvg(s, fonts, themeName) {
     ? "'DisplayEmbed', 'Fraunces', 'Playfair Display', Georgia, serif"
     : "'Fraunces', 'Playfair Display', Georgia, serif";
 
+  // 30D sparkline date range
+  const sparkRange = `${fmtShortDate(s.sparklineStart)} → ${fmtShortDate(s.sparklineEnd)}`;
+
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" width="1280" height="500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (${themeName})">
   <defs>
     ${fontFaces}
@@ -618,11 +660,11 @@ function renderSvg(s, fonts, themeName) {
     11.55°N · 104.93°E  ·  PHNOM PENH
   </text>
 
-  <!-- LIVE marker, top-right, balanced with coords -->
-  <g transform="translate(1216, 64)">
-    <text x="0" y="0" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">refreshed ${esc(s.updatedAt)}  ·</text>
-    <text x="-148" y="0" text-anchor="end" class="mono" fill="${t.liveText}" font-size="11" font-weight="700" letter-spacing="0.25em">LIVE</text>
-    <circle class="live" cx="-178" cy="-4" r="4" fill="${t.liveDot}"/>
+  <!-- LIVE marker, top-right, explicit x positions (no overlap) -->
+  <g>
+    <circle class="live" cx="932" cy="60" r="4" fill="${t.liveDot}"/>
+    <text x="944" y="64" class="mono" fill="${t.liveText}" font-size="11" font-weight="700" letter-spacing="0.25em">LIVE</text>
+    <text x="1216" y="64" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">· refreshed ${esc(s.updatedAt)}</text>
   </g>
 
   <!-- ===== LEFT HERO ===== -->
@@ -662,7 +704,7 @@ function renderSvg(s, fonts, themeName) {
   ${renderHeatmapLegend(t)}
 
   <text x="820" y="308" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">DAILY · 30D</text>
-  <text x="1216" y="308" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">peak ${s.maxDay}/day</text>
+  <text x="1216" y="308" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">${esc(sparkRange)} · peak ${s.max30d}/day</text>
   ${renderSparkline(s.sparkline, t)}
 
   <text x="820" y="396" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">LATEST SHIPS</text>
@@ -699,6 +741,7 @@ console.log("stats:", {
   streak: stats.streak,
   activeDays: stats.activeDays,
   maxDay: stats.maxDay,
+  max30d: stats.max30d,
   total12w: stats.total12w,
   focus: stats.focus,
   lastCommit: stats.lastCommit && {
