@@ -146,8 +146,6 @@ const tpl = await fs.readFile(TEMPLATE, "utf8");
 
 const activity = await getActivity();
 const waka = await getWaka();
-const now = await getNow(activity);
-const building = await getBuilding(activity);
 
 const ts =
   new Date()
@@ -156,8 +154,6 @@ const ts =
     .slice(0, 16) + " UTC";
 
 let out = tpl;
-out = replaceBlock(out, "NOW", now);
-out = replaceBlock(out, "BUILDING", building);
 out = replaceBlock(out, "ACTIVITY", activity);
 out = replaceBlock(out, "WAKA", waka);
 out = replaceBlock(out, "TIMESTAMP", ts);
