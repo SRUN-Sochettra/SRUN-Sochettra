@@ -235,15 +235,14 @@ async function getStats() {
 // ------------------------------------------------------------------
 function renderHeatmap(heatmap, maxDay, theme) {
   const x0 = 845;
-  const y0 = 108;
+  const y0 = 100;
   const cell = 20;
   const gap = 5;
-  const rows = 7;
   const levels = theme.cellLevels;
 
   let out = "";
 
-  // Month labels on top
+  // Month labels
   let lastMonth = -1;
   heatmap.forEach((week, col) => {
     const midDay = week[3].date;
@@ -255,7 +254,7 @@ function renderHeatmap(heatmap, maxDay, theme) {
     }
   });
 
-  // Weekday markers
+  // Weekday markers (M, W, F)
   const weekdayRows = { 1: "M", 3: "W", 5: "F" };
   for (const [row, label] of Object.entries(weekdayRows)) {
     const y = y0 + parseInt(row) * (cell + gap) + cell / 2 + 3;
@@ -279,16 +278,6 @@ function renderHeatmap(heatmap, maxDay, theme) {
     });
   });
 
-  // Legend
-  const cellsBottom = y0 + rows * cell + (rows - 1) * gap;
-  const legendY = cellsBottom + 14;
-  out += `<text x="${x0}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">Less</text>`;
-  const legendStart = x0 + 32;
-  for (let i = 0; i < 5; i++) {
-    const fill = i === 0 ? theme.cellEmpty : theme.cellLevels[i - 1];
-    out += `<rect x="${legendStart + i * 15}" y="${legendY}" width="12" height="12" rx="2" fill="${fill}"/>`;
-  }
-  out += `<text x="${legendStart + 5 * 15 + 4}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">More</text>`;
   return out;
 }
 
@@ -296,7 +285,7 @@ function renderSparkline(values, theme) {
   const x0 = 820;
   const y0 = 322;
   const w = 396;
-  const h = 40;
+  const h = 42;
   const max = Math.max(1, ...values);
   const step = w / (values.length - 1);
   const pts = values.map((v, i) => [x0 + i * step, y0 + h - (v / max) * h]);
@@ -389,8 +378,8 @@ function renderSvg(s, fonts, themeName) {
 
   <!-- ============ LEFT HERO ============ -->
 
-  <!-- Quiet location anchor -->
-  <text x="64" y="68" class="mono" fill="${t.textTertiary}" font-size="11" letter-spacing="0.3em" opacity="0.75">
+  <!-- Quiet coordinate anchor -->
+  <text x="64" y="68" class="mono" fill="${t.textTertiary}" font-size="11" letter-spacing="0.3em" opacity="0.7">
     11.55°N · 104.93°E  ·  PHNOM PENH
   </text>
 
@@ -412,7 +401,7 @@ function renderSvg(s, fonts, themeName) {
 
   <text x="64" y="388" class="mono" font-size="13" xml:space="preserve"><tspan fill="${t.textTertiary}">commits/7d</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.commitsThisWeek}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">streak</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.streak}d</tspan> 🔥   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">active in</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.reposTouchedCount}</tspan> <tspan fill="${t.textTertiary}">repo${s.reposTouchedCount === 1 ? "" : "s"}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">total</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.totalRepos}</tspan></text>
 
-  <g transform="translate(64, 448)">
+  <g transform="translate(64, 460)">
     <circle class="live" cx="5" cy="5" r="4.5" fill="${t.liveDot}"/>
     <text x="18" y="10" class="mono" fill="${t.liveText}" font-size="11" font-weight="700" letter-spacing="0.2em">LIVE</text>
     <text x="60" y="10" class="mono" fill="${t.textTertiary}" font-size="11">·  refreshed ${esc(s.updatedAt)}</text>
