@@ -27,6 +27,6 @@
 <br />
 <br />
 <div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&rank=SECRET,SSS,SS,S,AAA,AA&row=2&column=9&theme=darkhub&no-bg=true&no-frame=true" alt="trophies" />
+<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;rank=SECRET,SSS,SS,S,AAA,AA&amp;row=2&amp;column=9&amp;theme=darkhub&amp;no-bg=true&amp;no-frame=true" alt="trophies" />
 </div>
 </details>
