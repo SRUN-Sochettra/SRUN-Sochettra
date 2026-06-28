@@ -1,20 +1,54 @@
-> "People die when they are killed."
->
-> — Shirou Emiya, *Fate/Stay Night*
+<p align="center"><i>"People die when they are killed."</i></p>
+<p align="center"><i>— Shirou Emiya, Fate/Stay Night —</i></p>
 
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=18604080">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg?v=6b966bca">
-  <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=18604080" alt="Banner" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=d3c06fb7">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg?v=43476790">
+  <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=d3c06fb7" alt="Banner" width="100%">
 </picture>
 
-<a href="https://www.linkedin.com/in/sochettra-srun-a67466395/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-<a href="mailto:srunsochettra@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Gmail"></a>
-<a href="https://github.com/SRUN-Sochettra"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"></a>
-<a href="https://anilist.co/user/scarletsages"><img src="https://img.shields.io/badge/AniList-02A9FF?style=flat-square&logo=anilist&logoColor=white" alt="AniList"></a>
-<img src="https://komarev.com/ghpvc/?username=SRUN-Sochettra&style=flat-square&color=f59e0b" alt="Profile views">
+</div>
+
+<details>
+<summary><b>more</b></summary>
+
+<br>
+
+<!-- ============ MAIN METRICS WALL ============ -->
+<table width="2000">
+<tr>
+<td width="2000">/main/assets/metrics.svg" alt="metrics"></td>
+</tr>
+</table>
+
+<!-- ============ FOLLOWUP + STATS ============ -->
+<table>
+<tr>
+<td>"></td>
+<td>https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&hide_border=true&theme=transparent&include_all_commits=true&count_private=true&rank_icon=github</td>
+</tr>
+</table>
+
+<!-- ============ TROPHIES ============ -->
+<table width="2000">
+<tr>
+<td width="2000">RUN-Sochettra&rank=SECRET,SSS,SS,S,AAA,AA&row=2&column=9&theme=darkhub&no-bg=true&no-frame=true" alt="trophies"></td>
+</tr>
+</table>
+
+</details>
+
+---
+
+<div align="center">
+
+<a href="https://www.linkedin.com/in/sochettra-srun-a67466395/">edin&logoColor=white" alt="LinkedIn"></a>
+<a href="mailto:srunsochettra@gmail.com">flat-square&logo=gmail&logoColor=white" alt="Gmail"></a>
+<a href="https://github.com/SRUN-Sochettra">github&logoColor=white" alt="GitHub"></a>
+<a href="https://anilist.co/user/scarletsages">style=flat-square&logo=anilist&logoColor=white" alt="AniList"></a>
+=SRUN-Sochettra&style=flat-square&color=f59e0b" alt="Profile views">
 
 </div>
 
@@ -27,30 +61,8 @@
 - **Research AI** — Switched from Pinecone to pgvector, cut hosting costs ~80%
 
 <sub>Updated weekly. Last bump: <!--START:TIMESTAMP-->
-2026-06-28 12:09 UTC
+2026-06-28 12:28 UTC
 <!--END:TIMESTAMP--></sub>
-
----
-
-## 🎌 Anime I Love
-
-<div align="center">
-
-<!--START:ANIME-->
-<table>
-  <tr>
-    <td align="center" width="20%"><a href="https://anilist.co/anime/21769"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21769-ZBoT6szJKGZv.jpg" width="140" alt="SNAFU"/></a><br/><sub><b>SNAFU</b></sub></td>
-    <td align="center" width="20%"><a href="https://anilist.co/anime/101291"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx101291-wfEdgPqtfU0l.jpg" width="140" alt="Bunny Girl Senpai"/></a><br/><sub><b>Bunny Girl Senpai</b></sub></td>
-    <td align="center" width="20%"><a href="https://anilist.co/anime/19469"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/19469.jpg" width="140" alt="Saiki K."/></a><br/><sub><b>Saiki K.</b></sub></td>
-    <td align="center" width="20%"><a href="https://anilist.co/anime/16498"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx16498-buvcRTBx4NSm.jpg" width="140" alt="Attack on Titan"/></a><br/><sub><b>Attack on Titan</b></sub></td>
-    <td align="center" width="20%"><a href="https://anilist.co/anime/21382"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21382-bBJghvjTP8Dr.jpg" width="140" alt="Rewrite"/></a><br/><sub><b>Rewrite</b></sub></td>
-  </tr>
-</table>
-<!--END:ANIME-->
-
-<sub>Auto-fetched covers via <a href="https://anilist.co">AniList</a>. Full list on my <a href="https://anilist.co/user/scarletsages">AniList profile</a>.</sub>
-
-</div>
 
 ---
 
@@ -67,12 +79,12 @@
 ### 🥚 EggScan
 
 <a href="https://github.com/SRUN-Sochettra/EggScan">
-  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/EggScan" alt="EggScan" align="right" width="320">
+  ets.com/1/SRUN-Sochettra/EggScan" alt="EggScan" align="right" width="320">
 </a>
 
 AI-powered GitHub profile and repository analyzer with profile scanning, developer battles, commit judging, README rating, stack analysis, and roast-style feedback.
 
-**Stack:** Java 21 · Spring Boot · PostgreSQL · React · Vite · Tailwind CSS · Groq AI  
+**Stack:** Java 21 · Spring Boot · PostgreSQL · React · Vite · Tailwind CSS · Groq AI
 **Repo:** https://github.com/SRUN-Sochettra/EggScan
 
 <br clear="right"/>
@@ -82,12 +94,12 @@ AI-powered GitHub profile and repository analyzer with profile scanning, develop
 ### 🧠 Research AI
 
 <a href="https://github.com/SRUN-Sochettra/Research-AI">
-  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/Research-AI" alt="Research AI" align="right" width="320">
+  arch-AI" alt="Research AI" align="right" width="320">
 </a>
 
 AI document research assistant for uploading PDFs, generating summaries, asking questions, retrieving citations, and chatting with documents.
 
-**Stack:** Next.js · TypeScript · LangChain.js · Gemini API · Supabase · pgvector · Upstash Redis  
+**Stack:** Next.js · TypeScript · LangChain.js · Gemini API · Supabase · pgvector · Upstash Redis
 **Repo:** https://github.com/SRUN-Sochettra/Research-AI
 
 <br clear="right"/>
@@ -97,12 +109,12 @@ AI document research assistant for uploading PDFs, generating summaries, asking 
 ### 🏦 Khmer Banking System
 
 <a href="https://github.com/SRUN-Sochettra/Khmer-Banking">
-  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/Khmer-Banking" alt="Khmer Banking" align="right" width="320">
+  s.com/1/SRUN-Sochettra/Khmer-Banking" alt="Khmer Banking" align="right" width="320">
 </a>
 
 Digital banking application designed around Cambodian fintech workflows, with transfers, KHQR-style payments, OTP verification, PDF statements, and spending analytics.
 
-**Stack:** Next.js · TypeScript · Prisma · Neon PostgreSQL · NextAuth.js · Resend · Shadcn UI  
+**Stack:** Next.js · TypeScript · Prisma · Neon PostgreSQL · NextAuth.js · Resend · Shadcn UI
 **Repo:** https://github.com/SRUN-Sochettra/Khmer-Banking
 
 <br clear="right"/>
@@ -112,12 +124,12 @@ Digital banking application designed around Cambodian fintech workflows, with tr
 ### 🚀 HyperSpace OS
 
 <a href="https://github.com/SRUN-Sochettra/HyperspaceOS">
-  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/HyperspaceOS" alt="HyperSpace OS" align="right" width="320">
+  paceOS" alt="HyperSpace OS" align="right" width="320">
 </a>
 
 Browser-based operating system experiment with custom window management, virtual files, terminal commands, built-in apps, persistent state, and a glassmorphism desktop UI.
 
-**Stack:** Vanilla JavaScript · Vite · Three.js · CodeMirror · uPlot · CSS  
+**Stack:** Vanilla JavaScript · Vite · Three.js · CodeMirror · uPlot · CSS
 **Repo:** https://github.com/SRUN-Sochettra/HyperspaceOS
 
 <br clear="right"/>
@@ -127,12 +139,12 @@ Browser-based operating system experiment with custom window management, virtual
 ### 📝 Blog API with IPFS Storage
 
 <a href="https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog">
-  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/Spring-Boot---API-Blog" alt="Blog API" align="right" width="320">
+  /Spring-Boot---API-Blog" alt="Blog API" align="right" width="320">
 </a>
 
 Security-focused REST API with JWT authentication, token invalidation, PostgreSQL persistence, MyBatis data access, Swagger documentation, and Pinata IPFS image upload.
 
-**Stack:** Java · Spring Boot · Spring Security · JWT · MyBatis · PostgreSQL · Pinata IPFS  
+**Stack:** Java · Spring Boot · Spring Security · JWT · MyBatis · PostgreSQL · Pinata IPFS
 **Repo:** https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog
 
 <br clear="right"/>
@@ -142,40 +154,15 @@ Security-focused REST API with JWT authentication, token invalidation, PostgreSQ
 ### 🔐 RFID Access Control System
 
 <a href="https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System">
-  <img src="https://opengraph.githubassets.com/1/SRUN-Sochettra/RPI---RFID-Access-Control-System" alt="RFID Access Control" align="right" width="320">
+  ettra/RPI---RFID-Access-Control-System" alt="RFID Access Control" align="right" width="320">
 </a>
 
 Embedded access-control system using RFID cards, OLED status display, servo locking, LED/buzzer feedback, and admin enrollment mode.
 
-**Stack:** MicroPython · Raspberry Pi Pico · MFRC522 · SSD1306 OLED · SG90 Servo  
+**Stack:** MicroPython · Raspberry Pi Pico · MFRC522 · SSD1306 OLED · SG90 Servo
 **Repo:** https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System
 
 <br clear="right"/>
-
----
-
-## 🐍 Contribution Graph
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/output/github-contribution-grid-snake-dark.svg" alt="Snake animation">
-
-</div>
-
----
-
-## 📈 Stats
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&hide_border=true&theme=transparent&include_all_commits=true&count_private=true&rank_icon=github" alt="GitHub Stats" height="160">
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=SRUN-Sochettra&hide_border=true&theme=transparent" alt="Streak" height="160">
-
-<br>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&layout=compact&hide_border=true&theme=transparent&langs_count=8" alt="Top Languages">
-
-</div>
 
 ---
 
@@ -240,8 +227,8 @@ Embedded access-control system using RFID cards, OLED status display, servo lock
 
 ## 💭 Philosophy
 
-> The best engineers I know don't build the most complex systems —  
-> they build the systems that don't break at 3AM, that the next person can maintain,  
+> The best engineers I know don't build the most complex systems —
+> they build the systems that don't break at 3AM, that the next person can maintain,
 > and that solve a real problem for a real person.
 >
 > I'm working on becoming that engineer.
