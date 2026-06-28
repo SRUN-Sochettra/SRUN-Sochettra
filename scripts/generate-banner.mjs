@@ -1,13 +1,19 @@
 import fs from "node:fs/promises";
-import path from "node:path";
 import { Octokit } from "@octokit/rest";
 import subsetFont from "subset-font";
 
 const USER = "SRUN-Sochettra";
 const KHMER_GREETING = "សួស្ដី";
+const DISPLAY_NAME = "Srun Sochettra";
 
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
 
+const UA =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36";
+
+// ------------------------------------------------------------------
+// Themes
+// ------------------------------------------------------------------
 const THEMES = {
   dark: {
     bgStart: "#0a0a0f",
@@ -19,7 +25,7 @@ const THEMES = {
     textPrimary: "#fafaf9",
     textSecondary: "#a8a29e",
     textTertiary: "#78716c",
-    textMuted: "#404040",
+    textMuted: "#44403c",
     accent: "#f59e0b",
     khmerColor: "#fbbf24",
     rule: "#292524",
@@ -39,9 +45,9 @@ const THEMES = {
     glow2: "#f59e0b",
     glow2Opacity: 0.06,
     textPrimary: "#1c1917",
-    textSecondary: "#57534e",
+    textSecondary: "#44403c",
     textTertiary: "#78716c",
-    textMuted: "#d6d3d1",
+    textMuted: "#a8a29e",
     accent: "#d97706",
     khmerColor: "#b45309",
     rule: "#e7e5e4",
@@ -56,35 +62,31 @@ const THEMES = {
 };
 
 // ------------------------------------------------------------------
-// Khmer font embed
+// Font fetch + embed (generic)
 // ------------------------------------------------------------------
-async function getEmbeddedKhmerFont() {
+async function fetchGoogleWoff2(family, weight, blockMatcher) {
+  const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:wght@${weight}&display=swap`;
+  const cssRes = await fetch(url, { headers: { "User-Agent": UA } });
+  if (!cssRes.ok) throw new Error(`CSS fetch failed: ${family}`);
+  const css = await cssRes.text();
+  const blocks = css.split("@font-face").slice(1);
+  const block = blockMatcher
+    ? blocks.find((b) => blockMatcher.test(b)) || blocks[0]
+    : blocks[0];
+  const urlMatch = block.match(/url\(([^)]+\.woff2)\)/);
+  if (!urlMatch) throw new Error(`No woff2 URL: ${family}`);
+  const fontRes = await fetch(urlMatch[1]);
+  if (!fontRes.ok) throw new Error(`Font download failed: ${family}`);
+  return Buffer.from(await fontRes.arrayBuffer());
+}
+
+async function getEmbeddedFont(family, weight, chars, blockMatcher = null) {
   try {
-    const cssRes = await fetch(
-      "https://fonts.googleapis.com/css2?family=Noto+Serif+Khmer:wght@700&display=swap",
-      {
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
-        },
-      }
-    );
-    if (!cssRes.ok) throw new Error("CSS fetch failed");
-    const css = await cssRes.text();
-    const blocks = css.split("@font-face").slice(1);
-    const khmerBlock =
-      blocks.find((b) => /U\+1780/i.test(b)) || blocks[blocks.length - 1];
-    const urlMatch = khmerBlock.match(/url\(([^)]+\.woff2)\)/);
-    if (!urlMatch) throw new Error("No woff2 URL");
-    const fontRes = await fetch(urlMatch[1]);
-    if (!fontRes.ok) throw new Error("Font fetch failed");
-    const fontBuf = Buffer.from(await fontRes.arrayBuffer());
-    const subset = await subsetFont(fontBuf, KHMER_GREETING, {
-      targetFormat: "woff2",
-    });
+    const fontBuf = await fetchGoogleWoff2(family, weight, blockMatcher);
+    const subset = await subsetFont(fontBuf, chars, { targetFormat: "woff2" });
     return subset.toString("base64");
   } catch (err) {
-    console.warn("Khmer font embed failed:", err.message);
+    console.warn(`${family} embed failed:`, err.message);
     return null;
   }
 }
@@ -106,7 +108,11 @@ function fmtRel(iso) {
 }
 
 function esc(s) {
-  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function clip(s, n) {
@@ -118,7 +124,7 @@ function ymdUTC(d) {
 }
 
 // ------------------------------------------------------------------
-// REAL contribution data via GraphQL (not events API)
+// Stats via GraphQL (real contribution data)
 // ------------------------------------------------------------------
 async function getContributionMap() {
   const today = new Date();
@@ -148,23 +154,18 @@ async function getContributionMap() {
   return perDay;
 }
 
-// ------------------------------------------------------------------
-// Fetch stats
-// ------------------------------------------------------------------
 async function getStats() {
   const perDay = await getContributionMap();
 
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-  // 7-day stats
   let commitsThisWeek = 0;
   for (let i = 0; i < 7; i++) {
     const d = new Date(today.getTime() - i * 86400000);
     commitsThisWeek += perDay[ymdUTC(d)] ?? 0;
   }
 
-  // Streak
   let streak = 0;
   for (let i = 0; i < 365; i++) {
     const d = new Date(today.getTime() - i * 86400000);
@@ -173,7 +174,6 @@ async function getStats() {
     else break;
   }
 
-  // Repos touched this week via events (still useful)
   const events = await octo.paginate(
     octo.activity.listPublicEventsForUser,
     { username: USER, per_page: 100 },
@@ -187,7 +187,7 @@ async function getStats() {
     if (t >= weekAgo) reposTouched.add(e.repo.name);
   }
 
-  // 12-week heatmap (84 days, 7 rows × 12 cols, rightmost col ends today)
+  // 12-week heatmap
   const heatmap = [];
   const HEATMAP_DAYS = 84;
   const firstDayOffset = HEATMAP_DAYS - 1;
@@ -208,7 +208,6 @@ async function getStats() {
     sparkline.push(perDay[ymdUTC(d)] ?? 0);
   }
 
-  // Recent repos
   const { data: repos } = await octo.repos.listForUser({
     username: USER,
     sort: "pushed",
@@ -243,13 +242,15 @@ async function getStats() {
 }
 
 // ------------------------------------------------------------------
-// Heatmap (fixed layout, no overlap)
+// Renderers
 // ------------------------------------------------------------------
 function renderHeatmap(heatmap, maxDay, theme) {
   const x0 = 820;
   const y0 = 92;
   const cell = 20;
-  const gap = 6;
+  const gap = 5;
+  const rows = 7;
+  const cols = 12;
   const levels = theme.cellLevels;
 
   let cells = "";
@@ -269,8 +270,8 @@ function renderHeatmap(heatmap, maxDay, theme) {
     });
   });
 
-  // Legend below cells
-  const legendY = y0 + 7 * (cell + gap) + 4;
+  const cellsBottom = y0 + rows * cell + (rows - 1) * gap;
+  const legendY = cellsBottom + 14;
   let legend = `<text x="${x0}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">Less</text>`;
   const legendStart = x0 + 32;
   for (let i = 0; i < 5; i++) {
@@ -278,21 +279,16 @@ function renderHeatmap(heatmap, maxDay, theme) {
     legend += `<rect x="${legendStart + i * 15}" y="${legendY}" width="12" height="12" rx="2" fill="${fill}"/>`;
   }
   legend += `<text x="${legendStart + 5 * 15 + 4}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">More</text>`;
-
   return cells + legend;
 }
 
-// ------------------------------------------------------------------
-// Sparkline (smooth curve, fixed Y range)
-// ------------------------------------------------------------------
 function renderSparkline(values, theme) {
   const x0 = 820;
-  const y0 = 326;
+  const y0 = 322;
   const w = 396;
-  const h = 48;
+  const h = 40;
   const max = Math.max(1, ...values);
   const step = w / (values.length - 1);
-
   const pts = values.map((v, i) => [x0 + i * step, y0 + h - (v / max) * h]);
 
   let path = `M ${pts[0][0]} ${pts[0][1]}`;
@@ -302,7 +298,6 @@ function renderSparkline(values, theme) {
     path += ` C ${px + step / 2} ${py}, ${x - step / 2} ${y}, ${x} ${y}`;
   }
   const area = `${path} L ${x0 + w} ${y0 + h} L ${x0} ${y0 + h} Z`;
-
   const last = pts[pts.length - 1];
 
   return `
@@ -312,21 +307,18 @@ function renderSparkline(values, theme) {
   `;
 }
 
-// ------------------------------------------------------------------
-// Latest ships
-// ------------------------------------------------------------------
 function renderShips(recent, theme) {
   if (!recent.length) {
-    return `<text x="820" y="408" class="mono" fill="${theme.textTertiary}" font-size="11">No recent ships</text>`;
+    return `<text x="820" y="420" class="mono" fill="${theme.textTertiary}" font-size="11">No recent ships</text>`;
   }
-  let y = 408;
+  let y = 420;
   return recent
     .map((r) => {
       const block = `
     <circle cx="826" cy="${y - 4}" r="3" fill="${theme.shipDot}"/>
     <text x="838" y="${y}" class="sans" fill="${theme.textPrimary}" font-size="13" font-weight="600">${esc(clip(r.name, 28))}</text>
     <text x="1216" y="${y}" text-anchor="end" class="mono" fill="${theme.textTertiary}" font-size="11">${esc(r.lang)} · ${esc(r.when)}</text>`;
-      y += 20;
+      y += 22;
       return block;
     })
     .join("");
@@ -335,25 +327,26 @@ function renderShips(recent, theme) {
 // ------------------------------------------------------------------
 // Main SVG
 // ------------------------------------------------------------------
-function renderSvg(s, fontB64, themeName) {
+function renderSvg(s, fonts, themeName) {
   const t = THEMES[themeName];
-  const fontFace = fontB64
-    ? `<style type="text/css"><![CDATA[
-      @font-face {
-        font-family: 'KhmerEmbed';
-        font-weight: 700;
-        src: url(data:font/woff2;base64,${fontB64}) format('woff2');
-      }
-    ]]></style>`
-    : "";
-  const khmerFontFamily = fontB64
+  const { khmer: khmerB64, display: displayB64 } = fonts;
+
+  const fontFaces = `<style type="text/css"><![CDATA[
+    ${khmerB64 ? `@font-face { font-family: 'KhmerEmbed'; font-weight: 700; src: url(data:font/woff2;base64,${khmerB64}) format('woff2'); }` : ""}
+    ${displayB64 ? `@font-face { font-family: 'DisplayEmbed'; font-weight: 700; src: url(data:font/woff2;base64,${displayB64}) format('woff2'); }` : ""}
+  ]]></style>`;
+
+  const khmerFamily = khmerB64
     ? "'KhmerEmbed', 'Noto Serif Khmer', serif"
     : "'Noto Serif Khmer', 'Khmer OS', serif";
 
-  // Inline metrics — using tspan so positioning is automatic
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" width="1280" height="480" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (${themeName})">
+  const displayFamily = displayB64
+    ? "'DisplayEmbed', 'Fraunces', 'Playfair Display', Georgia, serif"
+    : "'Fraunces', 'Playfair Display', Georgia, serif";
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" width="1280" height="500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (${themeName})">
   <defs>
-    ${fontFace}
+    ${fontFaces}
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="${t.bgStart}"/>
       <stop offset="100%" stop-color="${t.bgEnd}"/>
@@ -369,75 +362,58 @@ function renderSvg(s, fontB64, themeName) {
     <style type="text/css"><![CDATA[
       .mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace; }
       .sans { font-family: 'Inter', 'Helvetica Neue', system-ui, -apple-system, sans-serif; }
-      .khmer { font-family: ${khmerFontFamily}; font-weight: 700; }
+      .display { font-family: ${displayFamily}; font-weight: 700; }
+      .khmer { font-family: ${khmerFamily}; font-weight: 700; }
       @keyframes pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
       .live { animation: pulse 2s ease-in-out infinite; }
     ]]></style>
   </defs>
 
-  <rect width="1280" height="480" fill="url(#bg)"/>
-  <rect width="1280" height="480" fill="url(#glow1)"/>
-  <rect width="1280" height="480" fill="url(#glow2)"/>
+  <rect width="1280" height="500" fill="url(#bg)"/>
+  <rect width="1280" height="500" fill="url(#glow1)"/>
+  <rect width="1280" height="500" fill="url(#glow2)"/>
 
   <!-- ============ LEFT HERO ============ -->
   <text x="64" y="70" class="mono" fill="${t.accent}" font-size="12" letter-spacing="0.25em" opacity="0.9">
     BACKEND · AI · FINTECH · CAMBODIA
   </text>
 
-  <text x="64" y="184" class="khmer" fill="${t.khmerColor}" font-size="86">${KHMER_GREETING}</text>
+  <text x="64" y="180" class="khmer" fill="${t.khmerColor}" font-size="86">${KHMER_GREETING}</text>
 
-  <text x="64" y="268" class="sans" fill="${t.textPrimary}" font-size="68" font-weight="800" letter-spacing="-0.035em">
-    Srun Sochettra
+  <text x="64" y="270" class="display" fill="${t.textPrimary}" font-size="72" letter-spacing="-0.02em">
+    ${DISPLAY_NAME}
   </text>
 
-  <rect x="64" y="286" width="80" height="3" fill="${t.accent}" rx="1.5"/>
+  <rect x="64" y="288" width="80" height="3" fill="${t.accent}" rx="1.5"/>
 
-  <text x="64" y="324" class="sans" fill="${t.textSecondary}" font-size="20" font-weight="400">
+  <text x="64" y="326" class="sans" fill="${t.textSecondary}" font-size="20" font-weight="400">
     Building software that matters in Cambodia.
   </text>
 
-  <text x="64" y="352" class="sans" fill="${t.textTertiary}" font-size="14">
+  <text x="64" y="354" class="sans" fill="${t.textTertiary}" font-size="14">
     Backend &amp; Full-Stack Developer  ·  Phnom Penh  ·  ${s.totalRepos} repos
   </text>
 
-  <!-- Inline metrics row (using tspan = automatic positioning, no bugs) -->
-  <text x="64" y="396" class="mono" font-size="13">
-    <tspan fill="${t.textTertiary}">commits/7d</tspan>
-    <tspan fill="${t.textPrimary}" font-weight="700" dx="10">${s.commitsThisWeek}</tspan>
-    <tspan fill="${t.textMuted}" dx="14">·</tspan>
-    <tspan fill="${t.textTertiary}" dx="14">streak</tspan>
-    <tspan fill="${t.textPrimary}" font-weight="700" dx="10">${s.streak}d</tspan>
-    <tspan dx="6">🔥</tspan>
-    <tspan fill="${t.textMuted}" dx="14">·</tspan>
-    <tspan fill="${t.textTertiary}" dx="14">active in</tspan>
-    <tspan fill="${t.textPrimary}" font-weight="700" dx="10">${s.reposTouchedCount}</tspan>
-    <tspan fill="${t.textTertiary}" dx="6">repo${s.reposTouchedCount === 1 ? "" : "s"}</tspan>
-  </text>
+  <text x="64" y="400" class="mono" font-size="13" xml:space="preserve"><tspan fill="${t.textTertiary}">commits/7d</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.commitsThisWeek}</tspan>   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">streak</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.streak}d</tspan> 🔥   <tspan fill="${t.textMuted}">·</tspan>   <tspan fill="${t.textTertiary}">active in</tspan> <tspan fill="${t.textPrimary}" font-weight="700">${s.reposTouchedCount}</tspan> <tspan fill="${t.textTertiary}">repo${s.reposTouchedCount === 1 ? "" : "s"}</tspan></text>
 
-  <!-- LIVE -->
-  <g transform="translate(64, 434)">
+  <g transform="translate(64, 460)">
     <circle class="live" cx="5" cy="5" r="4.5" fill="${t.liveDot}"/>
     <text x="18" y="10" class="mono" fill="${t.liveText}" font-size="11" font-weight="700" letter-spacing="0.2em">LIVE</text>
     <text x="60" y="10" class="mono" fill="${t.textTertiary}" font-size="11">·  refreshed ${esc(s.updatedAt)}</text>
   </g>
 
-  <!-- Separator -->
-  <line x1="790" y1="60" x2="790" y2="440" stroke="${t.rule}" stroke-width="1"/>
+  <line x1="790" y1="60" x2="790" y2="470" stroke="${t.rule}" stroke-width="1"/>
 
   <!-- ============ RIGHT DATA ============ -->
-
-  <!-- Heatmap -->
   <text x="820" y="76" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">12 WEEKS OF SHIPPING</text>
   <text x="1216" y="76" text-anchor="end" class="mono" fill="${t.textTertiary}" font-size="11">${s.total12w} contributions</text>
   ${renderHeatmap(s.heatmap, s.maxDay, t)}
 
-  <!-- Sparkline -->
-  <text x="820" y="312" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">DAILY · 30D</text>
-  <text x="1216" y="312" text-anchor="end" class="mono" fill="${t.textTertiary}" font-size="11">peak ${s.maxDay}/day</text>
+  <text x="820" y="308" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">DAILY · 30D</text>
+  <text x="1216" y="308" text-anchor="end" class="mono" fill="${t.textTertiary}" font-size="11">peak ${s.maxDay}/day</text>
   ${renderSparkline(s.sparkline, t)}
 
-  <!-- Latest ships -->
-  <text x="820" y="394" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">LATEST SHIPS</text>
+  <text x="820" y="396" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">LATEST SHIPS</text>
   ${renderShips(s.recent, t)}
 </svg>
 `;
@@ -446,11 +422,19 @@ function renderSvg(s, fontB64, themeName) {
 // ------------------------------------------------------------------
 // Main
 // ------------------------------------------------------------------
-const [stats, fontB64] = await Promise.all([getStats(), getEmbeddedKhmerFont()]);
+const [stats, khmerB64, displayB64] = await Promise.all([
+  getStats(),
+  getEmbeddedFont("Noto Serif Khmer", "700", KHMER_GREETING, /U\+1780/i),
+  getEmbeddedFont("Fraunces", "700", DISPLAY_NAME),
+]);
+
+const fonts = { khmer: khmerB64, display: displayB64 };
 
 await fs.mkdir("assets", { recursive: true });
-await fs.writeFile("assets/banner-dark.svg", renderSvg(stats, fontB64, "dark"));
-await fs.writeFile("assets/banner-light.svg", renderSvg(stats, fontB64, "light"));
+await fs.writeFile("assets/banner-dark.svg", renderSvg(stats, fonts, "dark"));
+await fs.writeFile("assets/banner-light.svg", renderSvg(stats, fonts, "light"));
 
-console.log("banner generated for both themes.");
+console.log("banners generated.");
+console.log("khmer embedded:", !!khmerB64);
+console.log("display embedded:", !!displayB64);
 console.log("stats:", { ...stats, heatmap: undefined, sparkline: undefined });
