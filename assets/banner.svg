@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="Srun Sochettra — live banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.5" r="0.55">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.12"/>
+    </pattern>
+    <style>
+      .mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace; }
+      .sans { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+      .khmer { font-family: 'Noto Serif Khmer', 'Khmer OS', serif; font-weight: 700; }
+      @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      .dot-a { animation: pulse 3s ease-in-out infinite; }
+      .dot-b { animation: pulse 3s ease-in-out infinite; animation-delay: 0.8s; }
+      .dot-c { animation: pulse 3s ease-in-out infinite; animation-delay: 1.6s; }
+      .live { animation: pulse 2s ease-in-out infinite; }
+      .cursor { animation: blink 1s steps(1) infinite; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="360" fill="url(#bg)"/>
+  <rect width="1280" height="360" fill="url(#grid)"/>
+  <rect width="1280" height="360" fill="url(#glow)"/>
+  <rect x="0" y="0" width="6" height="360" fill="url(#accent)"/>
+
+  <!-- Lotus / temple geometric mark -->
+  <g transform="translate(50, 60)" opacity="0.18" stroke="#fbbf24" stroke-width="1.5" fill="none">
+    <path d="M 0 0 L 28 -42 L 56 0 L 28 42 Z"/>
+    <path d="M 28 -42 L 28 42"/>
+    <path d="M 0 0 L 56 0"/>
+    <circle cx="28" cy="0" r="6"/>
+    <path d="M -10 14 Q 28 30 66 14"/>
+  </g>
+
+  <!-- Network nodes right side -->
+  <g transform="translate(920, 50)" stroke="#8b5cf6" stroke-width="1" fill="#8b5cf6">
+    <line x1="0" y1="40" x2="80" y2="0" opacity="0.25"/>
+    <line x1="80" y1="0" x2="170" y2="50" opacity="0.25"/>
+    <line x1="0" y1="40" x2="120" y2="110" opacity="0.25"/>
+    <line x1="170" y1="50" x2="120" y2="110" opacity="0.25"/>
+    <line x1="80" y1="0" x2="230" y2="30" opacity="0.25"/>
+    <line x1="230" y1="30" x2="170" y2="50" opacity="0.25"/>
+    <line x1="120" y1="110" x2="230" y2="140" opacity="0.25"/>
+    <line x1="230" y1="30" x2="300" y2="90" opacity="0.25"/>
+    <line x1="300" y1="90" x2="230" y2="140" opacity="0.25"/>
+    <circle class="dot-a" cx="0" cy="40" r="4"/>
+    <circle cx="80" cy="0" r="3"/>
+    <circle class="dot-b" cx="170" cy="50" r="4"/>
+    <circle cx="230" cy="30" r="3"/>
+    <circle class="dot-c" cx="120" cy="110" r="4"/>
+    <circle cx="300" cy="90" r="3"/>
+    <circle cx="230" cy="140" r="3"/>
+  </g>
+
+  <!-- Top-left meta -->
+  <text x="125" y="58" class="mono" fill="#f59e0b" font-size="13" opacity="0.85" letter-spacing="0.15em">
+    [ codify · solve · impact ]
+  </text>
+
+  <!-- Khmer + Latin name -->
+  <text x="125" y="130" class="khmer" fill="#fbbf24" font-size="46">សួស្ដី</text>
+  <text x="265" y="130" class="sans" fill="#64748b" font-size="40" font-weight="300">/</text>
+  <text x="295" y="130" class="sans" fill="#f8fafc" font-size="44" font-weight="800" letter-spacing="-0.02em">
+    Srun Sochettra
+  </text>
+
+  <!-- Tagline -->
+  <text x="127" y="172" class="mono" fill="#cbd5e1" font-size="16" letter-spacing="0.05em">
+    Building software that matters in <tspan fill="#fbbf24" font-weight="700">Cambodia</tspan> 🇰🇭
+  </text>
+
+  <!-- Sub -->
+  <text x="127" y="200" class="sans" fill="#94a3b8" font-size="13">
+    Backend &amp; Full-Stack Developer  •  Phnom Penh
+  </text>
+
+  <!-- Focus pills -->
+  <g transform="translate(127, 222)" class="sans" font-size="11" fill="#cbd5e1">
+    <rect x="0" y="0" width="78" height="24" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="39" y="16" text-anchor="middle">Backend</text>
+    <rect x="88" y="0" width="62" height="24" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="119" y="16" text-anchor="middle">AI Tools</text>
+    <rect x="158" y="0" width="62" height="24" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="189" y="16" text-anchor="middle">Fintech</text>
+    <rect x="228" y="0" width="98" height="24" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="277" y="16" text-anchor="middle">Web &amp; Mobile</text>
+    <rect x="334" y="0" width="78" height="24" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="373" y="16" text-anchor="middle">Hardware</text>
+  </g>
+
+  <!-- LIVE indicator -->
+  <g transform="translate(127, 270)">
+    <circle class="live" cx="6" cy="6" r="5" fill="#22c55e"/>
+    <text x="20" y="11" class="mono" fill="#22c55e" font-size="11" letter-spacing="0.2em">LIVE</text>
+    <text x="62" y="11" class="mono" fill="#64748b" font-size="11">refreshed 2026-06-28 07:01 UTC</text>
+  </g>
+
+  <!-- STATS STRIP (the dynamic part) -->
+  <g transform="translate(127, 290)">
+    <!-- Card 1: commits this week -->
+    <rect x="0" y="0" width="170" height="56" rx="8" fill="#0b1224" stroke="#1e293b"/>
+    <text x="12" y="20" class="mono" fill="#64748b" font-size="10" letter-spacing="0.1em">COMMITS / 7D</text>
+    <text x="12" y="44" class="sans" fill="#f8fafc" font-size="22" font-weight="800">0</text>
+    <text x="56" y="44" class="mono" fill="#94a3b8" font-size="11">across 7 repos</text>
+
+    <!-- Card 2: last shipped -->
+    <rect x="184" y="0" width="280" height="56" rx="8" fill="#0b1224" stroke="#1e293b"/>
+    <text x="196" y="20" class="mono" fill="#64748b" font-size="10" letter-spacing="0.1em">LAST SHIPPED</text>
+    <text x="196" y="40" class="sans" fill="#fbbf24" font-size="15" font-weight="700">SRUN-Sochettra</text>
+    <text x="196" y="52" class="mono" fill="#94a3b8" font-size="10">0m ago</text>
+
+    <!-- Card 3: public repos -->
+    <rect x="478" y="0" width="140" height="56" rx="8" fill="#0b1224" stroke="#1e293b"/>
+    <text x="490" y="20" class="mono" fill="#64748b" font-size="10" letter-spacing="0.1em">PUBLIC REPOS</text>
+    <text x="490" y="44" class="sans" fill="#f8fafc" font-size="22" font-weight="800">36</text>
+  </g>
+
+  <!-- Right side: terminal -->
+  <g transform="translate(940, 250)" class="mono" font-size="11">
+    <rect x="0" y="0" width="290" height="80" rx="6" fill="#020617" stroke="#334155"/>
+    <circle cx="14" cy="14" r="4" fill="#ef4444"/>
+    <circle cx="28" cy="14" r="4" fill="#f59e0b"/>
+    <circle cx="42" cy="14" r="4" fill="#22c55e"/>
+    <text x="220" y="18" fill="#475569" font-size="9">sochettra ~ </text>
+    <text x="14" y="38" fill="#22c55e">$ whoami</text>
+    <text x="14" y="54" fill="#cbd5e1">→ building for real people</text>
+    <text x="14" y="70" fill="#8b5cf6">$ <tspan class="cursor">▊</tspan></text>
+  </g>
+</svg>
