@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=969289f9" />
-ner-light.svg" />
-SRUN-Sochettra/main/assets/banner-dark.svg?v=969289f9" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=c976d8e2" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=5a03716a" />
+<img src="./assets/banner-dark.svg?v=c976d8e2" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -11,19 +11,19 @@ SRUN-Sochettra/main/assets/banner-dark.svg?v=969289f9" alt="Banner" width="100%"
 <details>
 <summary><b>👨‍💻 as a coder</b></summary>
 <br />
-<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/metrics-coder.svg" alt="coder" width="100%" />
+<img src="./assets/metrics-coder.svg" alt="coder" width="100%" />
 </details>
 
 <details>
 <summary><b>🎌 as a person</b></summary>
 <br />
-<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/metrics-person.svg" alt="person" width="100%" />
+<img src="./assets/metrics-person.svg" alt="person" width="100%" />
 </details>
 
 <details>
 <summary><b>📊 by the numbers</b></summary>
 <br />
-<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/metrics-data.svg" alt="data" width="100%" />
+<img src="./assets/metrics-data.svg" alt="data" width="100%" />
 <br />
 <br />
 <div align="center">
