@@ -6,6 +6,7 @@
     "update": "node scripts/update-readme.mjs"
   },
   "dependencies": {
-    "@octokit/rest": "^21.0.2"
+    "@octokit/rest": "^21.0.2",
+    "subset-font": "^2.3.0"
   }
 }

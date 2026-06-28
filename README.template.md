@@ -1,6 +1,6 @@
 <div align="center">
 
-https://github.com/SRUN-Sochettra
+<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner.svg" alt="Srun Sochettra — live banner" width="100%">
 
 # សួស្ដី • Srun Sochettra
 
