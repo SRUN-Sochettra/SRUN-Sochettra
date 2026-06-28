@@ -15,89 +15,111 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # ============================================================
-      # MAIN WALL — assets/metrics.svg
-      # AniList + achievements + languages + stars + isocalendar
-      # + topics + lines + people + habits
+      # 1) THE CODER — dev stats, languages, when-you-code heatmap
       # ============================================================
-      - name: Main metrics wall
+      - name: Coder metrics
         uses: lowlighter/metrics@latest
         with:
-          filename: assets/metrics.svg
+          filename: assets/metrics-coder.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
 
           user: SRUN-Sochettra
           template: classic
-          base: header, activity, community, repositories, metadata
+          base: header, activity, community, repositories
           config_display: large
           config_padding: 0, 3%
           config_timezone: Asia/Phnom_Penh
 
-          # AniList — your reading/watching, favorites, characters
-          plugin_anilist: yes
-          plugin_anilist_user: scarletsages
-          plugin_anilist_medias: anime, manga
-          plugin_anilist_sections: characters, watching, reading, favorites
-          plugin_anilist_limit: 2
-          plugin_anilist_shuffle: yes
-          plugin_anilist_limit_characters: 22
-
-          # Achievements — gamified medals
-          plugin_achievements: yes
-          plugin_achievements_display: detailed
-          plugin_achievements_secrets: yes
-          plugin_achievements_threshold: C
-
-          # Languages — categorized by markup/programming
+          # Languages — both most-used overall AND recent 14 days
           plugin_languages: yes
           plugin_languages_categories: markup, programming
           plugin_languages_colors: github
+          plugin_languages_indepth: yes
           plugin_languages_limit: 8
           plugin_languages_recent_categories: markup, programming
           plugin_languages_recent_days: 14
           plugin_languages_recent_load: 300
-          plugin_languages_sections: most-used
+          plugin_languages_sections: most-used, recently-used
           plugin_languages_threshold: 0%
 
-          # Topics — icon grid of repo topics
+          # Topics — icon grid
           plugin_topics: yes
           plugin_topics_limit: 0
           plugin_topics_mode: icons
 
-          # Stars — your starred repos
-          plugin_stars: yes
-          plugin_stars_limit: 6
-
-          # Lines — code added/removed
-          plugin_lines: yes
-
-          # People — followers
-          plugin_people: yes
-          plugin_people_types: followers
-
-          # Habits — when you code (hour heatmap)
+          # HABITS — when you actually code. Ocat doesn't have this.
           plugin_habits: yes
-          plugin_habits_facts: no
+          plugin_habits_facts: yes
           plugin_habits_charts: yes
           plugin_habits_charts_type: chartist
+          plugin_habits_days: 14
+          plugin_habits_from: 200
+
+          # Lines added/removed
+          plugin_lines: yes
+          plugin_lines_history_limit: 1
 
       # ============================================================
-      # FOLLOWUP / BOTTOM — assets/followup.svg
-      # Issues/PRs status + isocalendar (3D contribution graph)
+      # 2) THE PERSON — anime, manga, characters, stars, followers
       # ============================================================
-      - name: Followup + isocalendar
+      - name: Person metrics
         uses: lowlighter/metrics@latest
         with:
-          filename: assets/followup.svg
+          filename: assets/metrics-person.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
 
           user: SRUN-Sochettra
+          template: classic
           base: ""
+          config_display: large
+          config_padding: 0, 3%
+          config_timezone: Asia/Phnom_Penh
+
+          # AniList — full personality dump
+          plugin_anilist: yes
+          plugin_anilist_user: scarletsages
+          plugin_anilist_medias: anime, manga
+          plugin_anilist_sections: characters, watching, reading, favorites
+          plugin_anilist_limit: 3
+          plugin_anilist_shuffle: yes
+          plugin_anilist_limit_characters: 22
+
+          # Stars — repos you've starred
+          plugin_stars: yes
+          plugin_stars_limit: 6
+
+          # Followers
+          plugin_people: yes
+          plugin_people_types: followers, following
+          plugin_people_limit: 28
+          plugin_people_size: 32
+
+      # ============================================================
+      # 3) THE NUMBERS — followup, isocalendar, achievements
+      # ============================================================
+      - name: Data metrics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics-data.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+
+          user: SRUN-Sochettra
+          template: classic
+          base: ""
+          config_display: large
+          config_padding: 0, 3%
           config_timezone: Asia/Phnom_Penh
 
           plugin_followup: yes
           plugin_followup_sections: repositories
 
           plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+          plugin_isocalendar_duration: full-year
+
+          plugin_achievements: yes
+          plugin_achievements_display: detailed
+          plugin_achievements_secrets: yes
+          plugin_achievements_threshold: C

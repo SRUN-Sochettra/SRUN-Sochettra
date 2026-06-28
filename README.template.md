@@ -10,25 +10,24 @@
 </div>
 
 <details>
-<summary><b>more</b></summary>
+<summary><b>👨‍💻 as a coder</b></summary>
+<br>
+<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/metrics-coder.svg" alt="coder metrics" width="100%">
+</details>
 
-<table width="2000">
-<tr>
-<td width="2000"><img align="center" width="100%" alt="metrics" src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/metrics.svg"></td>
-</tr>
-</table>
+<details>
+<summary><b>🎌 as a person</b></summary>
+<br>
+<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/metrics-person.svg" alt="person metrics" width="100%">
+</details>
 
-<table>
-<tr>
-<td><img alt="followup" src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/followup.svg"></td>
-<td><img alt="stats" src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&show_icons=true&hide_border=true&theme=transparent&include_all_commits=true&count_private=true&rank_icon=github"></td>
-</tr>
-</table>
-
-<table width="2000">
-<tr>
-<td width="2000"><img alt="trophies" src="https://github-trophies.vercel.app/?username=SRUN-Sochettra&rank=SECRET,SSS,SS,S,AAA,AA&row=2&column=9&theme=darkhub&no-bg=true&no-frame=true"></td>
-</tr>
-</table>
-
+<details>
+<summary><b>📊 by the numbers</b></summary>
+<br>
+<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/metrics-data.svg" alt="data metrics" width="100%">
+<br>
+<br>
+<div align="center">
+<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&rank=SECRET,SSS,SS,S,AAA,AA&row=2&column=9&theme=darkhub&no-bg=true&no-frame=true" alt="trophies">
+</div>
 </details>
