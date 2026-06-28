@@ -131,7 +131,6 @@ function fmtDateUpper(d) {
 }
 
 function fmtShortDate(d) {
-  // e.g. "May 30"
   return `${MONTH_LABELS[d.getMonth()]} ${d.getDate()}`;
 }
 
@@ -214,7 +213,6 @@ async function getStats() {
     commitsThisWeek += perDay[ymdUTC(d)] ?? 0;
   }
 
-  // Previous 7-day window (days 7-13 ago) for week-over-week delta
   let commitsPrevWeek = 0;
   for (let i = 7; i < 14; i++) {
     const d = new Date(today.getTime() - i * 86400000);
@@ -230,7 +228,6 @@ async function getStats() {
     else break;
   }
 
-  // Events: also derive focus repo (most pushes this week) + last push signature
   const events = await octo.paginate(
     octo.activity.listPublicEventsForUser,
     { username: USER, per_page: 100 },
@@ -251,9 +248,14 @@ async function getStats() {
     }
   }
 
+  // FOCUS: prefer non-profile repo (profile repo is just the readme bot)
+  const profileRepoName = `${USER}/${USER}`;
+  const nonProfileEntries = [...repoCommits.entries()].filter(([name]) => name !== profileRepoName);
+  const focusEntries = nonProfileEntries.length > 0 ? nonProfileEntries : [...repoCommits.entries()];
+
   let focus = null;
-  if (repoCommits.size > 0) {
-    const [name, commits] = [...repoCommits.entries()].sort((a, b) => b[1] - a[1])[0];
+  if (focusEntries.length > 0) {
+    const [name, commits] = focusEntries.sort((a, b) => b[1] - a[1])[0];
     focus = {
       name: name.includes("/") ? name.split("/")[1] : name,
       commits,
@@ -286,9 +288,10 @@ async function getStats() {
     const d = new Date(today.getTime() - i * 86400000);
     sparkline.push(perDay[ymdUTC(d)] ?? 0);
   }
-
   const sparklineStart = new Date(today.getTime() - 29 * 86400000);
   const sparklineEnd = today;
+  const sparkTotal = sparkline.reduce((a, b) => a + b, 0);
+  const sparkAvg = sparkTotal / sparkline.length;
 
   const { data: repos } = await octo.repos.listForUser({
     username: USER, sort: "pushed", per_page: 10,
@@ -323,6 +326,8 @@ async function getStats() {
     sparkline,
     sparklineStart,
     sparklineEnd,
+    sparkTotal,
+    sparkAvg,
     total12w,
     maxDay,
     max30d,
@@ -346,7 +351,6 @@ function renderHeatmap(heatmap, maxDay, theme) {
 
   let out = "";
 
-  // Month labels
   let lastMonth = -1;
   heatmap.forEach((week, col) => {
     const midDay = week[3].date;
@@ -358,14 +362,12 @@ function renderHeatmap(heatmap, maxDay, theme) {
     }
   });
 
-  // Weekday markers (M, W, F)
   const weekdayRows = { 1: "M", 3: "W", 5: "F" };
   for (const [row, label] of Object.entries(weekdayRows)) {
     const y = y0 + parseInt(row) * (cell + gap) + cell / 2 + 3;
     out += `<text x="${x0 - 14}" y="${y}" text-anchor="end" class="mono" fill="${theme.textTertiary}" font-size="9">${label}</text>`;
   }
 
-  // Cells
   heatmap.forEach((week, col) => {
     week.forEach(({ count }, row) => {
       const x = x0 + col * (cell + gap);
@@ -406,7 +408,7 @@ function renderHeatmapLegend(theme) {
   return out;
 }
 
-function renderSparkline(values, theme) {
+function renderSparkline(values, avg, theme) {
   const x0 = 820;
   const y0 = 322;
   const w = 396;
@@ -429,19 +431,22 @@ function renderSparkline(values, theme) {
   const peakPt = pts[peakIdx];
   const peakValue = values[peakIdx];
 
-  // Reference lines
-  const baseline = `<line x1="${x0}" y1="${y0 + h}" x2="${x0 + w}" y2="${y0 + h}" stroke="${theme.rule}" stroke-width="0.5"/>`;
-  const peakLine = peakValue > 0
-    ? `<line x1="${x0}" y1="${peakPt[1]}" x2="${x0 + w}" y2="${peakPt[1]}" stroke="${theme.rule}" stroke-width="0.5" stroke-dasharray="2,3" opacity="0.6"/>`
+  // Avg line
+  const avgY = y0 + h - (avg / max) * h;
+  const avgLine = avg > 0
+    ? `<line x1="${x0}" y1="${avgY}" x2="${x0 + w}" y2="${avgY}" stroke="${theme.textMuted}" stroke-width="0.5" stroke-dasharray="2,4" opacity="0.5"/>
+       <text x="${x0 + w - 4}" y="${avgY - 4}" text-anchor="end" class="mono tnum" fill="${theme.textMuted}" font-size="8" letter-spacing="0.1em">AVG ${avg.toFixed(1)}</text>`
     : "";
 
-  // Peak label position (clamped to stay inside area)
+  const baseline = `<line x1="${x0}" y1="${y0 + h}" x2="${x0 + w}" y2="${y0 + h}" stroke="${theme.rule}" stroke-width="0.5"/>`;
+
+  // Peak label position
   const labelX = Math.max(x0 + 10, Math.min(x0 + w - 10, peakPt[0]));
   const labelY = Math.max(y0 + 2, peakPt[1] - 8);
 
   return `
     ${baseline}
-    ${peakLine}
+    ${avgLine}
     <path d="${area}" fill="url(#sparkFill)"/>
     <path d="${path}" stroke="${theme.sparklineStroke}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="${peakPt[0]}" cy="${peakPt[1]}" r="4" fill="${theme.bgEnd}"/>
@@ -473,7 +478,6 @@ function renderStatsGrid(s, theme) {
   const x0 = 64;
   const yLabel = 372;
   const yValue = 402;
-  const yDelta = 418;
   const colW = 130;
 
   const items = [
@@ -512,20 +516,24 @@ function renderStatsGrid(s, theme) {
     out += `<text x="${x}" y="${yLabel}" class="mono" fill="${theme.textTertiary}" font-size="10" letter-spacing="0.18em">${esc(it.label)}</text>`;
     out += `<text x="${x}" y="${yValue}" class="display tnum" fill="${valueColor}" font-size="28">${esc(it.mainValue)}</text>`;
 
-    // Unit (rendered smaller, right-adjacent to main value)
+    // Approx display number width (Fraunces 28px ≈ 17px/digit)
+    const valueWidth = it.mainValue.length * 17;
+
+    // Unit suffix (e.g. "d" for streak)
     if (it.unit) {
-      // Approx main number width: ~17px per digit at 28px display font
-      const unitX = x + it.mainValue.length * 17 + 2;
+      const unitX = x + valueWidth + 2;
       out += `<text x="${unitX}" y="${yValue}" class="mono" fill="${theme.textTertiary}" font-size="13" font-weight="600">${esc(it.unit)}</text>`;
     }
 
-    // Week-over-week delta (only for COMMITS/7D, only when non-zero)
+    // Inline delta (only for COMMITS/7D, only when non-zero)
     if (typeof it.delta === "number" && it.delta !== 0) {
       const up = it.delta > 0;
       const deltaColor = up ? theme.deltaUp : theme.deltaDown;
       const arrow = up ? "▲" : "▼";
-      const deltaText = `${arrow} ${Math.abs(it.delta)} vs last wk`;
-      out += `<text x="${x}" y="${yDelta}" class="mono tnum" fill="${deltaColor}" font-size="9" font-weight="700" letter-spacing="0.06em">${esc(deltaText)}</text>`;
+      const deltaText = `${arrow}${Math.abs(it.delta)}`;
+      const deltaX = x + valueWidth + 8;
+      // Position slightly higher than baseline to optically center against tall numbers
+      out += `<text x="${deltaX}" y="${yValue - 4}" class="mono tnum" fill="${deltaColor}" font-size="12" font-weight="700">${esc(deltaText)}</text>`;
     }
   });
   return out;
@@ -534,29 +542,26 @@ function renderStatsGrid(s, theme) {
 function renderLanguages(langs, theme) {
   if (!langs.length) return "";
   const x0 = 64;
-  const barY = 444;
+  // Pushed down a touch — gives breathing room from stats grid above
+  const barY = 448;
   const barW = 520;
   const barH = 6;
 
-  // Use top 5 for the bar, normalized to bar width
   const top = langs.slice(0, 5);
   const topTotal = top.reduce((s, l) => s + l.bytes, 0) || 1;
 
   let out = `<text x="${x0}" y="${barY - 12}" class="mono" fill="${theme.textSecondary}" font-size="10" font-weight="700" letter-spacing="0.2em">TOP LANGUAGES</text>`;
 
-  // Stacked bar
   let cursor = x0;
   top.forEach((l) => {
     const segW = (l.bytes / topTotal) * barW;
     out += `<rect x="${cursor}" y="${barY}" width="${segW}" height="${barH}" fill="${esc(l.color)}"/>`;
     cursor += segW;
   });
-  // Subtle bar frame
   out += `<rect x="${x0}" y="${barY}" width="${barW}" height="${barH}" rx="2" fill="none" stroke="${theme.rule}" stroke-width="0.5"/>`;
 
-  // Chips below — top 4 only
   const chips = langs.slice(0, 4);
-  const yChip = barY + barH + 22;
+  const yChip = barY + barH + 20;
   let cx = x0;
   for (const l of chips) {
     const label = `${l.name} ${l.pct.toFixed(0)}%`;
@@ -571,14 +576,12 @@ function renderLanguages(langs, theme) {
 function renderFooter(s, theme) {
   let out = "";
 
-  // Left: build signature
   if (s.lastCommit?.sha) {
     const dateStr = fmtDateUpper(s.lastCommit.date);
     const leftText = `BUILD · ${s.lastCommit.sha} · ${dateStr}`;
     out += `<text x="64" y="492" class="mono" fill="${theme.textMuted}" font-size="9" letter-spacing="0.2em" opacity="0.75">${esc(leftText)}</text>`;
   }
 
-  // Right: focus repo this week
   if (s.focus) {
     const focusName = clip(s.focus.name, 24).toUpperCase();
     const noun = s.focus.commits === 1 ? "COMMIT" : "COMMITS";
@@ -609,7 +612,6 @@ function renderSvg(s, fonts, themeName) {
     ? "'DisplayEmbed', 'Fraunces', 'Playfair Display', Georgia, serif"
     : "'Fraunces', 'Playfair Display', Georgia, serif";
 
-  // 30D sparkline date range
   const sparkRange = `${fmtShortDate(s.sparklineStart)} → ${fmtShortDate(s.sparklineEnd)}`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" width="1280" height="500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (${themeName})">
@@ -656,16 +658,15 @@ function renderSvg(s, fonts, themeName) {
   <line x1="64" y1="40" x2="1216" y2="40" stroke="${t.rule}" stroke-width="1"/>
   <rect x="64" y="38" width="36" height="3" fill="${t.accent}" rx="1.5"/>
 
+  <!-- Coords, LIVE, and refreshed all on one line — LIVE on far left side after coords, refreshed anchored right -->
   <text x="64" y="68" class="mono" fill="${t.textTertiary}" font-size="11" letter-spacing="0.3em" opacity="0.85">
     11.55°N · 104.93°E  ·  PHNOM PENH
   </text>
 
-  <!-- LIVE marker, top-right, explicit x positions (no overlap) -->
-  <g>
-    <circle class="live" cx="932" cy="60" r="4" fill="${t.liveDot}"/>
-    <text x="944" y="64" class="mono" fill="${t.liveText}" font-size="11" font-weight="700" letter-spacing="0.25em">LIVE</text>
-    <text x="1216" y="64" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">· refreshed ${esc(s.updatedAt)}</text>
-  </g>
+  <circle class="live" cx="440" cy="64" r="4" fill="${t.liveDot}"/>
+  <text x="452" y="68" class="mono" fill="${t.liveText}" font-size="11" font-weight="700" letter-spacing="0.25em">LIVE</text>
+
+  <text x="1216" y="68" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">refreshed ${esc(s.updatedAt)}</text>
 
   <!-- ===== LEFT HERO ===== -->
   <text x="64" y="174" class="khmer" fill="${t.khmerColor}" font-size="86">${KHMER_GREETING}</text>
@@ -674,7 +675,6 @@ function renderSvg(s, fonts, themeName) {
     ${DISPLAY_NAME}
   </text>
 
-  <!-- Editorial rule: solid accent block + thin muted continuation -->
   <g transform="translate(64, 276)">
     <rect x="0" y="0" width="22" height="3" fill="${t.accent}" rx="1.5"/>
     <rect x="28" y="1" width="110" height="1" fill="${t.ruleStrong}"/>
@@ -704,8 +704,8 @@ function renderSvg(s, fonts, themeName) {
   ${renderHeatmapLegend(t)}
 
   <text x="820" y="308" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">DAILY · 30D</text>
-  <text x="1216" y="308" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">${esc(sparkRange)} · peak ${s.max30d}/day</text>
-  ${renderSparkline(s.sparkline, t)}
+  <text x="1216" y="308" text-anchor="end" class="mono tnum" fill="${t.textTertiary}" font-size="11">${esc(sparkRange)} · ${s.sparkTotal} commits · peak ${s.max30d}/day</text>
+  ${renderSparkline(s.sparkline, s.sparkAvg, t)}
 
   <text x="820" y="396" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">LATEST SHIPS</text>
   ${renderShips(s.recent, t)}
@@ -742,6 +742,8 @@ console.log("stats:", {
   activeDays: stats.activeDays,
   maxDay: stats.maxDay,
   max30d: stats.max30d,
+  sparkAvg: stats.sparkAvg.toFixed(2),
+  sparkTotal: stats.sparkTotal,
   total12w: stats.total12w,
   focus: stats.focus,
   lastCommit: stats.lastCommit && {
