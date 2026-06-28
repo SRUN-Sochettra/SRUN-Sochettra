@@ -158,11 +158,11 @@ out = replaceBlock(out, "ACTIVITY", activity);
 out = replaceBlock(out, "WAKA", waka);
 out = replaceBlock(out, "TIMESTAMP", ts);
 
-// Cache-bust the banner so GitHub re-pulls it after each run
+// Cache-bust both banner variants so GitHub's image proxy re-fetches
 const cacheBuster = Date.now();
 out = out.replace(
-  /assets\/banner\.svg(\?v=\d+)?/g,
-  `assets/banner.svg?v=${cacheBuster}`
+  /assets\/banner-(dark|light)\.svg(\?v=\d+)?/g,
+  `assets/banner-$1.svg?v=${cacheBuster}`
 );
 
 await fs.writeFile(OUTPUT, out);

@@ -5,10 +5,7 @@ on:
     - cron: "0 */6 * * *"
   workflow_dispatch:
   push:
-    paths:
-      - "README.template.md"
-      - "scripts/**"
-      - ".github/workflows/update-readme.yml"
+    branches: [main]
 
 permissions:
   contents: write
