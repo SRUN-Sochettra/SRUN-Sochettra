@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-./assets/banner-dark.svg?v=f2b453fd
-./assets/banner-light.svg?v=e4ce93a9
-./assets/banner-dark.svg?v=f2b453fd
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=59e436a3" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=4cd87351" />
+<img src="./assets/banner-dark.svg?v=59e436a3" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -11,7 +11,7 @@
 <details>
 <summary><b>👨‍💻 as a coder</b></summary>
 <br />
-./assets/metrics-coder.svg
+<img src="./assets/metrics-coder.svg" alt="coder" width="100%" />
 
 ### Last 7 days
 
@@ -41,7 +41,7 @@
 <details>
 <summary><b>🎌 as a person</b></summary>
 <br />
-./assets/metrics-person.svg
+<img src="./assets/metrics-person.svg" alt="person" width="100%" />
 
 ### Currently obsessed with
 
@@ -62,14 +62,14 @@
 <details>
 <summary><b>📊 by the numbers</b></summary>
 <br />
-./assets/metrics-data.svg
+<img src="./assets/metrics-data.svg" alt="data" width="100%" />
 <br />
 <br />
 <div align="center">
-./assets/trophies.svg
+<img src="./assets/trophies.svg" alt="trophies" />
 </div>
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-28 15:12 UTC
+2026-06-28 16:18 UTC
 <!--END:TIMESTAMP--></sub>
