@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 460" width="1280" height="460" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (dark)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" width="1280" height="480" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (dark)">
   <defs>
     <style type="text/css"><![CDATA[
       @font-face {
@@ -28,99 +28,81 @@
     ]]></style>
   </defs>
 
-  <!-- Background -->
-  <rect width="1280" height="460" fill="url(#bg)"/>
-  <rect width="1280" height="460" fill="url(#glow1)"/>
-  <rect width="1280" height="460" fill="url(#glow2)"/>
+  <rect width="1280" height="480" fill="url(#bg)"/>
+  <rect width="1280" height="480" fill="url(#glow1)"/>
+  <rect width="1280" height="480" fill="url(#glow2)"/>
 
   <!-- ============ LEFT HERO ============ -->
-
-  <!-- Tag -->
-  <text x="64" y="70" class="mono" fill="#f59e0b" font-size="12" letter-spacing="0.25em" opacity="0.85">
+  <text x="64" y="70" class="mono" fill="#f59e0b" font-size="12" letter-spacing="0.25em" opacity="0.9">
     BACKEND · AI · FINTECH · CAMBODIA
   </text>
 
-  <!-- Khmer greeting (large) -->
-  <text x="64" y="180" class="khmer" fill="#fbbf24" font-size="86">សួស្ដី</text>
+  <text x="64" y="184" class="khmer" fill="#fbbf24" font-size="86">សួស្ដី</text>
 
-  <!-- Latin name (huge, the hero) -->
-  <text x="64" y="262" class="sans" fill="#fafaf9" font-size="68" font-weight="800" letter-spacing="-0.035em">
+  <text x="64" y="268" class="sans" fill="#fafaf9" font-size="68" font-weight="800" letter-spacing="-0.035em">
     Srun Sochettra
   </text>
 
-  <!-- Accent rule under name -->
-  <rect x="64" y="280" width="80" height="3" fill="#f59e0b" rx="1.5"/>
+  <rect x="64" y="286" width="80" height="3" fill="#f59e0b" rx="1.5"/>
 
-  <!-- Tagline -->
-  <text x="64" y="318" class="sans" fill="#a8a29e" font-size="20" font-weight="400">
+  <text x="64" y="324" class="sans" fill="#a8a29e" font-size="20" font-weight="400">
     Building software that matters in Cambodia.
   </text>
 
-  <!-- Subline -->
-  <text x="64" y="346" class="sans" fill="#525252" font-size="14">
+  <text x="64" y="352" class="sans" fill="#78716c" font-size="14">
     Backend &amp; Full-Stack Developer  ·  Phnom Penh  ·  36 repos
   </text>
 
-  <!-- Inline metrics row -->
-  <g transform="translate(64, 388)" class="mono" font-size="12">
-    <text fill="#525252">commits/7d</text>
-    <text x="76" fill="#fafaf9" font-weight="700" font-size="14">0</text>
+  <!-- Inline metrics row (using tspan = automatic positioning, no bugs) -->
+  <text x="64" y="396" class="mono" font-size="13">
+    <tspan fill="#78716c">commits/7d</tspan>
+    <tspan fill="#fafaf9" font-weight="700" dx="10">74</tspan>
+    <tspan fill="#404040" dx="14">·</tspan>
+    <tspan fill="#78716c" dx="14">streak</tspan>
+    <tspan fill="#fafaf9" font-weight="700" dx="10">2d</tspan>
+    <tspan dx="6">🔥</tspan>
+    <tspan fill="#404040" dx="14">·</tspan>
+    <tspan fill="#78716c" dx="14">active in</tspan>
+    <tspan fill="#fafaf9" font-weight="700" dx="10">7</tspan>
+    <tspan fill="#78716c" dx="6">repos</tspan>
+  </text>
 
-    <text x="118" fill="#404040">·</text>
-
-    <text x="138" fill="#525252">streak</text>
-    <text x="184" fill="#fafaf9" font-weight="700" font-size="14">0d</text>
-    <text x="204" font-size="12">🔥</text>
-
-    <text x="248" fill="#404040">·</text>
-
-    <text x="268" fill="#525252">active in</text>
-    <text x="328" fill="#fafaf9" font-weight="700" font-size="14">7</text>
-    <text x="340" fill="#525252">repos</text>
-  </g>
-
-  <!-- LIVE indicator -->
-  <g transform="translate(64, 422)">
+  <!-- LIVE -->
+  <g transform="translate(64, 434)">
     <circle class="live" cx="5" cy="5" r="4.5" fill="#22c55e"/>
     <text x="18" y="10" class="mono" fill="#22c55e" font-size="11" font-weight="700" letter-spacing="0.2em">LIVE</text>
-    <text x="60" y="10" class="mono" fill="#525252" font-size="11">·  refreshed 2026-06-28 07:37 UTC</text>
+    <text x="60" y="10" class="mono" fill="#78716c" font-size="11">·  refreshed 2026-06-28 07:42 UTC</text>
   </g>
 
-  <!-- Vertical separator -->
-  <line x1="780" y1="60" x2="780" y2="420" stroke="#292524" stroke-width="1"/>
+  <!-- Separator -->
+  <line x1="790" y1="60" x2="790" y2="440" stroke="#292524" stroke-width="1"/>
 
   <!-- ============ RIGHT DATA ============ -->
 
-  <!-- Section 1: 12-week heatmap -->
-  <g>
-    <text x="820" y="76" class="mono" fill="#a8a29e" font-size="11" font-weight="700" letter-spacing="0.2em">12 WEEKS OF SHIPPING</text>
-    <text x="1216" y="76" text-anchor="end" class="mono" fill="#525252" font-size="11">0 commits</text>
-    <rect x="820" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="820" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="820" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="820" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="820" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="820" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="820" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="847" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="847" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="847" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="847" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="847" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="847" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="847" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="874" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="874" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="874" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="874" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="874" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="874" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="874" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="901" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="901" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="901" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="901" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="901" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="901" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="901" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="928" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="928" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="928" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="928" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="928" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="928" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="928" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="955" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="955" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="955" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="955" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="955" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="955" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="955" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="982" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="982" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="982" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="982" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="982" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="982" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="982" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1009" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1009" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1009" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1009" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1009" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1009" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1009" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1036" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1036" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1036" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1036" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1036" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1036" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1036" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1063" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1063" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1063" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1063" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1063" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1063" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1063" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1090" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1090" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1090" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1090" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1090" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1090" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1090" y="257" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1117" y="95" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1117" y="122" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1117" y="149" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1117" y="176" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1117" y="203" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1117" y="230" width="22" height="22" rx="4" fill="#1c1917"/><rect x="1117" y="257" width="22" height="22" rx="4" fill="#1c1917"/><text x="820" y="312" class="mono" fill="#525252" font-size="10">Less</text><rect x="858" y="296" width="12" height="12" rx="2" fill="#1c1917"/><rect x="873" y="296" width="12" height="12" rx="2" fill="#3b2a05"/><rect x="888" y="296" width="12" height="12" rx="2" fill="#78520c"/><rect x="903" y="296" width="12" height="12" rx="2" fill="#b8780f"/><rect x="918" y="296" width="12" height="12" rx="2" fill="#f59e0b"/><text x="937" y="312" class="mono" fill="#525252" font-size="10">More</text>
-  </g>
+  <!-- Heatmap -->
+  <text x="820" y="76" class="mono" fill="#a8a29e" font-size="11" font-weight="700" letter-spacing="0.2em">12 WEEKS OF SHIPPING</text>
+  <text x="1216" y="76" text-anchor="end" class="mono" fill="#78716c" font-size="11">1294 contributions</text>
+  <rect x="820" y="92" width="20" height="20" rx="4" fill="#1c1917"/><rect x="820" y="118" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="820" y="144" width="20" height="20" rx="4" fill="#1c1917"/><rect x="820" y="170" width="20" height="20" rx="4" fill="#1c1917"/><rect x="820" y="196" width="20" height="20" rx="4" fill="#1c1917"/><rect x="820" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="820" y="248" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="846" y="92" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="846" y="118" width="20" height="20" rx="4" fill="#1c1917"/><rect x="846" y="144" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="846" y="170" width="20" height="20" rx="4" fill="#1c1917"/><rect x="846" y="196" width="20" height="20" rx="4" fill="#1c1917"/><rect x="846" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="846" y="248" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="872" y="92" width="20" height="20" rx="4" fill="#1c1917"/><rect x="872" y="118" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="872" y="144" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="872" y="170" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="872" y="196" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="872" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="872" y="248" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="898" y="92" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="898" y="118" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="898" y="144" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="898" y="170" width="20" height="20" rx="4" fill="#1c1917"/><rect x="898" y="196" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="898" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="898" y="248" width="20" height="20" rx="4" fill="#1c1917"/><rect x="924" y="92" width="20" height="20" rx="4" fill="#1c1917"/><rect x="924" y="118" width="20" height="20" rx="4" fill="#1c1917"/><rect x="924" y="144" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="924" y="170" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="924" y="196" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="924" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="924" y="248" width="20" height="20" rx="4" fill="#78520c"/><rect x="950" y="92" width="20" height="20" rx="4" fill="#78520c"/><rect x="950" y="118" width="20" height="20" rx="4" fill="#f59e0b"/><rect x="950" y="144" width="20" height="20" rx="4" fill="#f59e0b"/><rect x="950" y="170" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="950" y="196" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="950" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="950" y="248" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="976" y="92" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="976" y="118" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="976" y="144" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="976" y="170" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="976" y="196" width="20" height="20" rx="4" fill="#1c1917"/><rect x="976" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="976" y="248" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1002" y="92" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1002" y="118" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1002" y="144" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1002" y="170" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1002" y="196" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1002" y="222" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1002" y="248" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1028" y="92" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1028" y="118" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1028" y="144" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1028" y="170" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1028" y="196" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1028" y="222" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1028" y="248" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1054" y="92" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1054" y="118" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1054" y="144" width="20" height="20" rx="4" fill="#78520c"/><rect x="1054" y="170" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1054" y="196" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1054" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1054" y="248" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1080" y="92" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1080" y="118" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1080" y="144" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1080" y="170" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1080" y="196" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1080" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1080" y="248" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1106" y="92" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1106" y="118" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1106" y="144" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1106" y="170" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1106" y="196" width="20" height="20" rx="4" fill="#1c1917"/><rect x="1106" y="222" width="20" height="20" rx="4" fill="#3b2a05"/><rect x="1106" y="248" width="20" height="20" rx="4" fill="#3b2a05"/><text x="820" y="288" class="mono" fill="#78716c" font-size="10">Less</text><rect x="852" y="278" width="12" height="12" rx="2" fill="#1c1917"/><rect x="867" y="278" width="12" height="12" rx="2" fill="#3b2a05"/><rect x="882" y="278" width="12" height="12" rx="2" fill="#78520c"/><rect x="897" y="278" width="12" height="12" rx="2" fill="#b8780f"/><rect x="912" y="278" width="12" height="12" rx="2" fill="#f59e0b"/><text x="931" y="288" class="mono" fill="#78716c" font-size="10">More</text>
 
-  <!-- Section 2: 30-day sparkline -->
-  <g>
-    <text x="820" y="276" class="mono" fill="#a8a29e" font-size="11" font-weight="700" letter-spacing="0.2em">DAILY COMMITS · 30D</text>
-    <text x="1216" y="276" text-anchor="end" class="mono" fill="#525252" font-size="11">peak 0/day</text>
-    
-    <path d="M 820 340 C 826.8275862068965 340, 826.8275862068966 340, 833.6551724137931 340 C 840.4827586206897 340, 840.4827586206897 340, 847.3103448275862 340 C 854.1379310344827 340, 854.1379310344828 340, 860.9655172413793 340 C 867.7931034482758 340, 867.7931034482759 340, 874.6206896551724 340 C 881.448275862069 340, 881.4482758620691 340, 888.2758620689656 340 C 895.1034482758621 340, 895.1034482758621 340, 901.9310344827586 340 C 908.7586206896551 340, 908.7586206896552 340, 915.5862068965517 340 C 922.4137931034483 340, 922.4137931034484 340, 929.2413793103449 340 C 936.0689655172414 340, 936.0689655172414 340, 942.8965517241379 340 C 949.7241379310344 340, 949.7241379310345 340, 956.551724137931 340 C 963.3793103448276 340, 963.3793103448277 340, 970.2068965517242 340 C 977.0344827586207 340, 977.0344827586207 340, 983.8620689655172 340 C 990.6896551724137 340, 990.6896551724138 340, 997.5172413793103 340 C 1004.3448275862069 340, 1004.344827586207 340, 1011.1724137931035 340 C 1018 340, 1018 340, 1024.8275862068965 340 C 1031.655172413793 340, 1031.6551724137933 340, 1038.4827586206898 340 C 1045.3103448275863 340, 1045.3103448275863 340, 1052.1379310344828 340 C 1058.9655172413793 340, 1058.9655172413793 340, 1065.7931034482758 340 C 1072.6206896551723 340, 1072.6206896551723 340, 1079.4482758620688 340 C 1086.2758620689654 340, 1086.2758620689656 340, 1093.103448275862 340 C 1099.9310344827586 340, 1099.9310344827586 340, 1106.7586206896551 340 C 1113.5862068965516 340, 1113.5862068965519 340, 1120.4137931034484 340 C 1127.2413793103449 340, 1127.2413793103449 340, 1134.0689655172414 340 C 1140.896551724138 340, 1140.896551724138 340, 1147.7241379310344 340 C 1154.551724137931 340, 1154.551724137931 340, 1161.3793103448274 340 C 1168.206896551724 340, 1168.2068965517242 340, 1175.0344827586207 340 C 1181.8620689655172 340, 1181.8620689655172 340, 1188.6896551724137 340 C 1195.5172413793102 340, 1195.5172413793105 340, 1202.344827586207 340 C 1209.1724137931035 340, 1209.1724137931035 340, 1216 340 L 1216 340 L 820 340 Z" fill="#f59e0b" opacity="0.15"/>
-    <path d="M 820 340 C 826.8275862068965 340, 826.8275862068966 340, 833.6551724137931 340 C 840.4827586206897 340, 840.4827586206897 340, 847.3103448275862 340 C 854.1379310344827 340, 854.1379310344828 340, 860.9655172413793 340 C 867.7931034482758 340, 867.7931034482759 340, 874.6206896551724 340 C 881.448275862069 340, 881.4482758620691 340, 888.2758620689656 340 C 895.1034482758621 340, 895.1034482758621 340, 901.9310344827586 340 C 908.7586206896551 340, 908.7586206896552 340, 915.5862068965517 340 C 922.4137931034483 340, 922.4137931034484 340, 929.2413793103449 340 C 936.0689655172414 340, 936.0689655172414 340, 942.8965517241379 340 C 949.7241379310344 340, 949.7241379310345 340, 956.551724137931 340 C 963.3793103448276 340, 963.3793103448277 340, 970.2068965517242 340 C 977.0344827586207 340, 977.0344827586207 340, 983.8620689655172 340 C 990.6896551724137 340, 990.6896551724138 340, 997.5172413793103 340 C 1004.3448275862069 340, 1004.344827586207 340, 1011.1724137931035 340 C 1018 340, 1018 340, 1024.8275862068965 340 C 1031.655172413793 340, 1031.6551724137933 340, 1038.4827586206898 340 C 1045.3103448275863 340, 1045.3103448275863 340, 1052.1379310344828 340 C 1058.9655172413793 340, 1058.9655172413793 340, 1065.7931034482758 340 C 1072.6206896551723 340, 1072.6206896551723 340, 1079.4482758620688 340 C 1086.2758620689654 340, 1086.2758620689656 340, 1093.103448275862 340 C 1099.9310344827586 340, 1099.9310344827586 340, 1106.7586206896551 340 C 1113.5862068965516 340, 1113.5862068965519 340, 1120.4137931034484 340 C 1127.2413793103449 340, 1127.2413793103449 340, 1134.0689655172414 340 C 1140.896551724138 340, 1140.896551724138 340, 1147.7241379310344 340 C 1154.551724137931 340, 1154.551724137931 340, 1161.3793103448274 340 C 1168.206896551724 340, 1168.2068965517242 340, 1175.0344827586207 340 C 1181.8620689655172 340, 1181.8620689655172 340, 1188.6896551724137 340 C 1195.5172413793102 340, 1195.5172413793105 340, 1202.344827586207 340 C 1209.1724137931035 340, 1209.1724137931035 340, 1216 340" stroke="#f59e0b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="1216" cy="340" r="3.5" fill="#f59e0b"/>
+  <!-- Sparkline -->
+  <text x="820" y="312" class="mono" fill="#a8a29e" font-size="11" font-weight="700" letter-spacing="0.2em">DAILY · 30D</text>
+  <text x="1216" y="312" text-anchor="end" class="mono" fill="#78716c" font-size="11">peak 271/day</text>
   
-  </g>
+    <path d="M 820 374 C 826.8275862068965 374, 826.8275862068966 374, 833.6551724137931 374 C 840.4827586206897 374, 840.4827586206897 374, 847.3103448275862 374 C 854.1379310344827 374, 854.1379310344828 372.85714285714283, 860.9655172413793 372.85714285714283 C 867.7931034482758 372.85714285714283, 867.7931034482759 374, 874.6206896551724 374 C 881.448275862069 374, 881.4482758620691 374, 888.2758620689656 374 C 895.1034482758621 374, 895.1034482758621 374, 901.9310344827586 374 C 908.7586206896551 374, 908.7586206896552 374, 915.5862068965517 374 C 922.4137931034483 374, 922.4137931034484 374, 929.2413793103449 374 C 936.0689655172414 374, 936.0689655172414 374, 942.8965517241379 374 C 949.7241379310344 374, 949.7241379310345 374, 956.551724137931 374 C 963.3793103448276 374, 963.3793103448277 326, 970.2068965517242 326 C 977.0344827586207 326, 977.0344827586207 357.42857142857144, 983.8620689655172 357.42857142857144 C 990.6896551724137 357.42857142857144, 990.6896551724138 372.2857142857143, 997.5172413793103 372.2857142857143 C 1004.3448275862069 372.2857142857143, 1004.344827586207 370.57142857142856, 1011.1724137931035 370.57142857142856 C 1018 370.57142857142856, 1018 373.42857142857144, 1024.8275862068965 373.42857142857144 C 1031.655172413793 373.42857142857144, 1031.6551724137933 361.42857142857144, 1038.4827586206898 361.42857142857144 C 1045.3103448275863 361.42857142857144, 1045.3103448275863 370.57142857142856, 1052.1379310344828 370.57142857142856 C 1058.9655172413793 370.57142857142856, 1058.9655172413793 366, 1065.7931034482758 366 C 1072.6206896551723 366, 1072.6206896551723 374, 1079.4482758620688 374 C 1086.2758620689654 374, 1086.2758620689656 356.2857142857143, 1093.103448275862 356.2857142857143 C 1099.9310344827586 356.2857142857143, 1099.9310344827586 363.7142857142857, 1106.7586206896551 363.7142857142857 C 1113.5862068965516 363.7142857142857, 1113.5862068965519 362, 1120.4137931034484 362 C 1127.2413793103449 362, 1127.2413793103449 363.7142857142857, 1134.0689655172414 363.7142857142857 C 1140.896551724138 363.7142857142857, 1140.896551724138 374, 1147.7241379310344 374 C 1154.551724137931 374, 1154.551724137931 360.2857142857143, 1161.3793103448274 360.2857142857143 C 1168.206896551724 360.2857142857143, 1168.2068965517242 371.7142857142857, 1175.0344827586207 371.7142857142857 C 1181.8620689655172 371.7142857142857, 1181.8620689655172 374, 1188.6896551724137 374 C 1195.5172413793102 374, 1195.5172413793105 371.7142857142857, 1202.344827586207 371.7142857142857 C 1209.1724137931035 371.7142857142857, 1209.1724137931035 360.2857142857143, 1216 360.2857142857143 L 1216 374 L 820 374 Z" fill="#f59e0b" opacity="0.18"/>
+    <path d="M 820 374 C 826.8275862068965 374, 826.8275862068966 374, 833.6551724137931 374 C 840.4827586206897 374, 840.4827586206897 374, 847.3103448275862 374 C 854.1379310344827 374, 854.1379310344828 372.85714285714283, 860.9655172413793 372.85714285714283 C 867.7931034482758 372.85714285714283, 867.7931034482759 374, 874.6206896551724 374 C 881.448275862069 374, 881.4482758620691 374, 888.2758620689656 374 C 895.1034482758621 374, 895.1034482758621 374, 901.9310344827586 374 C 908.7586206896551 374, 908.7586206896552 374, 915.5862068965517 374 C 922.4137931034483 374, 922.4137931034484 374, 929.2413793103449 374 C 936.0689655172414 374, 936.0689655172414 374, 942.8965517241379 374 C 949.7241379310344 374, 949.7241379310345 374, 956.551724137931 374 C 963.3793103448276 374, 963.3793103448277 326, 970.2068965517242 326 C 977.0344827586207 326, 977.0344827586207 357.42857142857144, 983.8620689655172 357.42857142857144 C 990.6896551724137 357.42857142857144, 990.6896551724138 372.2857142857143, 997.5172413793103 372.2857142857143 C 1004.3448275862069 372.2857142857143, 1004.344827586207 370.57142857142856, 1011.1724137931035 370.57142857142856 C 1018 370.57142857142856, 1018 373.42857142857144, 1024.8275862068965 373.42857142857144 C 1031.655172413793 373.42857142857144, 1031.6551724137933 361.42857142857144, 1038.4827586206898 361.42857142857144 C 1045.3103448275863 361.42857142857144, 1045.3103448275863 370.57142857142856, 1052.1379310344828 370.57142857142856 C 1058.9655172413793 370.57142857142856, 1058.9655172413793 366, 1065.7931034482758 366 C 1072.6206896551723 366, 1072.6206896551723 374, 1079.4482758620688 374 C 1086.2758620689654 374, 1086.2758620689656 356.2857142857143, 1093.103448275862 356.2857142857143 C 1099.9310344827586 356.2857142857143, 1099.9310344827586 363.7142857142857, 1106.7586206896551 363.7142857142857 C 1113.5862068965516 363.7142857142857, 1113.5862068965519 362, 1120.4137931034484 362 C 1127.2413793103449 362, 1127.2413793103449 363.7142857142857, 1134.0689655172414 363.7142857142857 C 1140.896551724138 363.7142857142857, 1140.896551724138 374, 1147.7241379310344 374 C 1154.551724137931 374, 1154.551724137931 360.2857142857143, 1161.3793103448274 360.2857142857143 C 1168.206896551724 360.2857142857143, 1168.2068965517242 371.7142857142857, 1175.0344827586207 371.7142857142857 C 1181.8620689655172 371.7142857142857, 1181.8620689655172 374, 1188.6896551724137 374 C 1195.5172413793102 374, 1195.5172413793105 371.7142857142857, 1202.344827586207 371.7142857142857 C 1209.1724137931035 371.7142857142857, 1209.1724137931035 360.2857142857143, 1216 360.2857142857143" stroke="#f59e0b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1216" cy="360.2857142857143" r="3.5" fill="#f59e0b"/>
+  
 
-  <!-- Section 3: Latest ships -->
-  <g>
-    <text x="820" y="362" class="mono" fill="#a8a29e" font-size="11" font-weight="700" letter-spacing="0.2em">LATEST SHIPS</text>
-    
-    <circle cx="826" cy="374" r="3" fill="#f59e0b"/>
-    <text x="838" y="378" class="sans" fill="#fafaf9" font-size="13" font-weight="600">SRUN-Sochettra</text>
-    <text x="1216" y="378" text-anchor="end" class="mono" fill="#525252" font-size="11">JavaScript · 0m ago</text>
-    <circle cx="826" cy="396" r="3" fill="#f59e0b"/>
-    <text x="838" y="400" class="sans" fill="#fafaf9" font-size="13" font-weight="600">Hand-Gesture-Puzzle-Game</text>
-    <text x="1216" y="400" text-anchor="end" class="mono" fill="#525252" font-size="11">Python · 22h ago</text>
-    <circle cx="826" cy="418" r="3" fill="#f59e0b"/>
-    <text x="838" y="422" class="sans" fill="#fafaf9" font-size="13" font-weight="600">HyperspaceOS</text>
-    <text x="1216" y="422" text-anchor="end" class="mono" fill="#525252" font-size="11">JavaScript · 3d ago</text>
-  </g>
+  <!-- Latest ships -->
+  <text x="820" y="394" class="mono" fill="#a8a29e" font-size="11" font-weight="700" letter-spacing="0.2em">LATEST SHIPS</text>
+  
+    <circle cx="826" cy="404" r="3" fill="#f59e0b"/>
+    <text x="838" y="408" class="sans" fill="#fafaf9" font-size="13" font-weight="600">SRUN-Sochettra</text>
+    <text x="1216" y="408" text-anchor="end" class="mono" fill="#78716c" font-size="11">JavaScript · 0m ago</text>
+    <circle cx="826" cy="424" r="3" fill="#f59e0b"/>
+    <text x="838" y="428" class="sans" fill="#fafaf9" font-size="13" font-weight="600">Hand-Gesture-Puzzle-Game</text>
+    <text x="1216" y="428" text-anchor="end" class="mono" fill="#78716c" font-size="11">Python · 22h ago</text>
+    <circle cx="826" cy="444" r="3" fill="#f59e0b"/>
+    <text x="838" y="448" class="sans" fill="#fafaf9" font-size="13" font-weight="600">HyperspaceOS</text>
+    <text x="1216" y="448" text-anchor="end" class="mono" fill="#78716c" font-size="11">JavaScript · 3d ago</text>
 </svg>
