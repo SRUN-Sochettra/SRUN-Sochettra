@@ -8,9 +8,6 @@ const KHMER_GREETING = "សួស្ដី";
 
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
 
-// ------------------------------------------------------------------
-// Theme palettes
-// ------------------------------------------------------------------
 const THEMES = {
   dark: {
     bgStart: "#0a0a0f",
@@ -21,17 +18,15 @@ const THEMES = {
     glow2Opacity: 0.1,
     textPrimary: "#fafaf9",
     textSecondary: "#a8a29e",
-    textTertiary: "#525252",
+    textTertiary: "#78716c",
     textMuted: "#404040",
     accent: "#f59e0b",
-    accent2: "#ef4444",
     khmerColor: "#fbbf24",
     rule: "#292524",
     cellEmpty: "#1c1917",
     cellLevels: ["#3b2a05", "#78520c", "#b8780f", "#f59e0b"],
     sparklineStroke: "#f59e0b",
-    sparklineFill: "#f59e0b",
-    sparklineFillOpacity: 0.15,
+    sparklineFillOpacity: 0.18,
     liveDot: "#22c55e",
     liveText: "#22c55e",
     shipDot: "#f59e0b",
@@ -45,16 +40,14 @@ const THEMES = {
     glow2Opacity: 0.06,
     textPrimary: "#1c1917",
     textSecondary: "#57534e",
-    textTertiary: "#a8a29e",
+    textTertiary: "#78716c",
     textMuted: "#d6d3d1",
     accent: "#d97706",
-    accent2: "#b91c1c",
     khmerColor: "#b45309",
     rule: "#e7e5e4",
     cellEmpty: "#e7e5e4",
     cellLevels: ["#fde68a", "#fcd34d", "#f59e0b", "#d97706"],
     sparklineStroke: "#d97706",
-    sparklineFill: "#d97706",
     sparklineFillOpacity: 0.18,
     liveDot: "#16a34a",
     liveText: "#15803d",
@@ -113,11 +106,7 @@ function fmtRel(iso) {
 }
 
 function esc(s) {
-  return String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 function clip(s, n) {
@@ -129,58 +118,76 @@ function ymdUTC(d) {
 }
 
 // ------------------------------------------------------------------
+// REAL contribution data via GraphQL (not events API)
+// ------------------------------------------------------------------
+async function getContributionMap() {
+  const today = new Date();
+  const to = new Date(today.getTime() + 86400000).toISOString();
+  const from = new Date(today.getTime() - 365 * 86400000).toISOString();
+
+  const data = await octo.graphql(
+    `query($login: String!, $from: DateTime!, $to: DateTime!) {
+      user(login: $login) {
+        contributionsCollection(from: $from, to: $to) {
+          contributionCalendar {
+            totalContributions
+            weeks {
+              contributionDays { date contributionCount }
+            }
+          }
+        }
+      }
+    }`,
+    { login: USER, from, to }
+  );
+
+  const perDay = {};
+  for (const w of data.user.contributionsCollection.contributionCalendar.weeks) {
+    for (const d of w.contributionDays) perDay[d.date] = d.contributionCount;
+  }
+  return perDay;
+}
+
+// ------------------------------------------------------------------
 // Fetch stats
 // ------------------------------------------------------------------
 async function getStats() {
-  const events = await octo.paginate(
-    octo.activity.listPublicEventsForUser,
-    { username: USER, per_page: 100 },
-    (res) => res.data
-  );
+  const perDay = await getContributionMap();
 
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-  // Build per-day commit map from events
-  const perDay = {};
-  const reposTouched = new Set();
-
-  for (const e of events) {
-    if (e.type !== "PushEvent") continue;
-    const t = new Date(e.created_at);
-    const key = ymdUTC(t);
-    const count = e.payload.commits?.length ?? 0;
-    perDay[key] = (perDay[key] ?? 0) + count;
-  }
-
-  // This-week metrics
-  const weekStart = today.getTime() - 6 * 86400000;
+  // 7-day stats
   let commitsThisWeek = 0;
-  for (const e of events) {
-    if (e.type !== "PushEvent") continue;
-    const t = new Date(e.created_at).getTime();
-    if (t >= weekStart) {
-      commitsThisWeek += e.payload.commits?.length ?? 0;
-      reposTouched.add(e.repo.name);
-    }
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(today.getTime() - i * 86400000);
+    commitsThisWeek += perDay[ymdUTC(d)] ?? 0;
   }
 
   // Streak
   let streak = 0;
   for (let i = 0; i < 365; i++) {
     const d = new Date(today.getTime() - i * 86400000);
-    const key = ymdUTC(d);
-    if ((perDay[key] ?? 0) > 0) {
-      streak++;
-    } else {
-      if (i === 0) continue;
-      break;
-    }
+    if ((perDay[ymdUTC(d)] ?? 0) > 0) streak++;
+    else if (i === 0) continue;
+    else break;
   }
 
-  // 12-week heatmap (84 days, 7 rows x 12 cols)
-  // Columns = weeks (oldest left). Rows = days of week (Sun top → Sat bottom)
-  // Align so the rightmost column ends on TODAY.
+  // Repos touched this week via events (still useful)
+  const events = await octo.paginate(
+    octo.activity.listPublicEventsForUser,
+    { username: USER, per_page: 100 },
+    (res) => res.data
+  );
+  const weekAgo = today.getTime() - 6 * 86400000;
+  const reposTouched = new Set();
+  for (const e of events) {
+    if (e.type !== "PushEvent") continue;
+    const t = new Date(e.created_at).getTime();
+    if (t >= weekAgo) reposTouched.add(e.repo.name);
+  }
+
+  // 12-week heatmap (84 days, 7 rows × 12 cols, rightmost col ends today)
   const heatmap = [];
   const HEATMAP_DAYS = 84;
   const firstDayOffset = HEATMAP_DAYS - 1;
@@ -189,20 +196,19 @@ async function getStats() {
     for (let row = 0; row < 7; row++) {
       const offset = firstDayOffset - (col * 7 + row);
       const d = new Date(today.getTime() - offset * 86400000);
-      const key = ymdUTC(d);
-      week.push(perDay[key] ?? 0);
+      week.push(perDay[ymdUTC(d)] ?? 0);
     }
     heatmap.push(week);
   }
 
-  // 30-day sparkline data
+  // 30-day sparkline
   const sparkline = [];
   for (let i = 29; i >= 0; i--) {
     const d = new Date(today.getTime() - i * 86400000);
     sparkline.push(perDay[ymdUTC(d)] ?? 0);
   }
 
-  // Recent ships
+  // Recent repos
   const { data: repos } = await octo.repos.listForUser({
     username: USER,
     sort: "pushed",
@@ -219,9 +225,8 @@ async function getStats() {
 
   const { data: user } = await octo.users.getByUsername({ username: USER });
 
-  // Total commits across heatmap window
   const total12w = heatmap.flat().reduce((a, b) => a + b, 0);
-  const maxDay = Math.max(...heatmap.flat());
+  const maxDay = Math.max(0, ...heatmap.flat());
 
   return {
     commitsThisWeek,
@@ -233,19 +238,18 @@ async function getStats() {
     sparkline,
     total12w,
     maxDay,
-    updatedAt:
-      new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC",
+    updatedAt: new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC",
   };
 }
 
 // ------------------------------------------------------------------
-// Heatmap renderer
+// Heatmap (fixed layout, no overlap)
 // ------------------------------------------------------------------
 function renderHeatmap(heatmap, maxDay, theme) {
   const x0 = 820;
-  const y0 = 95;
-  const cell = 22;
-  const gap = 5;
+  const y0 = 92;
+  const cell = 20;
+  const gap = 6;
   const levels = theme.cellLevels;
 
   let cells = "";
@@ -265,78 +269,71 @@ function renderHeatmap(heatmap, maxDay, theme) {
     });
   });
 
-  // Legend
-  const legendX = x0 + 12 * (cell + gap) - cell * 5 - gap * 4 - 35;
-  const legendY = y0 + 7 * (cell + gap) + 12;
-  let legend = `<text x="${x0}" y="${legendY + cell - 6}" class="mono" fill="${theme.textTertiary}" font-size="10">Less</text>`;
+  // Legend below cells
+  const legendY = y0 + 7 * (cell + gap) + 4;
+  let legend = `<text x="${x0}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">Less</text>`;
+  const legendStart = x0 + 32;
   for (let i = 0; i < 5; i++) {
     const fill = i === 0 ? theme.cellEmpty : theme.cellLevels[i - 1];
-    legend += `<rect x="${x0 + 38 + i * (12 + 3)}" y="${legendY}" width="12" height="12" rx="2" fill="${fill}"/>`;
+    legend += `<rect x="${legendStart + i * 15}" y="${legendY}" width="12" height="12" rx="2" fill="${fill}"/>`;
   }
-  legend += `<text x="${x0 + 38 + 5 * 15 + 4}" y="${legendY + cell - 6}" class="mono" fill="${theme.textTertiary}" font-size="10">More</text>`;
+  legend += `<text x="${legendStart + 5 * 15 + 4}" y="${legendY + 10}" class="mono" fill="${theme.textTertiary}" font-size="10">More</text>`;
 
   return cells + legend;
 }
 
 // ------------------------------------------------------------------
-// Sparkline renderer (30-day daily commits)
+// Sparkline (smooth curve, fixed Y range)
 // ------------------------------------------------------------------
 function renderSparkline(values, theme) {
   const x0 = 820;
-  const y0 = 290;
+  const y0 = 326;
   const w = 396;
-  const h = 50;
+  const h = 48;
   const max = Math.max(1, ...values);
   const step = w / (values.length - 1);
 
-  const points = values.map((v, i) => {
-    const x = x0 + i * step;
-    const y = y0 + h - (v / max) * h;
-    return [x, y];
-  });
+  const pts = values.map((v, i) => [x0 + i * step, y0 + h - (v / max) * h]);
 
-  // Smooth curve via cubic bezier
-  let path = `M ${points[0][0]} ${points[0][1]}`;
-  for (let i = 1; i < points.length; i++) {
-    const [x, y] = points[i];
-    const [px, py] = points[i - 1];
-    const cx1 = px + step / 2;
-    const cx2 = x - step / 2;
-    path += ` C ${cx1} ${py}, ${cx2} ${y}, ${x} ${y}`;
+  let path = `M ${pts[0][0]} ${pts[0][1]}`;
+  for (let i = 1; i < pts.length; i++) {
+    const [x, y] = pts[i];
+    const [px, py] = pts[i - 1];
+    path += ` C ${px + step / 2} ${py}, ${x - step / 2} ${y}, ${x} ${y}`;
   }
+  const area = `${path} L ${x0 + w} ${y0 + h} L ${x0} ${y0 + h} Z`;
 
-  // Filled area
-  const areaPath = `${path} L ${x0 + w} ${y0 + h} L ${x0} ${y0 + h} Z`;
+  const last = pts[pts.length - 1];
 
   return `
-    <path d="${areaPath}" fill="${theme.sparklineFill}" opacity="${theme.sparklineFillOpacity}"/>
+    <path d="${area}" fill="${theme.sparklineStroke}" opacity="${theme.sparklineFillOpacity}"/>
     <path d="${path}" stroke="${theme.sparklineStroke}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="${points[points.length - 1][0]}" cy="${points[points.length - 1][1]}" r="3.5" fill="${theme.sparklineStroke}"/>
+    <circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="${theme.sparklineStroke}"/>
   `;
 }
 
 // ------------------------------------------------------------------
-// Latest ships renderer
+// Latest ships
 // ------------------------------------------------------------------
 function renderShips(recent, theme) {
   if (!recent.length) {
-    return `<text x="820" y="382" class="mono" fill="${theme.textTertiary}" font-size="11">No recent ships</text>`;
+    return `<text x="820" y="408" class="mono" fill="${theme.textTertiary}" font-size="11">No recent ships</text>`;
   }
-  let y = 378;
+  let y = 408;
   return recent
     .map((r) => {
       const block = `
     <circle cx="826" cy="${y - 4}" r="3" fill="${theme.shipDot}"/>
     <text x="838" y="${y}" class="sans" fill="${theme.textPrimary}" font-size="13" font-weight="600">${esc(clip(r.name, 28))}</text>
     <text x="1216" y="${y}" text-anchor="end" class="mono" fill="${theme.textTertiary}" font-size="11">${esc(r.lang)} · ${esc(r.when)}</text>`;
-      y += 22;
+      y += 20;
       return block;
     })
     .join("");
 }
 
 // ------------------------------------------------------------------
-// Main SVG renderer
+// Main SVG
 // ------------------------------------------------------------------
 function renderSvg(s, fontB64, themeName) {
   const t = THEMES[themeName];
@@ -353,7 +350,8 @@ function renderSvg(s, fontB64, themeName) {
     ? "'KhmerEmbed', 'Noto Serif Khmer', serif"
     : "'Noto Serif Khmer', 'Khmer OS', serif";
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 460" width="1280" height="460" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (${themeName})">
+  // Inline metrics — using tspan so positioning is automatic
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" width="1280" height="480" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Srun Sochettra — live banner (${themeName})">
   <defs>
     ${fontFace}
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -377,88 +375,70 @@ function renderSvg(s, fontB64, themeName) {
     ]]></style>
   </defs>
 
-  <!-- Background -->
-  <rect width="1280" height="460" fill="url(#bg)"/>
-  <rect width="1280" height="460" fill="url(#glow1)"/>
-  <rect width="1280" height="460" fill="url(#glow2)"/>
+  <rect width="1280" height="480" fill="url(#bg)"/>
+  <rect width="1280" height="480" fill="url(#glow1)"/>
+  <rect width="1280" height="480" fill="url(#glow2)"/>
 
   <!-- ============ LEFT HERO ============ -->
-
-  <!-- Tag -->
-  <text x="64" y="70" class="mono" fill="${t.accent}" font-size="12" letter-spacing="0.25em" opacity="0.85">
+  <text x="64" y="70" class="mono" fill="${t.accent}" font-size="12" letter-spacing="0.25em" opacity="0.9">
     BACKEND · AI · FINTECH · CAMBODIA
   </text>
 
-  <!-- Khmer greeting (large) -->
-  <text x="64" y="180" class="khmer" fill="${t.khmerColor}" font-size="86">${KHMER_GREETING}</text>
+  <text x="64" y="184" class="khmer" fill="${t.khmerColor}" font-size="86">${KHMER_GREETING}</text>
 
-  <!-- Latin name (huge, the hero) -->
-  <text x="64" y="262" class="sans" fill="${t.textPrimary}" font-size="68" font-weight="800" letter-spacing="-0.035em">
+  <text x="64" y="268" class="sans" fill="${t.textPrimary}" font-size="68" font-weight="800" letter-spacing="-0.035em">
     Srun Sochettra
   </text>
 
-  <!-- Accent rule under name -->
-  <rect x="64" y="280" width="80" height="3" fill="${t.accent}" rx="1.5"/>
+  <rect x="64" y="286" width="80" height="3" fill="${t.accent}" rx="1.5"/>
 
-  <!-- Tagline -->
-  <text x="64" y="318" class="sans" fill="${t.textSecondary}" font-size="20" font-weight="400">
+  <text x="64" y="324" class="sans" fill="${t.textSecondary}" font-size="20" font-weight="400">
     Building software that matters in Cambodia.
   </text>
 
-  <!-- Subline -->
-  <text x="64" y="346" class="sans" fill="${t.textTertiary}" font-size="14">
+  <text x="64" y="352" class="sans" fill="${t.textTertiary}" font-size="14">
     Backend &amp; Full-Stack Developer  ·  Phnom Penh  ·  ${s.totalRepos} repos
   </text>
 
-  <!-- Inline metrics row -->
-  <g transform="translate(64, 388)" class="mono" font-size="12">
-    <text fill="${t.textTertiary}">commits/7d</text>
-    <text x="76" fill="${t.textPrimary}" font-weight="700" font-size="14">${s.commitsThisWeek}</text>
+  <!-- Inline metrics row (using tspan = automatic positioning, no bugs) -->
+  <text x="64" y="396" class="mono" font-size="13">
+    <tspan fill="${t.textTertiary}">commits/7d</tspan>
+    <tspan fill="${t.textPrimary}" font-weight="700" dx="10">${s.commitsThisWeek}</tspan>
+    <tspan fill="${t.textMuted}" dx="14">·</tspan>
+    <tspan fill="${t.textTertiary}" dx="14">streak</tspan>
+    <tspan fill="${t.textPrimary}" font-weight="700" dx="10">${s.streak}d</tspan>
+    <tspan dx="6">🔥</tspan>
+    <tspan fill="${t.textMuted}" dx="14">·</tspan>
+    <tspan fill="${t.textTertiary}" dx="14">active in</tspan>
+    <tspan fill="${t.textPrimary}" font-weight="700" dx="10">${s.reposTouchedCount}</tspan>
+    <tspan fill="${t.textTertiary}" dx="6">repo${s.reposTouchedCount === 1 ? "" : "s"}</tspan>
+  </text>
 
-    <text x="118" fill="${t.textMuted}">·</text>
-
-    <text x="138" fill="${t.textTertiary}">streak</text>
-    <text x="184" fill="${t.textPrimary}" font-weight="700" font-size="14">${s.streak}d</text>
-    <text x="${184 + String(s.streak + "d").length * 8 + 4}" font-size="12">🔥</text>
-
-    <text x="248" fill="${t.textMuted}">·</text>
-
-    <text x="268" fill="${t.textTertiary}">active in</text>
-    <text x="328" fill="${t.textPrimary}" font-weight="700" font-size="14">${s.reposTouchedCount}</text>
-    <text x="${s.reposTouchedCount > 9 ? 350 : 340}" fill="${t.textTertiary}">repo${s.reposTouchedCount === 1 ? "" : "s"}</text>
-  </g>
-
-  <!-- LIVE indicator -->
-  <g transform="translate(64, 422)">
+  <!-- LIVE -->
+  <g transform="translate(64, 434)">
     <circle class="live" cx="5" cy="5" r="4.5" fill="${t.liveDot}"/>
     <text x="18" y="10" class="mono" fill="${t.liveText}" font-size="11" font-weight="700" letter-spacing="0.2em">LIVE</text>
     <text x="60" y="10" class="mono" fill="${t.textTertiary}" font-size="11">·  refreshed ${esc(s.updatedAt)}</text>
   </g>
 
-  <!-- Vertical separator -->
-  <line x1="780" y1="60" x2="780" y2="420" stroke="${t.rule}" stroke-width="1"/>
+  <!-- Separator -->
+  <line x1="790" y1="60" x2="790" y2="440" stroke="${t.rule}" stroke-width="1"/>
 
   <!-- ============ RIGHT DATA ============ -->
 
-  <!-- Section 1: 12-week heatmap -->
-  <g>
-    <text x="820" y="76" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">12 WEEKS OF SHIPPING</text>
-    <text x="1216" y="76" text-anchor="end" class="mono" fill="${t.textTertiary}" font-size="11">${s.total12w} commits</text>
-    ${renderHeatmap(s.heatmap, s.maxDay, t)}
-  </g>
+  <!-- Heatmap -->
+  <text x="820" y="76" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">12 WEEKS OF SHIPPING</text>
+  <text x="1216" y="76" text-anchor="end" class="mono" fill="${t.textTertiary}" font-size="11">${s.total12w} contributions</text>
+  ${renderHeatmap(s.heatmap, s.maxDay, t)}
 
-  <!-- Section 2: 30-day sparkline -->
-  <g>
-    <text x="820" y="276" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">DAILY COMMITS · 30D</text>
-    <text x="1216" y="276" text-anchor="end" class="mono" fill="${t.textTertiary}" font-size="11">peak ${s.maxDay}/day</text>
-    ${renderSparkline(s.sparkline, t)}
-  </g>
+  <!-- Sparkline -->
+  <text x="820" y="312" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">DAILY · 30D</text>
+  <text x="1216" y="312" text-anchor="end" class="mono" fill="${t.textTertiary}" font-size="11">peak ${s.maxDay}/day</text>
+  ${renderSparkline(s.sparkline, t)}
 
-  <!-- Section 3: Latest ships -->
-  <g>
-    <text x="820" y="362" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">LATEST SHIPS</text>
-    ${renderShips(s.recent, t)}
-  </g>
+  <!-- Latest ships -->
+  <text x="820" y="394" class="mono" fill="${t.textSecondary}" font-size="11" font-weight="700" letter-spacing="0.2em">LATEST SHIPS</text>
+  ${renderShips(s.recent, t)}
 </svg>
 `;
 }
@@ -472,6 +452,5 @@ await fs.mkdir("assets", { recursive: true });
 await fs.writeFile("assets/banner-dark.svg", renderSvg(stats, fontB64, "dark"));
 await fs.writeFile("assets/banner-light.svg", renderSvg(stats, fontB64, "light"));
 
-console.log("banner-dark.svg + banner-light.svg generated.");
-console.log("stats:", stats);
-console.log("khmer font embedded:", !!fontB64);
+console.log("banner generated for both themes.");
+console.log("stats:", { ...stats, heatmap: undefined, sparkline: undefined });
