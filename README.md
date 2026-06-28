@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner.svg?v=1782630604557" alt="Srun Sochettra — live banner" width="100%">
-
-# សួស្ដី • Srun Sochettra
+<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner.svg?v=1782630883824" alt="Srun Sochettra — live banner" width="100%">
 
 </div>
 
@@ -28,7 +26,7 @@ Backend-leaning full-stack. Phnom Penh-based. I care about clean code, real-worl
 - **Research AI** — Switched from Pinecone to pgvector, cut hosting costs ~80%
 
 <sub>Updated weekly. Last bump: <!--START:TIMESTAMP-->
-2026-06-28 07:10 UTC
+2026-06-28 07:14 UTC
 <!--END:TIMESTAMP--></sub>
 
 ---
