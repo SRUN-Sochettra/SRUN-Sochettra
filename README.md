@@ -1,6 +1,10 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner.svg?v=1782630883824" alt="Srun Sochettra — live banner" width="100%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg">
+  https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg
+</picture>
 
 </div>
 
@@ -26,7 +30,7 @@ Backend-leaning full-stack. Phnom Penh-based. I care about clean code, real-worl
 - **Research AI** — Switched from Pinecone to pgvector, cut hosting costs ~80%
 
 <sub>Updated weekly. Last bump: <!--START:TIMESTAMP-->
-2026-06-28 07:14 UTC
+2026-06-28 07:35 UTC
 <!--END:TIMESTAMP--></sub>
 
 ---
