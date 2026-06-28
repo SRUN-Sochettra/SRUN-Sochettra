@@ -2,7 +2,7 @@ name: Update README
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 */6 * * *"   # every 6 hours
   workflow_dispatch:
   push:
     paths:
@@ -22,10 +22,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-          # cache: "npm"   # re-enable after committing package-lock.json
+          cache: "npm"
 
-      - name: Install deps
-        run: npm install --no-audit --no-fund
+      - run: npm ci
 
       - name: Run updater
         env:
