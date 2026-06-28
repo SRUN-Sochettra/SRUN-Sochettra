@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=2fc1d0de" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=fe112def" />
-<img src="./assets/banner-dark.svg?v=2fc1d0de" alt="Banner" width="100%" />
+./assets/banner-dark.svg?v=f2b453fd
+./assets/banner-light.svg?v=e4ce93a9
+./assets/banner-dark.svg?v=f2b453fd
 </picture>
 
 </div>
@@ -11,22 +11,65 @@
 <details>
 <summary><b>👨‍💻 as a coder</b></summary>
 <br />
-<img src="./assets/metrics-coder.svg" alt="coder" width="100%" />
+./assets/metrics-coder.svg
+
+### Last 7 days
+
+<!--START:WAKA-->
+**Total coded:** 5 hrs 11 mins
+
+`Other 76.6%` · `Python 9.3%` · `JavaScript 5.9%` · `Dart 4.2%` · `Markdown 1.2%` · `YAML 1.0%`
+<!--END:WAKA-->
+
+### Recent activity
+
+<!--START:ACTIVITY-->
+- **https://github.com/SRUN-Sochettra/SRUN-Sochettra** `JavaScript` — Personal README for GitHub Profile  
+  <sub>Pushed today</sub>
+- **https://github.com/SRUN-Sochettra/Hand-Gesture-Puzzle-Game** `Python` — A webcam-based puzzle game controlled with real-time hand gestures. Use your hand to grab shapes, drag them across the screen, and drop them into matching moving targets.  
+  <sub>Pushed 1 day ago</sub>
+- **https://github.com/SRUN-Sochettra/AnimeRoyale** `JavaScript` — Your anime, manga, and light novel tracking statistics from AniList or MyAnimeList through the eyes of the "Egg Court".  
+  <sub>Pushed 4 days ago</sub>
+- **https://github.com/SRUN-Sochettra/Edge-AI-YOLOv8** `HTML` — _no description_  
+  <sub>Pushed 11 days ago</sub>
+- **https://github.com/SRUN-Sochettra/Flutter---Semester-2** `HTML` — _no description_  
+  <sub>Pushed 12 days ago</sub>
+<!--END:ACTIVITY-->
+
 </details>
 
 <details>
 <summary><b>🎌 as a person</b></summary>
 <br />
-<img src="./assets/metrics-person.svg" alt="person" width="100%" />
+./assets/metrics-person.svg
+
+### Currently obsessed with
+
+<!--START:ANIME-->
+<table>
+  <tr>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/21769"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21769-ZBoT6szJKGZv.jpg" width="140" alt="SNAFU"/></a><br/><sub><b>SNAFU</b></sub></td>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/101291"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx101291-wfEdgPqtfU0l.jpg" width="140" alt="Bunny Girl Senpai"/></a><br/><sub><b>Bunny Girl Senpai</b></sub></td>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/19469"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/19469.jpg" width="140" alt="Saiki K."/></a><br/><sub><b>Saiki K.</b></sub></td>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/16498"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx16498-buvcRTBx4NSm.jpg" width="140" alt="Attack on Titan"/></a><br/><sub><b>Attack on Titan</b></sub></td>
+    <td align="center" width="20%"><a href="https://anilist.co/anime/21382"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21382-bBJghvjTP8Dr.jpg" width="140" alt="Rewrite"/></a><br/><sub><b>Rewrite</b></sub></td>
+  </tr>
+</table>
+<!--END:ANIME-->
+
 </details>
 
 <details>
 <summary><b>📊 by the numbers</b></summary>
 <br />
-<img src="./assets/metrics-data.svg" alt="data" width="100%" />
+./assets/metrics-data.svg
 <br />
 <br />
 <div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&rank=SECRET,SSS,SS,S,AAA,AA&row=2&column=9&theme=darkhub&no-bg=true&no-frame=true" alt="trophies" />
+./assets/trophies.svg
 </div>
 </details>
+
+<sub align="right"><!--START:TIMESTAMP-->
+2026-06-28 15:12 UTC
+<!--END:TIMESTAMP--></sub>
