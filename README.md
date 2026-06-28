@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg">
-  <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg" alt="Banner" width=100%>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=1782640705650">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-light.svg?v=1782640705650">
+  <img src="https://raw.githubusercontent.com/SRUN-Sochettra/SRUN-Sochettra/main/assets/banner-dark.svg?v=1782640705650" alt="Banner" width=100%>
 </picture>
 
 </div>
@@ -30,7 +30,7 @@ Backend-leaning full-stack. Phnom Penh-based. I care about clean code, real-worl
 - **Research AI** — Switched from Pinecone to pgvector, cut hosting costs ~80%
 
 <sub>Updated weekly. Last bump: <!--START:TIMESTAMP-->
-2026-06-28 08:12 UTC
+2026-06-28 09:58 UTC
 <!--END:TIMESTAMP--></sub>
 
 ---
@@ -187,13 +187,13 @@ If it ships, is secure, and makes someone's day better — it's a win.
 - **https://github.com/SRUN-Sochettra/SRUN-Sochettra** `JavaScript` — Personal README for GitHub Profile  
   <sub>Pushed today</sub>
 - **https://github.com/SRUN-Sochettra/Hand-Gesture-Puzzle-Game** `Python` — A webcam-based puzzle game controlled with real-time hand gestures. Use your hand to grab shapes, drag them across the screen, and drop them into matching moving targets.  
-  <sub>Pushed today</sub>
+  <sub>Pushed 1 day ago</sub>
 - **https://github.com/SRUN-Sochettra/AnimeRoyale** `JavaScript` — Your anime, manga, and light novel tracking statistics from AniList or MyAnimeList through the eyes of the "Egg Court".  
   <sub>Pushed 4 days ago</sub>
 - **https://github.com/SRUN-Sochettra/Edge-AI-YOLOv8** `HTML` — _no description_  
-  <sub>Pushed 10 days ago</sub>
-- **https://github.com/SRUN-Sochettra/Flutter---Semester-2** `HTML` — _no description_  
   <sub>Pushed 11 days ago</sub>
+- **https://github.com/SRUN-Sochettra/Flutter---Semester-2** `HTML` — _no description_  
+  <sub>Pushed 12 days ago</sub>
 <!--END:ACTIVITY-->
 
 ---
