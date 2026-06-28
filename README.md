@@ -30,7 +30,7 @@ Backend-leaning full-stack. Phnom Penh-based. I care about clean code, real-worl
 - **Research AI** — Switched from Pinecone to pgvector, cut hosting costs ~80%
 
 <sub>Updated weekly. Last bump: <!--START:TIMESTAMP-->
-2026-06-28 08:07 UTC
+2026-06-28 08:12 UTC
 <!--END:TIMESTAMP--></sub>
 
 ---
