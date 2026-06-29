@@ -39,7 +39,7 @@ function escAttr(s) {
 }
 
 function replaceBlock(md, key, content) {
-  const re = new RegExp(`(<!--START:${key}-->)[\\s\\S]*?(<!--END:${key}-->)`);
+  const re = new RegExp(`(<!--\\s*START:${key}\\s*-->)[\\s\\S]*?(<!--\\s*END:${key}\\s*-->)`);
   return md.replace(re, `$1\n${content}\n$2`);
 }
 
@@ -144,7 +144,12 @@ async function getWaka() {
     "https://wakatime.com/api/v1/users/current/stats/last_7_days",
     { headers: { Authorization: `Basic ${auth}` } }
   );
-  if (!res.ok) return "_WakaTime fetch failed._";
+  if (!res.ok) {
+    let body = "";
+    try { body = await res.text(); } catch {}
+    console.warn(`WakaTime ${res.status}: ${body}`);
+    return "_WakaTime fetch failed._";
+  }
   const { data } = await res.json();
 
   const total = data.human_readable_total || "0 hrs";
