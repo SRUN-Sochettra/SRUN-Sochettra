@@ -1,4 +1,3 @@
-cat > README.template.md << 'TEMPLATE_EOF'
 <div align="center">
 
 <picture>
@@ -45,4 +44,3 @@ cat > README.template.md << 'TEMPLATE_EOF'
 </details>
 
 <sub align="right"><!--START:TIMESTAMP--><!--END:TIMESTAMP--></sub>
-TEMPLATE_EOF

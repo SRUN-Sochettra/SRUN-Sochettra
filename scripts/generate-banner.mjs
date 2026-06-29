@@ -9,8 +9,6 @@ const KHMER_GREETING = "\u179f\u17bc\u179f\u17d2\u178f\u17b8";
 const DISPLAY_NAME = "Srun Sochettra";
 
 // Personality content — edit these freely
-const QUOTE = "\u201CPeople die when they are killed.\u201D";
-const QUOTE_ATTR = "\u2014 Shirou Emiya, Fate/Stay Night";
 const TAGLINE = "Writes code. Watches anime. Is an egg.";
 
 // No public API for any of these — hardcoded
@@ -28,6 +26,7 @@ const THEMES = {
         glow: "#3b82f6",
         glowOpacity: 0.18,
         glow2: "#60a5fa",
+        glow1Opacity: 0.10,
         glow2Opacity: 0.10,
         textPrimary: "#fafaf9",
         textSecondary: "#d6d3d1",
@@ -45,6 +44,7 @@ const THEMES = {
         glow: "#3b82f6",
         glowOpacity: 0.08,
         glow2: "#2563eb",
+        glow1Opacity: 0.05,
         glow2Opacity: 0.05,
         textPrimary: "#1c1917",
         textSecondary: "#44403c",
@@ -167,49 +167,59 @@ async function getCurrentAnime() {
 }
 
 async function getStats() {
-    const events = await octo.paginate(
-        octo.activity.listPublicEventsForUser,
-        { username: USER, per_page: 30 },
-        (res) => res.data
-    );
-
-    let latestPush = null;
-    for (const e of events) {
-        if (e.type === "PushEvent") { latestPush = e; break; }
-    }
-
-    let lastCommit = null;
-    let lastShipped = null;
-
-    if (latestPush) {
-        const sha = latestPush.payload?.head?.slice(0, 7);
-        const fullName = latestPush.repo.name;
-        const repoName = fullName.includes("/") ? fullName.split("/")[1] : fullName;
-
-        if (sha) {
-            lastCommit = { sha, date: new Date(latestPush.created_at) };
-        }
-
-        let lang = "\u2014";
-        try {
-            const { data: repo } = await octo.repos.get({ owner: USER, repo: repoName });
-            lang = repo.language || "\u2014";
-        } catch (err) {
-            console.warn(`repo lookup failed for ${repoName}:`, err.message);
-        }
-
-        lastShipped = {
-            name: repoName,
-            lang,
-            when: fmtRel(latestPush.created_at),
-        };
-    }
-
-    return {
-        lastCommit,
-        lastShipped,
+    const safeDefault = {
+        lastCommit: null,
+        lastShipped: null,
         updatedAt: new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC",
     };
+
+    try {
+        const { data: events } = await octo.activity.listPublicEventsForUser({
+            username: USER,
+            per_page: 30,
+        });
+
+        let latestPush = null;
+        for (const e of events) {
+            if (e.type === "PushEvent") { latestPush = e; break; }
+        }
+
+        let lastCommit = null;
+        let lastShipped = null;
+
+        if (latestPush) {
+            const sha = latestPush.payload?.head?.slice(0, 7);
+            const fullName = latestPush.repo.name;
+            const repoName = fullName.includes("/") ? fullName.split("/")[1] : fullName;
+
+            if (sha) {
+                lastCommit = { sha, date: new Date(latestPush.created_at) };
+            }
+
+            let lang = "\u2014";
+            try {
+                const { data: repo } = await octo.repos.get({ owner: USER, repo: repoName });
+                lang = repo.language || "\u2014";
+            } catch (err) {
+                console.warn(`repo lookup failed for ${repoName}:`, err.message);
+            }
+
+            lastShipped = {
+                name: repoName,
+                lang,
+                when: fmtRel(latestPush.created_at),
+            };
+        }
+
+        return {
+            lastCommit,
+            lastShipped,
+            updatedAt: new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC",
+        };
+    } catch (err) {
+        console.warn("getStats failed:", err.message);
+        return safeDefault;
+    }
 }
 
 // ------------------------------------------------------------------
@@ -270,7 +280,7 @@ function renderSvg(s, anime, fonts, themeName) {
       <stop offset="100%" stop-color="${t.bgEnd}"/>
     </linearGradient>
     <radialGradient id="glow1" cx="0.15" cy="0.2" r="0.5">
-      <stop offset="0%" stop-color="${t.accent}" stop-opacity="${t.glow2Opacity}"/>
+      <stop offset="0%" stop-color="${t.accent}" stop-opacity="${t.glow1Opacity}"/>
       <stop offset="100%" stop-color="${t.accent}" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow2" cx="0.85" cy="0.8" r="0.55">
@@ -317,12 +327,8 @@ function renderSvg(s, anime, fonts, themeName) {
     <rect x="28" y="1" width="100" height="1" fill="${t.ruleStrong}"/>
   </g>
 
-  <!-- Quote -->
-  <text x="64" y="274" class="display" fill="${t.textSecondary}" font-size="17" font-style="italic">${esc(QUOTE)}</text>
-  <text x="64" y="299" class="mono" fill="${t.textTertiary}" font-size="10" letter-spacing="0.14em" opacity="0.8">${esc(QUOTE_ATTR)}</text>
-
   <!-- Tagline -->
-  <text x="64" y="344" class="sans" fill="${t.textPrimary}" font-size="16" font-weight="500">${esc(TAGLINE)}</text>
+  <text x="64" y="278" class="sans" fill="${t.textPrimary}" font-size="16" font-weight="500">${esc(TAGLINE)}</text>
 
   <!-- Vertical separator -->
   <line x1="780" y1="100" x2="780" y2="340" stroke="${t.rule}" stroke-width="1"/>

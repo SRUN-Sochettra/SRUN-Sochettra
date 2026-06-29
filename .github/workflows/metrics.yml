@@ -23,7 +23,7 @@ jobs:
       # 1) THE CODER — UNCHANGED FROM v1 (debugging yourself)
       # ============================================================
       - name: Coder metrics
-        uses: lowlighter/metrics@latest
+        uses: lowlighter/metrics@v3.34
         with:
           filename: assets/metrics-coder.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -52,7 +52,7 @@ jobs:
       # 2) THE PERSON — padding + anilist limit fixed
       # ============================================================
       - name: Person metrics
-        uses: lowlighter/metrics@latest
+        uses: lowlighter/metrics@v3.34
         with:
           filename: assets/metrics-person.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -84,7 +84,7 @@ jobs:
       # 3) THE NUMBERS — calendar added to fill blank column
       # ============================================================
       - name: Data metrics
-        uses: lowlighter/metrics@latest
+        uses: lowlighter/metrics@v3.34
         with:
           filename: assets/metrics-data.svg
           token: ${{ secrets.METRICS_TOKEN }}
