@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=277f198a" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=c75de3ce" />
-<img src="./assets/banner-dark.svg?v=277f198a" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=f35ac578" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=a9bb8a9e" />
+<img src="./assets/banner-dark.svg?v=f35ac578" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -24,9 +24,9 @@
 ### Recent activity
 
 <!--START:ACTIVITY-->
-- **https://github.com/SRUN-Sochettra/Hand-Gesture-Puzzle-Game** `Python` — A webcam-based puzzle game controlled with real-time hand gestures. Use your hand to grab shapes, drag them across the screen, and drop them into matching moving targets.  
-  <sub>Pushed today</sub>
 - **https://github.com/SRUN-Sochettra/SRUN-Sochettra** `JavaScript` — Personal README for GitHub Profile  
+  <sub>Pushed today</sub>
+- **https://github.com/SRUN-Sochettra/Hand-Gesture-Puzzle-Game** `Python` — A webcam-based puzzle game controlled with real-time hand gestures. Use your hand to grab shapes, drag them across the screen, and drop them into matching moving targets.  
   <sub>Pushed today</sub>
 - **https://github.com/SRUN-Sochettra/AnimeRoyale** `JavaScript` — Your anime, manga, and light novel tracking statistics from AniList or MyAnimeList through the eyes of the "Egg Court".  
   <sub>Pushed 5 days ago</sub>
@@ -66,5 +66,5 @@
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-29 10:26 UTC
+2026-06-29 15:33 UTC
 <!--END:TIMESTAMP--></sub>
