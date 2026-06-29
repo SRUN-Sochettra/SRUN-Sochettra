@@ -41,7 +41,7 @@
   <text x="64" y="68" class="mono" fill="#a8a29e" font-size="11" letter-spacing="0.3em" opacity="0.85">
     PHNOM PENH  ·  CAMBODIA
   </text>
-  <text x="1216" y="68" text-anchor="end" class="mono" fill="#57534e" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed 2026-06-29 02:42 UTC</text>
+  <text x="1216" y="68" text-anchor="end" class="mono" fill="#57534e" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed 2026-06-29 04:14 UTC</text>
 
   <!-- ===== LEFT: persona ===== -->
   <text x="64" y="148" class="khmer" fill="#60a5fa" font-size="72">សូស្តី</text>
@@ -56,12 +56,8 @@
     <rect x="28" y="1" width="100" height="1" fill="#334155"/>
   </g>
 
-  <!-- Quote -->
-  <text x="64" y="274" class="display" fill="#d6d3d1" font-size="17" font-style="italic">“People die when they are killed.”</text>
-  <text x="64" y="299" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.14em" opacity="0.8">— Shirou Emiya, Fate/Stay Night</text>
-
   <!-- Tagline -->
-  <text x="64" y="344" class="sans" fill="#fafaf9" font-size="16" font-weight="500">Writes code. Watches anime. Is an egg.</text>
+  <text x="64" y="278" class="sans" fill="#fafaf9" font-size="16" font-weight="500">Writes code. Watches anime. Is an egg.</text>
 
   <!-- Vertical separator -->
   <line x1="780" y1="100" x2="780" y2="340" stroke="#1e293b" stroke-width="1"/>
@@ -79,10 +75,10 @@
   <text x="810" y="290" class="mono" fill="#d6d3d1" font-size="10" font-weight="700" letter-spacing="0.25em">LAST SHIPPED</text>
   
     <text x="810" y="316" class="sans" fill="#fafaf9" font-size="15" font-weight="600">SRUN-Sochettra</text>
-    <text x="810" y="336" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.05em">JavaScript  ·  9h ago</text>
+    <text x="810" y="336" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.05em">JavaScript  ·  just now</text>
   
 
   <!-- Bottom rule + tiny BUILD signature -->
   <line x1="64" y1="358" x2="1216" y2="358" stroke="#1e293b" stroke-width="1" opacity="0.6"/>
-  <text x="64" y="374" class="mono" fill="#57534e" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD · db0920d · 28 JUN 2026</text>
+  <text x="64" y="374" class="mono" fill="#57534e" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD · 3d8417c · 29 JUN 2026</text>
 </svg>
