@@ -1,10 +1,9 @@
-cat > README.template.md << 'TEMPLATE_EOF'
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=dbf1f11f" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=6d040e6c" />
-<img src="./assets/banner-dark.svg?v=dbf1f11f" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=0a5a68b9" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=5d1f73f6" />
+<img src="./assets/banner-dark.svg?v=0a5a68b9" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -30,7 +29,7 @@ cat > README.template.md << 'TEMPLATE_EOF'
 - **https://github.com/SRUN-Sochettra/Hand-Gesture-Puzzle-Game** `Python` — A webcam-based puzzle game controlled with real-time hand gestures. Use your hand to grab shapes, drag them across the screen, and drop them into matching moving targets.  
   <sub>Pushed 1 day ago</sub>
 - **https://github.com/SRUN-Sochettra/AnimeRoyale** `JavaScript` — Your anime, manga, and light novel tracking statistics from AniList or MyAnimeList through the eyes of the "Egg Court".  
-  <sub>Pushed 4 days ago</sub>
+  <sub>Pushed 5 days ago</sub>
 - **https://github.com/SRUN-Sochettra/Edge-AI-YOLOv8** `HTML` — _no description_  
   <sub>Pushed 11 days ago</sub>
 - **https://github.com/SRUN-Sochettra/Flutter---Semester-2** `HTML` — _no description_  
@@ -67,6 +66,5 @@ cat > README.template.md << 'TEMPLATE_EOF'
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-29 02:42 UTC
+2026-06-29 04:13 UTC
 <!--END:TIMESTAMP--></sub>
-TEMPLATE_EOF
