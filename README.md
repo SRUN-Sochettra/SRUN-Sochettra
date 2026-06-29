@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=0a5a68b9" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=5d1f73f6" />
-<img src="./assets/banner-dark.svg?v=0a5a68b9" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=9ec3fc16" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=d1b15ef1" />
+<img src="./assets/banner-dark.svg?v=9ec3fc16" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -66,5 +66,5 @@
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-29 04:13 UTC
+2026-06-29 04:14 UTC
 <!--END:TIMESTAMP--></sub>
