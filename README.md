@@ -2,9 +2,9 @@ cat > README.template.md << 'TEMPLATE_EOF'
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=865f22fc" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=85f0b2f6" />
-<img src="./assets/banner-dark.svg?v=865f22fc" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=dbf1f11f" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=6d040e6c" />
+<img src="./assets/banner-dark.svg?v=dbf1f11f" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -67,6 +67,6 @@ cat > README.template.md << 'TEMPLATE_EOF'
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-28 19:05 UTC
+2026-06-29 02:42 UTC
 <!--END:TIMESTAMP--></sub>
 TEMPLATE_EOF
