@@ -1,9 +1,10 @@
+cat > README.template.md << 'TEMPLATE_EOF'
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=59e436a3" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=4cd87351" />
-<img src="./assets/banner-dark.svg?v=59e436a3" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=dbf1f11f" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=6d040e6c" />
+<img src="./assets/banner-dark.svg?v=dbf1f11f" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -16,9 +17,9 @@
 ### Last 7 days
 
 <!--START:WAKA-->
-**Total coded:** 5 hrs 11 mins
+**Total coded:** 6 hrs 53 mins
 
-`Other 76.6%` · `Python 9.3%` · `JavaScript 5.9%` · `Dart 4.2%` · `Markdown 1.2%` · `YAML 1.0%`
+`Other 71.3%` · `Python 9.5%` · `JavaScript 6.2%` · `Dart 3.8%` · `Markdown 3.7%` · `YAML 2.2%`
 <!--END:WAKA-->
 
 ### Recent activity
@@ -43,7 +44,7 @@
 <br />
 <img src="./assets/metrics-person.svg" alt="person" width="100%" />
 
-### Currently obsessed with
+### My top anime in order
 
 <!--START:ANIME-->
 <table>
@@ -63,13 +64,9 @@
 <summary><b>📊 by the numbers</b></summary>
 <br />
 <img src="./assets/metrics-data.svg" alt="data" width="100%" />
-<br />
-<br />
-<div align="center">
-<img src="./assets/trophies.svg" alt="trophies" />
-</div>
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-28 16:18 UTC
+2026-06-29 02:42 UTC
 <!--END:TIMESTAMP--></sub>
+TEMPLATE_EOF
