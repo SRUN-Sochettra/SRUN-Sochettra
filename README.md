@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=6fb9c436" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=c48196e8" />
-<img src="./assets/banner-dark.svg?v=6fb9c436" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=9da530e5" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=7c100b21" />
+<img src="./assets/banner-dark.svg?v=9da530e5" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -11,7 +11,7 @@
 <details>
 <summary><b>👨‍💻 as a coder</b></summary>
 <br />
-<img src="./assets/metrics-coder.svg?v=cfc63399" alt="coder" width="100%" />
+<img src="./assets/metrics-coder.svg?v=23404a0c" alt="coder" width="100%" />
 
 ### Last 7 days
 
@@ -33,7 +33,7 @@
 - **https://github.com/SRUN-Sochettra/Edge-AI-YOLOv8** `HTML` — _no description_  
   <sub>Pushed 13 days ago</sub>
 - **https://github.com/SRUN-Sochettra/Flutter---Semester-2** `HTML` — _no description_  
-  <sub>Pushed 13 days ago</sub>
+  <sub>Pushed 14 days ago</sub>
 <!--END:ACTIVITY-->
 
 </details>
@@ -41,7 +41,7 @@
 <details>
 <summary><b>🎌 as a person</b></summary>
 <br />
-<img src="./assets/metrics-person.svg?v=03d2b114" alt="person" width="100%" />
+<img src="./assets/metrics-person.svg?v=5787915c" alt="person" width="100%" />
 
 ### My top anime in order
 
@@ -62,9 +62,9 @@
 <details>
 <summary><b>📊 by the numbers</b></summary>
 <br />
-<img src="./assets/metrics-data.svg?v=a4ac0198" alt="data" width="100%" />
+<img src="./assets/metrics-data.svg?v=afeb2596" alt="data" width="100%" />
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-30 08:58 UTC
+2026-06-30 14:00 UTC
 <!--END:TIMESTAMP--></sub>
