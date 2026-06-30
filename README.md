@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=9da530e5" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=7c100b21" />
-<img src="./assets/banner-dark.svg?v=9da530e5" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=3685b142" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=0600a1ef" />
+<img src="./assets/banner-dark.svg?v=3685b142" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -41,7 +41,7 @@
 <details>
 <summary><b>🎌 as a person</b></summary>
 <br />
-<img src="./assets/metrics-person.svg?v=5787915c" alt="person" width="100%" />
+<img src="./assets/metrics-person.svg?v=542d8576" alt="person" width="100%" />
 
 ### My top anime in order
 
@@ -66,5 +66,5 @@
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-30 14:00 UTC
+2026-06-30 19:44 UTC
 <!--END:TIMESTAMP--></sub>
