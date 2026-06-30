@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=5b9fc3cb" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=0951cc4b" />
-<img src="./assets/banner-dark.svg?v=5b9fc3cb" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=166463b9" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=9595e6e8" />
+<img src="./assets/banner-dark.svg?v=166463b9" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -16,9 +16,9 @@
 ### Last 7 days
 
 <!--START:WAKA-->
-**Total coded:** 6 hrs 53 mins
+**Total coded:** 7 hrs 23 mins
 
-`Other 71.3%` · `Python 9.5%` · `JavaScript 6.2%` · `Dart 3.8%` · `Markdown 3.7%` · `YAML 2.2%`
+`Other 68.0%` · `Python 10.4%` · `JavaScript 6.4%` · `Markdown 5.0%` · `Dart 4.0%` · `YAML 2.6%`
 <!--END:WAKA-->
 
 ### Recent activity
@@ -66,5 +66,5 @@
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-29 19:45 UTC
+2026-06-30 02:36 UTC
 <!--END:TIMESTAMP--></sub>
