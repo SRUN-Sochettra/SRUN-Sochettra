@@ -1,3 +1,4 @@
+// scripts/update-readme.mjs
 import fs from "node:fs/promises";
 import crypto from "node:crypto";
 import { Octokit } from "@octokit/rest";
@@ -38,9 +39,13 @@ function escAttr(s) {
     .replace(/"/g, "&quot;");
 }
 
+// Function replacer — prevents `$1`, `$&`, `$$` etc. in `content`
+// from being interpreted as backreferences by String.prototype.replace.
 function replaceBlock(md, key, content) {
-  const re = new RegExp(`(<!--\\s*START:${key}\\s*-->)[\\s\\S]*?(<!--\\s*END:${key}\\s*-->)`);
-  return md.replace(re, `$1\n${content}\n$2`);
+  const re = new RegExp(
+    `(<!--\\s*START:${key}\\s*-->)[\\s\\S]*?(<!--\\s*END:${key}\\s*-->)`
+  );
+  return md.replace(re, (_m, start, end) => `${start}\n${content}\n${end}`);
 }
 
 function fmtDate(iso) {
@@ -108,13 +113,14 @@ async function getFavoriteAnimeTable() {
 }
 
 // ------------------------------------------------------------------
-// Repo activity (unchanged)
+// Repo activity
 // ------------------------------------------------------------------
 async function getActivity() {
+  // Bump per_page so heavy forking/pinning doesn't empty the list.
   const { data } = await octo.repos.listForUser({
     username: USER,
     sort: "pushed",
-    per_page: 20,
+    per_page: 50,
   });
 
   const recent = data
@@ -139,7 +145,9 @@ async function getWaka() {
   if (!process.env.WAKATIME_API_KEY) {
     return "_Connect a WakaTime account to populate this section._";
   }
-  const auth = Buffer.from(process.env.WAKATIME_API_KEY).toString("base64");
+  // HTTP Basic auth spec = base64(user:pass). WakaTime expects base64(key:).
+  // The trailing colon matters for spec-compliant parsers.
+  const auth = Buffer.from(`${process.env.WAKATIME_API_KEY}:`).toString("base64");
   const res = await fetch(
     "https://wakatime.com/api/v1/users/current/stats/last_7_days",
     { headers: { Authorization: `Basic ${auth}` } }
@@ -184,25 +192,31 @@ out = replaceBlock(out, "WAKA", waka);
 out = replaceBlock(out, "ANIME", animeTable);
 out = replaceBlock(out, "TIMESTAMP", ts);
 
-// --- Content-hashed cache-bust ---
-const [darkHash, lightHash] = await Promise.all([
-  hashFile("assets/banner-dark.svg"),
-  hashFile("assets/banner-light.svg"),
-]);
+// --- Content-hashed cache-bust for ALL locally-generated SVGs ---
+// Includes metrics SVGs so GitHub's camo cache invalidates whenever the
+// metrics workflow refreshes them. Worst-case staleness: one update-readme
+// cycle (6h).
+const HASHED_SVGS = [
+  "assets/banner-dark.svg",
+  "assets/banner-light.svg",
+  "assets/metrics-coder.svg",
+  "assets/metrics-person.svg",
+  "assets/metrics-data.svg",
+];
 
-if (darkHash) {
-  out = out.replace(
-    /assets\/banner-dark\.svg(\?v=[a-z0-9]+)?/gi,
-    `assets/banner-dark.svg?v=${darkHash}`
-  );
-}
-if (lightHash) {
-  out = out.replace(
-    /assets\/banner-light\.svg(\?v=[a-z0-9]+)?/gi,
-    `assets/banner-light.svg?v=${lightHash}`
-  );
-}
+const hashes = await Promise.all(HASHED_SVGS.map(hashFile));
+
+HASHED_SVGS.forEach((path, i) => {
+  const hash = hashes[i];
+  if (!hash) return;
+  const escaped = path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = new RegExp(`${escaped}(\\?v=[a-z0-9]+)?`, "gi");
+  out = out.replace(re, `${path}?v=${hash}`);
+});
 
 await fs.writeFile(OUTPUT, out);
 console.log("README.md updated.");
-console.log("banner cache keys:", { dark: darkHash, light: lightHash });
+console.log(
+  "cache keys:",
+  Object.fromEntries(HASHED_SVGS.map((p, i) => [p, hashes[i]]))
+);
