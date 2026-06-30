@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=166463b9" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=9595e6e8" />
-<img src="./assets/banner-dark.svg?v=166463b9" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=6fb9c436" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=c48196e8" />
+<img src="./assets/banner-dark.svg?v=6fb9c436" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -11,7 +11,7 @@
 <details>
 <summary><b>👨‍💻 as a coder</b></summary>
 <br />
-<img src="./assets/metrics-coder.svg" alt="coder" width="100%" />
+<img src="./assets/metrics-coder.svg?v=cfc63399" alt="coder" width="100%" />
 
 ### Last 7 days
 
@@ -27,11 +27,11 @@
 - **https://github.com/SRUN-Sochettra/SRUN-Sochettra** `JavaScript` — Personal README for GitHub Profile  
   <sub>Pushed today</sub>
 - **https://github.com/SRUN-Sochettra/Hand-Gesture-Puzzle-Game** `Python` — A webcam-based puzzle game controlled with real-time hand gestures. Use your hand to grab shapes, drag them across the screen, and drop them into matching moving targets.  
-  <sub>Pushed today</sub>
+  <sub>Pushed 1 day ago</sub>
 - **https://github.com/SRUN-Sochettra/AnimeRoyale** `JavaScript` — Your anime, manga, and light novel tracking statistics from AniList or MyAnimeList through the eyes of the "Egg Court".  
-  <sub>Pushed 5 days ago</sub>
+  <sub>Pushed 6 days ago</sub>
 - **https://github.com/SRUN-Sochettra/Edge-AI-YOLOv8** `HTML` — _no description_  
-  <sub>Pushed 12 days ago</sub>
+  <sub>Pushed 13 days ago</sub>
 - **https://github.com/SRUN-Sochettra/Flutter---Semester-2** `HTML` — _no description_  
   <sub>Pushed 13 days ago</sub>
 <!--END:ACTIVITY-->
@@ -41,7 +41,7 @@
 <details>
 <summary><b>🎌 as a person</b></summary>
 <br />
-<img src="./assets/metrics-person.svg" alt="person" width="100%" />
+<img src="./assets/metrics-person.svg?v=03d2b114" alt="person" width="100%" />
 
 ### My top anime in order
 
@@ -62,9 +62,9 @@
 <details>
 <summary><b>📊 by the numbers</b></summary>
 <br />
-<img src="./assets/metrics-data.svg" alt="data" width="100%" />
+<img src="./assets/metrics-data.svg?v=a4ac0198" alt="data" width="100%" />
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-30 02:36 UTC
+2026-06-30 08:58 UTC
 <!--END:TIMESTAMP--></sub>
