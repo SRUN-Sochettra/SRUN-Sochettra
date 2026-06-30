@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=9ec3fc16" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=d1b15ef1" />
-<img src="./assets/banner-dark.svg?v=9ec3fc16" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=166463b9" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=9595e6e8" />
+<img src="./assets/banner-dark.svg?v=166463b9" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -16,9 +16,9 @@
 ### Last 7 days
 
 <!--START:WAKA-->
-**Total coded:** 6 hrs 53 mins
+**Total coded:** 7 hrs 23 mins
 
-`Other 71.3%` · `Python 9.5%` · `JavaScript 6.2%` · `Dart 3.8%` · `Markdown 3.7%` · `YAML 2.2%`
+`Other 68.0%` · `Python 10.4%` · `JavaScript 6.4%` · `Markdown 5.0%` · `Dart 4.0%` · `YAML 2.6%`
 <!--END:WAKA-->
 
 ### Recent activity
@@ -27,13 +27,13 @@
 - **https://github.com/SRUN-Sochettra/SRUN-Sochettra** `JavaScript` — Personal README for GitHub Profile  
   <sub>Pushed today</sub>
 - **https://github.com/SRUN-Sochettra/Hand-Gesture-Puzzle-Game** `Python` — A webcam-based puzzle game controlled with real-time hand gestures. Use your hand to grab shapes, drag them across the screen, and drop them into matching moving targets.  
-  <sub>Pushed 1 day ago</sub>
+  <sub>Pushed today</sub>
 - **https://github.com/SRUN-Sochettra/AnimeRoyale** `JavaScript` — Your anime, manga, and light novel tracking statistics from AniList or MyAnimeList through the eyes of the "Egg Court".  
   <sub>Pushed 5 days ago</sub>
 - **https://github.com/SRUN-Sochettra/Edge-AI-YOLOv8** `HTML` — _no description_  
-  <sub>Pushed 11 days ago</sub>
-- **https://github.com/SRUN-Sochettra/Flutter---Semester-2** `HTML` — _no description_  
   <sub>Pushed 12 days ago</sub>
+- **https://github.com/SRUN-Sochettra/Flutter---Semester-2** `HTML` — _no description_  
+  <sub>Pushed 13 days ago</sub>
 <!--END:ACTIVITY-->
 
 </details>
@@ -66,5 +66,5 @@
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-29 04:14 UTC
+2026-06-30 02:36 UTC
 <!--END:TIMESTAMP--></sub>
