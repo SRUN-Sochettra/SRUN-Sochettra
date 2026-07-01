@@ -7,7 +7,6 @@ const USER = "SRUN-Sochettra";
 const TEMPLATE = "README.template.md";
 const OUTPUT = "README.md";
 
-// Skip-list so pinned repos don't double-appear under Recent activity
 const PINNED = new Set([
   "EggScan",
   "Research-AI",
@@ -17,7 +16,6 @@ const PINNED = new Set([
   "RPI---RFID-Access-Control-System",
 ]);
 
-// Top 5 anime — display name + AniList search term
 const ANIME_LIST = [
   { name: "SNAFU",             search: "Yahari Ore no Seishun Love Comedy wa Machigatteiru" },
   { name: "Bunny Girl Senpai", search: "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai" },
@@ -39,14 +37,11 @@ function escHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
-// Function replacer — prevents `$1`, `$&`, `$$` in content from being
-// interpreted as backreferences by String.prototype.replace.
-// Blank lines around the injected content so markdown inside <td>
-// still renders correctly on GitHub.
 function replaceBlock(md, key, content) {
   const re = new RegExp(
     `(<!--\\s*START:${key}\\s*-->)[\\s\\S]*?(<!--\\s*END:${key}\\s*-->)`
   );
+  // Blank lines around content so markdown-inside-<td> still renders
   return md.replace(re, (_m, start, end) => `${start}\n\n${content}\n\n${end}`);
 }
 
@@ -56,6 +51,20 @@ function fmtDate(iso) {
   if (days === 0) return "today";
   if (days === 1) return "1 day ago";
   return `${days} days ago`;
+}
+
+function fmtHM(seconds) {
+  if (!seconds || seconds < 60) return `${Math.round(seconds || 0)} sec`;
+  const h = Math.floor(seconds / 3600);
+  const m = Math.round((seconds % 3600) / 60);
+  if (h === 0) return `${m} min`;
+  if (m === 0) return `${h} hr`;
+  return `${h} hr ${m} min`;
+}
+
+function fmtShortDate(iso) {
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short" });
 }
 
 async function hashFile(filepath) {
@@ -110,16 +119,15 @@ async function getFavoriteAnimeTable() {
       return `<td align="center" width="20%"><sub><b>${escHtml(a.name)}</b></sub></td>`;
     }
     const inner =
-      `<a href="${escHtml(r.url)}">` +
-      `<img src="${escHtml(r.cover)}" width="140" alt="${escHtml(a.name)}"/>` +
-      `</a><br/><sub><b>${escHtml(a.name)}</b></sub>`;
+      `${escHtml(r.url)}">${escHtml(r.cover)}t="${escHtml(a.name)}"/></a>` +
+      `<br/><sub><b>${escHtml(a.name)}</b></sub>`;
     return `<td align="center" width="20%">${inner}</td>`;
   });
   return `<table>\n  <tr>\n    ${cells.join("\n    ")}\n  </tr>\n</table>`;
 }
 
 // ------------------------------------------------------------------
-// Recent activity — HTML list (renders reliably inside <td>)
+// Recent activity — HTML list
 // ------------------------------------------------------------------
 async function getActivity() {
   const { data } = await octo.repos.listForUser({
@@ -139,7 +147,7 @@ async function getActivity() {
     const lang = r.language ? ` <code>${escHtml(r.language)}</code>` : "";
     return (
       `<li>` +
-        `<a href="${escHtml(r.html_url)}"><b>${escHtml(r.name)}</b></a>${lang}` +
+        `${escHtml(r.html_url)}"><b>${escHtml(r.name)}</b></a>${lang}` +
         `<br/><sub>${escHtml(desc)} · Pushed ${escHtml(fmtDate(r.pushed_at))}</sub>` +
       `</li>`
     );
@@ -149,13 +157,12 @@ async function getActivity() {
 }
 
 // ------------------------------------------------------------------
-// WakaTime — HTML (renders reliably inside <td>)
+// WakaTime — dense card (fills right column, matches activity density)
 // ------------------------------------------------------------------
 async function getWaka() {
   if (!process.env.WAKATIME_API_KEY) {
     return `<i>Connect a WakaTime account to populate this section.</i>`;
   }
-  // HTTP Basic auth spec = base64(user:pass). WakaTime expects base64(key:).
   const auth = Buffer.from(`${process.env.WAKATIME_API_KEY}:`).toString("base64");
   const res = await fetch(
     "https://wakatime.com/api/v1/users/current/stats/last_7_days",
@@ -169,14 +176,35 @@ async function getWaka() {
   }
   const { data } = await res.json();
 
-  const total = data.human_readable_total || "0 hrs";
+  const total   = data.human_readable_total || "0 hrs";
+  const daily   = data.human_readable_daily_average || fmtHM(data.daily_average || 0);
+  const best    = data.best_day
+    ? `${fmtShortDate(data.best_day.date)} · ${fmtHM(data.best_day.total_seconds)}`
+    : null;
+
   const langs = (data.languages || [])
     .slice(0, 6)
-    .map((l) => `<code>${escHtml(l.name)} ${l.percent.toFixed(1)}%</code>`)
+    .map((l) => `<code>${escHtml(l.name)}</code> <sub>${l.percent.toFixed(1)}%</sub>`)
     .join(" · ");
 
-  const langLine = langs || `<i>No language data yet.</i>`;
-  return `<b>Total coded:</b> ${escHtml(total)}<br/><br/>${langLine}`;
+  const editors = (data.editors || [])
+    .slice(0, 4)
+    .map((e) => `<code>${escHtml(e.name)}</code> <sub>${e.percent.toFixed(0)}%</sub>`)
+    .join(" · ");
+
+  const projects = (data.projects || [])
+    .slice(0, 4)
+    .map((p) => `<code>${escHtml(p.name)}</code> <sub>${fmtHM(p.total_seconds)}</sub>`)
+    .join(" · ");
+
+  const parts = [];
+  parts.push(`<b>Total coded:</b> ${escHtml(total)}`);
+  parts.push(`<sub>Daily average · ${escHtml(daily)}${best ? ` &nbsp; Best day · ${escHtml(best)}` : ""}</sub>`);
+  if (langs)    parts.push(`<b>Languages</b><br/>${langs}`);
+  if (editors)  parts.push(`<b>Editors</b><br/>${editors}`);
+  if (projects) parts.push(`<b>Projects</b><br/>${projects}`);
+
+  return parts.join(`<br/><br/>`);
 }
 
 // ------------------------------------------------------------------
@@ -203,11 +231,12 @@ out = replaceBlock(out, "TIMESTAMP", ts);
 const HASHED_SVGS = [
   "assets/banner-dark.svg",
   "assets/banner-light.svg",
-  "assets/metrics-coder.svg",
-  "assets/metrics-person.svg",
+  "assets/metrics-languages.svg",
+  "assets/metrics-activity.svg",
+  "assets/metrics-anilist.svg",
+  "assets/metrics-social.svg",
   "assets/metrics-iso.svg",
   "assets/metrics-followup.svg",
-  "assets/metrics-achievements.svg",
 ];
 
 const hashes = await Promise.all(HASHED_SVGS.map(hashFile));
