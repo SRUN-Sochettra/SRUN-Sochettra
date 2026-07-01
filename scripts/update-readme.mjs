@@ -7,15 +7,18 @@ const USER = "SRUN-Sochettra";
 const TEMPLATE = "README.template.md";
 const OUTPUT = "README.md";
 
-// Repos already curated in "Selected Projects" — skip in the dynamic list
-const PINNED = new Set([
+// Curated pins. Order = display order in the Selected work rail.
+// Also used as a skip-list for the "Recent activity" section so pins
+// don't double-appear.
+const PINNED_ORDER = [
   "EggScan",
   "Research-AI",
-  "Khmer-Banking",
   "HyperspaceOS",
+  "Khmer-Banking",
   "Spring-Boot---API-Blog",
   "RPI---RFID-Access-Control-System",
-]);
+];
+const PINNED = new Set(PINNED_ORDER);
 
 // Top 5 anime — display name + AniList search term
 const ANIME_LIST = [
@@ -67,6 +70,53 @@ async function hashFile(filepath) {
 }
 
 // ------------------------------------------------------------------
+// Selected work rail — pinned repos rendered as a 3×N table
+// ------------------------------------------------------------------
+async function getSelectedProjects() {
+  const results = await Promise.all(
+    PINNED_ORDER.map(async (name) => {
+      try {
+        const { data } = await octo.repos.get({ owner: USER, repo: name });
+        return {
+          name: data.name,
+          url: data.html_url,
+          desc: (data.description || "").trim(),
+          lang: data.language || "",
+        };
+      } catch (err) {
+        console.warn(`selected project ${name} unavailable:`, err.message);
+        return null;
+      }
+    })
+  );
+
+  const projects = results.filter(Boolean);
+  if (projects.length === 0) return "_No selected projects available._";
+
+  // 3 cells per row; pad short rows with empty cells so the grid stays even.
+  const rows = [];
+  for (let i = 0; i < projects.length; i += 3) rows.push(projects.slice(i, i + 3));
+
+  const rowHtml = rows
+    .map((row) => {
+      const cells = row.map((p) => {
+        const desc = p.desc
+          ? `<br/><sub>${escAttr(p.desc)}</sub>`
+          : `<br/><sub><i>no description</i></sub>`;
+        const lang = p.lang
+          ? `<br/><sub><code>${escAttr(p.lang)}</code></sub>`
+          : "";
+        return `<td valign="top" width="33%"><a href="${escAttr(p.url)}"><b>${escAttr(p.name)}</b></a>${desc}${lang}</td>`;
+      });
+      while (cells.length < 3) cells.push(`<td width="33%"></td>`);
+      return `  <tr>\n    ${cells.join("\n    ")}\n  </tr>`;
+    })
+    .join("\n");
+
+  return `<table>\n${rowHtml}\n</table>`;
+}
+
+// ------------------------------------------------------------------
 // Anime covers (AniList)
 // ------------------------------------------------------------------
 async function getAnimeCover(searchTerm) {
@@ -113,10 +163,9 @@ async function getFavoriteAnimeTable() {
 }
 
 // ------------------------------------------------------------------
-// Repo activity
+// Repo activity — non-pinned, most recent pushes
 // ------------------------------------------------------------------
 async function getActivity() {
-  // Bump per_page so heavy forking/pinning doesn't empty the list.
   const { data } = await octo.repos.listForUser({
     username: USER,
     sort: "pushed",
@@ -132,8 +181,8 @@ async function getActivity() {
   return recent
     .map((r) => {
       const desc = r.description?.trim() || "_no description_";
-      const lang = r.language ? `\`${r.language}\`` : "";
-      return `- **${r.html_url}** ${lang} — ${desc}  \n  <sub>Pushed ${fmtDate(r.pushed_at)}</sub>`;
+      const lang = r.language ? ` \`${r.language}\`` : "";
+      return `- [**${r.name}**](${r.html_url})${lang} — ${desc}  \n  <sub>Pushed ${fmtDate(r.pushed_at)}</sub>`;
     })
     .join("\n");
 }
@@ -146,7 +195,6 @@ async function getWaka() {
     return "_Connect a WakaTime account to populate this section._";
   }
   // HTTP Basic auth spec = base64(user:pass). WakaTime expects base64(key:).
-  // The trailing colon matters for spec-compliant parsers.
   const auth = Buffer.from(`${process.env.WAKATIME_API_KEY}:`).toString("base64");
   const res = await fetch(
     "https://wakatime.com/api/v1/users/current/stats/last_7_days",
@@ -174,28 +222,24 @@ async function getWaka() {
 // ------------------------------------------------------------------
 const tpl = await fs.readFile(TEMPLATE, "utf8");
 
-const [activity, waka, animeTable] = await Promise.all([
+const [projects, activity, waka, animeTable] = await Promise.all([
+  getSelectedProjects(),
   getActivity(),
   getWaka(),
   getFavoriteAnimeTable(),
 ]);
 
 const ts =
-  new Date()
-    .toISOString()
-    .replace("T", " ")
-    .slice(0, 16) + " UTC";
+  new Date().toISOString().replace("T", " ").slice(0, 16) + " UTC";
 
 let out = tpl;
+out = replaceBlock(out, "PROJECTS", projects);
 out = replaceBlock(out, "ACTIVITY", activity);
 out = replaceBlock(out, "WAKA", waka);
 out = replaceBlock(out, "ANIME", animeTable);
 out = replaceBlock(out, "TIMESTAMP", ts);
 
 // --- Content-hashed cache-bust for ALL locally-generated SVGs ---
-// Includes metrics SVGs so GitHub's camo cache invalidates whenever the
-// metrics workflow refreshes them. Worst-case staleness: one update-readme
-// cycle (6h).
 const HASHED_SVGS = [
   "assets/banner-dark.svg",
   "assets/banner-light.svg",
@@ -216,6 +260,7 @@ HASHED_SVGS.forEach((path, i) => {
 
 await fs.writeFile(OUTPUT, out);
 console.log("README.md updated.");
+console.log("selected projects:", PINNED_ORDER.length, "requested");
 console.log(
   "cache keys:",
   Object.fromEntries(HASHED_SVGS.map((p, i) => [p, hashes[i]]))
