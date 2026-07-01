@@ -17,39 +17,45 @@
 
 <br />
 
-<details>
-<summary><b>as a coder</b></summary>
+## The year
+
+<div align="center">
+  <img src="./assets/metrics-year.svg" alt="Contribution isocalendar, full year" width="100%" />
+</div>
+
 <br />
-<img src="./assets/metrics-coder.svg" alt="coder" width="100%" />
 
-**Last 7 days**
+## As a coder
 
-<!--START:WAKA-->
-<!--END:WAKA-->
+<img src="./assets/metrics-coder.svg" alt="Coder metrics" width="100%" />
 
 **Recent activity**
 
 <!--START:ACTIVITY-->
 <!--END:ACTIVITY-->
 
-</details>
+**Last 7 days**
 
-<details>
-<summary><b>as a person</b></summary>
+<!--START:WAKA-->
+<!--END:WAKA-->
+
 <br />
-<img src="./assets/metrics-person.svg" alt="person" width="100%" />
+
+## By the numbers
+
+<img src="./assets/metrics-data.svg" alt="Numbers, habits, achievements" width="100%" />
+
+<br />
+
+## As a person
+
+<img src="./assets/metrics-person.svg" alt="Person metrics" width="100%" />
 
 **Top anime, in order**
 
 <!--START:ANIME-->
 <!--END:ANIME-->
 
-</details>
-
-<details>
-<summary><b>by the numbers</b></summary>
 <br />
-<img src="./assets/metrics-data.svg" alt="data" width="100%" />
-</details>
 
-<sub align="right"><!--START:TIMESTAMP--><!--END:TIMESTAMP--></sub>
+<div align="right"><sub><!--START:TIMESTAMP--><!--END:TIMESTAMP--></sub></div>
