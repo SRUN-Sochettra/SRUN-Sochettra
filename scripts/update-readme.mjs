@@ -7,23 +7,15 @@ const USER = "SRUN-Sochettra";
 const TEMPLATE = "README.template.md";
 const OUTPUT = "README.md";
 
-// Curated pins. Order = display order in Selected work.
-// Also used as skip-list so pins don't double-appear under Recent activity.
-const PINNED_ORDER = [
+// Skip-list so pinned repos don't double-appear under Recent activity
+const PINNED = new Set([
   "EggScan",
   "Research-AI",
   "HyperspaceOS",
   "Khmer-Banking",
   "Spring-Boot---API-Blog",
   "RPI---RFID-Access-Control-System",
-];
-const PINNED = new Set(PINNED_ORDER);
-
-// Pin card theming — mirrors banner palette so cards feel native, not template-y
-const PIN_THEME_DARK  = "bg_color=0a0a0f&title_color=58a6ff&text_color=d6d3d1&icon_color=3b82f6";
-const PIN_THEME_LIGHT = "bg_color=fafaf9&title_color=0969da&text_color=44403c&icon_color=3b82f6";
-const PIN_SHARED      = "hide_border=true&border_radius=8&show_owner=false";
-const PIN_BASE        = "https://github-readme-stats.vercel.app/api/pin/";
+]);
 
 // Top 5 anime — display name + AniList search term
 const ANIME_LIST = [
@@ -39,7 +31,7 @@ const octo = new Octokit({ auth: process.env.GH_TOKEN });
 // ------------------------------------------------------------------
 // Helpers
 // ------------------------------------------------------------------
-function escAttr(s) {
+function escHtml(s) {
   return String(s)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -49,11 +41,13 @@ function escAttr(s) {
 
 // Function replacer — prevents `$1`, `$&`, `$$` in content from being
 // interpreted as backreferences by String.prototype.replace.
+// Blank lines around the injected content so markdown inside <td>
+// still renders correctly on GitHub.
 function replaceBlock(md, key, content) {
   const re = new RegExp(
     `(<!--\\s*START:${key}\\s*-->)[\\s\\S]*?(<!--\\s*END:${key}\\s*-->)`
   );
-  return md.replace(re, (_m, start, end) => `${start}\n${content}\n${end}`);
+  return md.replace(re, (_m, start, end) => `${start}\n\n${content}\n\n${end}`);
 }
 
 function fmtDate(iso) {
@@ -72,42 +66,6 @@ async function hashFile(filepath) {
     console.warn(`hashFile failed for ${filepath}:`, err.message);
     return null;
   }
-}
-
-// ------------------------------------------------------------------
-// Selected work — themed pin cards (github-readme-stats)
-// ------------------------------------------------------------------
-function renderPinCard(repo) {
-  const q        = `username=${USER}&repo=${encodeURIComponent(repo)}&${PIN_SHARED}`;
-  const darkUrl  = `${PIN_BASE}?${q}&${PIN_THEME_DARK}`;
-  const lightUrl = `${PIN_BASE}?${q}&${PIN_THEME_LIGHT}`;
-  const repoUrl  = `https://github.com/${USER}/${repo}`;
-
-  return [
-    `<a href="${escAttr(repoUrl)}">`,
-    `<picture>`,
-    `<source media="(prefers-color-scheme: dark)" srcset="${escAttr(darkUrl)}" />`,
-    `<source media="(prefers-color-scheme: light)" srcset="${escAttr(lightUrl)}" />`,
-    `<img src="${escAttr(darkUrl)}" alt="${escAttr(repo)}" />`,
-    `</picture>`,
-    `</a>`,
-  ].join("");
-}
-
-function renderSelectedWork() {
-  const cards = PINNED_ORDER.map(renderPinCard);
-
-  // 2-per-row grid
-  const rows = [];
-  for (let i = 0; i < cards.length; i += 2) rows.push(cards.slice(i, i + 2));
-
-  const html = rows.map((r) => {
-    const cells = r.map((c) => `    <td width="50%" align="center">${c}</td>`);
-    while (cells.length < 2) cells.push(`    <td width="50%"></td>`);
-    return `  <tr>\n${cells.join("\n")}\n  </tr>`;
-  }).join("\n");
-
-  return `<table>\n${html}\n</table>`;
 }
 
 // ------------------------------------------------------------------
@@ -149,15 +107,19 @@ async function getFavoriteAnimeTable() {
   const cells = ANIME_LIST.map((a, i) => {
     const r = results[i];
     if (!r) {
-      return `<td align="center" width="20%"><sub><b>${escAttr(a.name)}</b></sub></td>`;
+      return `<td align="center" width="20%"><sub><b>${escHtml(a.name)}</b></sub></td>`;
     }
-    return `<td align="center" width="20%"><a href="${escAttr(r.url)}"><img src="${escAttr(r.cover)}" width="140" alt="${escAttr(a.name)}"/></a><br/><sub><b>${escAttr(a.name)}</b></sub></td>`;
+    const inner =
+      `<a href="${escHtml(r.url)}">` +
+      `<img src="${escHtml(r.cover)}" width="140" alt="${escHtml(a.name)}"/>` +
+      `</a><br/><sub><b>${escHtml(a.name)}</b></sub>`;
+    return `<td align="center" width="20%">${inner}</td>`;
   });
   return `<table>\n  <tr>\n    ${cells.join("\n    ")}\n  </tr>\n</table>`;
 }
 
 // ------------------------------------------------------------------
-// Recent activity — non-pinned, most recent pushes
+// Recent activity — HTML list (renders reliably inside <td>)
 // ------------------------------------------------------------------
 async function getActivity() {
   const { data } = await octo.repos.listForUser({
@@ -170,23 +132,28 @@ async function getActivity() {
     .filter((r) => !r.fork && !PINNED.has(r.name))
     .slice(0, 5);
 
-  if (recent.length === 0) return "_No recent activity outside pinned projects._";
+  if (recent.length === 0) return `<i>No recent activity outside pinned projects.</i>`;
 
-  return recent
-    .map((r) => {
-      const desc = r.description?.trim() || "_no description_";
-      const lang = r.language ? ` \`${r.language}\`` : "";
-      return `- [${r.name}](${r.html_url})${lang} — ${desc}  \n  <sub>Pushed ${fmtDate(r.pushed_at)}</sub>`;
-    })
-    .join("\n");
+  const items = recent.map((r) => {
+    const desc = r.description?.trim() || "<i>no description</i>";
+    const lang = r.language ? ` <code>${escHtml(r.language)}</code>` : "";
+    return (
+      `<li>` +
+        `<a href="${escHtml(r.html_url)}"><b>${escHtml(r.name)}</b></a>${lang}` +
+        `<br/><sub>${escHtml(desc)} · Pushed ${escHtml(fmtDate(r.pushed_at))}</sub>` +
+      `</li>`
+    );
+  });
+
+  return `<ul>\n  ${items.join("\n  ")}\n</ul>`;
 }
 
 // ------------------------------------------------------------------
-// WakaTime
+// WakaTime — HTML (renders reliably inside <td>)
 // ------------------------------------------------------------------
 async function getWaka() {
   if (!process.env.WAKATIME_API_KEY) {
-    return "_Connect a WakaTime account to populate this section._";
+    return `<i>Connect a WakaTime account to populate this section.</i>`;
   }
   // HTTP Basic auth spec = base64(user:pass). WakaTime expects base64(key:).
   const auth = Buffer.from(`${process.env.WAKATIME_API_KEY}:`).toString("base64");
@@ -198,17 +165,18 @@ async function getWaka() {
     let body = "";
     try { body = await res.text(); } catch {}
     console.warn(`WakaTime ${res.status}: ${body}`);
-    return "_WakaTime fetch failed._";
+    return `<i>WakaTime fetch failed.</i>`;
   }
   const { data } = await res.json();
 
   const total = data.human_readable_total || "0 hrs";
   const langs = (data.languages || [])
     .slice(0, 6)
-    .map((l) => `\`${l.name} ${l.percent.toFixed(1)}%\``)
+    .map((l) => `<code>${escHtml(l.name)} ${l.percent.toFixed(1)}%</code>`)
     .join(" · ");
 
-  return `**Total coded:** ${total}\n\n${langs || "_No language data yet._"}`;
+  const langLine = langs || `<i>No language data yet.</i>`;
+  return `<b>Total coded:</b> ${escHtml(total)}<br/><br/>${langLine}`;
 }
 
 // ------------------------------------------------------------------
@@ -221,29 +189,25 @@ const [activity, waka, animeTable] = await Promise.all([
   getWaka(),
   getFavoriteAnimeTable(),
 ]);
-const projects = renderSelectedWork(); // sync
 
 const ts =
   new Date().toISOString().replace("T", " ").slice(0, 16) + " UTC";
 
 let out = tpl;
-out = replaceBlock(out, "PROJECTS", projects);
 out = replaceBlock(out, "ACTIVITY", activity);
 out = replaceBlock(out, "WAKA", waka);
 out = replaceBlock(out, "ANIME", animeTable);
 out = replaceBlock(out, "TIMESTAMP", ts);
 
-// --- Content-hashed cache-bust for locally-generated SVGs only ---
-// NOTE: github-readme-stats pin URLs are external and MUST NOT be hashed;
-// the regex below only matches local `assets/*.svg` paths, so pin cards
-// pass through untouched.
+// --- Content-hashed cache-bust for locally-generated SVGs ---
 const HASHED_SVGS = [
   "assets/banner-dark.svg",
   "assets/banner-light.svg",
-  "assets/metrics-year.svg",
   "assets/metrics-coder.svg",
-  "assets/metrics-data.svg",
   "assets/metrics-person.svg",
+  "assets/metrics-iso.svg",
+  "assets/metrics-followup.svg",
+  "assets/metrics-achievements.svg",
 ];
 
 const hashes = await Promise.all(HASHED_SVGS.map(hashFile));

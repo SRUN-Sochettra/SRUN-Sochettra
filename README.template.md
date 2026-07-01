@@ -8,54 +8,65 @@
 
 </div>
 
+<details>
+<summary><b>as a coder</b></summary>
 <br />
 
-## Selected work
+<img src="./assets/metrics-coder.svg" alt="coder" width="100%" />
 
-<!--START:PROJECTS-->
-<!--END:PROJECTS-->
-
-<br />
-
-## The year
-
-<div align="center">
-  <img src="./assets/metrics-year.svg" alt="Contribution isocalendar, full year" width="100%" />
-</div>
-
-<br />
-
-## As a coder
-
-<img src="./assets/metrics-coder.svg" alt="Coder metrics" width="100%" />
+<table>
+<tr>
+<td width="55%" valign="top">
 
 **Recent activity**
 
 <!--START:ACTIVITY-->
 <!--END:ACTIVITY-->
 
+</td>
+<td width="45%" valign="top">
+
 **Last 7 days**
 
 <!--START:WAKA-->
 <!--END:WAKA-->
 
+</td>
+</tr>
+</table>
+
+</details>
+
+<details>
+<summary><b>as a person</b></summary>
 <br />
 
-## By the numbers
-
-<img src="./assets/metrics-data.svg" alt="Numbers, habits, achievements" width="100%" />
-
-<br />
-
-## As a person
-
-<img src="./assets/metrics-person.svg" alt="Person metrics" width="100%" />
+<img src="./assets/metrics-person.svg" alt="person" width="100%" />
 
 **Top anime, in order**
 
 <!--START:ANIME-->
 <!--END:ANIME-->
 
+</details>
+
+<details>
+<summary><b>by the numbers</b></summary>
 <br />
 
-<div align="right"><sub><!--START:TIMESTAMP--><!--END:TIMESTAMP--></sub></div>
+<table>
+<tr>
+<td width="50%" align="center" valign="top">
+<img src="./assets/metrics-iso.svg" alt="Contribution isocalendar" width="100%" />
+</td>
+<td width="50%" align="center" valign="top">
+<img src="./assets/metrics-followup.svg" alt="Follow-ups and calendar" width="100%" />
+</td>
+</tr>
+</table>
+
+<img src="./assets/metrics-achievements.svg" alt="Achievements" width="100%" />
+
+</details>
+
+<sub align="right"><!--START:TIMESTAMP--><!--END:TIMESTAMP--></sub>
