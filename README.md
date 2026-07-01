@@ -3,9 +3,9 @@
 <!--START:BANNER-->
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=0b887584" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=6180e951" />
-  <img src="./assets/banner-dark.svg?v=0b887584" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=74709f18" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=0134ebd5" />
+  <img src="./assets/banner-dark.svg?v=74709f18" alt="Srun Sochettra" width="100%" />
 </picture>
 
 <!--END:BANNER-->
@@ -27,7 +27,7 @@
 </td>
 <td width="50%" align="center" valign="top">
 
-./assets/metrics-activity.svg?v=8d1e5fda
+./assets/metrics-activity.svg?v=73fce9c8
 
 </td>
 </tr>
@@ -86,7 +86,7 @@
 <tr>
 <td width="50%" align="center" valign="top">
 
-./assets/metrics-anilist.svg?v=dc7d6585
+./assets/metrics-anilist.svg?v=a0c215b2
 
 </td>
 <td width="50%" align="center" valign="top">
@@ -165,6 +165,6 @@ https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21382-bBJghvjTP
 
 <sub><!--START:TIMESTAMP-->
 
-2026-07-01 14:12 UTC
+2026-07-01 15:46 UTC
 
 <!--END:TIMESTAMP--></sub>
