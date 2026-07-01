@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=3685b142" />
-<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=0600a1ef" />
-<img src="./assets/banner-dark.svg?v=3685b142" alt="Banner" width="100%" />
+<source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=a100b565" />
+<source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=28adba53" />
+<img src="./assets/banner-dark.svg?v=a100b565" alt="Banner" width="100%" />
 </picture>
 
 </div>
@@ -16,9 +16,9 @@
 ### Last 7 days
 
 <!--START:WAKA-->
-**Total coded:** 7 hrs 23 mins
+**Total coded:** 6 hrs 45 mins
 
-`Other 68.0%` · `Python 10.4%` · `JavaScript 6.4%` · `Markdown 5.0%` · `Dart 4.0%` · `YAML 2.6%`
+`Other 68.0%` · `Python 11.5%` · `JavaScript 7.2%` · `Markdown 5.6%` · `JSON 2.7%` · `Dart 2.0%`
 <!--END:WAKA-->
 
 ### Recent activity
@@ -41,7 +41,7 @@
 <details>
 <summary><b>🎌 as a person</b></summary>
 <br />
-<img src="./assets/metrics-person.svg?v=542d8576" alt="person" width="100%" />
+<img src="./assets/metrics-person.svg?v=b94a6f5e" alt="person" width="100%" />
 
 ### My top anime in order
 
@@ -66,5 +66,5 @@
 </details>
 
 <sub align="right"><!--START:TIMESTAMP-->
-2026-06-30 19:44 UTC
+2026-07-01 02:42 UTC
 <!--END:TIMESTAMP--></sub>
