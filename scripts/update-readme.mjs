@@ -26,14 +26,17 @@ const ANIME_LIST = [
 
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
 
+// Angle-bracket constants — used only for HTML tags that get eaten by
+// the chat renderer if written literally (picture, source).
+const LT = String.fromCharCode(60);
+const GT = String.fromCharCode(62);
+
 // ------------------------------------------------------------------
 // Helpers
 // ------------------------------------------------------------------
-function escHtml(s) {
+function escAttr(s) {
   return String(s)
     .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
 
@@ -41,7 +44,6 @@ function replaceBlock(md, key, content) {
   const re = new RegExp(
     `(<!--\\s*START:${key}\\s*-->)[\\s\\S]*?(<!--\\s*END:${key}\\s*-->)`
   );
-  // Blank lines around content so markdown-inside-<td> still renders
   return md.replace(re, (_m, start, end) => `${start}\n\n${content}\n\n${end}`);
 }
 
@@ -77,8 +79,94 @@ async function hashFile(filepath) {
   }
 }
 
+// Escape parens in a URL so it works inside markdown url
+function mdUrl(u) {
+  return String(u).replace(/\(/g, "%28").replace(/\)/g, "%29");
+}
+
 // ------------------------------------------------------------------
-// Anime covers (AniList)
+// Banner (light/dark picture element)
+// ------------------------------------------------------------------
+function renderBanner() {
+  const dark  = "./assets/banner-dark.svg";
+  const light = "./assets/banner-light.svg";
+  return [
+    `${LT}picture${GT}`,
+    `  ${LT}source media="(prefers-color-scheme: dark)" srcset="${dark}" /${GT}`,
+    `  ${LT}source media="(prefers-color-scheme: light)" srcset="${light}" /${GT}`,
+    `  ${LT}img src="${dark}" alt="Srun Sochettra" width="100%" /${GT}`,
+    `${LT}/picture${GT}`,
+  ].join("\n");
+}
+
+// ------------------------------------------------------------------
+// Dropdown sections (2-col metrics + optional Row B)
+// ------------------------------------------------------------------
+function renderMetricsRow(leftPath, leftAlt, rightPath, rightAlt) {
+  return [
+    `<table>`,
+    `<tr>`,
+    `<td width="50%" align="center" valign="top">`,
+    ``,
+    `${mdUrl(leftPath)}`,
+    ``,
+    `</td>`,
+    `<td width="50%" align="center" valign="top">`,
+    ``,
+    `${mdUrl(rightPath)}`,
+    ``,
+    `</td>`,
+    `</tr>`,
+    `</table>`,
+  ].join("\n");
+}
+
+function renderCoder(activityMd, wakaMd) {
+  const rowA = renderMetricsRow(
+    "./assets/metrics-languages.svg", "Languages",
+    "./assets/metrics-activity.svg",  "Activity"
+  );
+  const rowB = [
+    `<table>`,
+    `<tr>`,
+    `<td width="55%" valign="top">`,
+    ``,
+    `**Recent activity**`,
+    ``,
+    activityMd,
+    ``,
+    `</td>`,
+    `<td width="45%" valign="top">`,
+    ``,
+    `**Last 7 days on WakaTime**`,
+    ``,
+    wakaMd,
+    ``,
+    `</td>`,
+    `</tr>`,
+    `</table>`,
+  ].join("\n");
+  return `${rowA}\n\n${rowB}`;
+}
+
+function renderPerson(animeMd) {
+  const rowA = renderMetricsRow(
+    "./assets/metrics-anilist.svg", "AniList",
+    "./assets/metrics-social.svg",  "Stars and people"
+  );
+  const rowB = `**Top anime, in order**\n\n${animeMd}`;
+  return `${rowA}\n\n${rowB}`;
+}
+
+function renderNumbers() {
+  return renderMetricsRow(
+    "./assets/metrics-iso.svg",      "Contribution isocalendar",
+    "./assets/metrics-followup.svg", "Follow-ups and calendar"
+  );
+}
+
+// ------------------------------------------------------------------
+// Anime covers — clickable images via nested markdown
 // ------------------------------------------------------------------
 async function getAnimeCover(searchTerm) {
   try {
@@ -111,23 +199,32 @@ async function getAnimeCover(searchTerm) {
   }
 }
 
-async function getFavoriteAnimeTable() {
+async function getAnimeSection() {
   const results = await Promise.all(ANIME_LIST.map((a) => getAnimeCover(a.search)));
+
   const cells = ANIME_LIST.map((a, i) => {
     const r = results[i];
+    const label = `<sub><b>${a.name}</b></sub>`;
     if (!r) {
-      return `<td align="center" width="20%"><sub><b>${escHtml(a.name)}</b></sub></td>`;
+      return `<td align="center" width="20%">${label}</td>`;
     }
-    const inner =
-      `${escHtml(r.url)}">${escHtml(r.cover)}t="${escHtml(a.name)}"/></a>` +
-      `<br/><sub><b>${escHtml(a.name)}</b></sub>`;
-    return `<td align="center" width="20%">${inner}</td>`;
+    // Nested markdown: clickable image without typing <img> or <a>
+    const clickableImg = `${mdUrl(r.cover)}](${mdUrl(r.url)})`;
+    return [
+      `<td align="center" width="20%">`,
+      ``,
+      clickableImg,
+      ``,
+      label,
+      `</td>`,
+    ].join("\n");
   });
-  return `<table>\n  <tr>\n    ${cells.join("\n    ")}\n  </tr>\n</table>`;
+
+  return `<table>\n<tr>\n${cells.join("\n")}\n</tr>\n</table>`;
 }
 
 // ------------------------------------------------------------------
-// Recent activity — HTML list
+// Recent activity — pure markdown list
 // ------------------------------------------------------------------
 async function getActivity() {
   const { data } = await octo.repos.listForUser({
@@ -140,28 +237,21 @@ async function getActivity() {
     .filter((r) => !r.fork && !PINNED.has(r.name))
     .slice(0, 5);
 
-  if (recent.length === 0) return `<i>No recent activity outside pinned projects.</i>`;
+  if (recent.length === 0) return `_No recent activity outside pinned projects._`;
 
-  const items = recent.map((r) => {
-    const desc = r.description?.trim() || "<i>no description</i>";
-    const lang = r.language ? ` <code>${escHtml(r.language)}</code>` : "";
-    return (
-      `<li>` +
-        `${escHtml(r.html_url)}"><b>${escHtml(r.name)}</b></a>${lang}` +
-        `<br/><sub>${escHtml(desc)} · Pushed ${escHtml(fmtDate(r.pushed_at))}</sub>` +
-      `</li>`
-    );
-  });
-
-  return `<ul>\n  ${items.join("\n  ")}\n</ul>`;
+  return recent.map((r) => {
+    const desc = r.description?.trim() || "_no description_";
+    const lang = r.language ? ` \`${r.language}\`` : "";
+    return `- **${mdUrl(r.html_url)}**${lang}  \n  <sub>${desc} · Pushed ${fmtDate(r.pushed_at)}</sub>`;
+  }).join("\n");
 }
 
 // ------------------------------------------------------------------
-// WakaTime — dense card (fills right column, matches activity density)
+// WakaTime — dense markdown card
 // ------------------------------------------------------------------
 async function getWaka() {
   if (!process.env.WAKATIME_API_KEY) {
-    return `<i>Connect a WakaTime account to populate this section.</i>`;
+    return `_Connect a WakaTime account to populate this section._`;
   }
   const auth = Buffer.from(`${process.env.WAKATIME_API_KEY}:`).toString("base64");
   const res = await fetch(
@@ -172,39 +262,39 @@ async function getWaka() {
     let body = "";
     try { body = await res.text(); } catch {}
     console.warn(`WakaTime ${res.status}: ${body}`);
-    return `<i>WakaTime fetch failed.</i>`;
+    return `_WakaTime fetch failed._`;
   }
   const { data } = await res.json();
 
-  const total   = data.human_readable_total || "0 hrs";
-  const daily   = data.human_readable_daily_average || fmtHM(data.daily_average || 0);
-  const best    = data.best_day
+  const total = data.human_readable_total || "0 hrs";
+  const daily = data.human_readable_daily_average || fmtHM(data.daily_average || 0);
+  const best  = data.best_day
     ? `${fmtShortDate(data.best_day.date)} · ${fmtHM(data.best_day.total_seconds)}`
     : null;
 
   const langs = (data.languages || [])
     .slice(0, 6)
-    .map((l) => `<code>${escHtml(l.name)}</code> <sub>${l.percent.toFixed(1)}%</sub>`)
+    .map((l) => `\`${l.name}\` <sub>${l.percent.toFixed(1)}%</sub>`)
     .join(" · ");
 
   const editors = (data.editors || [])
     .slice(0, 4)
-    .map((e) => `<code>${escHtml(e.name)}</code> <sub>${e.percent.toFixed(0)}%</sub>`)
+    .map((e) => `\`${e.name}\` <sub>${e.percent.toFixed(0)}%</sub>`)
     .join(" · ");
 
   const projects = (data.projects || [])
     .slice(0, 4)
-    .map((p) => `<code>${escHtml(p.name)}</code> <sub>${fmtHM(p.total_seconds)}</sub>`)
+    .map((p) => `\`${p.name}\` <sub>${fmtHM(p.total_seconds)}</sub>`)
     .join(" · ");
 
-  const parts = [];
-  parts.push(`<b>Total coded:</b> ${escHtml(total)}`);
-  parts.push(`<sub>Daily average · ${escHtml(daily)}${best ? ` &nbsp; Best day · ${escHtml(best)}` : ""}</sub>`);
-  if (langs)    parts.push(`<b>Languages</b><br/>${langs}`);
-  if (editors)  parts.push(`<b>Editors</b><br/>${editors}`);
-  if (projects) parts.push(`<b>Projects</b><br/>${projects}`);
+  const lines = [];
+  lines.push(`**Total coded:** ${total}`);
+  lines.push(`<sub>Daily avg · ${daily}${best ? ` &nbsp;·&nbsp; Best day · ${best}` : ""}</sub>`);
+  if (langs)    lines.push(`**Languages**  \n${langs}`);
+  if (editors)  lines.push(`**Editors**  \n${editors}`);
+  if (projects) lines.push(`**Projects**  \n${projects}`);
 
-  return parts.join(`<br/><br/>`);
+  return lines.join("\n\n");
 }
 
 // ------------------------------------------------------------------
@@ -212,19 +302,20 @@ async function getWaka() {
 // ------------------------------------------------------------------
 const tpl = await fs.readFile(TEMPLATE, "utf8");
 
-const [activity, waka, animeTable] = await Promise.all([
+const [activity, waka, animeMd] = await Promise.all([
   getActivity(),
   getWaka(),
-  getFavoriteAnimeTable(),
+  getAnimeSection(),
 ]);
 
 const ts =
   new Date().toISOString().replace("T", " ").slice(0, 16) + " UTC";
 
 let out = tpl;
-out = replaceBlock(out, "ACTIVITY", activity);
-out = replaceBlock(out, "WAKA", waka);
-out = replaceBlock(out, "ANIME", animeTable);
+out = replaceBlock(out, "BANNER",    renderBanner());
+out = replaceBlock(out, "CODER",     renderCoder(activity, waka));
+out = replaceBlock(out, "PERSON",    renderPerson(animeMd));
+out = replaceBlock(out, "NUMBERS",   renderNumbers());
 out = replaceBlock(out, "TIMESTAMP", ts);
 
 // --- Content-hashed cache-bust for locally-generated SVGs ---
