@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=8df1d4e0" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=26b23ef0" />
-  <img src="./assets/banner-dark.svg?v=8df1d4e0" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=454b44ca" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=e59bd5fd" />
+  <img src="./assets/banner-dark.svg?v=454b44ca" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -36,7 +36,7 @@
 </td>
 <td width="45%" valign="top">
 <b>Last 7 days on WakaTime</b><br/><br/>
-<b>Total coded:</b> 6 hrs 45 mins<br/><br/><sub>Daily avg · 57 mins &nbsp;·&nbsp; Best day · 28 Jun · 7 hr 15 min</sub><br/><br/><b>Languages</b><br/><code>Other</code> <sub>68.0%</sub> · <code>Python</code> <sub>11.5%</sub> · <code>JavaScript</code> <sub>7.2%</sub> · <code>Markdown</code> <sub>5.6%</sub> · <code>JSON</code> <sub>2.7%</sub> · <code>Dart</code> <sub>2.0%</sub><br/><br/><b>Editors</b><br/><code>Chrome</code> <sub>59%</sub> · <code>Firefox</code> <sub>23%</sub> · <code>VS Code</code> <sub>17%</sub> · <code>Antigravity IDE</code> <sub>1%</sub><br/><br/><b>Projects</b><br/><code>SRUN-Sochettra</code> <sub>7 hr 40 min</sub> · <code>hand-gesture-puzzle-game</code> <sub>6 hr 29 min</sub> · <code>repomix</code> <sub>4 hr 9 min</sub> · <code>Codes</code> <sub>59 min</sub>
+<b>Total coded:</b> 7 hrs 5 mins<br/><br/><sub>Daily avg · 1 hr &nbsp;·&nbsp; Best day · 28 Jun · 7 hr 15 min</sub><br/><br/><b>Languages</b><br/><code>Other</code> <sub>64.6%</sub> · <code>Python</code> <sub>12.1%</sub> · <code>Markdown</code> <sub>7.8%</sub> · <code>JavaScript</code> <sub>7.8%</sub> · <code>JSON</code> <sub>2.8%</sub> · <code>YAML</code> <sub>2.1%</sub><br/><br/><b>Editors</b><br/><code>Chrome</code> <sub>55%</sub> · <code>Firefox</code> <sub>26%</sub> · <code>VS Code</code> <sub>18%</sub> · <code>Antigravity IDE</code> <sub>1%</sub><br/><br/><b>Projects</b><br/><code>SRUN-Sochettra</code> <sub>9 hr 31 min</sub> · <code>hand-gesture-puzzle-game</code> <sub>6 hr 29 min</sub> · <code>metrics</code> <sub>1 hr 24 min</sub> · <code>repomix</code> <sub>50 min</sub>
 </td>
 </tr>
 </table>
@@ -51,7 +51,7 @@
 <!--START:PERSON-->
 <table>
 <tr>
-<td width="50%" align="center" valign="top"><img src="./assets/metrics-anilist.svg?v=958445cc" alt="AniList" width="100%" /></td>
+<td width="50%" align="center" valign="top"><img src="./assets/metrics-anilist.svg?v=de6ca267" alt="AniList" width="100%" /></td>
 <td width="50%" align="center" valign="top"><img src="./assets/metrics-social.svg?v=a4b0dc15" alt="Stars and people" width="100%" /></td>
 </tr>
 </table>
@@ -87,5 +87,5 @@
 </details>
 
 <sub><!--START:TIMESTAMP-->
-2026-07-01 19:41 UTC
+2026-07-02 02:32 UTC
 <!--END:TIMESTAMP--></sub>
