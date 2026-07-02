@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=454b44ca" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=e59bd5fd" />
-  <img src="./assets/banner-dark.svg?v=454b44ca" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=92835e7d" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=d0c02c46" />
+  <img src="./assets/banner-dark.svg?v=92835e7d" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td width="50%" align="center" valign="top"><img src="./assets/metrics-languages.svg?v=59505148" alt="Languages" width="100%" /></td>
-<td width="50%" align="center" valign="top"><img src="./assets/metrics-activity.svg?v=9f3bd21f" alt="Activity" width="100%" /></td>
+<td width="50%" align="center" valign="top"><img src="./assets/metrics-activity.svg?v=4a196d36" alt="Activity" width="100%" /></td>
 </tr>
 </table>
 
@@ -28,9 +28,9 @@
 <b>Recent activity</b><br/><br/>
 <ul>
 <li><a href="https://github.com/SRUN-Sochettra/SRUN-Sochettra"><b>SRUN-Sochettra</b></a> <code>JavaScript</code><br/><sub>Personal README for GitHub Profile · Pushed today</sub></li>
-<li><a href="https://github.com/SRUN-Sochettra/Hand-Gesture-Puzzle-Game"><b>Hand-Gesture-Puzzle-Game</b></a> <code>Python</code><br/><sub>A webcam-based puzzle game controlled with real-time hand gestures. Use your hand to grab shapes, drag them across the screen, and drop them into matching moving targets. · Pushed 2 days ago</sub></li>
-<li><a href="https://github.com/SRUN-Sochettra/AnimeRoyale"><b>AnimeRoyale</b></a> <code>JavaScript</code><br/><sub>Your anime, manga, and light novel tracking statistics from AniList or MyAnimeList through the eyes of the "Egg Court". · Pushed 7 days ago</sub></li>
-<li><a href="https://github.com/SRUN-Sochettra/Edge-AI-YOLOv8"><b>Edge-AI-YOLOv8</b></a> <code>HTML</code><br/><sub><i>no description</i> · Pushed 14 days ago</sub></li>
+<li><a href="https://github.com/SRUN-Sochettra/Hand-Gesture-Puzzle-Game"><b>Hand-Gesture-Puzzle-Game</b></a> <code>Python</code><br/><sub>A webcam-based puzzle game controlled with real-time hand gestures. Use your hand to grab shapes, drag them across the screen, and drop them into matching moving targets. · Pushed 3 days ago</sub></li>
+<li><a href="https://github.com/SRUN-Sochettra/AnimeRoyale"><b>AnimeRoyale</b></a> <code>JavaScript</code><br/><sub>Your anime, manga, and light novel tracking statistics from AniList or MyAnimeList through the eyes of the "Egg Court". · Pushed 8 days ago</sub></li>
+<li><a href="https://github.com/SRUN-Sochettra/Edge-AI-YOLOv8"><b>Edge-AI-YOLOv8</b></a> <code>HTML</code><br/><sub><i>no description</i> · Pushed 15 days ago</sub></li>
 <li><a href="https://github.com/SRUN-Sochettra/Flutter---Semester-2"><b>Flutter---Semester-2</b></a> <code>HTML</code><br/><sub><i>no description</i> · Pushed 15 days ago</sub></li>
 </ul>
 </td>
@@ -51,8 +51,8 @@
 <!--START:PERSON-->
 <table>
 <tr>
-<td width="50%" align="center" valign="top"><img src="./assets/metrics-anilist.svg?v=de6ca267" alt="AniList" width="100%" /></td>
-<td width="50%" align="center" valign="top"><img src="./assets/metrics-social.svg?v=a4b0dc15" alt="Stars and people" width="100%" /></td>
+<td width="50%" align="center" valign="top"><img src="./assets/metrics-anilist.svg?v=bce51f78" alt="AniList" width="100%" /></td>
+<td width="50%" align="center" valign="top"><img src="./assets/metrics-social.svg?v=20365149" alt="Stars and people" width="100%" /></td>
 </tr>
 </table>
 
@@ -78,8 +78,8 @@
 <!--START:NUMBERS-->
 <table>
 <tr>
-<td width="50%" align="center" valign="top"><img src="./assets/metrics-iso.svg?v=bf20ee19" alt="Contribution isocalendar" width="100%" /></td>
-<td width="50%" align="center" valign="top"><img src="./assets/metrics-followup.svg?v=f235e14f" alt="Follow-ups and calendar" width="100%" /></td>
+<td width="50%" align="center" valign="top"><img src="./assets/metrics-iso.svg?v=def7c64c" alt="Contribution isocalendar" width="100%" /></td>
+<td width="50%" align="center" valign="top"><img src="./assets/metrics-followup.svg?v=febf7044" alt="Follow-ups and calendar" width="100%" /></td>
 </tr>
 </table>
 <!--END:NUMBERS-->
@@ -87,5 +87,5 @@
 </details>
 
 <sub><!--START:TIMESTAMP-->
-2026-07-02 02:32 UTC
+2026-07-02 08:43 UTC
 <!--END:TIMESTAMP--></sub>
