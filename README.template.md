@@ -5,8 +5,11 @@
 
 </div>
 
+<!--START:PINS-->
+<!--END:PINS-->
+
 <details>
-<summary><b>as a coder</b></summary>
+<summary><code>01</code> &nbsp; <b>as a coder</b> &nbsp; <sub>languages · activity · wakatime</sub></summary>
 <br />
 
 <!--START:CODER-->
@@ -15,7 +18,7 @@
 </details>
 
 <details>
-<summary><b>as a person</b></summary>
+<summary><code>02</code> &nbsp; <b>as a person</b> &nbsp; <sub>anilist · stars · people · top anime</sub></summary>
 <br />
 
 <!--START:PERSON-->
@@ -24,7 +27,7 @@
 </details>
 
 <details>
-<summary><b>by the numbers</b></summary>
+<summary><code>03</code> &nbsp; <b>by the numbers</b> &nbsp; <sub>calendar · issues · stats</sub></summary>
 <br />
 
 <!--START:NUMBERS-->
@@ -32,4 +35,7 @@
 
 </details>
 
-<sub><!--START:TIMESTAMP--><!--END:TIMESTAMP--></sub>
+<div align="right">
+<!--START:TIMESTAMP-->
+<!--END:TIMESTAMP-->
+</div>
