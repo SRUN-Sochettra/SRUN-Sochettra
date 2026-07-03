@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=5cf1ae60" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=a3843299" />
-  <img src="./assets/banner-dark.svg?v=5cf1ae60" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=5a2910cb" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=0028465a" />
+  <img src="./assets/banner-dark.svg?v=5a2910cb" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -35,14 +35,14 @@
 </td>
 <td width="45%" valign="top">
 <sub><code>LAST 7 DAYS · WAKATIME</code></sub><br/><br/>
-<h3>7 hrs 5 mins</h3><sub>total this week</sub><br/><br/><sub>Daily avg  ·  1 hr  &nbsp;·&nbsp;  Best day  ·  28 Jun  ·  7h 15m</sub><br/><br/><sub><code>LANGUAGES</code></sub><br/><table><tr><td><sub>Other</sub></td><td align="right"><sub>64.6%</sub></td></tr><tr><td><sub>Python</sub></td><td align="right"><sub>12.1%</sub></td></tr><tr><td><sub>Markdown</sub></td><td align="right"><sub>7.8%</sub></td></tr><tr><td><sub>JavaScript</sub></td><td align="right"><sub>7.8%</sub></td></tr><tr><td><sub>JSON</sub></td><td align="right"><sub>2.8%</sub></td></tr><tr><td><sub>YAML</sub></td><td align="right"><sub>2.1%</sub></td></tr></table><br/><br/><sub><code>EDITORS</code></sub><br/><table><tr><td><sub>Chrome</sub></td><td align="right"><sub>55%</sub></td></tr><tr><td><sub>Firefox</sub></td><td align="right"><sub>26%</sub></td></tr><tr><td><sub>VS Code</sub></td><td align="right"><sub>18%</sub></td></tr><tr><td><sub>Antigravity IDE</sub></td><td align="right"><sub>1%</sub></td></tr></table><br/><br/><sub><code>PROJECTS</code></sub><br/><table><tr><td><sub>SRUN-Sochettra</sub></td><td align="right"><sub>9h 31m</sub></td></tr><tr><td><sub>hand-gesture-puzzle-game</sub></td><td align="right"><sub>6h 29m</sub></td></tr><tr><td><sub>metrics</sub></td><td align="right"><sub>1h 24m</sub></td></tr><tr><td><sub>repomix</sub></td><td align="right"><sub>50m</sub></td></tr></table>
+<h3>5 hrs 58 mins</h3><sub>total this week</sub><br/><br/><sub>Daily avg  ·  51 mins  &nbsp;·&nbsp;  Best day  ·  28 Jun  ·  7h 15m</sub><br/><br/><sub><code>LANGUAGES</code></sub><br/><table><tr><td><sub>Other</sub></td><td align="right"><sub>68.2%</sub></td></tr><tr><td><sub>Python</sub></td><td align="right"><sub>8.7%</sub></td></tr><tr><td><sub>JavaScript</sub></td><td align="right"><sub>8.3%</sub></td></tr><tr><td><sub>Markdown</sub></td><td align="right"><sub>8.1%</sub></td></tr><tr><td><sub>JSON</sub></td><td align="right"><sub>3.0%</sub></td></tr><tr><td><sub>YAML</sub></td><td align="right"><sub>2.3%</sub></td></tr></table><br/><br/><sub><code>EDITORS</code></sub><br/><table><tr><td><sub>Chrome</sub></td><td align="right"><sub>57%</sub></td></tr><tr><td><sub>Firefox</sub></td><td align="right"><sub>27%</sub></td></tr><tr><td><sub>VS Code</sub></td><td align="right"><sub>15%</sub></td></tr><tr><td><sub>Antigravity IDE</sub></td><td align="right"><sub>1%</sub></td></tr></table><br/><br/><sub><code>PROJECTS</code></sub><br/><table><tr><td><sub>SRUN-Sochettra</sub></td><td align="right"><sub>10h 47m</sub></td></tr><tr><td><sub>hand-gesture-puzzle-game</sub></td><td align="right"><sub>5h 21m</sub></td></tr><tr><td><sub>metrics</sub></td><td align="right"><sub>1h 24m</sub></td></tr><tr><td><sub>Meet - osy-ehmf-vuz</sub></td><td align="right"><sub>32m</sub></td></tr></table>
 </td>
 </tr>
 </table>
 
 <div align="center"><img src="./assets/metrics-languages.svg?v=96a08bdd" alt="Languages" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-activity.svg?v=a2889912" alt="Activity" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-activity.svg?v=485966e5" alt="Activity" width="100%" /></div>
 <!--END:CODER-->
 
 </details>
@@ -52,7 +52,7 @@
 <br />
 
 <!--START:PERSON-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=55a56343" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=6ef21dca" alt="AniList" width="100%" /></div>
 
 <div align="center"><img src="./assets/metrics-social.svg?v=20365149" alt="Stars and people" width="100%" /></div>
 
@@ -94,6 +94,6 @@
 
 <div align="right">
 <!--START:TIMESTAMP-->
-<sub><code>REFRESHED · 2026-07-02 19:11 UTC</code></sub>
+<sub><code>REFRESHED · 2026-07-03 02:07 UTC</code></sub>
 <!--END:TIMESTAMP-->
 </div>
