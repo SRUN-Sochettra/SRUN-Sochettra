@@ -7,15 +7,6 @@ const USER = "SRUN-Sochettra";
 const TEMPLATE = "README.template.md";
 const OUTPUT = "README.md";
 
-const PINNED_ORDER = [
-  "EggScan",
-  "Research-AI",
-  "HyperspaceOS",
-  "Khmer-Banking",
-  "Spring-Boot---API-Blog",
-  "RPI---RFID-Access-Control-System",
-];
-
 const ANILIST_USER = "scarletsages";
 
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
@@ -24,22 +15,9 @@ const octo = new Octokit({ auth: process.env.GH_TOKEN });
 // External card URLs — proven, ready-made services
 // ------------------------------------------------------------------
 
-// github-readme-stats: pin cards, top langs
-// Using tokyonight theme (widely used, matches your banner palette)
+// github-readme-stats: top langs
 const GRS_THEME_DARK = "tokyonight";
 const GRS_THEME_LIGHT = "default";
-
-function pinCardUrl(repo, theme) {
-  const q = [
-    `username=${USER}`,
-    `repo=${encodeURIComponent(repo)}`,
-    `theme=${theme}`,
-    `hide_border=true`,
-    `show_owner=false`,
-    `border_radius=8`,
-  ].join("&");
-  return `https://github-readme-stats.vercel.app/api/pin/?${q}`;
-}
 
 function topLangsUrl(theme) {
   const q = [
@@ -186,7 +164,6 @@ async function getCommitsLastYear() {
     return 0;
   }
 }
-
 let _anilistCurrentCache = null;
 async function getAnilistCurrent() {
   if (_anilistCurrentCache !== null) return _anilistCurrentCache;
@@ -261,7 +238,6 @@ function renderExternalCard(darkUrl, lightUrl, alt) {
 // ------------------------------------------------------------------
 async function renderWorkPreview() {
   const repos = await getAllRepos();
-  // Skip forks and the profile README repo itself (owner/owner shadow repo).
   const latest = repos.find(
     (r) => !r.fork && r.name.toLowerCase() !== USER.toLowerCase()
   );
@@ -292,44 +268,16 @@ async function renderLifePreview() {
 }
 
 // ------------------------------------------------------------------
-// Selected Work — pin cards, 2x3 grid
-// ------------------------------------------------------------------
-function renderPins() {
-  const cards = PINNED_ORDER.map((repo) => {
-    const darkUrl  = pinCardUrl(repo, GRS_THEME_DARK);
-    const lightUrl = pinCardUrl(repo, GRS_THEME_LIGHT);
-    const repoUrl  = `https://github.com/${USER}/${repo}`;
-    const picture = PICTURE(darkUrl, lightUrl, repo, "");
-    return A(repoUrl, picture);
-  });
-
-  const rows = [];
-  for (let i = 0; i < cards.length; i += 2) rows.push(cards.slice(i, i + 2));
-
-  const trs = rows.map((row) => {
-    const rowCells = row.map((c) =>
-      `${LT}td width="50%" align="center"${GT}${c}${LT}/td${GT}`
-    );
-    while (rowCells.length < 2) rowCells.push(`${LT}td width="50%"${GT}${LT}/td${GT}`);
-    return `${LT}tr${GT}${rowCells.join("")}${LT}/tr${GT}`;
-  });
-
-  return `${LT}table role="presentation"${GT}${LT}tbody${GT}${trs.join("")}${LT}/tbody${GT}${LT}/table${GT}`;
-}
-
-// ------------------------------------------------------------------
-// WORK dropdown — pins + top langs + activity metric
+// WORK dropdown — top langs + activity metric
 // ------------------------------------------------------------------
 function renderWork() {
-  const pins = renderPins();
-
   const langsDark  = topLangsUrl(GRS_THEME_DARK);
   const langsLight = topLangsUrl(GRS_THEME_LIGHT);
   const topLangs = renderExternalCard(langsDark, langsLight, "Top languages");
 
   const activityMetric = renderMetricsCard("./assets/metrics-activity.svg", "Activity");
 
-  return `${pins}\n\n${topLangs}\n\n${activityMetric}`;
+  return `${topLangs}\n\n${activityMetric}`;
 }
 
 // ------------------------------------------------------------------

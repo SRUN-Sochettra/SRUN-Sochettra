@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=5c67210c" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=3748219c" />
-  <img src="./assets/banner-dark.svg?v=5c67210c" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=00bd76b1" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=87530ab5" />
+  <img src="./assets/banner-dark.svg?v=00bd76b1" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -23,32 +23,6 @@
 <br />
 
 <!--START:WORK-->
-<table role="presentation"><tbody><tr><td width="50%" align="center"><a href="https://github.com/SRUN-Sochettra/EggScan"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=EggScan&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=EggScan&amp;theme=default&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=EggScan&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" alt="EggScan" />
-</picture></a></td><td width="50%" align="center"><a href="https://github.com/SRUN-Sochettra/Research-AI"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=Research-AI&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=Research-AI&amp;theme=default&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=Research-AI&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" alt="Research-AI" />
-</picture></a></td></tr><tr><td width="50%" align="center"><a href="https://github.com/SRUN-Sochettra/HyperspaceOS"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=HyperspaceOS&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=HyperspaceOS&amp;theme=default&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=HyperspaceOS&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" alt="HyperspaceOS" />
-</picture></a></td><td width="50%" align="center"><a href="https://github.com/SRUN-Sochettra/Khmer-Banking"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=Khmer-Banking&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=Khmer-Banking&amp;theme=default&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=Khmer-Banking&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" alt="Khmer-Banking" />
-</picture></a></td></tr><tr><td width="50%" align="center"><a href="https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=Spring-Boot---API-Blog&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=Spring-Boot---API-Blog&amp;theme=default&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=Spring-Boot---API-Blog&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" alt="Spring-Boot---API-Blog" />
-</picture></a></td><td width="50%" align="center"><a href="https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=RPI---RFID-Access-Control-System&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=RPI---RFID-Access-Control-System&amp;theme=default&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=RPI---RFID-Access-Control-System&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" alt="RPI---RFID-Access-Control-System" />
-</picture></a></td></tr></tbody></table>
-
 <div align="center"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" />
   <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=default&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" />
