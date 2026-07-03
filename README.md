@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=3e779b91" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=aa7ec49c" />
-  <img src="./assets/banner-dark.svg?v=3e779b91" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=105f3bca" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=2f8683ce" />
+  <img src="./assets/banner-dark.svg?v=105f3bca" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → HyperspaceOS · JavaScript · today</sub>
+<sub>last commit → SRUN-Sochettra · JavaScript · today</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -40,47 +40,29 @@
 </tr>
 </tbody></table>
 
-<hr/>
+<table role="presentation"><tbody><tr><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/HyperspaceOS"><b>HyperspaceOS</b></a><br/><sub>Fully functional desktop environment running entirely in your browser.</sub><br/><sub><code>JavaScript</code> &nbsp;·&nbsp; ★ 1 &nbsp;·&nbsp; updated today</sub></td><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/Khmer-Banking"><b>Khmer-Banking</b></a><br/><sub>Khmer Banking is a premium, full-stack digital banking application built with the latest …</sub><br/><sub><code>TypeScript</code> &nbsp;·&nbsp; ★ 1 &nbsp;·&nbsp; updated today</sub></td><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog"><b>Spring-Boot---API-Blog</b></a><br/><sub>REST API for a blog backend built with Spring Boot, JWT authentication, PostgreSQL, MyBat…</sub><br/><sub><code>Java</code> &nbsp;·&nbsp; ★ 1 &nbsp;·&nbsp; updated 4d ago</sub></td></tr><tr><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System"><b>RPI---RFID-Access-Control-System</b></a><br/><sub>A complete RFID access control project for the Raspberry Pi Pico using the MFRC522 reader…</sub><br/><sub><code>Python</code> &nbsp;·&nbsp; ★ 1 &nbsp;·&nbsp; updated 1mo ago</sub></td><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/Research-AI"><b>Research-AI</b></a><br/><sub>Autonomous AI agents that read PDFs, summarize content, and answer questions with citatio…</sub><br/><sub><code>TypeScript</code> &nbsp;·&nbsp; updated today</sub></td><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/EggScan"><b>EggScan</b></a><br/><sub>Instantly scan, audit, and analyze GitHub profiles with Groq-powered AI.</sub><br/><sub><code>Java</code> &nbsp;·&nbsp; updated 3d ago</sub></td></tr></tbody></table>
 
-<table role="presentation"><tbody><tr><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/HyperspaceOS"><b>HyperspaceOS</b></a><br/><sub>Fully functional desktop environment running entirely in your browser.</sub><br/><sub><code>JavaScript</code> &nbsp;·&nbsp; ★ 1 &nbsp;·&nbsp; updated today</sub></td><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/Khmer-Banking"><b>Khmer-Banking</b></a><br/><sub>Khmer Banking is a premium, full-stack digital banking application built with the latest …</sub><br/><sub><code>TypeScript</code> &nbsp;·&nbsp; ★ 1 &nbsp;·&nbsp; updated today</sub></td><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog"><b>Spring-Boot---API-Blog</b></a><br/><sub>REST API for a blog backend built with Spring Boot, JWT authentication, PostgreSQL, MyBat…</sub><br/><sub><code>Java</code> &nbsp;·&nbsp; ★ 1 &nbsp;·&nbsp; updated 3d ago</sub></td></tr><tr><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/RPI---RFID-Access-Control-System"><b>RPI---RFID-Access-Control-System</b></a><br/><sub>A complete RFID access control project for the Raspberry Pi Pico using the MFRC522 reader…</sub><br/><sub><code>Python</code> &nbsp;·&nbsp; ★ 1 &nbsp;·&nbsp; updated 1mo ago</sub></td><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/Research-AI"><b>Research-AI</b></a><br/><sub>Autonomous AI agents that read PDFs, summarize content, and answer questions with citatio…</sub><br/><sub><code>TypeScript</code> &nbsp;·&nbsp; updated today</sub></td><td valign="top" width="33%"><a href="https://github.com/SRUN-Sochettra/EggScan"><b>EggScan</b></a><br/><sub>Instantly scan, audit, and analyze GitHub profiles with Groq-powered AI.</sub><br/><sub><code>Java</code> &nbsp;·&nbsp; updated 3d ago</sub></td></tr></tbody></table>
+<div align="center"><img src="./assets/metrics-languages.svg?v=40254a24" alt="Languages" width="100%" /></div>
 
-<hr/>
-
-<div align="center"><img src="./assets/metrics-languages.svg?v=4f9ec9f5" alt="Languages" width="100%" /></div>
-
-<div align="center"><img src="./assets/metrics-activity.svg?v=e4886633" alt="Activity" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-activity.svg?v=a4bef4f2" alt="Activity" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
 
 <details>
 <summary>&nbsp;<b>STATS</b>&nbsp; <!--START:STATS_PREVIEW-->
-<sub>761 commits · past year</sub>
+<sub>763 commits · past year</sub>
 <!--END:STATS_PREVIEW--></summary>
 <br />
 
 <!--START:STATS-->
 <div align="center"><img src="./assets/metrics-iso.svg?v=c21eae35" alt="Contribution isocalendar" width="100%" /></div>
 
-<b>Commit rhythm</b> <sub>· past year</sub>
+<div align="center"><img src="./assets/metrics-habits.svg?v=9675f59c" alt="Coding habits" width="100%" /></div>
 
-<table role="presentation" width="100%"><tbody><tr><td width="40"><sub>mon</sub></td><td><code>▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░</code></td><td align="right" width="60"><sub>227</sub></td></tr><tr><td width="40"><sub>tue</sub></td><td><code>▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░</code></td><td align="right" width="60"><sub>328</sub></td></tr><tr><td width="40"><b><sub>wed</sub></b></td><td><code>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</code></td><td align="right" width="60"><b><sub>461</sub></b></td></tr><tr><td width="40"><sub>thu</sub></td><td><code>▓▓▓▓░░░░░░░░░░░░░░░░</code></td><td align="right" width="60"><sub>102</sub></td></tr><tr><td width="40"><sub>fri</sub></td><td><code>▓▓▓▓▓░░░░░░░░░░░░░░░</code></td><td align="right" width="60"><sub>112</sub></td></tr><tr><td width="40"><sub>sat</sub></td><td><code>▓▓▓▓▓░░░░░░░░░░░░░░░</code></td><td align="right" width="60"><sub>123</sub></td></tr><tr><td width="40"><sub>sun</sub></td><td><code>▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░</code></td><td align="right" width="60"><sub>262</sub></td></tr></tbody></table>
+<div align="center"><img src="./assets/metrics-followup.svg?v=62d43ae1" alt="Follow-ups and calendar" width="100%" /></div>
 
-<hr/>
-
-<div align="center"><img src="./assets/metrics-followup.svg?v=9c24c418" alt="Follow-ups and calendar" width="100%" /></div>
-
-<hr/>
-
-<table role="presentation" width="100%"><tbody>
-<tr>
-<td align="center" width="20%"><b>36</b><br/><sub>repos</sub></td>
-<td align="center" width="20%"><b>761</b><br/><sub>commits · 1y</sub></td>
-<td align="center" width="20%"><b>11</b><br/><sub>followers</sub></td>
-<td align="center" width="20%"><b>13</b><br/><sub>following</sub></td>
-<td align="center" width="20%"><b>1</b><br/><sub>stars given</sub></td>
-</tr>
-</tbody></table>
+<div align="center"><img src="./assets/metrics-achievements.svg?v=f91de6bc" alt="Achievements" width="100%" /></div>
 <!--END:STATS-->
 
 </details>
@@ -92,11 +74,7 @@
 <br />
 
 <!--START:LIFE-->
-<table role="presentation" width="100%"><tbody><tr><td width="120" valign="top"><a href="https://anilist.co/anime/161964"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx161964-JpkEbHI8ivaP.jpg" alt="The Eminence in Shadow Season 2" width="100" /></a></td><td valign="top"><sub>now watching</sub><br/><a href="https://anilist.co/anime/161964"><b>The Eminence in Shadow Season 2</b></a><br/><sub>episode 11 of 12</sub></td></tr></tbody></table>
-
-<hr/>
-
-<b>Top anime</b>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=ab6d5f0e" alt="AniList" width="100%" /></div>
 
 <table role="presentation" width="100%"><tbody><tr>
 <td align="center" width="20%" valign="top"><a href="https://anilist.co/anime/21769"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21769-ZBoT6szJKGZv.jpg" alt="SNAFU" width="140" /></a><br/><br/><b>SNAFU</b><br/><sub><code>2016</code></sub><br/><sub>Comedy, Romance</sub></td>
@@ -106,11 +84,7 @@
 <td align="center" width="20%" valign="top"><a href="https://anilist.co/anime/21382"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx21382-bBJghvjTP8Dr.jpg" alt="Rewrite" width="140" /></a><br/><br/><b>Rewrite</b><br/><sub><code>2016</code></sub><br/><sub>Drama, Mystery</sub></td>
 </tr></tbody></table>
 
-<hr/>
-
 <div align="center"><img src="./assets/metrics-social.svg?v=497a43c6" alt="Stars and people" width="100%" /></div>
-
-<table role="presentation" width="100%"><tbody><tr><td align="center" width="50%"><b>11</b><br/><sub>followers</sub></td><td align="center" width="50%"><b>13</b><br/><sub>following</sub></td></tr></tbody></table>
 <!--END:LIFE-->
 
 </details>
