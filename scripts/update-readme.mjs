@@ -27,6 +27,70 @@ const ANIME_LIST = [
 
 const ANILIST_USER = "scarletsages";
 
+// ------------------------------------------------------------------
+// External card themes — matches banner palette
+// ------------------------------------------------------------------
+const THEME_DARK = {
+  bg: "0a0a0f",
+  title: "58a6ff",
+  text: "d6d3d1",
+  icon: "3b82f6",
+  border: "1e293b",
+};
+const THEME_LIGHT = {
+  bg: "fafaf9",
+  title: "0969da",
+  text: "44403c",
+  icon: "3b82f6",
+  border: "e2e8f0",
+};
+
+function pinCardUrl(repo, t) {
+  const q = [
+    `username=${USER}`,
+    `repo=${encodeURIComponent(repo)}`,
+    `bg_color=${t.bg}`,
+    `title_color=${t.title}`,
+    `text_color=${t.text}`,
+    `icon_color=${t.icon}`,
+    `hide_border=true`,
+    `show_owner=false`,
+    `border_radius=8`,
+  ].join("&");
+  return `https://github-readme-stats.vercel.app/api/pin/?${q}`;
+}
+
+function streakCardUrl(t) {
+  const q = [
+    `user=${USER}`,
+    `hide_border=true`,
+    `background=${t.bg}`,
+    `stroke=${t.bg}`,
+    `ring=${t.title}`,
+    `fire=${t.title}`,
+    `currStreakLabel=${t.title}`,
+    `sideLabels=${t.text}`,
+    `dates=${t.text}`,
+    `currStreakNum=${t.text}`,
+    `sideNums=${t.text}`,
+  ].join("&");
+  return `https://streak-stats.demolab.com/?${q}`;
+}
+
+function trophyUrl(t) {
+  const q = [
+    `username=${USER}`,
+    `theme=darkhub`,
+    `no-frame=true`,
+    `no-bg=true`,
+    `column=6`,
+    `margin-w=15`,
+    `margin-h=15`,
+    `title_color=${t.title}`,
+  ].join("&");
+  return `https://github-profile-trophy.vercel.app/?${q}`;
+}
+
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
 
 // ------------------------------------------------------------------
@@ -41,11 +105,11 @@ const IMG = (src, alt, attrs = "") =>
 const A = (href, inner) =>
   `${LT}a href="${escAttr(href)}"${GT}${inner}${LT}/a${GT}`;
 
-const PICTURE = (dark, light, altText) => [
+const PICTURE = (dark, light, altText, imgAttrs = `width="100%"`) => [
   `${LT}picture${GT}`,
   `  ${LT}source media="(prefers-color-scheme: dark)" srcset="${escAttr(dark)}" /${GT}`,
   `  ${LT}source media="(prefers-color-scheme: light)" srcset="${escAttr(light)}" /${GT}`,
-  `  ${IMG(dark, altText, `width="100%"`)}`,
+  `  ${IMG(dark, altText, imgAttrs)}`,
   `${LT}/picture${GT}`,
 ].join("\n");
 
@@ -274,10 +338,16 @@ async function renderBio() {
 }
 
 // ------------------------------------------------------------------
-// Full-width metrics card
+// Full-width metrics card (local SVGs)
 // ------------------------------------------------------------------
 function renderMetricsCard(path, alt) {
   return `${LT}div align="center"${GT}${IMG(path, alt, `width="100%"`)}${LT}/div${GT}`;
+}
+
+// External card with dark/light picture
+function renderExternalCard(darkUrl, lightUrl, alt) {
+  const picture = PICTURE(darkUrl, lightUrl, alt, "");
+  return `${LT}div align="center"${GT}${picture}${LT}/div${GT}`;
 }
 
 // ------------------------------------------------------------------
@@ -313,60 +383,25 @@ async function renderLifePreview() {
 }
 
 // ------------------------------------------------------------------
-// Selected Work — 3x2 grid, sorted by stars desc
+// Selected Work — themed pin cards, 2x3 grid
 // ------------------------------------------------------------------
-async function renderPins() {
-  const results = await Promise.all(
-    PINNED_ORDER.map(async (name) => {
-      try {
-        const { data } = await octo.repos.get({ owner: USER, repo: name });
-        return {
-          name: data.name,
-          url:  data.html_url,
-          desc: (data.description || "").trim(),
-          lang: data.language || "",
-          stars: data.stargazers_count || 0,
-          pushedAt: data.pushed_at,
-        };
-      } catch (err) {
-        console.warn(`pin fetch failed for ${name}:`, err.message);
-        return null;
-      }
-    })
-  );
-
-  const projects = results.filter(Boolean);
-  if (projects.length === 0) return meta("Selected work is loading…");
-
-  projects.sort((a, b) => {
-    if (b.stars !== a.stars) return b.stars - a.stars;
-    return new Date(b.pushedAt) - new Date(a.pushedAt);
-  });
-
-  const cards = projects.map((p) => {
-    const title = A(p.url, `${LT}b${GT}${escText(p.name)}${LT}/b${GT}`);
-    const descText = p.desc ? clip(p.desc, 90) : null;
-    const desc = descText ? meta(descText) : "";
-
-    const parts = [];
-    if (p.lang)  parts.push(`${LT}code${GT}${escText(p.lang)}${LT}/code${GT}`);
-    if (p.stars) parts.push(`★ ${fmtNum(p.stars)}`);
-    if (p.pushedAt) parts.push(`updated ${escText(fmtRelative(p.pushedAt))}`);
-    const bottomMeta = parts.length
-      ? `${LT}sub${GT}${parts.join(" &nbsp;·&nbsp; ")}${LT}/sub${GT}`
-      : "";
-
-    return [title, desc, bottomMeta].filter(Boolean).join(`${LT}br/${GT}`);
+function renderPins() {
+  const cards = PINNED_ORDER.map((repo) => {
+    const darkUrl  = pinCardUrl(repo, THEME_DARK);
+    const lightUrl = pinCardUrl(repo, THEME_LIGHT);
+    const repoUrl  = `https://github.com/${USER}/${repo}`;
+    const picture = PICTURE(darkUrl, lightUrl, repo, "");
+    return A(repoUrl, picture);
   });
 
   const rows = [];
-  for (let i = 0; i < cards.length; i += 3) rows.push(cards.slice(i, i + 3));
+  for (let i = 0; i < cards.length; i += 2) rows.push(cards.slice(i, i + 2));
 
   const trs = rows.map((row) => {
     const rowCells = row.map((c) =>
-      `${LT}td valign="top" width="33%"${GT}${c}${LT}/td${GT}`
+      `${LT}td width="50%" align="center"${GT}${c}${LT}/td${GT}`
     );
-    while (rowCells.length < 3) rowCells.push(`${LT}td width="33%"${GT}${LT}/td${GT}`);
+    while (rowCells.length < 2) rowCells.push(`${LT}td width="50%"${GT}${LT}/td${GT}`);
     return `${LT}tr${GT}${rowCells.join("")}${LT}/tr${GT}`;
   });
 
@@ -377,11 +412,11 @@ async function renderPins() {
 // WORK dropdown
 // ------------------------------------------------------------------
 async function renderWork() {
-  const [pins, activity, waka] = await Promise.all([
-    renderPins(),
+  const [activity, waka] = await Promise.all([
     getActivity(),
     getWaka(),
   ]);
+  const pins = renderPins();
 
   const activityWakaRow = [
     `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}`,
@@ -403,7 +438,7 @@ async function renderWork() {
 }
 
 // ------------------------------------------------------------------
-// LIFE dropdown — 100% lowlighter + curated anime strip
+// LIFE dropdown
 // ------------------------------------------------------------------
 async function renderLife() {
   const animeMd = await getAnimeStrip();
@@ -414,15 +449,22 @@ async function renderLife() {
 }
 
 // ------------------------------------------------------------------
-// STATS dropdown — 100% lowlighter
+// STATS dropdown — iso + streak + trophy + followup
 // ------------------------------------------------------------------
-async function renderStats() {
-  const iso          = renderMetricsCard("./assets/metrics-iso.svg",          "Contribution isocalendar");
-  const habits       = renderMetricsCard("./assets/metrics-habits.svg",       "Coding habits");
-  const followup     = renderMetricsCard("./assets/metrics-followup.svg",     "Follow-ups and calendar");
-  const achievements = renderMetricsCard("./assets/metrics-achievements.svg", "Achievements");
+function renderStats() {
+  const iso = renderMetricsCard("./assets/metrics-iso.svg", "Contribution isocalendar");
 
-  return `${iso}\n\n${habits}\n\n${followup}\n\n${achievements}`;
+  const streakDark  = streakCardUrl(THEME_DARK);
+  const streakLight = streakCardUrl(THEME_LIGHT);
+  const streak = renderExternalCard(streakDark, streakLight, "Commit streak stats");
+
+  const trophyDark  = trophyUrl(THEME_DARK);
+  const trophyLight = trophyUrl(THEME_LIGHT);
+  const trophy = renderExternalCard(trophyDark, trophyLight, "Achievement trophies");
+
+  const followup = renderMetricsCard("./assets/metrics-followup.svg", "Follow-ups and calendar");
+
+  return `${iso}\n\n${streak}\n\n${trophy}\n\n${followup}`;
 }
 
 // ------------------------------------------------------------------
@@ -468,18 +510,15 @@ async function getAnimeStrip() {
   const cells = ANIME_LIST.map((a, i) => {
     const r = results[i];
     const title = `${LT}b${GT}${escText(a.name)}${LT}/b${GT}`;
-
     const yearHtml = r?.year
       ? `${LT}sub${GT}${LT}code${GT}${escText(String(r.year))}${LT}/code${GT}${LT}/sub${GT}`
       : "";
     const genreHtml = r?.genres?.length
       ? `${LT}sub${GT}${escText(r.genres.join(", "))}${LT}/sub${GT}`
       : "";
-
     if (!r) {
       return `${LT}td align="center" width="20%" valign="top"${GT}${title}${LT}/td${GT}`;
     }
-
     const img = IMG(r.cover, a.name, `width="140"`);
     return [
       `${LT}td align="center" width="20%" valign="top"${GT}`,
@@ -502,11 +541,9 @@ async function getActivity() {
   const recent = repos
     .filter((r) => !r.fork && !PINNED.has(r.name))
     .slice(0, 5);
-
   if (recent.length === 0) {
     return meta("No recent activity outside pinned projects.");
   }
-
   const items = recent.map((r) => {
     const rawDesc = r.description?.trim();
     const link = A(r.html_url, `${LT}b${GT}${escText(r.name)}${LT}/b${GT}`);
@@ -521,12 +558,11 @@ async function getActivity() {
       `${LT}/li${GT}`,
     ].join("");
   });
-
   return `${LT}ul${GT}\n${items.join("\n")}\n${LT}/ul${GT}`;
 }
 
 // ------------------------------------------------------------------
-// WakaTime — kept because lowlighter doesn't have a good waka plugin
+// WakaTime
 // ------------------------------------------------------------------
 async function getWaka() {
   const w = await getWakaData();
@@ -611,18 +647,18 @@ async function getWaka() {
 const tpl = await fs.readFile(TEMPLATE, "utf8");
 
 const [
-  bioHtml, workHtml, statsHtml, lifeHtml,
+  bioHtml, workHtml, lifeHtml,
   workPreview, statsPreview, lifePreview,
 ] = await Promise.all([
   renderBio(),
   renderWork(),
-  renderStats(),
   renderLife(),
   renderWorkPreview(),
   renderStatsPreview(),
   renderLifePreview(),
 ]);
 const bannerHtml = renderBanner();
+const statsHtml  = renderStats();
 
 let out = tpl;
 out = replaceBlock(out, "BANNER",         bannerHtml);
@@ -642,9 +678,7 @@ const HASHED_SVGS = [
   "assets/metrics-anilist.svg",
   "assets/metrics-social.svg",
   "assets/metrics-iso.svg",
-  "assets/metrics-habits.svg",
   "assets/metrics-followup.svg",
-  "assets/metrics-achievements.svg",
 ];
 
 const hashes = await Promise.all(HASHED_SVGS.map(hashFile));
