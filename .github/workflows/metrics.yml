@@ -89,7 +89,7 @@ jobs:
           template: classic
           base: ""
           config_display: large
-          config_padding: 0, 12%
+          config_padding: 0, 2%
           config_timezone: Asia/Phnom_Penh
           plugin_stars: yes
           plugin_stars_limit: 6
@@ -123,7 +123,7 @@ jobs:
           template: classic
           base: ""
           config_display: large
-          config_padding: 0, 12%
+          config_padding: 0, 2%
           config_timezone: Asia/Phnom_Penh
           plugin_followup: yes
           plugin_followup_sections: repositories

@@ -164,6 +164,7 @@ async function getCommitsLastYear() {
     return 0;
   }
 }
+
 let _anilistCurrentCache = null;
 async function getAnilistCurrent() {
   if (_anilistCurrentCache !== null) return _anilistCurrentCache;
@@ -238,6 +239,7 @@ function renderExternalCard(darkUrl, lightUrl, alt) {
 // ------------------------------------------------------------------
 async function renderWorkPreview() {
   const repos = await getAllRepos();
+  // Skip forks and the profile README repo itself (owner/owner shadow repo).
   const latest = repos.find(
     (r) => !r.fork && r.name.toLowerCase() !== USER.toLowerCase()
   );
@@ -268,7 +270,7 @@ async function renderLifePreview() {
 }
 
 // ------------------------------------------------------------------
-// WORK dropdown — top langs + activity metric
+// WORK dropdown — top langs + activity + social
 // ------------------------------------------------------------------
 function renderWork() {
   const langsDark  = topLangsUrl(GRS_THEME_DARK);
@@ -276,18 +278,17 @@ function renderWork() {
   const topLangs = renderExternalCard(langsDark, langsLight, "Top languages");
 
   const activityMetric = renderMetricsCard("./assets/metrics-activity.svg", "Activity");
+  const social         = renderMetricsCard("./assets/metrics-social.svg", "Stars and people");
 
-  return `${topLangs}\n\n${activityMetric}`;
+  return `${topLangs}\n\n${activityMetric}\n\n${social}`;
 }
 
 // ------------------------------------------------------------------
-// LIFE dropdown — 100% lowlighter
+// LIFE dropdown — AniList
 // ------------------------------------------------------------------
 function renderLife() {
   const anilist = renderMetricsCard("./assets/metrics-anilist.svg", "AniList");
-  const social  = renderMetricsCard("./assets/metrics-social.svg",  "Stars and people");
-
-  return `${anilist}\n\n${social}`;
+  return anilist;
 }
 
 // ------------------------------------------------------------------
