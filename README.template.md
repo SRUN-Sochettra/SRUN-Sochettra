@@ -3,39 +3,36 @@
 <!--START:BANNER-->
 <!--END:BANNER-->
 
+<!--START:BIO-->
+<!--END:BIO-->
+
 </div>
 
-<!--START:PINS-->
-<!--END:PINS-->
-
-<details>
-<summary><code>01</code> &nbsp; <b>as a coder</b> &nbsp; <sub>languages · activity · wakatime</sub></summary>
 <br />
 
-<!--START:CODER-->
-<!--END:CODER-->
+<details>
+<summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW--><!--END:WORK_PREVIEW--></summary>
+<br />
+
+<!--START:WORK-->
+<!--END:WORK-->
 
 </details>
 
 <details>
-<summary><code>02</code> &nbsp; <b>as a person</b> &nbsp; <sub>anilist · stars · people · top anime</sub></summary>
+<summary>&nbsp;<b>STATS</b>&nbsp; <!--START:STATS_PREVIEW--><!--END:STATS_PREVIEW--></summary>
 <br />
 
-<!--START:PERSON-->
-<!--END:PERSON-->
+<!--START:STATS-->
+<!--END:STATS-->
 
 </details>
 
 <details>
-<summary><code>03</code> &nbsp; <b>by the numbers</b> &nbsp; <sub>calendar · issues · stats</sub></summary>
+<summary>&nbsp;<b>LIFE</b>&nbsp; <!--START:LIFE_PREVIEW--><!--END:LIFE_PREVIEW--></summary>
 <br />
 
-<!--START:NUMBERS-->
-<!--END:NUMBERS-->
+<!--START:LIFE-->
+<!--END:LIFE-->
 
 </details>
-
-<div align="right">
-<!--START:TIMESTAMP-->
-<!--END:TIMESTAMP-->
-</div>

@@ -25,10 +25,12 @@ const ANIME_LIST = [
   { name: "Rewrite",           search: "Rewrite" },
 ];
 
+const ANILIST_USER = "scarletsages";
+
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
 
 // ------------------------------------------------------------------
-// HTML tag builders (LT/GT survive chat paste)
+// Tag builders — LT/GT survive chat paste
 // ------------------------------------------------------------------
 const LT = String.fromCharCode(60);
 const GT = String.fromCharCode(62);
@@ -47,20 +49,13 @@ const PICTURE = (dark, light, altText) => [
   `${LT}/picture${GT}`,
 ].join("\n");
 
-// Consistent editorial section label
-const sectionLabel = (t) =>
-  `${LT}sub${GT}${LT}code${GT}${escText(t)}${LT}/code${GT}${LT}/sub${GT}`;
+const meta = (t) => `${LT}sub${GT}${escText(t)}${LT}/sub${GT}`;
 
 // ------------------------------------------------------------------
 // String helpers
 // ------------------------------------------------------------------
-function escAttr(s) {
-  return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
-}
-
-function escText(s) {
-  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
+function escAttr(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;"); }
+function escText(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
 function replaceBlock(md, key, content) {
   const re = new RegExp(
@@ -69,15 +64,25 @@ function replaceBlock(md, key, content) {
   return md.replace(re, (_m, start, end) => `${start}\n${content}\n${end}`);
 }
 
-function fmtDate(iso) {
+function fmtRelative(iso) {
   const d = new Date(iso);
   const days = Math.floor((Date.now() - d.getTime()) / 86400000);
   if (days === 0) return "today";
-  if (days === 1) return "yesterday";
-  return `${days} days ago`;
+  if (days === 1) return "1d ago";
+  if (days < 30) return `${days}d ago`;
+  if (days < 365) {
+    const months = Math.floor(days / 30);
+    return `${months}mo ago`;
+  }
+  const years = Math.floor(days / 365);
+  return years === 1 ? "1y ago" : `${years}y ago`;
 }
 
-// Correction #3: consistent short units (s / m / h)
+function fmtAbsolute(iso) {
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short" });
+}
+
 function fmtHM(seconds) {
   const s = Math.round(seconds || 0);
   if (s < 60) return `${s}s`;
@@ -88,14 +93,8 @@ function fmtHM(seconds) {
   return `${h}h ${m}m`;
 }
 
-function fmtShortDate(iso) {
-  const d = new Date(iso);
-  return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short" });
-}
-
-function fmtNum(n) {
-  return new Intl.NumberFormat("en-US").format(n);
-}
+function fmtNum(n) { return new Intl.NumberFormat("en-US").format(n); }
+function clip(s, n) { return s.length > n ? s.slice(0, n - 1) + "…" : s; }
 
 async function hashFile(filepath) {
   try {
@@ -108,7 +107,198 @@ async function hashFile(filepath) {
 }
 
 // ------------------------------------------------------------------
-// Banner
+// Data caches
+// ------------------------------------------------------------------
+let _reposCache = null;
+async function getAllRepos() {
+  if (_reposCache) return _reposCache;
+  try {
+    const { data } = await octo.repos.listForUser({
+      username: USER,
+      sort: "pushed",
+      per_page: 100,
+    });
+    _reposCache = data;
+    return data;
+  } catch (err) {
+    console.warn("repos fetch failed:", err.message);
+    _reposCache = [];
+    return _reposCache;
+  }
+}
+
+let _profileCache = null;
+async function getProfile() {
+  if (_profileCache) return _profileCache;
+  try {
+    const { data } = await octo.users.getByUsername({ username: USER });
+    _profileCache = data;
+    return data;
+  } catch (err) {
+    console.warn("profile fetch failed:", err.message);
+    _profileCache = {};
+    return _profileCache;
+  }
+}
+
+let _contribCache = null;
+async function getContribs() {
+  if (_contribCache) return _contribCache;
+
+  const base = { commitsLastYear: 0, starsGiven: 0, perWeekday: [0,0,0,0,0,0,0] };
+
+  // Query 1: commits + weekday distribution
+  try {
+    const q1 = `
+      query($login: String!) {
+        user(login: $login) {
+          contributionsCollection {
+            totalCommitContributions
+            restrictedContributionsCount
+            contributionCalendar {
+              weeks {
+                contributionDays {
+                  contributionCount
+                  weekday
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+    const g1 = await octo.graphql(q1, { login: USER });
+    const c = g1?.user?.contributionsCollection;
+    base.commitsLastYear =
+      (c?.totalCommitContributions || 0) + (c?.restrictedContributionsCount || 0);
+
+    if (!c?.contributionCalendar?.weeks?.length) {
+      console.warn("contributionCalendar returned no weeks — perWeekday will stay zero.");
+    }
+    const weeks = c?.contributionCalendar?.weeks || [];
+    for (const w of weeks) {
+      for (const day of (w.contributionDays || [])) {
+        base.perWeekday[day.weekday] += day.contributionCount || 0;
+      }
+    }
+  } catch (err) {
+    console.warn("commits query failed:", err.message);
+  }
+
+  // Query 2: stars given (isolated — failure doesn't affect others)
+  try {
+    const q2 = `
+      query($login: String!) {
+        user(login: $login) {
+          starredRepositories { totalCount }
+        }
+      }
+    `;
+    const g2 = await octo.graphql(q2, { login: USER });
+    base.starsGiven = g2?.user?.starredRepositories?.totalCount || 0;
+  } catch (err) {
+    console.warn("stars given query failed:", err.message);
+  }
+
+  _contribCache = base;
+  return base;
+}
+
+let _anilistCurrentCache = null;
+async function getAnilistCurrent() {
+  if (_anilistCurrentCache !== null) return _anilistCurrentCache;
+  try {
+    const res = await fetch("https://graphql.anilist.co", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        query: `query ($name: String) {
+          MediaListCollection(userName: $name, type: ANIME, status: CURRENT) {
+            lists { entries {
+              progress
+              updatedAt
+              media {
+                title { english romaji }
+                episodes
+                coverImage { medium }
+                siteUrl
+              }
+            } }
+          }
+        }`,
+        variables: { name: ANILIST_USER },
+      }),
+    });
+    if (!res.ok) { _anilistCurrentCache = false; return null; }
+    const j = await res.json();
+    const entries = j.data?.MediaListCollection?.lists?.flatMap((l) => l.entries) || [];
+    if (entries.length === 0) { _anilistCurrentCache = false; return null; }
+    entries.sort((a, b) => {
+      const dt = (b.updatedAt || 0) - (a.updatedAt || 0);
+      if (dt !== 0) return dt;
+      const at = (a.media?.title?.english || a.media?.title?.romaji || "");
+      const bt = (b.media?.title?.english || b.media?.title?.romaji || "");
+      return at.localeCompare(bt);
+    });
+    const e = entries[0];
+    _anilistCurrentCache = {
+      title: e.media.title.english || e.media.title.romaji || "Unknown",
+      cover: e.media.coverImage?.medium || null,
+      url:   e.media.siteUrl || null,
+      progress: e.progress || 0,
+      total: e.media.episodes || null,
+    };
+    return _anilistCurrentCache;
+  } catch (err) {
+    console.warn("anilist current fetch failed:", err.message);
+    _anilistCurrentCache = false;
+    return null;
+  }
+}
+
+let _wakaCache = null;
+async function getWakaData() {
+  if (_wakaCache) return _wakaCache;
+  if (!process.env.WAKATIME_API_KEY) {
+    _wakaCache = { available: false };
+    return _wakaCache;
+  }
+  const auth = Buffer.from(`${process.env.WAKATIME_API_KEY}:`).toString("base64");
+  const headers = { Authorization: `Basic ${auth}` };
+
+  async function fetchStats(range) {
+    const url = `https://wakatime.com/api/v1/users/current/stats/${range}`;
+    const res = await fetch(url, { headers });
+    if (!res.ok) return null;
+    return (await res.json()).data;
+  }
+
+  try {
+    const [d7, d14] = await Promise.all([
+      fetchStats("last_7_days"),
+      fetchStats("last_14_days"),
+    ]);
+    if (!d7) { _wakaCache = { available: false }; return _wakaCache; }
+
+    let delta = null;
+    if (d14) {
+      const prev = (d14.total_seconds || 0) - (d7.total_seconds || 0);
+      if (prev > 0) {
+        delta = Math.round(((d7.total_seconds - prev) / prev) * 100);
+      }
+    }
+
+    _wakaCache = { available: true, data: d7, delta };
+    return _wakaCache;
+  } catch (err) {
+    console.warn("waka fetch failed:", err.message);
+    _wakaCache = { available: false };
+    return _wakaCache;
+  }
+}
+
+// ------------------------------------------------------------------
+// Banner + bio
 // ------------------------------------------------------------------
 function renderBanner() {
   return PICTURE(
@@ -118,11 +308,53 @@ function renderBanner() {
   );
 }
 
+async function renderBio() {
+  const p = await getProfile();
+  if (!p.bio || !p.bio.trim()) return "";
+  return `${LT}br/${GT}${LT}sub${GT}${LT}i${GT}${escText(p.bio.trim())}${LT}/i${GT}${LT}/sub${GT}`;
+}
+
 // ------------------------------------------------------------------
-// Selected Work rail
-// Correction #1: langDot removed. Language shown as <code> tag,
-// which matches the mono voice used everywhere else.
-// Correction #7: return null-safe empty string that collapses cleanly.
+// Full-width metrics card
+// ------------------------------------------------------------------
+function renderMetricsCard(path, alt) {
+  return `${LT}div align="center"${GT}${IMG(path, alt, `width="100%"`)}${LT}/div${GT}`;
+}
+
+// ------------------------------------------------------------------
+// Preview lines
+// ------------------------------------------------------------------
+async function renderWorkPreview() {
+  const repos = await getAllRepos();
+  const latest = repos.find((r) => !r.fork);
+  if (!latest) return "";
+  const parts = [
+    escText(latest.name),
+    latest.language ? escText(latest.language) : null,
+    escText(fmtRelative(latest.pushed_at)),
+  ].filter(Boolean);
+  return `${LT}sub${GT}last commit → ${parts.join(" · ")}${LT}/sub${GT}`;
+}
+
+async function renderStatsPreview() {
+  const c = await getContribs();
+  return `${LT}sub${GT}${fmtNum(c.commitsLastYear)} commits · past year${LT}/sub${GT}`;
+}
+
+async function renderLifePreview() {
+  const current = await getAnilistCurrent();
+  if (!current) return `${LT}sub${GT}between shows${LT}/sub${GT}`;
+  const thumb = current.cover
+    ? IMG(current.cover, current.title, `height="18" align="middle"`)
+    : "";
+  const title = current.url
+    ? A(current.url, escText(clip(current.title, 40)))
+    : escText(clip(current.title, 40));
+  return `${LT}sub${GT}now watching →${thumb}${title}${LT}/sub${GT}`;
+}
+
+// ------------------------------------------------------------------
+// Selected Work — 3x2 grid, sorted by stars desc
 // ------------------------------------------------------------------
 async function renderPins() {
   const results = await Promise.all(
@@ -135,6 +367,7 @@ async function renderPins() {
           desc: (data.description || "").trim(),
           lang: data.language || "",
           stars: data.stargazers_count || 0,
+          pushedAt: data.pushed_at,
         };
       } catch (err) {
         console.warn(`pin fetch failed for ${name}:`, err.message);
@@ -144,167 +377,211 @@ async function renderPins() {
   );
 
   const projects = results.filter(Boolean);
-  if (projects.length === 0) {
-    return `${LT}sub${GT}${LT}i${GT}Selected work is loading…${LT}/i${GT}${LT}/sub${GT}`;
-  }
+  if (projects.length === 0) return meta("Selected work is loading…");
 
-  const cards = projects.map((p, i) => {
-    const idx = String(i + 1).padStart(2, "0");
-    const idxHtml = `${LT}sub${GT}${LT}code${GT}${idx}${LT}/code${GT}${LT}/sub${GT}`;
+  projects.sort((a, b) => {
+    if (b.stars !== a.stars) return b.stars - a.stars;
+    return new Date(b.pushedAt) - new Date(a.pushedAt);
+  });
+
+  const cards = projects.map((p) => {
     const title = A(p.url, `${LT}b${GT}${escText(p.name)}${LT}/b${GT}`);
-    const desc = p.desc
-      ? `${LT}sub${GT}${escText(p.desc)}${LT}/sub${GT}`
-      : `${LT}sub${GT}${LT}i${GT}no description${LT}/i${GT}${LT}/sub${GT}`;
+    const descText = p.desc ? clip(p.desc, 90) : null;
+    const desc = descText ? meta(descText) : "";
 
-    const metaParts = [];
-    if (p.lang)  metaParts.push(`${LT}code${GT}${escText(p.lang)}${LT}/code${GT}`);
-    if (p.stars) metaParts.push(`★ ${fmtNum(p.stars)}`);
-    const meta = metaParts.length
-      ? `${LT}sub${GT}${metaParts.join(" &nbsp;·&nbsp; ")}${LT}/sub${GT}`
+    const parts = [];
+    if (p.lang)  parts.push(`${LT}code${GT}${escText(p.lang)}${LT}/code${GT}`);
+    if (p.stars) parts.push(`★ ${fmtNum(p.stars)}`);
+    if (p.pushedAt) parts.push(`updated ${escText(fmtRelative(p.pushedAt))}`);
+    const bottomMeta = parts.length
+      ? `${LT}sub${GT}${parts.join(" &nbsp;·&nbsp; ")}${LT}/sub${GT}`
       : "";
 
-    return [
-      `${idxHtml} &nbsp; ${title}`,
-      desc,
-      meta,
-    ].filter(Boolean).join(`${LT}br/${GT}`);
+    return [title, desc, bottomMeta].filter(Boolean).join(`${LT}br/${GT}`);
   });
 
   const rows = [];
   for (let i = 0; i < cards.length; i += 3) rows.push(cards.slice(i, i + 3));
 
   const trs = rows.map((row) => {
-    const cells = row.map((c) =>
+    const rowCells = row.map((c) =>
       `${LT}td valign="top" width="33%"${GT}${c}${LT}/td${GT}`
     );
-    while (cells.length < 3) cells.push(`${LT}td width="33%"${GT}${LT}/td${GT}`);
-    return `${LT}tr${GT}${cells.join("")}${LT}/tr${GT}`;
+    while (rowCells.length < 3) rowCells.push(`${LT}td width="33%"${GT}${LT}/td${GT}`);
+    return `${LT}tr${GT}${rowCells.join("")}${LT}/tr${GT}`;
   });
 
-  const label = sectionLabel(`SELECTED WORK  ·  ${projects.length} PROJECTS`);
-  return `${label}\n\n${LT}table${GT}${trs.join("")}${LT}/table${GT}`;
+  return `${LT}table role="presentation"${GT}${LT}tbody${GT}${trs.join("")}${LT}/tbody${GT}${LT}/table${GT}`;
 }
 
 // ------------------------------------------------------------------
-// Full-width metrics card
+// WORK dropdown
 // ------------------------------------------------------------------
-function renderMetricsCard(path, alt) {
-  return `${LT}div align="center"${GT}${IMG(path, alt, `width="100%"`)}${LT}/div${GT}`;
-}
+async function renderWork() {
+  const [pins, activity, waka] = await Promise.all([
+    renderPins(),
+    getActivity(),
+    getWaka(),
+  ]);
 
-// ------------------------------------------------------------------
-// Coder dropdown
-// ------------------------------------------------------------------
-async function renderCoder() {
-  const [activity, waka] = await Promise.all([getActivity(), getWaka()]);
-
-  const rowA = [
-    `${LT}table${GT}`,
+  const activityWakaRow = [
+    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}`,
     `${LT}tr${GT}`,
-    `${LT}td width="55%" valign="top"${GT}`,
-    `${sectionLabel("RECENT ACTIVITY")}${LT}br/${GT}${LT}br/${GT}`,
+    `${LT}td width="45%" valign="top"${GT}`,
     activity,
     `${LT}/td${GT}`,
-    `${LT}td width="45%" valign="top"${GT}`,
-    `${sectionLabel("LAST 7 DAYS · WAKATIME")}${LT}br/${GT}${LT}br/${GT}`,
+    `${LT}td width="55%" valign="top"${GT}`,
     waka,
     `${LT}/td${GT}`,
     `${LT}/tr${GT}`,
-    `${LT}/table${GT}`,
+    `${LT}/tbody${GT}${LT}/table${GT}`,
   ].join("\n");
 
-  const langs     = renderMetricsCard("./assets/metrics-languages.svg", "Languages");
-  const activity2 = renderMetricsCard("./assets/metrics-activity.svg",  "Activity");
+  const langs = renderMetricsCard("./assets/metrics-languages.svg", "Languages");
+  const activityMetric = renderMetricsCard("./assets/metrics-activity.svg", "Activity");
 
-  return `${rowA}\n\n${langs}\n\n${activity2}`;
+  const rule = `${LT}hr/${GT}`;
+  return `${activityWakaRow}\n\n${rule}\n\n${pins}\n\n${rule}\n\n${langs}\n\n${activityMetric}`;
 }
 
 // ------------------------------------------------------------------
-// Person dropdown
+// LIFE dropdown
 // ------------------------------------------------------------------
-async function renderPerson() {
-  const animeMd = await getAnimeStrip();
+async function renderLife() {
+  const [current, animeMd, profile] = await Promise.all([
+    getAnilistCurrent(),
+    getAnimeStrip(),
+    getProfile(),
+  ]);
 
-  const anilist = renderMetricsCard("./assets/metrics-anilist.svg", "AniList");
-  const social  = renderMetricsCard("./assets/metrics-social.svg",  "Stars and people");
-
-  const rowB = [
-    sectionLabel("TOP ANIME · IN ORDER"),
-    ``,
-    animeMd,
-  ].join("\n");
-
-  return `${anilist}\n\n${social}\n\n${rowB}`;
-}
-
-// ------------------------------------------------------------------
-// Numbers dropdown
-// Correction #2: no inline styles. Use <h3> for large numbers.
-// Correction #6: <h3 align="center"> to guarantee centering.
-// ------------------------------------------------------------------
-async function renderNumbers() {
-  const stats = await getProfileStats();
-
-  const iso      = renderMetricsCard("./assets/metrics-iso.svg",      "Contribution isocalendar");
-  const followup = renderMetricsCard("./assets/metrics-followup.svg", "Follow-ups and calendar");
+  let watchingHero = "";
+  if (current) {
+    const cover = current.cover
+      ? A(current.url || "#", IMG(current.cover, current.title, `width="100"`))
+      : "";
+    const title = current.url
+      ? A(current.url, `${LT}b${GT}${escText(current.title)}${LT}/b${GT}`)
+      : `${LT}b${GT}${escText(current.title)}${LT}/b${GT}`;
+    const progress = current.total
+      ? `episode ${current.progress} of ${current.total}`
+      : `episode ${current.progress}`;
+    watchingHero = [
+      `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}${LT}tr${GT}`,
+      `${LT}td width="120" valign="top"${GT}${cover}${LT}/td${GT}`,
+      `${LT}td valign="top"${GT}`,
+      `${LT}sub${GT}now watching${LT}/sub${GT}${LT}br/${GT}`,
+      `${title}${LT}br/${GT}`,
+      `${LT}sub${GT}${escText(progress)}${LT}/sub${GT}`,
+      `${LT}/td${GT}`,
+      `${LT}/tr${GT}${LT}/tbody${GT}${LT}/table${GT}`,
+    ].join("");
+  }
 
   const stat = (value, label) =>
-    `${LT}td align="center" width="25%"${GT}` +
-    `${LT}sub${GT}${LT}code${GT}${escText(label.toUpperCase())}${LT}/code${GT}${LT}/sub${GT}` +
-    `${LT}h3 align="center"${GT}${escText(value)}${LT}/h3${GT}` +
+    `${LT}td align="center" width="50%"${GT}` +
+    `${LT}b${GT}${escText(value)}${LT}/b${GT}` +
+    `${LT}br/${GT}` +
+    `${LT}sub${GT}${escText(label)}${LT}/sub${GT}` +
     `${LT}/td${GT}`;
+  const social = [
+    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}${LT}tr${GT}`,
+    stat(fmtNum(profile.followers || 0), "followers"),
+    stat(fmtNum(profile.following || 0), "following"),
+    `${LT}/tr${GT}${LT}/tbody${GT}${LT}/table${GT}`,
+  ].join("");
 
-  const rowB = [
-    `${LT}table${GT}`,
-    `${LT}tr${GT}`,
-    stat(fmtNum(stats.publicRepos),      "Public repos"),
-    stat(fmtNum(stats.commitsLastYear),  "Commits · 1y"),
-    stat(fmtNum(stats.followers),        "Followers"),
-    stat(fmtNum(stats.following),        "Following"),
-    `${LT}/tr${GT}`,
-    `${LT}/table${GT}`,
-  ].join("\n");
+  const socialMetric = renderMetricsCard("./assets/metrics-social.svg", "Stars and people");
 
-  return `${iso}\n\n${followup}\n\n${rowB}`;
+  const rule = `${LT}hr/${GT}`;
+  const parts = [];
+  if (watchingHero) {
+    parts.push(watchingHero);
+    parts.push(rule);
+  }
+  parts.push(`${LT}b${GT}Top anime${LT}/b${GT}`);
+  parts.push(animeMd);
+  parts.push(rule);
+  parts.push(socialMetric);
+  parts.push(social);
+  return parts.join("\n\n");
 }
 
 // ------------------------------------------------------------------
-// Profile stats
+// STATS dropdown
 // ------------------------------------------------------------------
-async function getProfileStats() {
-  const base = { publicRepos: 0, followers: 0, following: 0, commitsLastYear: 0 };
-  try {
-    const { data: u } = await octo.users.getByUsername({ username: USER });
-    base.publicRepos = u.public_repos || 0;
-    base.followers   = u.followers    || 0;
-    base.following   = u.following    || 0;
-  } catch (err) {
-    console.warn("user profile fetch failed:", err.message);
-  }
-  try {
-    const q = `
-      query($login: String!) {
-        user(login: $login) {
-          contributionsCollection {
-            totalCommitContributions
-            restrictedContributionsCount
-          }
-        }
-      }
-    `;
-    const g = await octo.graphql(q, { login: USER });
-    const c = g?.user?.contributionsCollection;
-    base.commitsLastYear =
-      (c?.totalCommitContributions || 0) + (c?.restrictedContributionsCount || 0);
-  } catch (err) {
-    console.warn("contributions fetch failed:", err.message);
-  }
-  return base;
+async function renderStats() {
+  const [profile, contribs] = await Promise.all([getProfile(), getContribs()]);
+
+  const iso = renderMetricsCard("./assets/metrics-iso.svg", "Contribution isocalendar");
+  const followup = renderMetricsCard("./assets/metrics-followup.svg", "Follow-ups and calendar");
+  const rhythm = renderCommitRhythm(contribs.perWeekday);
+
+  const stat = (value, label) =>
+    `${LT}td align="center" width="20%"${GT}` +
+    `${LT}b${GT}${escText(value)}${LT}/b${GT}` +
+    `${LT}br/${GT}` +
+    `${LT}sub${GT}${escText(label)}${LT}/sub${GT}` +
+    `${LT}/td${GT}`;
+
+  const statsRow = [
+    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}`,
+    `${LT}tr${GT}`,
+    stat(fmtNum(profile.public_repos || 0), "repos"),
+    stat(fmtNum(contribs.commitsLastYear),  "commits · 1y"),
+    stat(fmtNum(profile.followers || 0),    "followers"),
+    stat(fmtNum(profile.following || 0),    "following"),
+    stat(fmtNum(contribs.starsGiven),       "stars given"),
+    `${LT}/tr${GT}`,
+    `${LT}/tbody${GT}${LT}/table${GT}`,
+  ].join("\n");
+
+  const rule = `${LT}hr/${GT}`;
+  return `${iso}\n\n${rhythm}\n\n${rule}\n\n${followup}\n\n${rule}\n\n${statsRow}`;
+}
+
+// ------------------------------------------------------------------
+// Commit rhythm — Monday-first, peak day bold
+// ------------------------------------------------------------------
+function renderCommitRhythm(perWeekday) {
+  const total = perWeekday.reduce((a, b) => a + b, 0);
+  if (total === 0) return "";
+
+  // GitHub returns 0=Sunday..6=Saturday. Reorder to Monday-first.
+  const orderedIdx = [1, 2, 3, 4, 5, 6, 0];
+  const ordered = orderedIdx.map((i) => perWeekday[i]);
+  const dayNames = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+  const max = Math.max(...ordered);
+
+  const rows = ordered.map((count, i) => {
+    const isPeak = count === max && count > 0;
+    const width = max > 0 ? Math.round((count / max) * 20) : 0;
+    // ▓ and ░ share metrics in Unicode Block Elements range
+    const bar = "▓".repeat(width) + "░".repeat(20 - width);
+    const dayCell = isPeak
+      ? `${LT}b${GT}${LT}sub${GT}${dayNames[i]}${LT}/sub${GT}${LT}/b${GT}`
+      : `${LT}sub${GT}${dayNames[i]}${LT}/sub${GT}`;
+    const countCell = isPeak
+      ? `${LT}b${GT}${LT}sub${GT}${fmtNum(count)}${LT}/sub${GT}${LT}/b${GT}`
+      : `${LT}sub${GT}${fmtNum(count)}${LT}/sub${GT}`;
+    return (
+      `${LT}tr${GT}` +
+      `${LT}td width="40"${GT}${dayCell}${LT}/td${GT}` +
+      `${LT}td${GT}${LT}code${GT}${bar}${LT}/code${GT}${LT}/td${GT}` +
+      `${LT}td align="right" width="60"${GT}${countCell}${LT}/td${GT}` +
+      `${LT}/tr${GT}`
+    );
+  });
+
+  return [
+    `${LT}b${GT}Commit rhythm${LT}/b${GT} ${LT}sub${GT}· past year${LT}/sub${GT}`,
+    ``,
+    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}${rows.join("")}${LT}/tbody${GT}${LT}/table${GT}`,
+  ].join("\n");
 }
 
 // ------------------------------------------------------------------
 // Anime strip
-// Correction #9: escape year for consistency.
 // ------------------------------------------------------------------
 async function getAnimeCover(searchTerm) {
   try {
@@ -317,6 +594,7 @@ async function getAnimeCover(searchTerm) {
             title { english romaji }
             coverImage { large medium }
             startDate { year }
+            genres
             siteUrl
           }
         }`,
@@ -331,6 +609,7 @@ async function getAnimeCover(searchTerm) {
       title: m.title.english || m.title.romaji,
       cover: m.coverImage.large || m.coverImage.medium,
       year:  m.startDate?.year || null,
+      genres: (m.genres || []).slice(0, 2),
       url:   m.siteUrl,
     };
   } catch (err) {
@@ -343,69 +622,57 @@ async function getAnimeStrip() {
   const results = await Promise.all(ANIME_LIST.map((a) => getAnimeCover(a.search)));
   const cells = ANIME_LIST.map((a, i) => {
     const r = results[i];
-    const rank = String(i + 1).padStart(2, "0");
-    const rankHtml  = `${LT}sub${GT}${LT}code${GT}${rank}${LT}/code${GT}${LT}/sub${GT}`;
-    const titleHtml = `${LT}b${GT}${escText(a.name)}${LT}/b${GT}`;
-    const yearHtml  = r?.year
-      ? `${LT}sub${GT}${escText(String(r.year))}${LT}/sub${GT}`
+    const title = `${LT}b${GT}${escText(a.name)}${LT}/b${GT}`;
+
+    const yearHtml = r?.year
+      ? `${LT}sub${GT}${LT}code${GT}${escText(String(r.year))}${LT}/code${GT}${LT}/sub${GT}`
+      : "";
+    const genreHtml = r?.genres?.length
+      ? `${LT}sub${GT}${escText(r.genres.join(", "))}${LT}/sub${GT}`
       : "";
 
     if (!r) {
-      return [
-        `${LT}td align="center" width="20%" valign="top"${GT}`,
-        rankHtml,
-        `${LT}br/${GT}`,
-        titleHtml,
-        `${LT}/td${GT}`,
-      ].join("");
+      return `${LT}td align="center" width="20%" valign="top"${GT}${title}${LT}/td${GT}`;
     }
 
     const img = IMG(r.cover, a.name, `width="140"`);
     return [
       `${LT}td align="center" width="20%" valign="top"${GT}`,
-      `${A(r.url, img)}`,
-      `${LT}br/${GT}`,
-      `${rankHtml}${LT}br/${GT}`,
-      `${titleHtml}${LT}br/${GT}`,
-      yearHtml,
+      A(r.url, img),
+      `${LT}br/${GT}${LT}br/${GT}`,
+      title,
+      yearHtml ? `${LT}br/${GT}${yearHtml}` : "",
+      genreHtml ? `${LT}br/${GT}${genreHtml}` : "",
       `${LT}/td${GT}`,
-    ].join("");
+    ].filter(Boolean).join("");
   });
-  return `${LT}table${GT}\n${LT}tr${GT}\n${cells.join("\n")}\n${LT}/tr${GT}\n${LT}/table${GT}`;
+  return `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}${LT}tr${GT}\n${cells.join("\n")}\n${LT}/tr${GT}${LT}/tbody${GT}${LT}/table${GT}`;
 }
 
 // ------------------------------------------------------------------
 // Recent activity
-// Correction #1: language badge is now <code>, not dot+text.
 // ------------------------------------------------------------------
 async function getActivity() {
-  const { data } = await octo.repos.listForUser({
-    username: USER,
-    sort: "pushed",
-    per_page: 50,
-  });
-
-  const recent = data
+  const repos = await getAllRepos();
+  const recent = repos
     .filter((r) => !r.fork && !PINNED.has(r.name))
     .slice(0, 5);
 
   if (recent.length === 0) {
-    return `${LT}sub${GT}${LT}i${GT}No recent activity outside pinned projects.${LT}/i${GT}${LT}/sub${GT}`;
+    return meta("No recent activity outside pinned projects.");
   }
 
   const items = recent.map((r) => {
     const rawDesc = r.description?.trim();
-    const descHtml = rawDesc
-      ? escText(rawDesc)
-      : `${LT}i${GT}no description${LT}/i${GT}`;
-    const langBit = r.language
-      ? ` ${LT}code${GT}${escText(r.language)}${LT}/code${GT}`
-      : "";
     const link = A(r.html_url, `${LT}b${GT}${escText(r.name)}${LT}/b${GT}`);
+    const date = `${fmtRelative(r.pushed_at)} · ${fmtAbsolute(r.pushed_at)}`;
+    const metaLine = rawDesc
+      ? `${LT}sub${GT}${escText(clip(rawDesc, 75))} · ${escText(date)}${LT}/sub${GT}`
+      : `${LT}sub${GT}${escText(date)}${LT}/sub${GT}`;
     return [
       `${LT}li${GT}`,
-      `${link}${langBit}`,
-      `${LT}br/${GT}${LT}sub${GT}${descHtml} · ${escText(fmtDate(r.pushed_at))}${LT}/sub${GT}`,
+      link,
+      `${LT}br/${GT}${metaLine}`,
       `${LT}/li${GT}`,
     ].join("");
   });
@@ -415,74 +682,82 @@ async function getActivity() {
 
 // ------------------------------------------------------------------
 // WakaTime
-// Correction #1: no dots — items rendered as clean rows.
-// Correction #2: no inline style — uses <h3> for total.
-// Correction #5: separator spacing standardized (&nbsp;·&nbsp; everywhere).
-// Correction #8: <br/> after sectionLabel so the table breathes.
 // ------------------------------------------------------------------
 async function getWaka() {
-  if (!process.env.WAKATIME_API_KEY) {
-    return `${LT}sub${GT}${LT}i${GT}Connect a WakaTime account to populate this section.${LT}/i${GT}${LT}/sub${GT}`;
+  const w = await getWakaData();
+  if (!w.available) {
+    return process.env.WAKATIME_API_KEY
+      ? meta("WakaTime fetch failed.")
+      : meta("Connect a WakaTime account to populate this section.");
   }
-  const auth = Buffer.from(`${process.env.WAKATIME_API_KEY}:`).toString("base64");
-  const res = await fetch(
-    "https://wakatime.com/api/v1/users/current/stats/last_7_days",
-    { headers: { Authorization: `Basic ${auth}` } }
-  );
-  if (!res.ok) {
-    let body = "";
-    try { body = await res.text(); } catch {}
-    console.warn(`WakaTime ${res.status}: ${body}`);
-    return `${LT}sub${GT}${LT}i${GT}WakaTime fetch failed.${LT}/i${GT}${LT}/sub${GT}`;
+  const { data, delta } = w;
+
+  const total = fmtHM(data.total_seconds || 0);
+  const daily = fmtHM(data.daily_average || 0);
+  const bestValue = data.best_day ? fmtHM(data.best_day.total_seconds) : "—";
+  const bestLabel = data.best_day ? fmtAbsolute(data.best_day.date) : "best day";
+
+  let deltaHtml = "";
+  if (delta !== null && delta !== undefined) {
+    const arrow = delta >= 0 ? "↑" : "↓";
+    deltaHtml = `${LT}sub${GT}${arrow} ${Math.abs(delta)}% vs prev week${LT}/sub${GT}`;
   }
-  const { data } = await res.json();
 
-  const total = data.human_readable_total || "0 hrs";
-  const daily = data.human_readable_daily_average || fmtHM(data.daily_average || 0);
-  const best  = data.best_day
-    ? `${fmtShortDate(data.best_day.date)}  ·  ${fmtHM(data.best_day.total_seconds)}`
-    : null;
+  const hero = [
+    `${LT}sub${GT}this week${LT}/sub${GT}${LT}br/${GT}`,
+    `${LT}h2${GT}${escText(total)}${LT}/h2${GT}`,
+    deltaHtml || "",
+  ].filter(Boolean).join("");
 
-  function itemList(items, valueFn) {
+  const subStat = (value, label) =>
+    `${LT}td align="center" width="50%"${GT}` +
+    `${LT}sub${GT}${escText(label)}${LT}/sub${GT}` +
+    `${LT}br/${GT}` +
+    `${LT}b${GT}${escText(value)}${LT}/b${GT}` +
+    `${LT}/td${GT}`;
+
+  const subRow = [
+    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}${LT}tr${GT}`,
+    subStat(daily,     "daily avg"),
+    subStat(bestValue, bestLabel),
+    `${LT}/tr${GT}${LT}/tbody${GT}${LT}/table${GT}`,
+  ].join("");
+
+  function listCard(title, items, valueFn, numbered = false) {
     if (!items || items.length === 0) return "";
-    const rows = items.map((it) => {
+    const rows = items.map((it, i) => {
+      const name = it.name.length > 12 ? it.name.slice(0, 11) + "…" : it.name;
+      const prefix = numbered ? `${i + 1}.  ` : "";
       return (
         `${LT}tr${GT}` +
-        `${LT}td${GT}${LT}sub${GT}${escText(it.name)}${LT}/sub${GT}${LT}/td${GT}` +
+        `${LT}td${GT}${LT}sub${GT}${escText(prefix + name)}${LT}/sub${GT}${LT}/td${GT}` +
         `${LT}td align="right"${GT}${LT}sub${GT}${escText(valueFn(it))}${LT}/sub${GT}${LT}/td${GT}` +
         `${LT}/tr${GT}`
       );
     });
-    return `${LT}table${GT}${rows.join("")}${LT}/table${GT}`;
+    return [
+      `${LT}td valign="top" width="33%"${GT}`,
+      `${LT}sub${GT}${escText(title)}${LT}/sub${GT}`,
+      `${LT}br/${GT}`,
+      `${LT}table role="presentation"${GT}${LT}tbody${GT}${rows.join("")}${LT}/tbody${GT}${LT}/table${GT}`,
+      `${LT}/td${GT}`,
+    ].join("");
   }
 
-  const langs    = itemList((data.languages || []).slice(0, 6), (l) => `${l.percent.toFixed(1)}%`);
-  const editors  = itemList((data.editors   || []).slice(0, 4), (e) => `${e.percent.toFixed(0)}%`);
-  const projects = itemList((data.projects  || []).slice(0, 4), (p) => fmtHM(p.total_seconds));
+  const langs    = (data.languages || []).slice(0, 5);
+  const editors  = (data.editors   || []).slice(0, 4);
+  const projects = (data.projects  || []).slice(0, 4);
 
-  const br2 = `${LT}br/${GT}${LT}br/${GT}`;
+  const cardsRow = [
+    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}${LT}tr${GT}`,
+    listCard("languages", langs,    (l) => `${l.percent.toFixed(1)}%`),
+    listCard("editors",   editors,  (e) => `${e.percent.toFixed(0)}%`),
+    listCard("projects",  projects, (p) => fmtHM(p.total_seconds), true),
+    `${LT}/tr${GT}${LT}/tbody${GT}${LT}/table${GT}`,
+  ].join("");
 
-  const parts = [];
-  parts.push(`${LT}h3${GT}${escText(total)}${LT}/h3${GT}${LT}sub${GT}total this week${LT}/sub${GT}`);
-  parts.push(
-    `${LT}sub${GT}Daily avg  ·  ${escText(daily)}` +
-    (best ? `  &nbsp;·&nbsp;  Best day  ·  ${escText(best)}` : "") +
-    `${LT}/sub${GT}`
-  );
-  if (langs)    parts.push(`${sectionLabel("LANGUAGES")}${LT}br/${GT}${langs}`);
-  if (editors)  parts.push(`${sectionLabel("EDITORS")}${LT}br/${GT}${editors}`);
-  if (projects) parts.push(`${sectionLabel("PROJECTS")}${LT}br/${GT}${projects}`);
-
-  return parts.join(br2);
-}
-
-// ------------------------------------------------------------------
-// Timestamp
-// ------------------------------------------------------------------
-function renderTimestamp() {
-  const now = new Date();
-  const nowStr = now.toISOString().replace("T", " ").slice(0, 16) + " UTC";
-  return `${LT}sub${GT}${LT}code${GT}REFRESHED · ${escText(nowStr)}${LT}/code${GT}${LT}/sub${GT}`;
+  const br = `${LT}br/${GT}`;
+  return `${hero}${br}${subRow}${br}${cardsRow}`;
 }
 
 // ------------------------------------------------------------------
@@ -490,22 +765,29 @@ function renderTimestamp() {
 // ------------------------------------------------------------------
 const tpl = await fs.readFile(TEMPLATE, "utf8");
 
-const [pinsHtml, coderHtml, personHtml, numbersHtml] = await Promise.all([
-  renderPins(),
-  renderCoder(),
-  renderPerson(),
-  renderNumbers(),
+const [
+  bioHtml, workHtml, statsHtml, lifeHtml,
+  workPreview, statsPreview, lifePreview,
+] = await Promise.all([
+  renderBio(),
+  renderWork(),
+  renderStats(),
+  renderLife(),
+  renderWorkPreview(),
+  renderStatsPreview(),
+  renderLifePreview(),
 ]);
 const bannerHtml = renderBanner();
-const tsHtml     = renderTimestamp();
 
 let out = tpl;
-out = replaceBlock(out, "BANNER",    bannerHtml);
-out = replaceBlock(out, "PINS",      pinsHtml);
-out = replaceBlock(out, "CODER",     coderHtml);
-out = replaceBlock(out, "PERSON",    personHtml);
-out = replaceBlock(out, "NUMBERS",   numbersHtml);
-out = replaceBlock(out, "TIMESTAMP", tsHtml);
+out = replaceBlock(out, "BANNER",         bannerHtml);
+out = replaceBlock(out, "BIO",            bioHtml);
+out = replaceBlock(out, "WORK",           workHtml);
+out = replaceBlock(out, "STATS",          statsHtml);
+out = replaceBlock(out, "LIFE",           lifeHtml);
+out = replaceBlock(out, "WORK_PREVIEW",   workPreview);
+out = replaceBlock(out, "STATS_PREVIEW",  statsPreview);
+out = replaceBlock(out, "LIFE_PREVIEW",   lifePreview);
 
 const HASHED_SVGS = [
   "assets/banner-dark.svg",

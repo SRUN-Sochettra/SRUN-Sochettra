@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       # ================================================================
-      # CODER row A — left card: languages
+      # WORK — languages
       # ================================================================
       - name: Languages metrics
         uses: lowlighter/metrics@v3.34
@@ -47,7 +47,7 @@ jobs:
           plugin_languages_threshold: 0%
 
       # ================================================================
-      # CODER row A — right card: header + activity + community + repos + topics
+      # WORK — activity, repos, topics (no community for solo dev)
       # ================================================================
       - name: Activity metrics
         uses: lowlighter/metrics@v3.34
@@ -57,7 +57,7 @@ jobs:
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: SRUN-Sochettra
           template: classic
-          base: header, activity, community, repositories
+          base: header, activity, repositories
           config_display: large
           config_padding: 8, 3%
           config_timezone: Asia/Phnom_Penh
@@ -66,7 +66,7 @@ jobs:
           plugin_topics_mode: icons
 
       # ================================================================
-      # PERSON row A — left card: anilist
+      # LIFE — anilist
       # ================================================================
       - name: Anilist metrics
         uses: lowlighter/metrics@v3.34
@@ -89,7 +89,7 @@ jobs:
           plugin_anilist_limit_characters: 22
 
       # ================================================================
-      # PERSON row A — right card: stars + people
+      # LIFE — social (stars + people)
       # ================================================================
       - name: Social metrics
         uses: lowlighter/metrics@v3.34
@@ -113,7 +113,7 @@ jobs:
           plugin_people_size: 32
 
       # ================================================================
-      # NUMBERS row A — left card: isocalendar full year
+      # STATS — isocalendar full year
       # ================================================================
       - name: Isocalendar metrics
         uses: lowlighter/metrics@v3.34
@@ -131,7 +131,7 @@ jobs:
           plugin_isocalendar_duration: full-year
 
       # ================================================================
-      # NUMBERS row A — right card: followup + calendar
+      # STATS — followup + calendar
       # ================================================================
       - name: Followup metrics
         uses: lowlighter/metrics@v3.34
