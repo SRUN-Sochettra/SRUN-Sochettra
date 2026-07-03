@@ -30,7 +30,7 @@ const ANILIST_USER = "scarletsages";
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
 
 // ------------------------------------------------------------------
-// Tag builders — LT/GT survive chat paste
+// Tag builders
 // ------------------------------------------------------------------
 const LT = String.fromCharCode(60);
 const GT = String.fromCharCode(62);
@@ -141,67 +141,30 @@ async function getProfile() {
   }
 }
 
-let _contribCache = null;
-async function getContribs() {
-  if (_contribCache) return _contribCache;
-
-  const base = { commitsLastYear: 0, starsGiven: 0, perWeekday: [0,0,0,0,0,0,0] };
-
-  // Query 1: commits + weekday distribution
+let _commitsLastYearCache = null;
+async function getCommitsLastYear() {
+  if (_commitsLastYearCache !== null) return _commitsLastYearCache;
   try {
-    const q1 = `
+    const q = `
       query($login: String!) {
         user(login: $login) {
           contributionsCollection {
             totalCommitContributions
             restrictedContributionsCount
-            contributionCalendar {
-              weeks {
-                contributionDays {
-                  contributionCount
-                  weekday
-                }
-              }
-            }
           }
         }
       }
     `;
-    const g1 = await octo.graphql(q1, { login: USER });
-    const c = g1?.user?.contributionsCollection;
-    base.commitsLastYear =
+    const g = await octo.graphql(q, { login: USER });
+    const c = g?.user?.contributionsCollection;
+    _commitsLastYearCache =
       (c?.totalCommitContributions || 0) + (c?.restrictedContributionsCount || 0);
-
-    if (!c?.contributionCalendar?.weeks?.length) {
-      console.warn("contributionCalendar returned no weeks — perWeekday will stay zero.");
-    }
-    const weeks = c?.contributionCalendar?.weeks || [];
-    for (const w of weeks) {
-      for (const day of (w.contributionDays || [])) {
-        base.perWeekday[day.weekday] += day.contributionCount || 0;
-      }
-    }
+    return _commitsLastYearCache;
   } catch (err) {
     console.warn("commits query failed:", err.message);
+    _commitsLastYearCache = 0;
+    return 0;
   }
-
-  // Query 2: stars given (isolated — failure doesn't affect others)
-  try {
-    const q2 = `
-      query($login: String!) {
-        user(login: $login) {
-          starredRepositories { totalCount }
-        }
-      }
-    `;
-    const g2 = await octo.graphql(q2, { login: USER });
-    base.starsGiven = g2?.user?.starredRepositories?.totalCount || 0;
-  } catch (err) {
-    console.warn("stars given query failed:", err.message);
-  }
-
-  _contribCache = base;
-  return base;
 }
 
 let _anilistCurrentCache = null;
@@ -265,21 +228,18 @@ async function getWakaData() {
   }
   const auth = Buffer.from(`${process.env.WAKATIME_API_KEY}:`).toString("base64");
   const headers = { Authorization: `Basic ${auth}` };
-
   async function fetchStats(range) {
     const url = `https://wakatime.com/api/v1/users/current/stats/${range}`;
     const res = await fetch(url, { headers });
     if (!res.ok) return null;
     return (await res.json()).data;
   }
-
   try {
     const [d7, d14] = await Promise.all([
       fetchStats("last_7_days"),
       fetchStats("last_14_days"),
     ]);
     if (!d7) { _wakaCache = { available: false }; return _wakaCache; }
-
     let delta = null;
     if (d14) {
       const prev = (d14.total_seconds || 0) - (d7.total_seconds || 0);
@@ -287,7 +247,6 @@ async function getWakaData() {
         delta = Math.round(((d7.total_seconds - prev) / prev) * 100);
       }
     }
-
     _wakaCache = { available: true, data: d7, delta };
     return _wakaCache;
   } catch (err) {
@@ -337,8 +296,8 @@ async function renderWorkPreview() {
 }
 
 async function renderStatsPreview() {
-  const c = await getContribs();
-  return `${LT}sub${GT}${fmtNum(c.commitsLastYear)} commits · past year${LT}/sub${GT}`;
+  const count = await getCommitsLastYear();
+  return `${LT}sub${GT}${fmtNum(count)} commits · past year${LT}/sub${GT}`;
 }
 
 async function renderLifePreview() {
@@ -440,144 +399,30 @@ async function renderWork() {
   const langs = renderMetricsCard("./assets/metrics-languages.svg", "Languages");
   const activityMetric = renderMetricsCard("./assets/metrics-activity.svg", "Activity");
 
-  const rule = `${LT}hr/${GT}`;
-  return `${activityWakaRow}\n\n${rule}\n\n${pins}\n\n${rule}\n\n${langs}\n\n${activityMetric}`;
+  return `${activityWakaRow}\n\n${pins}\n\n${langs}\n\n${activityMetric}`;
 }
 
 // ------------------------------------------------------------------
-// LIFE dropdown
+// LIFE dropdown — 100% lowlighter + curated anime strip
 // ------------------------------------------------------------------
 async function renderLife() {
-  const [current, animeMd, profile] = await Promise.all([
-    getAnilistCurrent(),
-    getAnimeStrip(),
-    getProfile(),
-  ]);
+  const animeMd = await getAnimeStrip();
+  const anilist = renderMetricsCard("./assets/metrics-anilist.svg", "AniList");
+  const social  = renderMetricsCard("./assets/metrics-social.svg",  "Stars and people");
 
-  let watchingHero = "";
-  if (current) {
-    const cover = current.cover
-      ? A(current.url || "#", IMG(current.cover, current.title, `width="100"`))
-      : "";
-    const title = current.url
-      ? A(current.url, `${LT}b${GT}${escText(current.title)}${LT}/b${GT}`)
-      : `${LT}b${GT}${escText(current.title)}${LT}/b${GT}`;
-    const progress = current.total
-      ? `episode ${current.progress} of ${current.total}`
-      : `episode ${current.progress}`;
-    watchingHero = [
-      `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}${LT}tr${GT}`,
-      `${LT}td width="120" valign="top"${GT}${cover}${LT}/td${GT}`,
-      `${LT}td valign="top"${GT}`,
-      `${LT}sub${GT}now watching${LT}/sub${GT}${LT}br/${GT}`,
-      `${title}${LT}br/${GT}`,
-      `${LT}sub${GT}${escText(progress)}${LT}/sub${GT}`,
-      `${LT}/td${GT}`,
-      `${LT}/tr${GT}${LT}/tbody${GT}${LT}/table${GT}`,
-    ].join("");
-  }
-
-  const stat = (value, label) =>
-    `${LT}td align="center" width="50%"${GT}` +
-    `${LT}b${GT}${escText(value)}${LT}/b${GT}` +
-    `${LT}br/${GT}` +
-    `${LT}sub${GT}${escText(label)}${LT}/sub${GT}` +
-    `${LT}/td${GT}`;
-  const social = [
-    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}${LT}tr${GT}`,
-    stat(fmtNum(profile.followers || 0), "followers"),
-    stat(fmtNum(profile.following || 0), "following"),
-    `${LT}/tr${GT}${LT}/tbody${GT}${LT}/table${GT}`,
-  ].join("");
-
-  const socialMetric = renderMetricsCard("./assets/metrics-social.svg", "Stars and people");
-
-  const rule = `${LT}hr/${GT}`;
-  const parts = [];
-  if (watchingHero) {
-    parts.push(watchingHero);
-    parts.push(rule);
-  }
-  parts.push(`${LT}b${GT}Top anime${LT}/b${GT}`);
-  parts.push(animeMd);
-  parts.push(rule);
-  parts.push(socialMetric);
-  parts.push(social);
-  return parts.join("\n\n");
+  return `${anilist}\n\n${animeMd}\n\n${social}`;
 }
 
 // ------------------------------------------------------------------
-// STATS dropdown
+// STATS dropdown — 100% lowlighter
 // ------------------------------------------------------------------
 async function renderStats() {
-  const [profile, contribs] = await Promise.all([getProfile(), getContribs()]);
+  const iso          = renderMetricsCard("./assets/metrics-iso.svg",          "Contribution isocalendar");
+  const habits       = renderMetricsCard("./assets/metrics-habits.svg",       "Coding habits");
+  const followup     = renderMetricsCard("./assets/metrics-followup.svg",     "Follow-ups and calendar");
+  const achievements = renderMetricsCard("./assets/metrics-achievements.svg", "Achievements");
 
-  const iso = renderMetricsCard("./assets/metrics-iso.svg", "Contribution isocalendar");
-  const followup = renderMetricsCard("./assets/metrics-followup.svg", "Follow-ups and calendar");
-  const rhythm = renderCommitRhythm(contribs.perWeekday);
-
-  const stat = (value, label) =>
-    `${LT}td align="center" width="20%"${GT}` +
-    `${LT}b${GT}${escText(value)}${LT}/b${GT}` +
-    `${LT}br/${GT}` +
-    `${LT}sub${GT}${escText(label)}${LT}/sub${GT}` +
-    `${LT}/td${GT}`;
-
-  const statsRow = [
-    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}`,
-    `${LT}tr${GT}`,
-    stat(fmtNum(profile.public_repos || 0), "repos"),
-    stat(fmtNum(contribs.commitsLastYear),  "commits · 1y"),
-    stat(fmtNum(profile.followers || 0),    "followers"),
-    stat(fmtNum(profile.following || 0),    "following"),
-    stat(fmtNum(contribs.starsGiven),       "stars given"),
-    `${LT}/tr${GT}`,
-    `${LT}/tbody${GT}${LT}/table${GT}`,
-  ].join("\n");
-
-  const rule = `${LT}hr/${GT}`;
-  return `${iso}\n\n${rhythm}\n\n${rule}\n\n${followup}\n\n${rule}\n\n${statsRow}`;
-}
-
-// ------------------------------------------------------------------
-// Commit rhythm — Monday-first, peak day bold
-// ------------------------------------------------------------------
-function renderCommitRhythm(perWeekday) {
-  const total = perWeekday.reduce((a, b) => a + b, 0);
-  if (total === 0) return "";
-
-  // GitHub returns 0=Sunday..6=Saturday. Reorder to Monday-first.
-  const orderedIdx = [1, 2, 3, 4, 5, 6, 0];
-  const ordered = orderedIdx.map((i) => perWeekday[i]);
-  const dayNames = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
-
-  const max = Math.max(...ordered);
-
-  const rows = ordered.map((count, i) => {
-    const isPeak = count === max && count > 0;
-    const width = max > 0 ? Math.round((count / max) * 20) : 0;
-    // ▓ and ░ share metrics in Unicode Block Elements range
-    const bar = "▓".repeat(width) + "░".repeat(20 - width);
-    const dayCell = isPeak
-      ? `${LT}b${GT}${LT}sub${GT}${dayNames[i]}${LT}/sub${GT}${LT}/b${GT}`
-      : `${LT}sub${GT}${dayNames[i]}${LT}/sub${GT}`;
-    const countCell = isPeak
-      ? `${LT}b${GT}${LT}sub${GT}${fmtNum(count)}${LT}/sub${GT}${LT}/b${GT}`
-      : `${LT}sub${GT}${fmtNum(count)}${LT}/sub${GT}`;
-    return (
-      `${LT}tr${GT}` +
-      `${LT}td width="40"${GT}${dayCell}${LT}/td${GT}` +
-      `${LT}td${GT}${LT}code${GT}${bar}${LT}/code${GT}${LT}/td${GT}` +
-      `${LT}td align="right" width="60"${GT}${countCell}${LT}/td${GT}` +
-      `${LT}/tr${GT}`
-    );
-  });
-
-  return [
-    `${LT}b${GT}Commit rhythm${LT}/b${GT} ${LT}sub${GT}· past year${LT}/sub${GT}`,
-    ``,
-    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}${rows.join("")}${LT}/tbody${GT}${LT}/table${GT}`,
-  ].join("\n");
+  return `${iso}\n\n${habits}\n\n${followup}\n\n${achievements}`;
 }
 
 // ------------------------------------------------------------------
@@ -681,7 +526,7 @@ async function getActivity() {
 }
 
 // ------------------------------------------------------------------
-// WakaTime
+// WakaTime — kept because lowlighter doesn't have a good waka plugin
 // ------------------------------------------------------------------
 async function getWaka() {
   const w = await getWakaData();
@@ -797,7 +642,9 @@ const HASHED_SVGS = [
   "assets/metrics-anilist.svg",
   "assets/metrics-social.svg",
   "assets/metrics-iso.svg",
+  "assets/metrics-habits.svg",
   "assets/metrics-followup.svg",
+  "assets/metrics-achievements.svg",
 ];
 
 const hashes = await Promise.all(HASHED_SVGS.map(hashFile));
