@@ -2,9 +2,15 @@
 
 <!--START:BANNER-->
 <picture>
+<<<<<<< HEAD
   <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=d2362857" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=f449238e" />
   <img src="./assets/banner-dark.svg?v=d2362857" alt="Srun Sochettra" width="100%" />
+=======
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=735e97be" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=62da2e0d" />
+  <img src="./assets/banner-dark.svg?v=735e97be" alt="Srun Sochettra" width="100%" />
+>>>>>>> 7452cdf1d5afc3450c01dc90b7a787943564727a
 </picture>
 <!--END:BANNER-->
 
@@ -23,6 +29,24 @@
 <br />
 
 <!--START:WORK-->
+<<<<<<< HEAD
+=======
+<table role="presentation" width="100%"><tbody>
+<tr>
+<td width="50%" align="center" valign="top"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;include_all_commits=true&amp;count_private=true&amp;show_icons=true&amp;rank_icon=github&amp;border_radius=8" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&amp;theme=default&amp;hide_border=true&amp;include_all_commits=true&amp;count_private=true&amp;show_icons=true&amp;rank_icon=github&amp;border_radius=8" />
+  <img src="https://github-readme-stats.vercel.app/api?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;include_all_commits=true&amp;count_private=true&amp;show_icons=true&amp;rank_icon=github&amp;border_radius=8" alt="GitHub stats" />
+</picture></td>
+<td width="50%" align="center" valign="top"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/wakatime?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/wakatime?username=SRUN-Sochettra&amp;theme=default&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" />
+  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" alt="WakaTime stats" />
+</picture></td>
+</tr>
+</tbody></table>
+
+>>>>>>> 7452cdf1d5afc3450c01dc90b7a787943564727a
 <table role="presentation"><tbody><tr><td width="50%" align="center"><a href="https://github.com/SRUN-Sochettra/EggScan"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=EggScan&amp;theme=tokyonight&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
   <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=SRUN-Sochettra&amp;repo=EggScan&amp;theme=default&amp;hide_border=true&amp;show_owner=false&amp;border_radius=8" />
@@ -55,14 +79,22 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" alt="Top languages" />
 </picture></div>
 
+<<<<<<< HEAD
 <div align="center"><img src="./assets/metrics-activity.svg?v=eb2158ca" alt="Activity" width="100%" /></div>
+=======
+<div align="center"><img src="./assets/metrics-activity.svg?v=d6214194" alt="Activity" width="100%" /></div>
+>>>>>>> 7452cdf1d5afc3450c01dc90b7a787943564727a
 <!--END:WORK-->
 
 </details>
 
 <details>
 <summary>&nbsp;<b>STATS</b>&nbsp; <!--START:STATS_PREVIEW-->
+<<<<<<< HEAD
 <sub>0 commits · past year</sub>
+=======
+<sub>767 commits · past year</sub>
+>>>>>>> 7452cdf1d5afc3450c01dc90b7a787943564727a
 <!--END:STATS_PREVIEW--></summary>
 <br />
 
@@ -70,12 +102,33 @@
 <div align="center"><img src="./assets/metrics-iso.svg?v=52133388" alt="Contribution isocalendar" width="100%" /></div>
 
 <div align="center"><picture>
+<<<<<<< HEAD
   <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
   <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=flat&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
   <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" alt="Achievement trophies" />
 </picture></div>
 
 <div align="center"><img src="./assets/metrics-followup.svg?v=e8934fe0" alt="Follow-ups and calendar" width="100%" /></div>
+=======
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&amp;theme=react-dark&amp;hide_border=true&amp;bg_color=00000000&amp;area=true&amp;radius=8" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&amp;theme=minimal&amp;hide_border=true&amp;bg_color=00000000&amp;area=true&amp;radius=8" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=SRUN-Sochettra&amp;theme=react-dark&amp;hide_border=true&amp;bg_color=00000000&amp;area=true&amp;radius=8" alt="Activity graph" />
+</picture></div>
+
+<div align="center"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;border_radius=8" />
+  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=SRUN-Sochettra&amp;theme=default&amp;hide_border=true&amp;border_radius=8" />
+  <img src="https://streak-stats.demolab.com/?user=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;border_radius=8" alt="Commit streak stats" />
+</picture></div>
+
+<div align="center"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=flat&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
+  <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" alt="Achievement trophies" />
+</picture></div>
+
+<div align="center"><img src="./assets/metrics-followup.svg?v=29a6f837" alt="Follow-ups and calendar" width="100%" /></div>
+>>>>>>> 7452cdf1d5afc3450c01dc90b7a787943564727a
 <!--END:STATS-->
 
 </details>
@@ -87,9 +140,15 @@
 <br />
 
 <!--START:LIFE-->
+<<<<<<< HEAD
 <div align="center"><img src="./assets/metrics-anilist.svg?v=eac5b584" alt="AniList" width="100%" /></div>
 
 <div align="center"><img src="./assets/metrics-social.svg?v=fd2e03fe" alt="Stars and people" width="100%" /></div>
+=======
+<div align="center"><img src="./assets/metrics-anilist.svg?v=22ba9fb7" alt="AniList" width="100%" /></div>
+
+<div align="center"><img src="./assets/metrics-social.svg?v=497a43c6" alt="Stars and people" width="100%" /></div>
+>>>>>>> 7452cdf1d5afc3450c01dc90b7a787943564727a
 <!--END:LIFE-->
 
 </details>
