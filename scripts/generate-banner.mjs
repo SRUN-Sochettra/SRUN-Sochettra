@@ -324,20 +324,20 @@ function renderSvg(s, anime, fonts, themeName) {
   <text x="1216" y="68" text-anchor="end" class="mono" fill="${t.textMuted}" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed ${esc(s.updatedAt)}</text>
 
   <!-- ===== LEFT: persona ===== -->
-  <text x="64" y="148" class="khmer" fill="${t.khmerColor}" font-size="72">${KHMER_GREETING}</text>
+  <text x="64" y="188" class="khmer" fill="${t.khmerColor}" font-size="72">${KHMER_GREETING}</text>
 
-  <text x="64" y="218" class="display" fill="${t.textPrimary}" font-size="56" letter-spacing="-0.025em">
+  <text x="64" y="258" class="display" fill="${t.textPrimary}" font-size="56" letter-spacing="-0.025em">
     ${DISPLAY_NAME}
   </text>
 
   <!-- Editorial rule -->
-  <g transform="translate(64, 236)">
+  <g transform="translate(64, 276)">
     <rect x="0" y="0" width="22" height="3" fill="${t.accent}" rx="1.5"/>
     <rect x="28" y="1" width="100" height="1" fill="${t.ruleStrong}"/>
   </g>
 
   <!-- Tagline -->
-  <text x="64" y="278" class="sans" fill="${t.textPrimary}" font-size="16" font-weight="500">${esc(TAGLINE)}</text>
+  <text x="64" y="318" class="sans" fill="${t.textPrimary}" font-size="16" font-weight="500">${esc(TAGLINE)}</text>
 
   <!-- Vertical separator -->
   <line x1="780" y1="100" x2="780" y2="340" stroke="${t.rule}" stroke-width="1"/>

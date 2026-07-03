@@ -24,7 +24,7 @@ const octo = new Octokit({ auth: process.env.GH_TOKEN });
 // External card URLs — proven, ready-made services
 // ------------------------------------------------------------------
 
-// github-readme-stats: pin cards, stats card, waka card, top langs
+// github-readme-stats: pin cards, top langs
 // Using tokyonight theme (widely used, matches your banner palette)
 const GRS_THEME_DARK = "tokyonight";
 const GRS_THEME_LIGHT = "default";
@@ -41,20 +41,6 @@ function pinCardUrl(repo, theme) {
   return `https://github-readme-stats.vercel.app/api/pin/?${q}`;
 }
 
-function statsCardUrl(theme) {
-  const q = [
-    `username=${USER}`,
-    `theme=${theme}`,
-    `hide_border=true`,
-    `include_all_commits=true`,
-    `count_private=true`,
-    `show_icons=true`,
-    `rank_icon=github`,
-    `border_radius=8`,
-  ].join("&");
-  return `https://github-readme-stats.vercel.app/api?${q}`;
-}
-
 function topLangsUrl(theme) {
   const q = [
     `username=${USER}`,
@@ -65,29 +51,6 @@ function topLangsUrl(theme) {
     `border_radius=8`,
   ].join("&");
   return `https://github-readme-stats.vercel.app/api/top-langs/?${q}`;
-}
-
-function wakaCardUrl(theme) {
-  const q = [
-    `username=${USER}`,
-    `theme=${theme}`,
-    `hide_border=true`,
-    `layout=compact`,
-    `langs_count=8`,
-    `border_radius=8`,
-  ].join("&");
-  return `https://github-readme-stats.vercel.app/api/wakatime?${q}`;
-}
-
-// github-readme-streak-stats
-function streakCardUrl(theme) {
-  const q = [
-    `user=${USER}`,
-    `theme=${theme}`,
-    `hide_border=true`,
-    `border_radius=8`,
-  ].join("&");
-  return `https://streak-stats.demolab.com/?${q}`;
 }
 
 // github-profile-trophy
@@ -101,19 +64,6 @@ function trophyUrl(theme) {
     `margin-h=15`,
   ].join("&");
   return `https://github-profile-trophy.vercel.app/?${q}`;
-}
-
-// github-readme-activity-graph (Ashutosh00710)
-function activityGraphUrl(theme) {
-  const q = [
-    `username=${USER}`,
-    `theme=${theme}`,
-    `hide_border=true`,
-    `bg_color=00000000`,
-    `area=true`,
-    `radius=8`,
-  ].join("&");
-  return `https://github-readme-activity-graph.vercel.app/graph?${q}`;
 }
 
 // ------------------------------------------------------------------
@@ -135,8 +85,6 @@ const PICTURE = (dark, light, altText, imgAttrs = `width="100%"`) => [
   `  ${IMG(dark, altText, imgAttrs)}`,
   `${LT}/picture${GT}`,
 ].join("\n");
-
-const meta = (t) => `${LT}sub${GT}${escText(t)}${LT}/sub${GT}`;
 
 // ------------------------------------------------------------------
 // String helpers
@@ -313,7 +261,10 @@ function renderExternalCard(darkUrl, lightUrl, alt) {
 // ------------------------------------------------------------------
 async function renderWorkPreview() {
   const repos = await getAllRepos();
-  const latest = repos.find((r) => !r.fork);
+  // Skip forks and the profile README repo itself (owner/owner shadow repo).
+  const latest = repos.find(
+    (r) => !r.fork && r.name.toLowerCase() !== USER.toLowerCase()
+  );
   if (!latest) return "";
   const parts = [
     escText(latest.name),
@@ -367,28 +318,10 @@ function renderPins() {
 }
 
 // ------------------------------------------------------------------
-// WORK dropdown — 100% ready-made
-// Layout: stats card + waka card side-by-side, then pins, then top langs
+// WORK dropdown — pins + top langs + activity metric
 // ------------------------------------------------------------------
 function renderWork() {
   const pins = renderPins();
-
-  const statsDark  = statsCardUrl(GRS_THEME_DARK);
-  const statsLight = statsCardUrl(GRS_THEME_LIGHT);
-  const wakaDark   = wakaCardUrl(GRS_THEME_DARK);
-  const wakaLight  = wakaCardUrl(GRS_THEME_LIGHT);
-
-  const statsPic = PICTURE(statsDark, statsLight, "GitHub stats", "");
-  const wakaPic  = PICTURE(wakaDark,  wakaLight,  "WakaTime stats", "");
-
-  const topRow = [
-    `${LT}table role="presentation" width="100%"${GT}${LT}tbody${GT}`,
-    `${LT}tr${GT}`,
-    `${LT}td width="50%" align="center" valign="top"${GT}${statsPic}${LT}/td${GT}`,
-    `${LT}td width="50%" align="center" valign="top"${GT}${wakaPic}${LT}/td${GT}`,
-    `${LT}/tr${GT}`,
-    `${LT}/tbody${GT}${LT}/table${GT}`,
-  ].join("\n");
 
   const langsDark  = topLangsUrl(GRS_THEME_DARK);
   const langsLight = topLangsUrl(GRS_THEME_LIGHT);
@@ -396,7 +329,7 @@ function renderWork() {
 
   const activityMetric = renderMetricsCard("./assets/metrics-activity.svg", "Activity");
 
-  return `${topRow}\n\n${pins}\n\n${topLangs}\n\n${activityMetric}`;
+  return `${pins}\n\n${topLangs}\n\n${activityMetric}`;
 }
 
 // ------------------------------------------------------------------
@@ -410,18 +343,10 @@ function renderLife() {
 }
 
 // ------------------------------------------------------------------
-// STATS dropdown — lowlighter iso + activity graph + streak + trophy + followup
+// STATS dropdown — iso + trophy + followup
 // ------------------------------------------------------------------
 function renderStats() {
   const iso = renderMetricsCard("./assets/metrics-iso.svg", "Contribution isocalendar");
-
-  const graphDark  = activityGraphUrl("react-dark");
-  const graphLight = activityGraphUrl("minimal");
-  const graph = renderExternalCard(graphDark, graphLight, "Activity graph");
-
-  const streakDark  = streakCardUrl("tokyonight");
-  const streakLight = streakCardUrl("default");
-  const streak = renderExternalCard(streakDark, streakLight, "Commit streak stats");
 
   const trophyDark  = trophyUrl("tokyonight");
   const trophyLight = trophyUrl("flat");
@@ -429,7 +354,7 @@ function renderStats() {
 
   const followup = renderMetricsCard("./assets/metrics-followup.svg", "Follow-ups and calendar");
 
-  return `${iso}\n\n${graph}\n\n${streak}\n\n${trophy}\n\n${followup}`;
+  return `${iso}\n\n${trophy}\n\n${followup}`;
 }
 
 // ------------------------------------------------------------------
