@@ -41,11 +41,7 @@
   <text x="64" y="68" class="mono" fill="#a8a29e" font-size="11" letter-spacing="0.3em" opacity="0.85">
     PHNOM PENH  ·  CAMBODIA
   </text>
-<<<<<<< HEAD
-  <text x="1216" y="68" text-anchor="end" class="mono" fill="#57534e" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed 2026-07-03 08:28 UTC</text>
-=======
-  <text x="1216" y="68" text-anchor="end" class="mono" fill="#57534e" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed 2026-07-03 08:02 UTC</text>
->>>>>>> 7452cdf1d5afc3450c01dc90b7a787943564727a
+  <text x="1216" y="68" text-anchor="end" class="mono" fill="#57534e" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed 2026-07-03 08:35 UTC</text>
 
   <!-- ===== LEFT: persona ===== -->
   <text x="64" y="188" class="khmer" fill="#60a5fa" font-size="72">សួស្តី</text>
@@ -79,14 +75,10 @@
   <text x="810" y="290" class="mono" fill="#d6d3d1" font-size="10" font-weight="700" letter-spacing="0.25em">LAST SHIPPED</text>
   
     <text x="810" y="316" class="sans" fill="#fafaf9" font-size="15" font-weight="600">SRUN-Sochettra</text>
-<<<<<<< HEAD
-    <text x="810" y="336" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.05em">JavaScript  ·  52m ago</text>
-=======
-    <text x="810" y="336" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.05em">JavaScript  ·  26m ago</text>
->>>>>>> 7452cdf1d5afc3450c01dc90b7a787943564727a
+    <text x="810" y="336" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.05em">JavaScript  ·  3m ago</text>
   
 
   <!-- Bottom rule + tiny BUILD signature -->
   <line x1="64" y1="358" x2="1216" y2="358" stroke="#1e293b" stroke-width="1" opacity="0.6"/>
-  <text x="64" y="374" class="mono" fill="#57534e" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD · 7d4f619 · 03 JUL 2026</text>
+  <text x="64" y="374" class="mono" fill="#57534e" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD · a7d2bfa · 03 JUL 2026</text>
 </svg>
