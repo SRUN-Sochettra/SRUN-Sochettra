@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=f80ef159" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=506ebe1a" />
-  <img src="./assets/banner-dark.svg?v=f80ef159" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=8b27f9c0" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=facaa4e4" />
+  <img src="./assets/banner-dark.svg?v=8b27f9c0" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → Khmer-Banking · TypeScript · 1d ago</sub>
+<sub>last commit → Khmer-Banking · TypeScript · 2d ago</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=055b6b62" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=9663ebce" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
