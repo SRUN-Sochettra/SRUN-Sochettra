@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=e63a0aa1" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=6ca49214" />
-  <img src="./assets/banner-dark.svg?v=e63a0aa1" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=ac232edc" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=f4456640" />
+  <img src="./assets/banner-dark.svg?v=ac232edc" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -58,12 +58,12 @@
 
 <details>
 <summary>&nbsp;<b>LIFE</b>&nbsp; <!--START:LIFE_PREVIEW-->
-<sub>between shows</sub>
+<sub>now watching →<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx161964-JpkEbHI8ivaP.jpg" alt="The Eminence in Shadow Season 2" height="18" align="middle" /><a href="https://anilist.co/anime/161964">The Eminence in Shadow Season 2</a></sub>
 <!--END:LIFE_PREVIEW--></summary>
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=85d6fbc0" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=7712c7a6" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
