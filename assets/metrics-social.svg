@@ -76,7 +76,7 @@
                                     </svg>
                                     <div class="name">
                                         <span>yamadashy/repomix</span>
-                                        <span>starred 13 days ago</span>
+                                        <span>starred 14 days ago</span>
                                     </div>
                                 </div>
                                 <div class="field description">📦 Repomix is a powerful tool that packs your entire repository into a single, AI-friendly file. Perfect for when you need to feed your codebase to Large Language Models (LLMs) or other AI tools like Claude, ChatGPT, DeepSeek, Perplexity, Gemini, Gemma, Llama, Grok, and more.</div>
@@ -103,7 +103,7 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
                                             <path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"/>
                                         </svg>
-                                        1.42k
+                                        1.43k
                                     </div>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
@@ -129,10 +129,11 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
                         <path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"/>
                     </svg>
-                    11 followers
+                    12 followers
                 </h2>
                 <div class="row">
                     <section class="people">
+                        <img class="avatar" src="data:image/jpg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgACADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgcE/8QAKxAAAQMEAQMCBQUAAAAAAAAAAQIDEQAEBSEGEhNxQVEUIjFhoSORksHx/8QAGAEAAgMAAAAAAAAAAAAAAAAAAgUAAQP/xAAdEQACAwACAwAAAAAAAAAAAAABAgADERIhMVFx/9oADAMBAAIRAxEAPwCd2jjm4cP8qUv4N88bW7aEuZB2RJ32/H70Wxcd4QklftP2qkcPcvzbY8LtHF29ynr7gHyDyZ/qlDPhj9AOPcJIx1zb4K3dvRFymUOBQG49fyKykq1HQfAFIuc3d24yT8EttpDrbYUfovrIGjPsfb0oLh7iCWnJWWzrftRZo2UrgELNfHlFeTYT1CCoaqj8Pvn7SxucUlBPa/UaUpyABJET9iPzUEb5FcMZtgWoQ22h0D6STurKrkuP47kkP5Urbt7odvupTPQTvYG48TUtqbfsCq5CpPqY+QZF3L5bGYlCT2rMi4eUFSFETAn1/wAoVh1AX76iowCdDzT+2zWDzWavU4J1TyGkpKnikoCyZ0J3qKjiry4xHK7xjqkd9aFBWxs6o60JBEztsVOLeQZ//9k=" width="32" height="32" alt="" />
                         <img class="avatar" src="data:image/jpg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgACADASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAwYHAQj/xAApEAABAwQBAgUFAQAAAAAAAAABAgMEAAURIQYSMQcTIzJBImGBkZLB/8QAGQEAAgMBAAAAAAAAAAAAAAAAAwQBAgYH/8QAJREAAQMDAgYDAAAAAAAAAAAAAQIDBAAFEgYRExQhMUFhUXGB/9oADAMBAAIRAxEAPwDnwHVFlQJ4SwY8da0OjIWBqhfFXZm3QpXB+OXJZWWI1uWPT6Dl3scnvpVdX1tcJEKKjgKKcjsSPr5paAyl1ZBqBvolQHkMzmikr9po1NHMLZDixIbiFlTxWsjIA0e/YfGqVzoUxo6TKkwOLIVl1O2/fYe/PWqTW0tuYprUhR9oqzcAtsiT4SXN7qMhtmYR5eOvyhhB/AOTUfTkpp04vfBF4lyS0uKPRMbZcaBPZaHR/hP6rG3nUDt7QI2ISkkezR2U8ucx3rPFCwS7K5aFz/SflMrWIp0WkA6JHxnevtSMoEe4U5eIV5F5ukBSD9Ea3xo6d5wQ2CR/RNKzuEjfc0W0ametaBGWkKQn8NQ60HTn5Nf/2Q==" width="32" height="32" alt="" />
                         <img class="avatar" src="data:image/jpg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgACADASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAABAYCAwgH/8QAKhAAAgEDAgQEBwAAAAAAAAAAAQIDAAQRBSEGBxIxE0FRYRQWIjOBofH/xAAXAQADAQAAAAAAAAAAAAAAAAABAgME/8QAGxEAAgMBAQEAAAAAAAAAAAAAAQIAAxESIRP/2gAMAwEAAhEDEQA/AMxU4cu+HV4ju5bdFtzICPvkhcfik/NOHK3UUsuKreK4ab4SYOkiQ9yShCEeezYNJZvPkaoAsAYVzN4J+WDHMiGIM3htEW6wDv2PptXPnFaD556jYS8AaQiK0l3IyjqbcggHOT+qz45oVElfY9yhWwSYye1F6JcXFtqsUtv0iVTsGoSBulgfImipsH6wuSKvzomf6FTHTXOJIdc0K205YOiBZfEaRjmRpMYz7Dc4HvSXeWBVS8BLKNyD3FWq5hIi3BXY59f7VizFZVwdjVkrXnJJrG62f//Z" width="32" height="32" alt="" />
                         <img class="avatar" src="data:image/jpg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgACADASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAACAcEBf/EACsQAAEEAQMDAwIHAAAAAAAAAAECAwQFEQAGIQcSMRNBYXGxMkJRUoGR8P/EABYBAQEBAAAAAAAAAAAAAAAAAAIDBf/EAB8RAAEEAgIDAAAAAAAAAAAAAAEAAgMEESETMRJBsf/aAAwDAQACEQMRAD8AvPdGq6aROlKIjxmVvuEeyUDJ+2iHvDfe8Oots+unbmCracwxFjnCU/Kz+Y/7jTMtadqRVyYi0Fxh5pTbjf7kkYI0Z6yC5s6BVRWqaTJfca9N+QyvAyDgcaz3S8I0Nq0MPK7fS09Jn+pFHd1Td28JFHJdDL0dxwOONd3hefIx9caRjzWeQTqK7Yky7S1sIEioejpZTlt4vfiU2Qcdn8at6K5ZQSSfpqbJTMMlOeEROwOl2RyNHXqduBdBu6VV17XqOJcS6xzwgqR3HOfODk4/QjVS3fvdmlYMeEj15p445DfydGXqbZIn3rclMpmQt8YfY7wVBfsrHkecf1qtmMOZk+loUqE4YZjofVROk9tY3u8IybARVerl1xSct+M8dh8nj7n20i886DLjlrXwI1hUNJiJrpCZQdawklQyM/PBOlXtDf0e2qoL89CWFyGEO5B4yRzoVGtLThC1TmkHm3eF/9k=" width="32" height="32" alt="" />
