@@ -41,7 +41,7 @@
   <text x="64" y="68" class="mono" fill="#78716c" font-size="11" letter-spacing="0.3em" opacity="0.85">
     PHNOM PENH  ·  CAMBODIA
   </text>
-  <text x="1216" y="68" text-anchor="end" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed 2026-07-11 12:59 UTC</text>
+  <text x="1216" y="68" text-anchor="end" class="mono" fill="#a8a29e" font-size="10" letter-spacing="0.1em" opacity="0.8">refreshed 2026-07-11 18:48 UTC</text>
 
   <!-- ===== LEFT: persona ===== -->
   <text x="64" y="188" class="khmer" fill="#1d4ed8" font-size="72">សួស្តី</text>
@@ -74,11 +74,11 @@
 
   <text x="810" y="290" class="mono" fill="#44403c" font-size="10" font-weight="700" letter-spacing="0.25em">LAST SHIPPED</text>
   
-    <text x="810" y="316" class="sans" fill="#1c1917" font-size="15" font-weight="600">HyperspaceOS</text>
-    <text x="810" y="336" class="mono" fill="#78716c" font-size="10" letter-spacing="0.05em">JavaScript  ·  1h ago</text>
+    <text x="810" y="316" class="sans" fill="#1c1917" font-size="15" font-weight="600">SRUN-Sochettra.github.io</text>
+    <text x="810" y="336" class="mono" fill="#78716c" font-size="10" letter-spacing="0.05em">HTML  ·  3h ago</text>
   
 
   <!-- Bottom rule + tiny BUILD signature -->
   <line x1="64" y1="358" x2="1216" y2="358" stroke="#e2e8f0" stroke-width="1" opacity="0.6"/>
-  <text x="64" y="374" class="mono" fill="#a8a29e" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD · bdbcbc9 · 11 JUL 2026</text>
+  <text x="64" y="374" class="mono" fill="#a8a29e" font-size="9" letter-spacing="0.2em" opacity="0.75">BUILD · aa81e34 · 11 JUL 2026</text>
 </svg>
