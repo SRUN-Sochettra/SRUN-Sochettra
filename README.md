@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=f695b9de" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=51ff0d86" />
-  <img src="./assets/banner-dark.svg?v=f695b9de" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=e1f9a9ee" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=70f3578d" />
+  <img src="./assets/banner-dark.svg?v=e1f9a9ee" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → SRUN-Sochettra.github.io · HTML · today</sub>
+<sub>last commit → Khmer-Banking · TypeScript · today</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -29,21 +29,21 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" alt="Top languages" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-activity.svg?v=e5d04fda" alt="Activity" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-activity.svg?v=bf050229" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=78473ffd" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=0b31110c" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
 
 <details>
 <summary>&nbsp;<b>STATS</b>&nbsp; <!--START:STATS_PREVIEW-->
-<sub>819 commits · past year</sub>
+<sub>827 commits · past year</sub>
 <!--END:STATS_PREVIEW--></summary>
 <br />
 
 <!--START:STATS-->
-<div align="center"><img src="./assets/metrics-iso.svg?v=59a543a8" alt="Contribution isocalendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-iso.svg?v=f55623f3" alt="Contribution isocalendar" width="100%" /></div>
 
 <div align="center"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
@@ -51,7 +51,7 @@
   <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" alt="Achievement trophies" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-followup.svg?v=aad7cf66" alt="Follow-ups and calendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-followup.svg?v=a0e6bd89" alt="Follow-ups and calendar" width="100%" /></div>
 <!--END:STATS-->
 
 </details>
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=6253f66f" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=cc0aa7a5" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
