@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=e1f9a9ee" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=70f3578d" />
-  <img src="./assets/banner-dark.svg?v=e1f9a9ee" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=25bc44bd" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=5e5bfaeb" />
+  <img src="./assets/banner-dark.svg?v=25bc44bd" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → Khmer-Banking · TypeScript · today</sub>
+<sub>last commit → HyperspaceOS · JavaScript · today</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -29,9 +29,9 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" alt="Top languages" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-activity.svg?v=bf050229" alt="Activity" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-activity.svg?v=e79c8ae2" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=0b31110c" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=d0553337" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
@@ -51,7 +51,7 @@
   <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" alt="Achievement trophies" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-followup.svg?v=a0e6bd89" alt="Follow-ups and calendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-followup.svg?v=b0184f9a" alt="Follow-ups and calendar" width="100%" /></div>
 <!--END:STATS-->
 
 </details>
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=cc0aa7a5" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=81e1c33c" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
