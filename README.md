@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=8c9ad56f" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=c7eb0a17" />
-  <img src="./assets/banner-dark.svg?v=8c9ad56f" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=0158c7b9" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=dd709754" />
+  <img src="./assets/banner-dark.svg?v=0158c7b9" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -58,12 +58,12 @@
 
 <details>
 <summary>&nbsp;<b>LIFE</b>&nbsp; <!--START:LIFE_PREVIEW-->
-<sub>now watching →<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx112443-UVB1oKdblsIx.jpg" alt="Bottom-Tier Character Tomozaki" height="18" align="middle" /><a href="https://anilist.co/anime/112443">Bottom-Tier Character Tomozaki</a></sub>
+<sub>now watching →<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx4224-PXVMBLNwy2aF.jpg" alt="Toradora!" height="18" align="middle" /><a href="https://anilist.co/anime/4224">Toradora!</a></sub>
 <!--END:LIFE_PREVIEW--></summary>
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=9807ff27" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=f3bc2380" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
