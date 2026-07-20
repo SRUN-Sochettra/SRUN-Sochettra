@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=282b589b" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=4a43730d" />
-  <img src="./assets/banner-dark.svg?v=282b589b" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=8c9ad56f" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=c7eb0a17" />
+  <img src="./assets/banner-dark.svg?v=8c9ad56f" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → HyperspaceOS · JavaScript · 1d ago</sub>
+<sub>last commit → HyperspaceOS · JavaScript · 2d ago</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -31,7 +31,7 @@
 
 <div align="center"><img src="./assets/metrics-activity.svg?v=a85af1fd" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=29fbc960" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=8816f9e7" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=f99bb51e" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=9807ff27" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
