@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=c5b0b801" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=65520759" />
-  <img src="./assets/banner-dark.svg?v=c5b0b801" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=27edb168" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=97030c0c" />
+  <img src="./assets/banner-dark.svg?v=27edb168" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -29,9 +29,9 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" alt="Top languages" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-activity.svg?v=1d385940" alt="Activity" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-activity.svg?v=0d465465" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=16a49dcd" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=17bf451b" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=9a244bc8" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=0c2b86bc" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
