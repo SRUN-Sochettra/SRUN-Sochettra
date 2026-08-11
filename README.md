@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=d8fe4fe7" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=9ca5726d" />
-  <img src="./assets/banner-dark.svg?v=d8fe4fe7" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=61d11c2b" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=14c068dc" />
+  <img src="./assets/banner-dark.svg?v=61d11c2b" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → Research-AI · TypeScript · 12d ago</sub>
+<sub>last commit → Research-AI · TypeScript · 13d ago</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=44a83aa6" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=af2cea0e" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
