@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=681bea0d" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=3bc80f2e" />
-  <img src="./assets/banner-dark.svg?v=681bea0d" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=a291d60a" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=6cd9b425" />
+  <img src="./assets/banner-dark.svg?v=a291d60a" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -29,7 +29,7 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" alt="Top languages" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-activity.svg?v=1fda7c4b" alt="Activity" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-activity.svg?v=975aa72d" alt="Activity" width="100%" /></div>
 
 <div align="center"><img src="./assets/metrics-social.svg?v=0ee45dae" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
@@ -43,7 +43,7 @@
 <br />
 
 <!--START:STATS-->
-<div align="center"><img src="./assets/metrics-iso.svg?v=5489e412" alt="Contribution isocalendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-iso.svg?v=655a6a80" alt="Contribution isocalendar" width="100%" /></div>
 
 <div align="center"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
@@ -51,7 +51,7 @@
   <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" alt="Achievement trophies" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-followup.svg?v=6b2e392f" alt="Follow-ups and calendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-followup.svg?v=619a2427" alt="Follow-ups and calendar" width="100%" /></div>
 <!--END:STATS-->
 
 </details>
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=b42aa036" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=a50d7360" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
