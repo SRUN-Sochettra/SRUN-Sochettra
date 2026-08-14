@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=c36d94d9" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=21304c30" />
-  <img src="./assets/banner-dark.svg?v=c36d94d9" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=5e781954" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=3ab115c7" />
+  <img src="./assets/banner-dark.svg?v=5e781954" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → SRUN-Sochettra.github.io · HTML · today</sub>
+<sub>last commit → EggScan · Java · today</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -29,7 +29,7 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" alt="Top languages" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-activity.svg?v=975aa72d" alt="Activity" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-activity.svg?v=7b12d4a2" alt="Activity" width="100%" /></div>
 
 <div align="center"><img src="./assets/metrics-social.svg?v=0ee45dae" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
@@ -38,7 +38,7 @@
 
 <details>
 <summary>&nbsp;<b>STATS</b>&nbsp; <!--START:STATS_PREVIEW-->
-<sub>869 commits · past year</sub>
+<sub>873 commits · past year</sub>
 <!--END:STATS_PREVIEW--></summary>
 <br />
 
@@ -51,7 +51,7 @@
   <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" alt="Achievement trophies" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-followup.svg?v=619a2427" alt="Follow-ups and calendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-followup.svg?v=bb2978f6" alt="Follow-ups and calendar" width="100%" /></div>
 <!--END:STATS-->
 
 </details>
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=99f32dcc" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=82157c39" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
