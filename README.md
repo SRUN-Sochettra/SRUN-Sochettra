@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=30fb76cf" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=1629e84e" />
-  <img src="./assets/banner-dark.svg?v=30fb76cf" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=b3dbf246" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=29d28106" />
+  <img src="./assets/banner-dark.svg?v=b3dbf246" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → EggScan · Java · today</sub>
+<sub>last commit → EggScan · Java · 1d ago</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -31,7 +31,7 @@
 
 <div align="center"><img src="./assets/metrics-activity.svg?v=7766bc64" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=c2979da7" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=5bd2225b" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
@@ -58,12 +58,12 @@
 
 <details>
 <summary>&nbsp;<b>LIFE</b>&nbsp; <!--START:LIFE_PREVIEW-->
-<sub>now watching →<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx4224-PXVMBLNwy2aF.jpg" alt="Toradora!" height="18" align="middle" /><a href="https://anilist.co/anime/4224">Toradora!</a></sub>
+<sub>between shows</sub>
 <!--END:LIFE_PREVIEW--></summary>
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=ebb6208a" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=133b93a2" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
