@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=b3dbf246" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=29d28106" />
-  <img src="./assets/banner-dark.svg?v=b3dbf246" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=8dcdc0c4" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=42af0d19" />
+  <img src="./assets/banner-dark.svg?v=8dcdc0c4" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -58,12 +58,12 @@
 
 <details>
 <summary>&nbsp;<b>LIFE</b>&nbsp; <!--START:LIFE_PREVIEW-->
-<sub>between shows</sub>
+<sub>now watching →<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx4224-PXVMBLNwy2aF.jpg" alt="Toradora!" height="18" align="middle" /><a href="https://anilist.co/anime/4224">Toradora!</a></sub>
 <!--END:LIFE_PREVIEW--></summary>
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=133b93a2" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=f4515453" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
