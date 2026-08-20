@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=495555c9" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=137d5ea5" />
-  <img src="./assets/banner-dark.svg?v=495555c9" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=54db0b4f" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=bbfccac5" />
+  <img src="./assets/banner-dark.svg?v=54db0b4f" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -31,7 +31,7 @@
 
 <div align="center"><img src="./assets/metrics-activity.svg?v=7977cee9" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=5ea14f84" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=2b5748bd" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=857e898b" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=66c3c6d2" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
