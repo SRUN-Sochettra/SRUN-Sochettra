@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=ba2a23f3" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=476b9a5c" />
-  <img src="./assets/banner-dark.svg?v=ba2a23f3" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=e319962e" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=618573f7" />
+  <img src="./assets/banner-dark.svg?v=e319962e" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -29,9 +29,9 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" alt="Top languages" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-activity.svg?v=f9d30eb1" alt="Activity" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-activity.svg?v=a658c524" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=85d23455" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=1ed8add3" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
@@ -43,7 +43,7 @@
 <br />
 
 <!--START:STATS-->
-<div align="center"><img src="./assets/metrics-iso.svg?v=1376d69b" alt="Contribution isocalendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-iso.svg?v=92129e25" alt="Contribution isocalendar" width="100%" /></div>
 
 <div align="center"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
@@ -51,7 +51,7 @@
   <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" alt="Achievement trophies" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-followup.svg?v=f9942902" alt="Follow-ups and calendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-followup.svg?v=5cdca541" alt="Follow-ups and calendar" width="100%" /></div>
 <!--END:STATS-->
 
 </details>
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=e185df55" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=b10a7b96" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
