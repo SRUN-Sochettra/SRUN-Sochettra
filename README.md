@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=23c30d25" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=2473aff8" />
-  <img src="./assets/banner-dark.svg?v=23c30d25" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=17127e38" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=240f3428" />
+  <img src="./assets/banner-dark.svg?v=17127e38" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → SRUN-Sochettra.github.io · HTML · 16d ago</sub>
+<sub>last commit → SRUN-Sochettra.github.io · HTML · 17d ago</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -31,7 +31,7 @@
 
 <div align="center"><img src="./assets/metrics-activity.svg?v=89f35031" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=e121eb81" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=03614c41" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
