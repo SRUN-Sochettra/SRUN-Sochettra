@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=bfdb3cf0" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=6155a637" />
-  <img src="./assets/banner-dark.svg?v=bfdb3cf0" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=441b9870" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=3816e80b" />
+  <img src="./assets/banner-dark.svg?v=441b9870" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -31,7 +31,7 @@
 
 <div align="center"><img src="./assets/metrics-activity.svg?v=fc747986" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=1af73a0b" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=36ba4c8d" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
