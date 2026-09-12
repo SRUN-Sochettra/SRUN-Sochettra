@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=b2cdfbc1" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=7f805c4b" />
-  <img src="./assets/banner-dark.svg?v=b2cdfbc1" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=ad1398ed" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=e76d2d4f" />
+  <img src="./assets/banner-dark.svg?v=ad1398ed" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -31,7 +31,7 @@
 
 <div align="center"><img src="./assets/metrics-activity.svg?v=fc747986" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=14bfcd27" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=ddcf824b" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
@@ -43,7 +43,7 @@
 <br />
 
 <!--START:STATS-->
-<div align="center"><img src="./assets/metrics-iso.svg?v=08a05c7a" alt="Contribution isocalendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-iso.svg?v=71762423" alt="Contribution isocalendar" width="100%" /></div>
 
 <div align="center"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
@@ -51,14 +51,14 @@
   <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" alt="Achievement trophies" />
 </picture></div>
 
-<div align="center"><img src="./assets/metrics-followup.svg?v=797dd7ae" alt="Follow-ups and calendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-followup.svg?v=452e7083" alt="Follow-ups and calendar" width="100%" /></div>
 <!--END:STATS-->
 
 </details>
 
 <details>
 <summary>&nbsp;<b>LIFE</b>&nbsp; <!--START:LIFE_PREVIEW-->
-<sub>between shows</sub>
+<sub>now watching →<img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/small/bx4224-PXVMBLNwy2aF.jpg" alt="Toradora!" height="18" align="middle" /><a href="https://anilist.co/anime/4224">Toradora!</a></sub>
 <!--END:LIFE_PREVIEW--></summary>
 <br />
 
