@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=f5d0a40a" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=d58640c1" />
-  <img src="./assets/banner-dark.svg?v=f5d0a40a" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=61df043c" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=1caf7c14" />
+  <img src="./assets/banner-dark.svg?v=61df043c" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → Research-AI · TypeScript · 9d ago</sub>
+<sub>last commit → Research-AI · TypeScript · 10d ago</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 
@@ -31,7 +31,7 @@
 
 <div align="center"><img src="./assets/metrics-activity.svg?v=1dae24e9" alt="Activity" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-social.svg?v=5a06cc75" alt="Stars and people" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-social.svg?v=421ac812" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
@@ -63,7 +63,7 @@
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=6e72078a" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=fce79491" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>
