@@ -49,7 +49,7 @@ Flutter application for discovering and tracking game giveaways.
 
 <details>
 <summary>&nbsp;<b>STATS</b>&nbsp; <!--START:STATS_PREVIEW-->
-<sub>936 commits · past year</sub>
+<sub>940 commits · past year</sub>
 <!--END:STATS_PREVIEW--></summary>
 <br />
 

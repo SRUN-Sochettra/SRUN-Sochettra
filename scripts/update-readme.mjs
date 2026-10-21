@@ -101,15 +101,13 @@ async function getCommitsLastYear() {
         user(login: $login) {
           contributionsCollection {
             totalCommitContributions
-            restrictedContributionsCount
           }
         }
       }
     `;
     const g = await octo.graphql(q, { login: USER });
     const c = g?.user?.contributionsCollection;
-    _commitsLastYearCache =
-      (c?.totalCommitContributions || 0) + (c?.restrictedContributionsCount || 0);
+    _commitsLastYearCache = c?.totalCommitContributions || 0;
     return _commitsLastYearCache;
   } catch (err) {
     console.warn("commits query failed:", err.message);
