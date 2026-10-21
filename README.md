@@ -9,7 +9,6 @@
 <!--END:BANNER-->
 
 <!--START:BIO-->
-<br/><sub><i>Junior software developer building full-stack, backend, AI, mobile, and embedded projects. Java, Spring Boot, PostgreSQL, React, and Next.js.</i></sub>
 <!--END:BIO-->
 
 </div>

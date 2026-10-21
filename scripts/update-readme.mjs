@@ -109,20 +109,6 @@ async function getAllRepos() {
   }
 }
 
-let _profileCache = null;
-async function getProfile() {
-  if (_profileCache) return _profileCache;
-  try {
-    const { data } = await octo.users.getByUsername({ username: USER });
-    _profileCache = data;
-    return data;
-  } catch (err) {
-    console.warn("profile fetch failed:", err.message);
-    _profileCache = {};
-    return _profileCache;
-  }
-}
-
 let _commitsLastYearCache = null;
 async function getCommitsLastYear() {
   if (_commitsLastYearCache !== null) return _commitsLastYearCache;
@@ -201,12 +187,6 @@ function renderBanner() {
     "./assets/banner-light.svg",
     "Srun Sochettra"
   );
-}
-
-async function renderBio() {
-  const p = await getProfile();
-  if (!p.bio || !p.bio.trim()) return "";
-  return `${LT}br/${GT}${LT}sub${GT}${LT}i${GT}${escText(p.bio.trim())}${LT}/i${GT}${LT}/sub${GT}`;
 }
 
 function renderMetricsCard(path, alt) {
@@ -333,10 +313,8 @@ function renderStats() {
 const tpl = await fs.readFile(TEMPLATE, "utf8");
 
 const [
-  bioHtml,
   workPreview, statsPreview, lifePreview,
 ] = await Promise.all([
-  renderBio(),
   renderWorkPreview(),
   renderStatsPreview(),
   renderLifePreview(),
@@ -348,7 +326,6 @@ const lifeHtml   = renderLife();
 
 let out = tpl;
 out = replaceBlock(out, "BANNER",         bannerHtml);
-out = replaceBlock(out, "BIO",            bioHtml);
 out = replaceBlock(out, "WORK",           workHtml);
 out = replaceBlock(out, "STATS",          statsHtml);
 out = replaceBlock(out, "LIFE",           lifeHtml);
