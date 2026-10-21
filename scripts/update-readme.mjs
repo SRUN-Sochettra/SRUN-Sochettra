@@ -237,28 +237,40 @@ function renderExternalCard(darkUrl, lightUrl, alt) {
 // ------------------------------------------------------------------
 // Preview lines
 // ------------------------------------------------------------------
+// Curated project repositories eligible for WORK_PREVIEW (case-insensitive).
+const WORK_PREVIEW_REPOS = new Set(
+  [
+    "Research-AI",
+    "EggScan",
+    "HyperspaceOS",
+    "Khmer-Banking",
+    "Spring-Boot---API-Blog",
+    "RPI---RFID-Access-Control-System",
+    "game_giveaways",
+  ].map((name) => name.toLowerCase())
+);
+
 async function renderWorkPreview() {
   const repos = await getAllRepos();
-  // Skip forks, archived/disabled repos, the profile README repo itself
-  // (owner/owner shadow repo), and explicitly obsolete coursework repos.
-  const excludedNames = new Set([
-    USER.toLowerCase(),
-    "university---mostly-depreciated-",
-  ]);
-  const latest = repos.find(
-    (r) =>
-      !r.fork &&
-      !r.archived &&
-      !r.disabled &&
-      !excludedNames.has(r.name.toLowerCase())
-  );
+  // Only curated projects are eligible; always reject forks, archived/disabled
+  // repos, and the profile README repo itself (owner/owner shadow repo).
+  const latest = repos
+    .filter(
+      (r) =>
+        !r.fork &&
+        !r.archived &&
+        !r.disabled &&
+        r.name.toLowerCase() !== USER.toLowerCase() &&
+        WORK_PREVIEW_REPOS.has(r.name.toLowerCase())
+    )
+    .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))[0];
   if (!latest) return "";
   const parts = [
     escText(latest.name),
     latest.language ? escText(latest.language) : null,
     escText(fmtRelative(latest.pushed_at)),
   ].filter(Boolean);
-  return `${LT}sub${GT}last commit → ${parts.join(" · ")}${LT}/sub${GT}`;
+  return `${LT}sub${GT}latest project → ${parts.join(" · ")}${LT}/sub${GT}`;
 }
 
 async function renderStatsPreview() {
