@@ -18,7 +18,7 @@
 
 <details>
 <summary>&nbsp;<b>WORK</b>&nbsp; <!--START:WORK_PREVIEW-->
-<sub>last commit → University---mostly-depreciated- · HTML · 1d ago</sub>
+<sub>last commit → Flutter---Semester-2 · HTML · 1d ago</sub>
 <!--END:WORK_PREVIEW--></summary>
 <br />
 

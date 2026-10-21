@@ -239,9 +239,18 @@ function renderExternalCard(darkUrl, lightUrl, alt) {
 // ------------------------------------------------------------------
 async function renderWorkPreview() {
   const repos = await getAllRepos();
-  // Skip forks and the profile README repo itself (owner/owner shadow repo).
+  // Skip forks, archived/disabled repos, the profile README repo itself
+  // (owner/owner shadow repo), and explicitly obsolete coursework repos.
+  const excludedNames = new Set([
+    USER.toLowerCase(),
+    "university---mostly-depreciated-",
+  ]);
   const latest = repos.find(
-    (r) => !r.fork && r.name.toLowerCase() !== USER.toLowerCase()
+    (r) =>
+      !r.fork &&
+      !r.archived &&
+      !r.disabled &&
+      !excludedNames.has(r.name.toLowerCase())
   );
   if (!latest) return "";
   const parts = [
