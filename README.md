@@ -56,12 +56,6 @@ Flutter application for discovering and tracking game giveaways.
 <!--START:STATS-->
 <div align="center"><img src="./assets/metrics-iso.svg?v=bc358436" alt="Contribution isocalendar" width="100%" /></div>
 
-<div align="center"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=flat&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" />
-  <img src="https://github-profile-trophy.vercel.app/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;no-frame=true&amp;column=6&amp;margin-w=15&amp;margin-h=15" alt="Achievement trophies" />
-</picture></div>
-
 <div align="center"><img src="./assets/metrics-followup.svg?v=52cca200" alt="Follow-ups and calendar" width="100%" /></div>
 <!--END:STATS-->
 

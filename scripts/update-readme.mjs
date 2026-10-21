@@ -12,23 +12,6 @@ const ANILIST_USER = "scarletsages";
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
 
 // ------------------------------------------------------------------
-// External card URLs — proven, ready-made services
-// ------------------------------------------------------------------
-
-// github-profile-trophy
-function trophyUrl(theme) {
-  const q = [
-    `username=${USER}`,
-    `theme=${theme}`,
-    `no-frame=true`,
-    `column=6`,
-    `margin-w=15`,
-    `margin-h=15`,
-  ].join("&");
-  return `https://github-profile-trophy.vercel.app/?${q}`;
-}
-
-// ------------------------------------------------------------------
 // Tag builders
 // ------------------------------------------------------------------
 const LT = String.fromCharCode(60);
@@ -193,11 +176,6 @@ function renderMetricsCard(path, alt) {
   return `${LT}div align="center"${GT}${IMG(path, alt, `width="100%"`)}${LT}/div${GT}`;
 }
 
-function renderExternalCard(darkUrl, lightUrl, alt) {
-  const picture = PICTURE(darkUrl, lightUrl, alt, "");
-  return `${LT}div align="center"${GT}${picture}${LT}/div${GT}`;
-}
-
 // ------------------------------------------------------------------
 // Preview lines
 // ------------------------------------------------------------------
@@ -293,18 +271,13 @@ function renderLife() {
 }
 
 // ------------------------------------------------------------------
-// STATS dropdown — iso + trophy + followup
+// STATS dropdown — iso + followup
 // ------------------------------------------------------------------
 function renderStats() {
   const iso = renderMetricsCard("./assets/metrics-iso.svg", "Contribution isocalendar");
-
-  const trophyDark  = trophyUrl("tokyonight");
-  const trophyLight = trophyUrl("flat");
-  const trophy = renderExternalCard(trophyDark, trophyLight, "Achievement trophies");
-
   const followup = renderMetricsCard("./assets/metrics-followup.svg", "Follow-ups and calendar");
 
-  return `${iso}\n\n${trophy}\n\n${followup}`;
+  return `${iso}\n\n${followup}`;
 }
 
 // ------------------------------------------------------------------
