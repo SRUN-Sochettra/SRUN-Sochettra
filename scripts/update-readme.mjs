@@ -15,22 +15,6 @@ const octo = new Octokit({ auth: process.env.GH_TOKEN });
 // External card URLs — proven, ready-made services
 // ------------------------------------------------------------------
 
-// github-readme-stats: top langs
-const GRS_THEME_DARK = "tokyonight";
-const GRS_THEME_LIGHT = "default";
-
-function topLangsUrl(theme) {
-  const q = [
-    `username=${USER}`,
-    `theme=${theme}`,
-    `hide_border=true`,
-    `layout=compact`,
-    `langs_count=8`,
-    `border_radius=8`,
-  ].join("&");
-  return `https://github-readme-stats.vercel.app/api/top-langs/?${q}`;
-}
-
 // github-profile-trophy
 function trophyUrl(theme) {
   const q = [
@@ -291,17 +275,33 @@ async function renderLifePreview() {
 }
 
 // ------------------------------------------------------------------
-// WORK dropdown — top langs + activity + social
+// WORK dropdown — selected systems + activity + social
 // ------------------------------------------------------------------
 function renderWork() {
-  const langsDark  = topLangsUrl(GRS_THEME_DARK);
-  const langsLight = topLangsUrl(GRS_THEME_LIGHT);
-  const topLangs = renderExternalCard(langsDark, langsLight, "Top languages");
+  const selectedSystems = [
+    "### Selected systems",
+    "",
+    "**[SynapseDoc](https://github.com/SRUN-Sochettra/Research-AI)**  ",
+    "Citation-backed PDF research workflow using Next.js, TypeScript, Supabase, retrieval and AI-provider integration.  ",
+    "`Next.js` `TypeScript` `Supabase` `RAG`",
+    "",
+    "**[EggScan](https://github.com/SRUN-Sochettra/EggScan)**  ",
+    "GitHub profile analysis system using Spring Boot, React, GitHub GraphQL and Groq.  ",
+    "`Spring Boot` `React` `GitHub GraphQL` `Groq`",
+    "",
+    "**[Spring Boot Blog API](https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog)**  ",
+    "REST API using Spring Boot, Spring Security, JWT, PostgreSQL, MyBatis and file uploads.  ",
+    "`Spring Boot` `Spring Security` `JWT` `PostgreSQL` `MyBatis`",
+    "",
+    "**[LootDrop](https://github.com/SRUN-Sochettra/game_giveaways)**  ",
+    "Flutter application for discovering and tracking game giveaways.  ",
+    "`Flutter` `Dart`",
+  ].join("\n");
 
   const activityMetric = renderMetricsCard("./assets/metrics-activity.svg", "Activity");
   const social         = renderMetricsCard("./assets/metrics-social.svg", "Stars and people");
 
-  return `${topLangs}\n\n${activityMetric}\n\n${social}`;
+  return `${selectedSystems}\n\n${activityMetric}\n\n${social}`;
 }
 
 // ------------------------------------------------------------------

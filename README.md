@@ -23,11 +23,23 @@
 <br />
 
 <!--START:WORK-->
-<div align="center"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=default&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SRUN-Sochettra&amp;theme=tokyonight&amp;hide_border=true&amp;layout=compact&amp;langs_count=8&amp;border_radius=8" alt="Top languages" />
-</picture></div>
+### Selected systems
+
+**[SynapseDoc](https://github.com/SRUN-Sochettra/Research-AI)**  
+Citation-backed PDF research workflow using Next.js, TypeScript, Supabase, retrieval and AI-provider integration.  
+`Next.js` `TypeScript` `Supabase` `RAG`
+
+**[EggScan](https://github.com/SRUN-Sochettra/EggScan)**  
+GitHub profile analysis system using Spring Boot, React, GitHub GraphQL and Groq.  
+`Spring Boot` `React` `GitHub GraphQL` `Groq`
+
+**[Spring Boot Blog API](https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog)**  
+REST API using Spring Boot, Spring Security, JWT, PostgreSQL, MyBatis and file uploads.  
+`Spring Boot` `Spring Security` `JWT` `PostgreSQL` `MyBatis`
+
+**[LootDrop](https://github.com/SRUN-Sochettra/game_giveaways)**  
+Flutter application for discovering and tracking game giveaways.  
+`Flutter` `Dart`
 
 <div align="center"><img src="./assets/metrics-activity.svg?v=982beb3b" alt="Activity" width="100%" /></div>
 
