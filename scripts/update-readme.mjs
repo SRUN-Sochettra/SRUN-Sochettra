@@ -12,6 +12,39 @@ const ANILIST_USER = "scarletsages";
 const octo = new Octokit({ auth: process.env.GH_TOKEN });
 
 // ------------------------------------------------------------------
+// External card URLs — proven, ready-made services
+// ------------------------------------------------------------------
+
+// github-readme-stats: top langs
+const GRS_THEME_DARK = "tokyonight";
+const GRS_THEME_LIGHT = "default";
+
+function topLangsUrl(theme) {
+  const q = [
+    `username=${USER}`,
+    `theme=${theme}`,
+    `hide_border=true`,
+    `layout=compact`,
+    `langs_count=8`,
+    `border_radius=8`,
+  ].join("&");
+  return `https://github-readme-stats.vercel.app/api/top-langs/?${q}`;
+}
+
+// github-profile-trophy
+function trophyUrl(theme) {
+  const q = [
+    `username=${USER}`,
+    `theme=${theme}`,
+    `no-frame=true`,
+    `column=6`,
+    `margin-w=15`,
+    `margin-h=15`,
+  ].join("&");
+  return `https://github-profile-trophy.vercel.app/?${q}`;
+}
+
+// ------------------------------------------------------------------
 // Tag builders
 // ------------------------------------------------------------------
 const LT = String.fromCharCode(60);
@@ -78,10 +111,10 @@ let _reposCache = null;
 async function getAllRepos() {
   if (_reposCache) return _reposCache;
   try {
-    const data = await octo.paginate(octo.repos.listForUser, {
+    const { data } = await octo.repos.listForUser({
       username: USER,
       sort: "pushed",
-      per_page: 100,
+      per_page: 20,
     });
     _reposCache = data;
     return data;
@@ -89,6 +122,20 @@ async function getAllRepos() {
     console.warn("repos fetch failed:", err.message);
     _reposCache = [];
     return _reposCache;
+  }
+}
+
+let _profileCache = null;
+async function getProfile() {
+  if (_profileCache) return _profileCache;
+  try {
+    const { data } = await octo.users.getByUsername({ username: USER });
+    _profileCache = data;
+    return data;
+  } catch (err) {
+    console.warn("profile fetch failed:", err.message);
+    _profileCache = {};
+    return _profileCache;
   }
 }
 
@@ -101,13 +148,15 @@ async function getCommitsLastYear() {
         user(login: $login) {
           contributionsCollection {
             totalCommitContributions
+            restrictedContributionsCount
           }
         }
       }
     `;
     const g = await octo.graphql(q, { login: USER });
     const c = g?.user?.contributionsCollection;
-    _commitsLastYearCache = c?.totalCommitContributions || 0;
+    _commitsLastYearCache =
+      (c?.totalCommitContributions || 0) + (c?.restrictedContributionsCount || 0);
     return _commitsLastYearCache;
   } catch (err) {
     console.warn("commits query failed:", err.message);
@@ -170,47 +219,37 @@ function renderBanner() {
   );
 }
 
+async function renderBio() {
+  const p = await getProfile();
+  if (!p.bio || !p.bio.trim()) return "";
+  return `${LT}br/${GT}${LT}sub${GT}${LT}i${GT}${escText(p.bio.trim())}${LT}/i${GT}${LT}/sub${GT}`;
+}
+
 function renderMetricsCard(path, alt) {
   return `${LT}div align="center"${GT}${IMG(path, alt, `width="100%"`)}${LT}/div${GT}`;
+}
+
+function renderExternalCard(darkUrl, lightUrl, alt) {
+  const picture = PICTURE(darkUrl, lightUrl, alt, "");
+  return `${LT}div align="center"${GT}${picture}${LT}/div${GT}`;
 }
 
 // ------------------------------------------------------------------
 // Preview lines
 // ------------------------------------------------------------------
-// Curated project repositories eligible for WORK_PREVIEW (case-insensitive).
-const WORK_PREVIEW_REPOS = new Set(
-  [
-    "Research-AI",
-    "EggScan",
-    "HyperspaceOS",
-    "Khmer-Banking",
-    "Spring-Boot---API-Blog",
-    "RPI---RFID-Access-Control-System",
-    "game_giveaways",
-  ].map((name) => name.toLowerCase())
-);
-
 async function renderWorkPreview() {
   const repos = await getAllRepos();
-  // Only curated projects are eligible; always reject forks, archived/disabled
-  // repos, and the profile README repo itself (owner/owner shadow repo).
-  const latest = repos
-    .filter(
-      (r) =>
-        !r.fork &&
-        !r.archived &&
-        !r.disabled &&
-        r.name.toLowerCase() !== USER.toLowerCase() &&
-        WORK_PREVIEW_REPOS.has(r.name.toLowerCase())
-    )
-    .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))[0];
+  // Skip forks and the profile README repo itself (owner/owner shadow repo).
+  const latest = repos.find(
+    (r) => !r.fork && r.name.toLowerCase() !== USER.toLowerCase()
+  );
   if (!latest) return "";
   const parts = [
     escText(latest.name),
     latest.language ? escText(latest.language) : null,
     escText(fmtRelative(latest.pushed_at)),
   ].filter(Boolean);
-  return `${LT}sub${GT}latest project → ${parts.join(" · ")}${LT}/sub${GT}`;
+  return `${LT}sub${GT}last commit → ${parts.join(" · ")}${LT}/sub${GT}`;
 }
 
 async function renderStatsPreview() {
@@ -231,30 +270,17 @@ async function renderLifePreview() {
 }
 
 // ------------------------------------------------------------------
-// WORK dropdown — selected systems
+// WORK dropdown — top langs + activity + social
 // ------------------------------------------------------------------
 function renderWork() {
-  const selectedSystems = [
-    "### Selected systems",
-    "",
-    "**[SynapseDoc](https://github.com/SRUN-Sochettra/Research-AI)**  ",
-    "Citation-backed PDF research workflow using Next.js, TypeScript, Supabase, retrieval and AI-provider integration.  ",
-    "`Next.js` `TypeScript` `Supabase` `RAG`",
-    "",
-    "**[EggScan](https://github.com/SRUN-Sochettra/EggScan)**  ",
-    "GitHub profile analysis system using Spring Boot, React, GitHub GraphQL and Groq.  ",
-    "`Spring Boot` `React` `GitHub GraphQL` `Groq`",
-    "",
-    "**[Spring Boot Blog API](https://github.com/SRUN-Sochettra/Spring-Boot---API-Blog)**  ",
-    "REST API using Spring Boot, Spring Security, JWT, PostgreSQL, MyBatis and file uploads.  ",
-    "`Spring Boot` `Spring Security` `JWT` `PostgreSQL` `MyBatis`",
-    "",
-    "**[LootDrop](https://github.com/SRUN-Sochettra/game_giveaways)**  ",
-    "Flutter application for discovering and tracking game giveaways.  ",
-    "`Flutter` `Dart`",
-  ].join("\n");
+  const langsDark  = topLangsUrl(GRS_THEME_DARK);
+  const langsLight = topLangsUrl(GRS_THEME_LIGHT);
+  const topLangs = renderExternalCard(langsDark, langsLight, "Top languages");
 
-  return selectedSystems;
+  const activityMetric = renderMetricsCard("./assets/metrics-activity.svg", "Activity");
+  const social         = renderMetricsCard("./assets/metrics-social.svg", "Stars and people");
+
+  return `${topLangs}\n\n${activityMetric}\n\n${social}`;
 }
 
 // ------------------------------------------------------------------
@@ -266,13 +292,18 @@ function renderLife() {
 }
 
 // ------------------------------------------------------------------
-// STATS dropdown — iso + followup
+// STATS dropdown — iso + trophy + followup
 // ------------------------------------------------------------------
 function renderStats() {
   const iso = renderMetricsCard("./assets/metrics-iso.svg", "Contribution isocalendar");
+
+  const trophyDark  = trophyUrl("tokyonight");
+  const trophyLight = trophyUrl("flat");
+  const trophy = renderExternalCard(trophyDark, trophyLight, "Achievement trophies");
+
   const followup = renderMetricsCard("./assets/metrics-followup.svg", "Follow-ups and calendar");
 
-  return `${iso}\n\n${followup}`;
+  return `${iso}\n\n${trophy}\n\n${followup}`;
 }
 
 // ------------------------------------------------------------------
@@ -281,8 +312,10 @@ function renderStats() {
 const tpl = await fs.readFile(TEMPLATE, "utf8");
 
 const [
+  bioHtml,
   workPreview, statsPreview, lifePreview,
 ] = await Promise.all([
+  renderBio(),
   renderWorkPreview(),
   renderStatsPreview(),
   renderLifePreview(),
@@ -294,6 +327,7 @@ const lifeHtml   = renderLife();
 
 let out = tpl;
 out = replaceBlock(out, "BANNER",         bannerHtml);
+out = replaceBlock(out, "BIO",            bioHtml);
 out = replaceBlock(out, "WORK",           workHtml);
 out = replaceBlock(out, "STATS",          statsHtml);
 out = replaceBlock(out, "LIFE",           lifeHtml);
@@ -304,7 +338,9 @@ out = replaceBlock(out, "LIFE_PREVIEW",   lifePreview);
 const HASHED_SVGS = [
   "assets/banner-dark.svg",
   "assets/banner-light.svg",
+  "assets/metrics-activity.svg",
   "assets/metrics-anilist.svg",
+  "assets/metrics-social.svg",
   "assets/metrics-iso.svg",
   "assets/metrics-followup.svg",
 ];
