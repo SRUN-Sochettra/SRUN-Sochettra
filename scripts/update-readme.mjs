@@ -111,10 +111,10 @@ let _reposCache = null;
 async function getAllRepos() {
   if (_reposCache) return _reposCache;
   try {
-    const { data } = await octo.repos.listForUser({
+    const data = await octo.paginate(octo.repos.listForUser, {
       username: USER,
       sort: "pushed",
-      per_page: 20,
+      per_page: 100,
     });
     _reposCache = data;
     return data;
