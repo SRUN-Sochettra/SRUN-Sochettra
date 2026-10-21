@@ -2,9 +2,9 @@
 
 <!--START:BANNER-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=010af330" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=1698af74" />
-  <img src="./assets/banner-dark.svg?v=010af330" alt="Srun Sochettra" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg?v=4b4240cc" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg?v=ac39bb42" />
+  <img src="./assets/banner-dark.svg?v=4b4240cc" alt="Srun Sochettra" width="100%" />
 </picture>
 <!--END:BANNER-->
 
@@ -39,22 +39,20 @@ REST API using Spring Boot, Spring Security, JWT, PostgreSQL, MyBatis and file u
 **[LootDrop](https://github.com/SRUN-Sochettra/game_giveaways)**  
 Flutter application for discovering and tracking game giveaways.  
 `Flutter` `Dart`
-
-<div align="center"><img src="./assets/metrics-activity.svg?v=982beb3b" alt="Activity" width="100%" /></div>
 <!--END:WORK-->
 
 </details>
 
 <details>
 <summary>&nbsp;<b>STATS</b>&nbsp; <!--START:STATS_PREVIEW-->
-<sub>940 commits · past year</sub>
+<sub>942 commits · past year</sub>
 <!--END:STATS_PREVIEW--></summary>
 <br />
 
 <!--START:STATS-->
-<div align="center"><img src="./assets/metrics-iso.svg?v=bc358436" alt="Contribution isocalendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-iso.svg?v=2516fdfb" alt="Contribution isocalendar" width="100%" /></div>
 
-<div align="center"><img src="./assets/metrics-followup.svg?v=52cca200" alt="Follow-ups and calendar" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-followup.svg?v=65e1e81d" alt="Follow-ups and calendar" width="100%" /></div>
 <!--END:STATS-->
 
 </details>
@@ -66,7 +64,7 @@ Flutter application for discovering and tracking game giveaways.
 <br />
 
 <!--START:LIFE-->
-<div align="center"><img src="./assets/metrics-anilist.svg?v=e3c37c85" alt="AniList" width="100%" /></div>
+<div align="center"><img src="./assets/metrics-anilist.svg?v=3468d057" alt="AniList" width="100%" /></div>
 <!--END:LIFE-->
 
 </details>

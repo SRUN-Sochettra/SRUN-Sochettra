@@ -231,7 +231,7 @@ async function renderLifePreview() {
 }
 
 // ------------------------------------------------------------------
-// WORK dropdown — selected systems + activity + social
+// WORK dropdown — selected systems
 // ------------------------------------------------------------------
 function renderWork() {
   const selectedSystems = [
@@ -254,9 +254,7 @@ function renderWork() {
     "`Flutter` `Dart`",
   ].join("\n");
 
-  const activityMetric = renderMetricsCard("./assets/metrics-activity.svg", "Activity");
-
-  return `${selectedSystems}\n\n${activityMetric}`;
+  return selectedSystems;
 }
 
 // ------------------------------------------------------------------
@@ -306,7 +304,6 @@ out = replaceBlock(out, "LIFE_PREVIEW",   lifePreview);
 const HASHED_SVGS = [
   "assets/banner-dark.svg",
   "assets/banner-light.svg",
-  "assets/metrics-activity.svg",
   "assets/metrics-anilist.svg",
   "assets/metrics-iso.svg",
   "assets/metrics-followup.svg",
