@@ -41,8 +41,6 @@ Flutter application for discovering and tracking game giveaways.
 `Flutter` `Dart`
 
 <div align="center"><img src="./assets/metrics-activity.svg?v=982beb3b" alt="Activity" width="100%" /></div>
-
-<div align="center"><img src="./assets/metrics-social.svg?v=e0b3f12d" alt="Stars and people" width="100%" /></div>
 <!--END:WORK-->
 
 </details>

@@ -255,9 +255,8 @@ function renderWork() {
   ].join("\n");
 
   const activityMetric = renderMetricsCard("./assets/metrics-activity.svg", "Activity");
-  const social         = renderMetricsCard("./assets/metrics-social.svg", "Stars and people");
 
-  return `${selectedSystems}\n\n${activityMetric}\n\n${social}`;
+  return `${selectedSystems}\n\n${activityMetric}`;
 }
 
 // ------------------------------------------------------------------
@@ -309,7 +308,6 @@ const HASHED_SVGS = [
   "assets/banner-light.svg",
   "assets/metrics-activity.svg",
   "assets/metrics-anilist.svg",
-  "assets/metrics-social.svg",
   "assets/metrics-iso.svg",
   "assets/metrics-followup.svg",
 ];

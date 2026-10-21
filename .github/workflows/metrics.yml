@@ -79,25 +79,6 @@ jobs:
           plugin_anilist_shuffle: yes
           plugin_anilist_limit_characters: 22
 
-      - name: Social metrics
-        uses: lowlighter/metrics@v3.34
-        with:
-          filename: assets/metrics-social.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          user: SRUN-Sochettra
-          template: classic
-          base: ""
-          config_display: large
-          config_padding: -20%, 12%
-          config_timezone: Asia/Phnom_Penh
-          plugin_stars: yes
-          plugin_stars_limit: 6
-          plugin_people: yes
-          plugin_people_types: followers, following
-          plugin_people_limit: 28
-          plugin_people_size: 32
-
       - name: Isocalendar metrics
         uses: lowlighter/metrics@v3.34
         with:
